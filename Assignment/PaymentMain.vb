@@ -64,6 +64,5 @@ Public Class PaymentMain
     End Sub
 
     Private Sub PaymentMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'hihiihi
     End Sub
 End Class
