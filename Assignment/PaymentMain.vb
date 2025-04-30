@@ -62,4 +62,8 @@ Public Class PaymentMain
     Private Sub btnSuccessPay_Click(sender As Object, e As EventArgs) Handles btnSuccessPay.Click
         Me.Close()
     End Sub
+
+    Private Sub PaymentMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'hihiihi
+    End Sub
 End Class
