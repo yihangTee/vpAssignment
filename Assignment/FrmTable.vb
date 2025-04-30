@@ -7,8 +7,6 @@ Public Class FrmTable
     Dim selectedButton As Button
     Dim EditMode As Boolean = False
 
-    'test commit'
-
     Private Sub FrmOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         btnAddTable.Visible = False
         btnSave.Visible = False
