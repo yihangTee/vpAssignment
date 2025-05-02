@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmOrder
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,18 +20,28 @@ Partial Class FrmOrder
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.grpCart = New System.Windows.Forms.GroupBox()
+        Me.flpCart = New System.Windows.Forms.FlowLayoutPanel()
+        Me.lblTotalAmount = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblTableNo = New System.Windows.Forms.Label()
         Me.lblOrderItem = New System.Windows.Forms.Label()
         Me.label1 = New System.Windows.Forms.Label()
-        Me.lblTableNo = New System.Windows.Forms.Label()
+        Me.flpMenu = New System.Windows.Forms.FlowLayoutPanel()
+        Me.cmbCategory = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.btnSendOrder = New System.Windows.Forms.Button()
         Me.grpCart.SuspendLayout()
         Me.SuspendLayout()
         '
         'grpCart
         '
         Me.grpCart.BackColor = System.Drawing.SystemColors.Control
+        Me.grpCart.Controls.Add(Me.flpCart)
+        Me.grpCart.Controls.Add(Me.lblTotalAmount)
+        Me.grpCart.Controls.Add(Me.Label2)
         Me.grpCart.Controls.Add(Me.lblTableNo)
         Me.grpCart.Controls.Add(Me.lblOrderItem)
         Me.grpCart.Controls.Add(Me.label1)
@@ -44,6 +54,40 @@ Partial Class FrmOrder
         Me.grpCart.TabIndex = 1
         Me.grpCart.TabStop = False
         Me.grpCart.Text = "Cart"
+        '
+        'flpCart
+        '
+        Me.flpCart.AutoScroll = True
+        Me.flpCart.Location = New System.Drawing.Point(22, 97)
+        Me.flpCart.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.flpCart.Name = "flpCart"
+        Me.flpCart.Size = New System.Drawing.Size(418, 342)
+        Me.flpCart.TabIndex = 7
+        '
+        'lblTotalAmount
+        '
+        Me.lblTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblTotalAmount.Location = New System.Drawing.Point(173, 450)
+        Me.lblTotalAmount.Name = "lblTotalAmount"
+        Me.lblTotalAmount.Size = New System.Drawing.Size(162, 30)
+        Me.lblTotalAmount.TabIndex = 6
+        '
+        'Label2
+        '
+        Me.Label2.Location = New System.Drawing.Point(22, 450)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(156, 30)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "Total Amount : "
+        '
+        'lblTableNo
+        '
+        Me.lblTableNo.Font = New System.Drawing.Font("Yu Gothic UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTableNo.Location = New System.Drawing.Point(125, 32)
+        Me.lblTableNo.Name = "lblTableNo"
+        Me.lblTableNo.Size = New System.Drawing.Size(138, 30)
+        Me.lblTableNo.TabIndex = 3
+        Me.lblTableNo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblOrderItem
         '
@@ -66,20 +110,50 @@ Partial Class FrmOrder
         Me.label1.Text = "Table No :"
         Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'lblTableNo
+        'flpMenu
         '
-        Me.lblTableNo.Font = New System.Drawing.Font("Yu Gothic UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTableNo.Location = New System.Drawing.Point(125, 32)
-        Me.lblTableNo.Name = "lblTableNo"
-        Me.lblTableNo.Size = New System.Drawing.Size(138, 30)
-        Me.lblTableNo.TabIndex = 3
-        Me.lblTableNo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.flpMenu.Location = New System.Drawing.Point(492, 43)
+        Me.flpMenu.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.flpMenu.Name = "flpMenu"
+        Me.flpMenu.Size = New System.Drawing.Size(512, 407)
+        Me.flpMenu.TabIndex = 2
+        '
+        'cmbCategory
+        '
+        Me.cmbCategory.FormattingEnabled = True
+        Me.cmbCategory.Location = New System.Drawing.Point(581, 5)
+        Me.cmbCategory.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cmbCategory.Name = "cmbCategory"
+        Me.cmbCategory.Size = New System.Drawing.Size(108, 24)
+        Me.cmbCategory.TabIndex = 3
+        '
+        'Label3
+        '
+        Me.Label3.Location = New System.Drawing.Point(492, 7)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(84, 20)
+        Me.Label3.TabIndex = 7
+        Me.Label3.Text = "Category : "
+        '
+        'btnSendOrder
+        '
+        Me.btnSendOrder.Location = New System.Drawing.Point(495, 461)
+        Me.btnSendOrder.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnSendOrder.Name = "btnSendOrder"
+        Me.btnSendOrder.Size = New System.Drawing.Size(106, 30)
+        Me.btnSendOrder.TabIndex = 8
+        Me.btnSendOrder.Text = "Send Order"
+        Me.btnSendOrder.UseVisualStyleBackColor = True
         '
         'FrmOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1022, 559)
+        Me.Controls.Add(Me.btnSendOrder)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.cmbCategory)
+        Me.Controls.Add(Me.flpMenu)
         Me.Controls.Add(Me.grpCart)
         Me.Name = "FrmOrder"
         Me.Text = "Order Page"
@@ -93,4 +167,11 @@ Partial Class FrmOrder
     Friend WithEvents lblOrderItem As Label
     Friend WithEvents label1 As Label
     Friend WithEvents lblTableNo As Label
+    Friend WithEvents lblTotalAmount As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents flpMenu As FlowLayoutPanel
+    Friend WithEvents cmbCategory As ComboBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents btnSendOrder As Button
+    Friend WithEvents flpCart As FlowLayoutPanel
 End Class
