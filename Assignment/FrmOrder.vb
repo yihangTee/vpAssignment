@@ -220,4 +220,8 @@ Public Class FrmOrder
     Private Sub grpCart_Enter(sender As Object, e As EventArgs) Handles grpCart.Enter
 
     End Sub
+
+    Private Sub flpCart_Paint(sender As Object, e As PaintEventArgs) Handles flpCart.Paint
+
+    End Sub
 End Class

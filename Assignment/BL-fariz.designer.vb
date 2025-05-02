@@ -22,7 +22,7 @@ Imports System.Linq.Expressions
 Imports System.Reflection
 
 
-<Global.System.Data.Linq.Mapping.DatabaseAttribute(Name:="BL-fariz")>  _
+<Global.System.Data.Linq.Mapping.DatabaseAttribute(Name:="BL-Fariz-")>  _
 Partial Public Class BL_farizDataContext
 	Inherits System.Data.Linq.DataContext
 	
@@ -37,6 +37,12 @@ Partial Public Class BL_farizDataContext
     End Sub
   Partial Private Sub DeleteItem(instance As Item)
     End Sub
+  Partial Private Sub InsertTableNo(instance As TableNo)
+    End Sub
+  Partial Private Sub UpdateTableNo(instance As TableNo)
+    End Sub
+  Partial Private Sub DeleteTableNo(instance As TableNo)
+    End Sub
   Partial Private Sub InsertOrder(instance As [Order])
     End Sub
   Partial Private Sub UpdateOrder(instance As [Order])
@@ -49,16 +55,10 @@ Partial Public Class BL_farizDataContext
     End Sub
   Partial Private Sub DeleteOrder_Item(instance As Order_Item)
     End Sub
-  Partial Private Sub InsertTableNo(instance As TableNo)
-    End Sub
-  Partial Private Sub UpdateTableNo(instance As TableNo)
-    End Sub
-  Partial Private Sub DeleteTableNo(instance As TableNo)
-    End Sub
   #End Region
 	
 	Public Sub New()
-		MyBase.New(Global.Assignment.My.MySettings.Default.BL_FarizConnectionString, mappingSource)
+		MyBase.New(Global.Assignment.My.MySettings.Default.BL_Fariz_ConnectionString, mappingSource)
 		OnCreated
 	End Sub
 	
@@ -88,6 +88,12 @@ Partial Public Class BL_farizDataContext
 		End Get
 	End Property
 	
+	Public ReadOnly Property TableNos() As System.Data.Linq.Table(Of TableNo)
+		Get
+			Return Me.GetTable(Of TableNo)
+		End Get
+	End Property
+	
 	Public ReadOnly Property Orders() As System.Data.Linq.Table(Of [Order])
 		Get
 			Return Me.GetTable(Of [Order])
@@ -97,12 +103,6 @@ Partial Public Class BL_farizDataContext
 	Public ReadOnly Property Order_Items() As System.Data.Linq.Table(Of Order_Item)
 		Get
 			Return Me.GetTable(Of Order_Item)
-		End Get
-	End Property
-	
-	Public ReadOnly Property TableNos() As System.Data.Linq.Table(Of TableNo)
-		Get
-			Return Me.GetTable(Of TableNo)
 		End Get
 	End Property
 End Class
@@ -324,313 +324,6 @@ Partial Public Class Item
 	End Sub
 End Class
 
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.[Order]")>  _
-Partial Public Class [Order]
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _OrderID As Integer
-	
-	Private _StaffID As Integer
-	
-	Private _TableNo As Integer
-	
-	Private _OrderDateTime As Date
-	
-	Private _TotalAmount As Decimal
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OnOrderIDChanging(value As Integer)
-    End Sub
-    Partial Private Sub OnOrderIDChanged()
-    End Sub
-    Partial Private Sub OnStaffIDChanging(value As Integer)
-    End Sub
-    Partial Private Sub OnStaffIDChanged()
-    End Sub
-    Partial Private Sub OnTableNoChanging(value As Integer)
-    End Sub
-    Partial Private Sub OnTableNoChanged()
-    End Sub
-    Partial Private Sub OnOrderDateTimeChanging(value As Date)
-    End Sub
-    Partial Private Sub OnOrderDateTimeChanged()
-    End Sub
-    Partial Private Sub OnTotalAmountChanging(value As Decimal)
-    End Sub
-    Partial Private Sub OnTotalAmountChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_OrderID", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
-	Public Property OrderID() As Integer
-		Get
-			Return Me._OrderID
-		End Get
-		Set
-			If ((Me._OrderID = value)  _
-						= false) Then
-				Me.OnOrderIDChanging(value)
-				Me.SendPropertyChanging
-				Me._OrderID = value
-				Me.SendPropertyChanged("OrderID")
-				Me.OnOrderIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_StaffID", DbType:="Int NOT NULL")>  _
-	Public Property StaffID() As Integer
-		Get
-			Return Me._StaffID
-		End Get
-		Set
-			If ((Me._StaffID = value)  _
-						= false) Then
-				Me.OnStaffIDChanging(value)
-				Me.SendPropertyChanging
-				Me._StaffID = value
-				Me.SendPropertyChanged("StaffID")
-				Me.OnStaffIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TableNo", DbType:="Int NOT NULL")>  _
-	Public Property TableNo() As Integer
-		Get
-			Return Me._TableNo
-		End Get
-		Set
-			If ((Me._TableNo = value)  _
-						= false) Then
-				Me.OnTableNoChanging(value)
-				Me.SendPropertyChanging
-				Me._TableNo = value
-				Me.SendPropertyChanged("TableNo")
-				Me.OnTableNoChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_OrderDateTime", DbType:="DateTime NOT NULL")>  _
-	Public Property OrderDateTime() As Date
-		Get
-			Return Me._OrderDateTime
-		End Get
-		Set
-			If ((Me._OrderDateTime = value)  _
-						= false) Then
-				Me.OnOrderDateTimeChanging(value)
-				Me.SendPropertyChanging
-				Me._OrderDateTime = value
-				Me.SendPropertyChanged("OrderDateTime")
-				Me.OnOrderDateTimeChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TotalAmount", DbType:="Decimal(10,2) NOT NULL")>  _
-	Public Property TotalAmount() As Decimal
-		Get
-			Return Me._TotalAmount
-		End Get
-		Set
-			If ((Me._TotalAmount = value)  _
-						= false) Then
-				Me.OnTotalAmountChanging(value)
-				Me.SendPropertyChanging
-				Me._TotalAmount = value
-				Me.SendPropertyChanged("TotalAmount")
-				Me.OnTotalAmountChanged
-			End If
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-End Class
-
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Order_Item")>  _
-Partial Public Class Order_Item
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _OrderItemID As Integer
-	
-	Private _OrderID As Integer
-	
-	Private _Item_Id As String
-	
-	Private _Quantity As Integer
-	
-	Private _SubTotal As Decimal
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OnOrderItemIDChanging(value As Integer)
-    End Sub
-    Partial Private Sub OnOrderItemIDChanged()
-    End Sub
-    Partial Private Sub OnOrderIDChanging(value As Integer)
-    End Sub
-    Partial Private Sub OnOrderIDChanged()
-    End Sub
-    Partial Private Sub OnItem_IdChanging(value As String)
-    End Sub
-    Partial Private Sub OnItem_IdChanged()
-    End Sub
-    Partial Private Sub OnQuantityChanging(value As Integer)
-    End Sub
-    Partial Private Sub OnQuantityChanged()
-    End Sub
-    Partial Private Sub OnSubTotalChanging(value As Decimal)
-    End Sub
-    Partial Private Sub OnSubTotalChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_OrderItemID", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
-	Public Property OrderItemID() As Integer
-		Get
-			Return Me._OrderItemID
-		End Get
-		Set
-			If ((Me._OrderItemID = value)  _
-						= false) Then
-				Me.OnOrderItemIDChanging(value)
-				Me.SendPropertyChanging
-				Me._OrderItemID = value
-				Me.SendPropertyChanged("OrderItemID")
-				Me.OnOrderItemIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_OrderID", DbType:="Int NOT NULL")>  _
-	Public Property OrderID() As Integer
-		Get
-			Return Me._OrderID
-		End Get
-		Set
-			If ((Me._OrderID = value)  _
-						= false) Then
-				Me.OnOrderIDChanging(value)
-				Me.SendPropertyChanging
-				Me._OrderID = value
-				Me.SendPropertyChanged("OrderID")
-				Me.OnOrderIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Item_Id", DbType:="VarChar(7) NOT NULL", CanBeNull:=false)>  _
-	Public Property Item_Id() As String
-		Get
-			Return Me._Item_Id
-		End Get
-		Set
-			If (String.Equals(Me._Item_Id, value) = false) Then
-				Me.OnItem_IdChanging(value)
-				Me.SendPropertyChanging
-				Me._Item_Id = value
-				Me.SendPropertyChanged("Item_Id")
-				Me.OnItem_IdChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Quantity", DbType:="Int NOT NULL")>  _
-	Public Property Quantity() As Integer
-		Get
-			Return Me._Quantity
-		End Get
-		Set
-			If ((Me._Quantity = value)  _
-						= false) Then
-				Me.OnQuantityChanging(value)
-				Me.SendPropertyChanging
-				Me._Quantity = value
-				Me.SendPropertyChanged("Quantity")
-				Me.OnQuantityChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SubTotal", DbType:="Decimal(10,2) NOT NULL")>  _
-	Public Property SubTotal() As Decimal
-		Get
-			Return Me._SubTotal
-		End Get
-		Set
-			If ((Me._SubTotal = value)  _
-						= false) Then
-				Me.OnSubTotalChanging(value)
-				Me.SendPropertyChanging
-				Me._SubTotal = value
-				Me.SendPropertyChanged("SubTotal")
-				Me.OnSubTotalChanged
-			End If
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-End Class
-
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.TableNo")>  _
 Partial Public Class TableNo
 	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
@@ -735,6 +428,310 @@ Partial Public Class TableNo
 				Me._Color = value
 				Me.SendPropertyChanged("Color")
 				Me.OnColorChanged
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.[Order]")>  _
+Partial Public Class [Order]
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _OrderID As String
+	
+	Private _StaffID As Integer
+	
+	Private _TableNo As Integer
+	
+	Private _OrderDateTime As Date
+	
+	Private _TotalAmount As Decimal
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnOrderIDChanging(value As String)
+    End Sub
+    Partial Private Sub OnOrderIDChanged()
+    End Sub
+    Partial Private Sub OnStaffIDChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnStaffIDChanged()
+    End Sub
+    Partial Private Sub OnTableNoChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnTableNoChanged()
+    End Sub
+    Partial Private Sub OnOrderDateTimeChanging(value As Date)
+    End Sub
+    Partial Private Sub OnOrderDateTimeChanged()
+    End Sub
+    Partial Private Sub OnTotalAmountChanging(value As Decimal)
+    End Sub
+    Partial Private Sub OnTotalAmountChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_OrderID", DbType:="VarChar(10) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true)>  _
+	Public Property OrderID() As String
+		Get
+			Return Me._OrderID
+		End Get
+		Set
+			If (String.Equals(Me._OrderID, value) = false) Then
+				Me.OnOrderIDChanging(value)
+				Me.SendPropertyChanging
+				Me._OrderID = value
+				Me.SendPropertyChanged("OrderID")
+				Me.OnOrderIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_StaffID", DbType:="Int NOT NULL")>  _
+	Public Property StaffID() As Integer
+		Get
+			Return Me._StaffID
+		End Get
+		Set
+			If ((Me._StaffID = value)  _
+						= false) Then
+				Me.OnStaffIDChanging(value)
+				Me.SendPropertyChanging
+				Me._StaffID = value
+				Me.SendPropertyChanged("StaffID")
+				Me.OnStaffIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TableNo", DbType:="Int NOT NULL")>  _
+	Public Property TableNo() As Integer
+		Get
+			Return Me._TableNo
+		End Get
+		Set
+			If ((Me._TableNo = value)  _
+						= false) Then
+				Me.OnTableNoChanging(value)
+				Me.SendPropertyChanging
+				Me._TableNo = value
+				Me.SendPropertyChanged("TableNo")
+				Me.OnTableNoChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_OrderDateTime", DbType:="DateTime NOT NULL")>  _
+	Public Property OrderDateTime() As Date
+		Get
+			Return Me._OrderDateTime
+		End Get
+		Set
+			If ((Me._OrderDateTime = value)  _
+						= false) Then
+				Me.OnOrderDateTimeChanging(value)
+				Me.SendPropertyChanging
+				Me._OrderDateTime = value
+				Me.SendPropertyChanged("OrderDateTime")
+				Me.OnOrderDateTimeChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TotalAmount", DbType:="Decimal(10,2) NOT NULL")>  _
+	Public Property TotalAmount() As Decimal
+		Get
+			Return Me._TotalAmount
+		End Get
+		Set
+			If ((Me._TotalAmount = value)  _
+						= false) Then
+				Me.OnTotalAmountChanging(value)
+				Me.SendPropertyChanging
+				Me._TotalAmount = value
+				Me.SendPropertyChanged("TotalAmount")
+				Me.OnTotalAmountChanged
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Order_Item")>  _
+Partial Public Class Order_Item
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _OrderItemID As String
+	
+	Private _OrderID As String
+	
+	Private _Item_Id As String
+	
+	Private _Quantity As Integer
+	
+	Private _SubTotal As Decimal
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnOrderItemIDChanging(value As String)
+    End Sub
+    Partial Private Sub OnOrderItemIDChanged()
+    End Sub
+    Partial Private Sub OnOrderIDChanging(value As String)
+    End Sub
+    Partial Private Sub OnOrderIDChanged()
+    End Sub
+    Partial Private Sub OnItem_IdChanging(value As String)
+    End Sub
+    Partial Private Sub OnItem_IdChanged()
+    End Sub
+    Partial Private Sub OnQuantityChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnQuantityChanged()
+    End Sub
+    Partial Private Sub OnSubTotalChanging(value As Decimal)
+    End Sub
+    Partial Private Sub OnSubTotalChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_OrderItemID", DbType:="VarChar(12) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true)>  _
+	Public Property OrderItemID() As String
+		Get
+			Return Me._OrderItemID
+		End Get
+		Set
+			If (String.Equals(Me._OrderItemID, value) = false) Then
+				Me.OnOrderItemIDChanging(value)
+				Me.SendPropertyChanging
+				Me._OrderItemID = value
+				Me.SendPropertyChanged("OrderItemID")
+				Me.OnOrderItemIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_OrderID", DbType:="VarChar(10) NOT NULL", CanBeNull:=false)>  _
+	Public Property OrderID() As String
+		Get
+			Return Me._OrderID
+		End Get
+		Set
+			If (String.Equals(Me._OrderID, value) = false) Then
+				Me.OnOrderIDChanging(value)
+				Me.SendPropertyChanging
+				Me._OrderID = value
+				Me.SendPropertyChanged("OrderID")
+				Me.OnOrderIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Item_Id", DbType:="VarChar(7) NOT NULL", CanBeNull:=false)>  _
+	Public Property Item_Id() As String
+		Get
+			Return Me._Item_Id
+		End Get
+		Set
+			If (String.Equals(Me._Item_Id, value) = false) Then
+				Me.OnItem_IdChanging(value)
+				Me.SendPropertyChanging
+				Me._Item_Id = value
+				Me.SendPropertyChanged("Item_Id")
+				Me.OnItem_IdChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Quantity", DbType:="Int NOT NULL")>  _
+	Public Property Quantity() As Integer
+		Get
+			Return Me._Quantity
+		End Get
+		Set
+			If ((Me._Quantity = value)  _
+						= false) Then
+				Me.OnQuantityChanging(value)
+				Me.SendPropertyChanging
+				Me._Quantity = value
+				Me.SendPropertyChanged("Quantity")
+				Me.OnQuantityChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SubTotal", DbType:="Decimal(10,2) NOT NULL")>  _
+	Public Property SubTotal() As Decimal
+		Get
+			Return Me._SubTotal
+		End Get
+		Set
+			If ((Me._SubTotal = value)  _
+						= false) Then
+				Me.OnSubTotalChanging(value)
+				Me.SendPropertyChanging
+				Me._SubTotal = value
+				Me.SendPropertyChanged("SubTotal")
+				Me.OnSubTotalChanged
 			End If
 		End Set
 	End Property
