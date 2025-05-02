@@ -216,4 +216,8 @@ Public Class FrmOrder
 
         lblTotalAmount.Text = "RM " & total.ToString("F2")
     End Sub
+
+    Private Sub grpCart_Enter(sender As Object, e As EventArgs) Handles grpCart.Enter
+
+    End Sub
 End Class
