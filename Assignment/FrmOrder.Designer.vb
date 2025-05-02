@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmOrder
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,28 +20,28 @@ Partial Class FrmOrder
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.grpCart = New System.Windows.Forms.GroupBox()
+        Me.flpCart = New System.Windows.Forms.FlowLayoutPanel()
         Me.lblTotalAmount = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.dgvOrder = New System.Windows.Forms.DataGridView()
         Me.lblTableNo = New System.Windows.Forms.Label()
         Me.lblOrderItem = New System.Windows.Forms.Label()
         Me.label1 = New System.Windows.Forms.Label()
         Me.flpMenu = New System.Windows.Forms.FlowLayoutPanel()
         Me.cmbCategory = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.btnSendOrder = New System.Windows.Forms.Button()
         Me.grpCart.SuspendLayout()
-        CType(Me.dgvOrder, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grpCart
         '
         Me.grpCart.BackColor = System.Drawing.SystemColors.Control
+        Me.grpCart.Controls.Add(Me.flpCart)
         Me.grpCart.Controls.Add(Me.lblTotalAmount)
         Me.grpCart.Controls.Add(Me.Label2)
-        Me.grpCart.Controls.Add(Me.dgvOrder)
         Me.grpCart.Controls.Add(Me.lblTableNo)
         Me.grpCart.Controls.Add(Me.lblOrderItem)
         Me.grpCart.Controls.Add(Me.label1)
@@ -54,6 +54,14 @@ Partial Class FrmOrder
         Me.grpCart.TabIndex = 1
         Me.grpCart.TabStop = False
         Me.grpCart.Text = "Cart"
+        '
+        'flpCart
+        '
+        Me.flpCart.AutoScroll = True
+        Me.flpCart.Location = New System.Drawing.Point(25, 121)
+        Me.flpCart.Name = "flpCart"
+        Me.flpCart.Size = New System.Drawing.Size(470, 428)
+        Me.flpCart.TabIndex = 7
         '
         'lblTotalAmount
         '
@@ -70,16 +78,6 @@ Partial Class FrmOrder
         Me.Label2.Size = New System.Drawing.Size(176, 37)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Total Amount : "
-        '
-        'dgvOrder
-        '
-        Me.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvOrder.Location = New System.Drawing.Point(25, 126)
-        Me.dgvOrder.Name = "dgvOrder"
-        Me.dgvOrder.RowHeadersWidth = 62
-        Me.dgvOrder.RowTemplate.Height = 28
-        Me.dgvOrder.Size = New System.Drawing.Size(463, 400)
-        Me.dgvOrder.TabIndex = 4
         '
         'lblTableNo
         '
@@ -134,11 +132,21 @@ Partial Class FrmOrder
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "Category : "
         '
+        'btnSendOrder
+        '
+        Me.btnSendOrder.Location = New System.Drawing.Point(557, 576)
+        Me.btnSendOrder.Name = "btnSendOrder"
+        Me.btnSendOrder.Size = New System.Drawing.Size(119, 37)
+        Me.btnSendOrder.TabIndex = 8
+        Me.btnSendOrder.Text = "Send Order"
+        Me.btnSendOrder.UseVisualStyleBackColor = True
+        '
         'FrmOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1150, 699)
+        Me.Controls.Add(Me.btnSendOrder)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cmbCategory)
         Me.Controls.Add(Me.flpMenu)
@@ -148,7 +156,6 @@ Partial Class FrmOrder
         Me.Text = "Order Page"
         Me.grpCart.ResumeLayout(False)
         Me.grpCart.PerformLayout()
-        CType(Me.dgvOrder, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -159,8 +166,9 @@ Partial Class FrmOrder
     Friend WithEvents lblTableNo As Label
     Friend WithEvents lblTotalAmount As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents dgvOrder As DataGridView
     Friend WithEvents flpMenu As FlowLayoutPanel
     Friend WithEvents cmbCategory As ComboBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents btnSendOrder As Button
+    Friend WithEvents flpCart As FlowLayoutPanel
 End Class
