@@ -117,10 +117,59 @@ Public Class FrmOrder
         End If
     End Sub
 
+    'Private Function CreateCartPanel(item As Item) As Panel
+    '    Dim panel As New Panel With {
+    '    .Width = 250,
+    '    .Height = 80,
+    '    .Tag = item.Item_Id,
+    '    .BorderStyle = BorderStyle.FixedSingle,
+    '    .BackColor = Color.White
+    '}
+
+    '    Dim lblSummary As New Label With {
+    '    .Name = "lblSummary_" & item.Item_Id,
+    '    .Text = $"{item.Item_Name} x 1 RM {item.Item_Price:F2}",
+    '    .Font = New Font("Segoe UI", 10, FontStyle.Bold),
+    '    .Location = New Point(10, 10),
+    '    .AutoSize = True,
+    '    .Tag = "1"
+    '}
+
+    '    Dim buttonY As Integer = lblSummary.Bottom + 10
+
+    '    Dim btnIncrease As New Button With {
+    '    .Text = "+",
+    '    .Size = New Size(30, 30),
+    '    .Location = New Point(10, buttonY)
+    '}
+    '    AddHandler btnIncrease.Click, Sub(s, e) ModifyQuantity(item.Item_Id, 1)
+
+    '    Dim btnDecrease As New Button With {
+    '    .Text = "-",
+    '    .Size = New Size(30, 30),
+    '    .Location = New Point(btnIncrease.Right + 5, buttonY)
+    '}
+    '    AddHandler btnDecrease.Click, Sub(s, e) ModifyQuantity(item.Item_Id, -1)
+
+    '    Dim btnDelete As New Button With {
+    '    .Text = "Delete",
+    '    .Size = New Size(80, 30),
+    '    .Location = New Point(btnDecrease.Right + 5, buttonY)
+    '}
+    '    AddHandler btnDelete.Click, Sub(s, e) DeleteItem(item.Item_Id)
+
+    '    panel.Controls.Add(lblSummary)
+    '    panel.Controls.Add(btnIncrease)
+    '    panel.Controls.Add(btnDecrease)
+    '    panel.Controls.Add(btnDelete)
+
+    '    Return panel
+    'End Function
+
     Private Function CreateCartPanel(item As Item) As Panel
         Dim panel As New Panel With {
         .Width = 250,
-        .Height = 80,
+        .Height = 130,
         .Tag = item.Item_Id,
         .BorderStyle = BorderStyle.FixedSingle,
         .BackColor = Color.White
@@ -158,13 +207,23 @@ Public Class FrmOrder
     }
         AddHandler btnDelete.Click, Sub(s, e) DeleteItem(item.Item_Id)
 
+        Dim txtNote As New TextBox With {
+        .Name = "txtNote_" & item.Item_Id,
+        .Text = "",
+        .ForeColor = Color.Gray,
+        .Location = New Point(10, btnIncrease.Bottom + 10),
+        .Width = 220
+    }
+
         panel.Controls.Add(lblSummary)
         panel.Controls.Add(btnIncrease)
         panel.Controls.Add(btnDecrease)
         panel.Controls.Add(btnDelete)
+        panel.Controls.Add(txtNote)
 
         Return panel
     End Function
+
 
 
     Private Sub ModifyQuantity(itemId As String, change As Integer)
