@@ -230,20 +230,6 @@ Public Class FrmOrder
         Return "ORD00001"
     End Function
 
-    Private Function GenerateOrderItemID(ByVal db As BL_farizDataContext) As String
-        Dim lastItem = (From oi In db.Order_Items
-                        Order By oi.OrderItemID Descending
-                        Select oi.OrderItemID).FirstOrDefault()
-
-        If lastItem IsNot Nothing AndAlso lastItem.StartsWith("OI") Then
-            Dim num = Integer.Parse(lastItem.Substring(2)) + 1
-            Return "OI" & num.ToString("D5") '
-        End If
-
-        Return "OI00001"
-    End Function
-
-
     Private Sub btnSendOrder_Click(sender As Object, e As EventArgs) Handles btnSendOrder.Click
         If flpCart.Controls.Count = 0 Then
             MessageBox.Show("Cart is empty.")
@@ -308,6 +294,9 @@ Public Class FrmOrder
         Try
             db.SubmitChanges()
             MessageBox.Show("Order submitted successfully!")
+
+            flpCart.Controls.Clear()
+            lblTotalAmount.Text = "RM 0.00"
 
         Catch ex As Exception
             MessageBox.Show("Failed to save order: " & ex.Message)
