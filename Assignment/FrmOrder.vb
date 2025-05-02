@@ -36,7 +36,7 @@ Public Class FrmOrder
             Dim itemPanel As New Panel With {
             .Width = 120,
             .Height = 120,
-            .BorderStyle = BorderStyle.FixedSingle,
+            .BorderStyle = BorderStyle.Fixed3D,
             .Tag = item.Item_Id
         }
 
@@ -122,12 +122,12 @@ Public Class FrmOrder
         .Width = 250,
         .Height = 130,
         .Tag = item.Item_Id,
-        .BorderStyle = BorderStyle.FixedSingle,
+        .BorderStyle = BorderStyle.Fixed3D,
         .BackColor = Color.White
     }
 
         Dim lblSummary As New Label With {
-        .Name = "lblSummary_" & item.Item_Id,
+        .Name = "lblSummary" & item.Item_Id,
         .Text = $"{item.Item_Name} x 1 RM {item.Item_Price:F2}",
         .Font = New Font("Segoe UI", 10, FontStyle.Bold),
         .Location = New Point(10, 10),
@@ -216,4 +216,102 @@ Public Class FrmOrder
 
         lblTotalAmount.Text = "RM " & total.ToString("F2")
     End Sub
+
+    Private Function GenerateOrderID(ByVal db As BL_farizDataContext) As String
+        Dim lastOrder = (From o In db.Orders
+                         Order By o.OrderID Descending
+                         Select o.OrderID).FirstOrDefault()
+
+        If lastOrder IsNot Nothing AndAlso lastOrder.StartsWith("ORD") Then
+            Dim num = Integer.Parse(lastOrder.Substring(3)) + 1
+            Return "ORD" & num.ToString("D5")
+        End If
+
+        Return "ORD00001"
+    End Function
+
+    Private Function GenerateOrderItemID(ByVal db As BL_farizDataContext) As String
+        Dim lastItem = (From oi In db.Order_Items
+                        Order By oi.OrderItemID Descending
+                        Select oi.OrderItemID).FirstOrDefault()
+
+        If lastItem IsNot Nothing AndAlso lastItem.StartsWith("OI") Then
+            Dim num = Integer.Parse(lastItem.Substring(2)) + 1
+            Return "OI" & num.ToString("D5") '
+        End If
+
+        Return "OI00001"
+    End Function
+
+
+    Private Sub btnSendOrder_Click(sender As Object, e As EventArgs) Handles btnSendOrder.Click
+        If flpCart.Controls.Count = 0 Then
+            MessageBox.Show("Cart is empty.")
+            Return
+        End If
+
+        Dim db As New BL_farizDataContext()
+
+        Dim orderID As String = GenerateOrderID(db)
+        Dim staffID As String = "ST0001"
+        Dim tableNo As String = lblTableNo.Text
+        Dim totalAmount As Decimal = Decimal.Parse(lblTotalAmount.Text.Replace("RM", "").Trim())
+
+        Dim newOrder As New [Order] With {
+        .OrderID = orderID,
+        .StaffID = staffID,
+        .TableNo = tableNo,
+        .TotalAmount = totalAmount,
+        .OrderDateTime = DateTime.Now
+    }
+
+        db.Orders.InsertOnSubmit(newOrder)
+
+        Dim lastItemID = (From oi In db.Order_Items
+                          Order By oi.OrderItemID Descending
+                          Select oi.OrderItemID).FirstOrDefault()
+
+        Dim lastItemNum As Integer = 0
+        If lastItemID IsNot Nothing AndAlso lastItemID.StartsWith("OI") Then
+            Integer.TryParse(lastItemID.Substring(2), lastItemNum)
+        End If
+
+        For Each panel As Panel In flpCart.Controls
+            Dim itemId As String = panel.Tag.ToString()
+            Dim lblSummary = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(l) l.Name.StartsWith("lblSummary"))
+
+            If lblSummary IsNot Nothing Then
+                Dim parts = lblSummary.Text.Split({" x ", " RM "}, StringSplitOptions.RemoveEmptyEntries)
+
+                If parts.Length >= 3 Then
+                    Dim quantity As Integer
+                    Dim subtotal As Decimal
+
+                    If Integer.TryParse(parts(1).Trim(), quantity) AndAlso Decimal.TryParse(parts(2).Trim(), subtotal) Then
+                        lastItemNum += 1
+                        Dim orderItemID As String = "OI" & lastItemNum.ToString("D5")
+
+                        Dim newItem As New Order_Item With {
+                        .OrderItemID = orderItemID,
+                        .OrderID = orderID,
+                        .Item_Id = itemId,
+                        .Quantity = quantity,
+                        .SubTotal = subtotal
+                    }
+
+                        db.Order_Items.InsertOnSubmit(newItem)
+                    End If
+                End If
+            End If
+        Next
+
+        Try
+            db.SubmitChanges()
+            MessageBox.Show("Order submitted successfully!")
+
+        Catch ex As Exception
+            MessageBox.Show("Failed to save order: " & ex.Message)
+        End Try
+    End Sub
+
 End Class
