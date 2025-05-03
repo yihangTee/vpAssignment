@@ -9,4 +9,8 @@
         Me.Close()
 
     End Sub
+
+    Private Sub btnItemModule_Click(sender As Object, e As EventArgs) Handles btnItemModule.Click
+        frmItemStock.Show()
+    End Sub
 End Class
