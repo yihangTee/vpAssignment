@@ -52,7 +52,6 @@ Partial Class PaymentMain
         Me.btn100 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnChangeMode = New System.Windows.Forms.Button()
-        Me.btnCalculate = New System.Windows.Forms.Button()
         Me.btnSuccessPay = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -64,6 +63,7 @@ Partial Class PaymentMain
         Me.GrpBxPaymentMethod = New System.Windows.Forms.GroupBox()
         Me.grpCart = New System.Windows.Forms.GroupBox()
         Me.grpOrderItem = New System.Windows.Forms.GroupBox()
+        Me.panelSaparate = New System.Windows.Forms.Panel()
         Me.lbltotalPrice = New System.Windows.Forms.Label()
         Me.lbltotal = New System.Windows.Forms.Label()
         Me.lblSubtotalHeader = New System.Windows.Forms.Label()
@@ -73,7 +73,7 @@ Partial Class PaymentMain
         Me.lblNumberHeader = New System.Windows.Forms.Label()
         Me.lblTableNo = New System.Windows.Forms.Label()
         Me.label1 = New System.Windows.Forms.Label()
-        Me.panelSaparate = New System.Windows.Forms.Panel()
+        Me.btnCalculate = New System.Windows.Forms.Button()
         Me.panelPaymentCash.SuspendLayout()
         Me.PanelKeyboard.SuspendLayout()
         Me.panelCashInput.SuspendLayout()
@@ -401,17 +401,6 @@ Partial Class PaymentMain
         Me.btnChangeMode.Text = "Switch to Cash Input"
         Me.btnChangeMode.UseVisualStyleBackColor = True
         '
-        'btnCalculate
-        '
-        Me.btnCalculate.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCalculate.Location = New System.Drawing.Point(155, 289)
-        Me.btnCalculate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnCalculate.Name = "btnCalculate"
-        Me.btnCalculate.Size = New System.Drawing.Size(130, 60)
-        Me.btnCalculate.TabIndex = 18
-        Me.btnCalculate.Text = "Enter"
-        Me.btnCalculate.UseVisualStyleBackColor = True
-        '
         'btnSuccessPay
         '
         Me.btnSuccessPay.BackColor = System.Drawing.Color.LightGreen
@@ -552,6 +541,14 @@ Partial Class PaymentMain
         Me.grpOrderItem.TabStop = False
         Me.grpOrderItem.Text = "Order Item"
         '
+        'panelSaparate
+        '
+        Me.panelSaparate.BackColor = System.Drawing.Color.Gray
+        Me.panelSaparate.Location = New System.Drawing.Point(28, 334)
+        Me.panelSaparate.Name = "panelSaparate"
+        Me.panelSaparate.Size = New System.Drawing.Size(544, 2)
+        Me.panelSaparate.TabIndex = 7
+        '
         'lbltotalPrice
         '
         Me.lbltotalPrice.Location = New System.Drawing.Point(457, 353)
@@ -633,13 +630,16 @@ Partial Class PaymentMain
         Me.label1.Text = "Table No :"
         Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'panelSaparate
+        'btnCalculate
         '
-        Me.panelSaparate.BackColor = System.Drawing.Color.Gray
-        Me.panelSaparate.Location = New System.Drawing.Point(28, 334)
-        Me.panelSaparate.Name = "panelSaparate"
-        Me.panelSaparate.Size = New System.Drawing.Size(544, 2)
-        Me.panelSaparate.TabIndex = 7
+        Me.btnCalculate.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCalculate.Location = New System.Drawing.Point(155, 289)
+        Me.btnCalculate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnCalculate.Name = "btnCalculate"
+        Me.btnCalculate.Size = New System.Drawing.Size(130, 60)
+        Me.btnCalculate.TabIndex = 18
+        Me.btnCalculate.Text = "Enter"
+        Me.btnCalculate.UseVisualStyleBackColor = True
         '
         'PaymentMain
         '
@@ -678,7 +678,6 @@ Partial Class PaymentMain
     Friend WithEvents radQR As RadioButton
     Friend WithEvents btnBack As Button
     Friend WithEvents panelPaymentCash As Panel
-    Friend WithEvents btnCalculate As Button
     Friend WithEvents btnClear As Button
     Friend WithEvents key0 As Button
     Friend WithEvents keyBackspace As Button
@@ -724,4 +723,5 @@ Partial Class PaymentMain
     Friend WithEvents lbltotalPrice As Label
     Friend WithEvents lbltotal As Label
     Friend WithEvents panelSaparate As Panel
+    Friend WithEvents btnCalculate As Button
 End Class
