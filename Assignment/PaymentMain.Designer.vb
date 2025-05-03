@@ -52,6 +52,7 @@ Partial Class PaymentMain
         Me.btn100 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnChangeMode = New System.Windows.Forms.Button()
+        Me.btnCalculate = New System.Windows.Forms.Button()
         Me.btnSuccessPay = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -73,7 +74,10 @@ Partial Class PaymentMain
         Me.lblNumberHeader = New System.Windows.Forms.Label()
         Me.lblTableNo = New System.Windows.Forms.Label()
         Me.label1 = New System.Windows.Forms.Label()
-        Me.btnCalculate = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.lblTax = New System.Windows.Forms.Label()
+        Me.lblTotalPay = New System.Windows.Forms.Label()
         Me.panelPaymentCash.SuspendLayout()
         Me.PanelKeyboard.SuspendLayout()
         Me.panelCashInput.SuspendLayout()
@@ -401,6 +405,17 @@ Partial Class PaymentMain
         Me.btnChangeMode.Text = "Switch to Cash Input"
         Me.btnChangeMode.UseVisualStyleBackColor = True
         '
+        'btnCalculate
+        '
+        Me.btnCalculate.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCalculate.Location = New System.Drawing.Point(155, 289)
+        Me.btnCalculate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnCalculate.Name = "btnCalculate"
+        Me.btnCalculate.Size = New System.Drawing.Size(130, 60)
+        Me.btnCalculate.TabIndex = 18
+        Me.btnCalculate.Text = "Enter"
+        Me.btnCalculate.UseVisualStyleBackColor = True
+        '
         'btnSuccessPay
         '
         Me.btnSuccessPay.BackColor = System.Drawing.Color.LightGreen
@@ -525,6 +540,10 @@ Partial Class PaymentMain
         '
         'grpOrderItem
         '
+        Me.grpOrderItem.Controls.Add(Me.lblTotalPay)
+        Me.grpOrderItem.Controls.Add(Me.lblTax)
+        Me.grpOrderItem.Controls.Add(Me.Label4)
+        Me.grpOrderItem.Controls.Add(Me.Label3)
         Me.grpOrderItem.Controls.Add(Me.panelSaparate)
         Me.grpOrderItem.Controls.Add(Me.lbltotalPrice)
         Me.grpOrderItem.Controls.Add(Me.lbltotal)
@@ -553,17 +572,16 @@ Partial Class PaymentMain
         '
         Me.lbltotalPrice.Location = New System.Drawing.Point(457, 353)
         Me.lbltotalPrice.Name = "lbltotalPrice"
-        Me.lbltotalPrice.Size = New System.Drawing.Size(105, 39)
+        Me.lbltotalPrice.Size = New System.Drawing.Size(105, 30)
         Me.lbltotalPrice.TabIndex = 6
         '
         'lbltotal
         '
-        Me.lbltotal.AutoSize = True
-        Me.lbltotal.Location = New System.Drawing.Point(397, 353)
+        Me.lbltotal.Location = New System.Drawing.Point(361, 353)
         Me.lbltotal.Name = "lbltotal"
-        Me.lbltotal.Size = New System.Drawing.Size(55, 23)
+        Me.lbltotal.Size = New System.Drawing.Size(91, 23)
         Me.lbltotal.TabIndex = 5
-        Me.lbltotal.Text = "Total :"
+        Me.lbltotal.Text = "Sub Total :"
         '
         'lblSubtotalHeader
         '
@@ -630,16 +648,39 @@ Partial Class PaymentMain
         Me.label1.Text = "Table No :"
         Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'btnCalculate
+        'Label3
         '
-        Me.btnCalculate.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCalculate.Location = New System.Drawing.Point(155, 289)
-        Me.btnCalculate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnCalculate.Name = "btnCalculate"
-        Me.btnCalculate.Size = New System.Drawing.Size(130, 60)
-        Me.btnCalculate.TabIndex = 18
-        Me.btnCalculate.Text = "Enter"
-        Me.btnCalculate.UseVisualStyleBackColor = True
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(303, 380)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(148, 23)
+        Me.Label3.TabIndex = 8
+        Me.Label3.Text = "Service Tax (10%) :"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Yu Gothic UI", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(331, 471)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(116, 31)
+        Me.Label4.TabIndex = 9
+        Me.Label4.Text = "Total Pay :"
+        '
+        'lblTax
+        '
+        Me.lblTax.Location = New System.Drawing.Point(457, 383)
+        Me.lblTax.Name = "lblTax"
+        Me.lblTax.Size = New System.Drawing.Size(105, 30)
+        Me.lblTax.TabIndex = 10
+        '
+        'lblTotalPay
+        '
+        Me.lblTotalPay.Font = New System.Drawing.Font("Yu Gothic UI", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalPay.Location = New System.Drawing.Point(443, 471)
+        Me.lblTotalPay.Name = "lblTotalPay"
+        Me.lblTotalPay.Size = New System.Drawing.Size(129, 42)
+        Me.lblTotalPay.TabIndex = 7
         '
         'PaymentMain
         '
@@ -724,4 +765,8 @@ Partial Class PaymentMain
     Friend WithEvents lbltotal As Label
     Friend WithEvents panelSaparate As Panel
     Friend WithEvents btnCalculate As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents lblTotalPay As Label
+    Friend WithEvents lblTax As Label
 End Class

@@ -50,16 +50,25 @@
     End Sub
 
     Private Sub RadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles radCash.CheckedChanged, radQR.CheckedChanged
-        panelPaymentCash.Visible = radCash.Checked
-
         If radQR.Checked Then
-            Me.Hide()
-            Dim qrForm As New PaymentQR()
-            qrForm.ShowDialog()
-            radCash.Checked = True
-            Me.Show()
-        End If
+            radQR.Checked = False ' Prevent loop
 
+            Dim qrForm As New PaymentQR()
+            qrForm.SelectedTableNo = SelectedTableNo
+            qrForm.ParentPaymentForm = Me
+
+            Me.Hide()
+            qrForm.ShowDialog()
+
+            ' Only close PaymentMain if QR payment was completed
+            If qrForm.Tag IsNot Nothing AndAlso qrForm.Tag.ToString() = "Paid" Then
+                Me.Close()
+            Else
+                Me.Show() ' Restore if not paid (e.g. Back pressed)
+                radCash.Checked = True
+
+            End If
+        End If
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
@@ -192,6 +201,12 @@
             Me.Close()
         End If
         lbltotalPrice.Text = "RM " & orderTotal.ToString("F2")
+
+        Dim tax As Decimal = 0.1D
+        Dim taxValue As Decimal = orderTotal * tax
+        Dim totalPay As Decimal = orderTotal + taxValue
+        lblTax.Text = "RM " & taxValue.ToString("F2")
+        lblTotalPay.Text = "RM " & totalPay.ToString("F2")
     End Sub
 
     Private Sub CashButton_Click(sender As Object, e As EventArgs) Handles btn100.Click, btn50.Click, btn20.Click, btn10.Click, btn5.Click, btn1.Click, btn20sen.Click, btn10sen.Click

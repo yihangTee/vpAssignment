@@ -134,6 +134,7 @@ Partial Class PaymentQR
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(992, 540)
+        Me.Controls.Add(Me.picQR)
         Me.Controls.Add(Me.panelCamera)
         Me.Controls.Add(Me.lblQr)
         Me.Controls.Add(Me.btnIScanYou)
@@ -141,7 +142,6 @@ Partial Class PaymentQR
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.picQR)
         Me.Name = "PaymentQR"
         Me.Text = "PaymentQR"
         CType(Me.picQR, System.ComponentModel.ISupportInitialize).EndInit()

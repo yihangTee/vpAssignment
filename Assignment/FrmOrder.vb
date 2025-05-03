@@ -284,7 +284,7 @@ Public Class FrmOrder
         .PaymentID = paymentID,
         .OrderID = orderID,
         .PaymentMethod = "Not yet Pay",
-        .AmountPaid = totalAmount,
+        .AmountPaid = totalAmount * 1.1D,
         .DateTime = Nothing,
         .PaymentStatus = "Pending"
         }
@@ -405,7 +405,7 @@ Public Class FrmOrder
     Private Sub btnGoToPayment_Click(sender As Object, e As EventArgs) Handles btnGoToPayment.Click
         Dim paymentPage As New PaymentMain()
         paymentPage.SelectedTableNo = lblTableNo.Text
-        paymentPage.Show()
+        paymentPage.ShowDialog()
     End Sub
 
     Private Sub PrintOrderList_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintOrderList.PrintPage
