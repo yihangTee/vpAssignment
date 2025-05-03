@@ -339,6 +339,20 @@ Public Class FrmOrder
             OrderListPreviewDialog.Document = PrintOrderList
             OrderListPreviewDialog.ShowDialog(Me)
 
+            Dim tableRecord = db.TableNos.FirstOrDefault(Function(t) t.Name = tableNo)
+
+            If tableRecord IsNot Nothing Then
+                tableRecord.Color = Color.Orange.ToArgb()
+                db.SubmitChanges()
+            End If
+
+            For Each ctrl As Control In FrmTable.pnlTables.Controls
+                If TypeOf ctrl Is Button AndAlso ctrl.Text = tableNo Then
+                    ctrl.BackColor = Color.Orange
+                    Exit For
+                End If
+            Next
+
             flpCart.Controls.Clear()
             lblTotalAmount.Text = "RM 0.00"
         Catch ex As Exception
@@ -415,11 +429,11 @@ Public Class FrmOrder
 
         Dim strHeader As String = "ORDER LIST"
         Dim strSubHeader As String = String.Format(
-            "Table No: {0}" & vbNewLine &
-            "Staff ID: {1}" & vbNewLine &
-            "Order Time: {2:dd-MMMM-yyyy hh:mm:ss tt}",
-            lblTableNo.Text, "ST0001", DateTime.Now
-        )
+        "Table No: {0}" & vbNewLine &
+        "Staff ID: {1}" & vbNewLine &
+        "Order Time: {2:dd-MMMM-yyyy hh:mm:ss tt}",
+        lblTableNo.Text, "ST0001", DateTime.Now
+    )
 
         Dim body As New StringBuilder()
         body.AppendLine()
@@ -431,6 +445,7 @@ Public Class FrmOrder
         For Each panel As Panel In flpCart.Controls
             Dim itemId As String = panel.Tag.ToString()
             Dim lblSummary = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(l) l.Name.StartsWith("lblSummary"))
+            Dim txtNote = panel.Controls.OfType(Of TextBox)().FirstOrDefault(Function(t) t.Name = "txtNote_" & itemId)
 
             If lblSummary Is Nothing Then Continue For
 
@@ -444,6 +459,10 @@ Public Class FrmOrder
 
             count += 1
             body.AppendFormat("{0,-3} {1,-26} {2,4}" & vbNewLine, count, itemName, quantity)
+
+            If txtNote IsNot Nothing AndAlso Not String.IsNullOrWhiteSpace(txtNote.Text) Then
+                body.AppendLine("     Note: " & txtNote.Text.Trim())
+            End If
         Next
 
         body.AppendLine()
@@ -457,4 +476,5 @@ Public Class FrmOrder
         e.Graphics.DrawString(strSubHeader, fntSubHeader, Brushes.Black, marginLeft, marginTop + 50)
         e.Graphics.DrawString(body.ToString(), fntBody, Brushes.Black, marginLeft, marginTop + 120)
     End Sub
+
 End Class
