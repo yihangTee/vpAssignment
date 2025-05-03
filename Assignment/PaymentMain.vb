@@ -9,6 +9,7 @@ Public Class PaymentMain
     Dim cashAmount As String = ""
     Dim amount As Decimal = 0D
     Dim orderTotal As Decimal = 0D
+    Public Property SelectedTableNo As String
 
 
     Private Sub NumberButton_Click(sender As Object, e As EventArgs) Handles key1.Click, key2.Click, key3.Click, key4.Click, key5.Click, key6.Click, key7.Click, key8.Click, key9.Click, key0.Click, keyDot.Click
@@ -92,23 +93,26 @@ Public Class PaymentMain
 
     Private Sub PaymentMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ShowLatestOrderItemDetails()
+        lblTableNo.Text = SelectedTableNo
     End Sub
     Private Sub ShowLatestOrderItemDetails()
 
         Dim db As New BL_farizDataContext()
 
-        ' Get the latest items (based on Item_Id) for OrderID = 'OR001'
-        Dim latestItems = From oi In db.Order_Items
-                          Join i In db.Items On oi.Item_Id Equals i.Item_Id
-                          Where oi.OrderID = "ORD00001"
-                          Select New With {
-                              .ItemName = i.Item_Name,
-                              .ItemPrice = i.Item_Price,
-                              .Quantity = oi.Quantity,
-                              .SubTotal = oi.SubTotal
-                          }
+        Dim pendingItems = From o In db.Orders
+                           Join p In db.Payments On o.OrderID Equals p.OrderID
+                           Join oi In db.Order_Items On o.OrderID Equals oi.OrderID
+                           Join i In db.Items On oi.Item_Id Equals i.Item_Id
+                           Where o.TableNo = SelectedTableNo AndAlso p.PaymentStatus = "Pending"
+                           Select New With {
+                           .OrderID = o.OrderID,
+                           .ItemName = i.Item_Name,
+                           .ItemPrice = i.Item_Price,
+                           .Quantity = oi.Quantity,
+                           .SubTotal = oi.SubTotal
+                       }
 
-        If latestItems.Any() Then
+        If pendingItems.Any() Then
             ' Create header labels for the table
             Dim topOffset As Integer = 60
             Dim rowHeight As Integer = 25
@@ -119,7 +123,7 @@ Public Class PaymentMain
             Dim rowNumber As Integer = 1
             orderTotal = 0D
 
-            For Each item In latestItems
+            For Each item In pendingItems
                 Dim lblNumber As New Label With {
                     .Text = rowNumber.ToString(),
                     .Location = New Point(24, topOffset),
@@ -164,7 +168,7 @@ Public Class PaymentMain
                 orderTotal += item.SubTotal
             Next
         Else
-            MessageBox.Show("No order items found for OR001.")
+            MessageBox.Show("No order items found for" & SelectedTableNo)
         End If
         lbltotalPrice.Text = "RM " & orderTotal.ToString("F2")
     End Sub
