@@ -241,62 +241,6 @@ Public Class FrmTable
         Next
     End Sub
 
-
-    'Public Sub UpdateTableButtonWithWaitingTime(tableNo As String)
-    '    Dim db As New BL_farizDataContext()
-    '    Dim btn As Button = pnlTables.Controls.OfType(Of Button)().
-    '                    FirstOrDefault(Function(b) b.Text.StartsWith(tableNo))
-
-    '    If btn Is Nothing Then Exit Sub
-
-    '    Dim latestOrder = (From o In db.Orders
-    '                       Where o.TableNo = tableNo
-    '                       Order By o.OrderDateTime Descending
-    '                       Select o).FirstOrDefault()
-
-    '    If latestOrder IsNot Nothing Then
-    '        Dim isPending = (From p In db.Payments
-    '                         Where p.OrderID = latestOrder.OrderID AndAlso p.PaymentStatus = "Pending"
-    '                         Select p).Any()
-
-    '        If isPending Then
-    '            Dim waitingTime = DateTime.Now - latestOrder.OrderDateTime
-    '            Dim timeDisplay As String
-
-    '            If waitingTime.TotalHours < 1 Then
-    '                timeDisplay = $"{waitingTime.Minutes:D2}:{waitingTime.Seconds:D2}"
-    '            Else
-    '                timeDisplay = $"{CInt(waitingTime.TotalHours):D2}:{waitingTime.Minutes:D2}:{waitingTime.Seconds:D2}"
-    '            End If
-
-    '            btn.Text = tableNo
-
-    '            Dim waitingTimeLabel As Label = btn.Controls.OfType(Of Label)().FirstOrDefault()
-    '            If waitingTimeLabel Is Nothing Then
-    '                waitingTimeLabel = New Label With {
-    '                .Text = timeDisplay,
-    '                .Font = New Font("Arial", 8, FontStyle.Bold),
-    '                .ForeColor = Color.White,
-    '                .BackColor = Color.Red,
-    '                .Padding = New Padding(2),
-    '                .AutoSize = True
-    '            }
-    '                btn.Controls.Add(waitingTimeLabel)
-    '            Else
-    '                waitingTimeLabel.Text = timeDisplay
-    '            End If
-
-    '            btn.BackColor = Color.Orange
-    '        Else
-    '            btn.Text = tableNo
-    '            btn.BackColor = Color.LightGreen
-    '        End If
-    '    Else
-    '        btn.Text = tableNo
-    '        btn.BackColor = Color.LightGreen
-    '    End If
-    'End Sub
-
     Public Sub UpdateTableButtonWithWaitingTime(tableNo As String)
         Dim db As New BL_farizDataContext()
         Dim btn As Button = pnlTables.Controls.OfType(Of Button)().
