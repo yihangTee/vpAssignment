@@ -1,5 +1,6 @@
 ﻿Imports System.Data.Linq
 Imports System.Data.SqlClient
+Imports System.Text
 
 Public Class FrmOrder
     Private Sub FrmOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -263,7 +264,6 @@ Public Class FrmOrder
         .TotalAmount = totalAmount,
         .OrderDateTime = DateTime.Now
     }
-
         db.Orders.InsertOnSubmit(newOrder)
 
         Dim lastItemID = (From oi In db.Order_Items
@@ -280,42 +280,47 @@ Public Class FrmOrder
             Dim lblSummary = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(l) l.Name.StartsWith("lblSummary"))
             Dim itemInDb = db.Items.FirstOrDefault(Function(i) i.Item_Id = itemId)
 
-            If lblSummary IsNot Nothing Then
-                Dim parts = lblSummary.Text.Split({" x ", " RM "}, StringSplitOptions.RemoveEmptyEntries)
+            If lblSummary Is Nothing OrElse itemInDb Is Nothing Then Continue For
 
-                If parts.Length >= 3 Then
-                    Dim quantity As Integer
-                    Dim subtotal As Decimal
+            Dim parts = lblSummary.Text.Split({" x ", " RM "}, StringSplitOptions.RemoveEmptyEntries)
+            If parts.Length < 3 Then Continue For
 
-                    If Integer.TryParse(parts(1).Trim(), quantity) AndAlso Decimal.TryParse(parts(2).Trim(), subtotal) Then
-                        lastItemNum += 1
-                        Dim orderItemID As String = "OI" & lastItemNum.ToString("D5")
+            Dim itemName As String = parts(0).Trim()
+            Dim quantity As Integer
+            Dim subtotal As Decimal
 
-                        Dim newItem As New Order_Item With {
-                        .OrderItemID = orderItemID,
-                        .OrderID = orderID,
-                        .Item_Id = itemId,
-                        .Quantity = quantity,
-                        .SubTotal = subtotal
-                    }
+            If Not Integer.TryParse(parts(1).Trim(), quantity) Then Continue For
+            If Not Decimal.TryParse(parts(2).Trim(), subtotal) Then Continue For
 
-                        db.Order_Items.InsertOnSubmit(newItem)
-                        itemInDb.Item_Quantity -= quantity
-                    End If
-                End If
-            End If
+            lastItemNum += 1
+            Dim orderItemID As String = "OI" & lastItemNum.ToString("D5")
+
+            Dim newItem As New Order_Item With {
+            .OrderItemID = orderItemID,
+            .OrderID = orderID,
+            .Item_Id = itemId,
+            .Quantity = quantity,
+            .SubTotal = subtotal
+        }
+
+            db.Order_Items.InsertOnSubmit(newItem)
+
+            itemInDb.Item_Quantity -= quantity
         Next
 
         Try
             db.SubmitChanges()
             MessageBox.Show("Order submitted successfully!")
 
+            OrderListPreviewDialog.Document = PrintOrderList
+            OrderListPreviewDialog.ShowDialog(Me)
+
             flpCart.Controls.Clear()
             lblTotalAmount.Text = "RM 0.00"
-
         Catch ex As Exception
             MessageBox.Show("Failed to save order: " & ex.Message)
         End Try
+
     End Sub
 
     Private Function GetCartItemQuantity(panel As Panel) As Integer
@@ -343,16 +348,87 @@ Public Class FrmOrder
         End If
     End Sub
 
+    Private Function GetCartItemDetails() As List(Of Tuple(Of String, String, Integer, Decimal))
+        Dim itemList As New List(Of Tuple(Of String, String, Integer, Decimal))
+
+        For Each panel As Panel In flpCart.Controls
+            Dim itemId As String = panel.Tag.ToString()
+            Dim lblSummary = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(l) l.Name.StartsWith("lblSummary"))
+
+            If lblSummary IsNot Nothing Then
+                Dim parts = lblSummary.Text.Split({" x ", " RM "}, StringSplitOptions.RemoveEmptyEntries)
+
+                If parts.Length >= 3 Then
+                    Dim itemName As String = parts(0).Trim()
+                    Dim quantity As Integer
+                    Dim subtotal As Decimal
+
+                    If Integer.TryParse(parts(1).Trim(), quantity) AndAlso Decimal.TryParse(parts(2).Trim(), subtotal) Then
+                        itemList.Add(Tuple.Create(itemId, itemName, quantity, subtotal))
+                    End If
+                End If
+            End If
+        Next
+
+        Return itemList
+    End Function
+
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Me.Close()
 
     End Sub
 
-    Private Sub flpCart_Paint(sender As Object, e As PaintEventArgs) Handles flpCart.Paint
-
-    End Sub
-
     Private Sub btnGoToPayment_Click(sender As Object, e As EventArgs) Handles btnGoToPayment.Click
         PaymentMain.Show()
+    End Sub
+
+    Private Sub PrintOrderList_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintOrderList.PrintPage
+        Dim fntHeader As New Font("Calibri", 24, FontStyle.Bold)
+        Dim fntSubHeader As New Font("Calibri", 12)
+        Dim fntBody As New Font("Consolas", 10)
+
+        Dim strHeader As String = "ORDER LIST"
+        Dim strSubHeader As String = String.Format(
+            "Table No: {0}" & vbNewLine &
+            "Staff ID: {1}" & vbNewLine &
+            "Order Time: {2:dd-MMMM-yyyy hh:mm:ss tt}",
+            lblTableNo.Text, "ST0001", DateTime.Now
+        )
+
+        Dim body As New StringBuilder()
+        body.AppendLine()
+        body.AppendLine("No  Item Name                   Qty")
+        body.AppendLine("--- -------------------------- ----")
+
+        Dim count As Integer = 0
+
+        For Each panel As Panel In flpCart.Controls
+            Dim itemId As String = panel.Tag.ToString()
+            Dim lblSummary = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(l) l.Name.StartsWith("lblSummary"))
+
+            If lblSummary Is Nothing Then Continue For
+
+            Dim parts = lblSummary.Text.Split({" x ", " RM "}, StringSplitOptions.RemoveEmptyEntries)
+            If parts.Length < 2 Then Continue For
+
+            Dim itemName As String = parts(0).Trim()
+            Dim quantity As Integer
+
+            If Not Integer.TryParse(parts(1).Trim(), quantity) Then Continue For
+
+            count += 1
+            body.AppendFormat("{0,-3} {1,-26} {2,4}" & vbNewLine, count, itemName, quantity)
+        Next
+
+        body.AppendLine()
+        body.AppendFormat("Total Items: {0}", count)
+
+        Dim marginLeft As Integer = 100
+        Dim marginTop As Integer = 100
+        Dim lineHeight As Integer = CInt(fntBody.GetHeight(e.Graphics)) + 4
+
+        e.Graphics.DrawString(strHeader, fntHeader, Brushes.Black, marginLeft, marginTop)
+        e.Graphics.DrawString(strSubHeader, fntSubHeader, Brushes.Black, marginLeft, marginTop + 50)
+        e.Graphics.DrawString(body.ToString(), fntBody, Brushes.Black, marginLeft, marginTop + 120)
     End Sub
 End Class
