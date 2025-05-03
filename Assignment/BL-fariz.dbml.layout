@@ -14,10 +14,10 @@
         <elementListCompartment Id="250542e9-01bf-4575-abd4-ffb6c56a1fbe" absoluteBounds="3.64, 1.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="70b2c10f-4aca-4d6f-8c48-24ddbe8da57c" absoluteBounds="4.875, 4.125, 2, 1.7708968098958331">
+    <classShape Id="70b2c10f-4aca-4d6f-8c48-24ddbe8da57c" absoluteBounds="4.25, 3.625, 2, 1.7708968098958331">
       <DataClassMoniker Name="/BL_farizDataContext/Order_Item" />
       <nestedChildShapes>
-        <elementListCompartment Id="f31cf0ce-e07c-4dc8-bf3c-d3db29992577" absoluteBounds="4.89, 4.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f31cf0ce-e07c-4dc8-bf3c-d3db29992577" absoluteBounds="4.265, 4.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="561cbfa6-74bb-4998-866b-856db6ff219d" absoluteBounds="1, 1.125, 2, 1.9631982421875">

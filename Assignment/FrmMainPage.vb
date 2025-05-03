@@ -4,4 +4,9 @@
         FrmTable.Show()
 
     End Sub
+
+    Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
+        Me.Close()
+
+    End Sub
 End Class
