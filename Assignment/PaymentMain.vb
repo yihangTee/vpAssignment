@@ -100,7 +100,7 @@ Public Class PaymentMain
         ' Get the latest items (based on Item_Id) for OrderID = 'OR001'
         Dim latestItems = From oi In db.Order_Items
                           Join i In db.Items On oi.Item_Id Equals i.Item_Id
-                          Where oi.OrderID = "OR001"
+                          Where oi.OrderID = "ORD00001"
                           Select New With {
                               .ItemName = i.Item_Name,
                               .ItemPrice = i.Item_Price,

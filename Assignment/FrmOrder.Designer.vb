@@ -149,13 +149,14 @@ Partial Class FrmOrder
         '
         'btnGoToPayment
         '
-        Me.btnGoToPayment.Location = New System.Drawing.Point(621, 461)
+        Me.btnGoToPayment.Location = New System.Drawing.Point(682, 576)
         Me.btnGoToPayment.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGoToPayment.Name = "btnGoToPayment"
-        Me.btnGoToPayment.Size = New System.Drawing.Size(106, 30)
+        Me.btnGoToPayment.Size = New System.Drawing.Size(106, 38)
         Me.btnGoToPayment.TabIndex = 9
         Me.btnGoToPayment.Text = "Payment"
         Me.btnGoToPayment.UseVisualStyleBackColor = True
+        '
         'btnBack
         '
         Me.btnBack.Location = New System.Drawing.Point(1045, 14)
@@ -169,13 +170,9 @@ Partial Class FrmOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-
-        Me.ClientSize = New System.Drawing.Size(1022, 559)
-        Me.Controls.Add(Me.btnGoToPayment)
-
         Me.ClientSize = New System.Drawing.Size(1150, 699)
+        Me.Controls.Add(Me.btnGoToPayment)
         Me.Controls.Add(Me.btnBack)
-
         Me.Controls.Add(Me.btnSendOrder)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cmbCategory)

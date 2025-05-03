@@ -106,9 +106,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BL-fariz.dbml</DependentUpon>
     </Compile>
-    <Compile Include="BL-fariz.vb">
-      <DependentUpon>BL-fariz.dbml</DependentUpon>
-    </Compile>
     <Compile Include="FrmOrder.Designer.vb">
       <DependentUpon>FrmOrder.vb</DependentUpon>
     </Compile>
@@ -216,14 +213,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-
     <Content Include="BL-fariz.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="BL-fariz_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BL-fariz.mdf</DependentUpon>
-
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
