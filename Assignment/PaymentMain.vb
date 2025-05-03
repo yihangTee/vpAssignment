@@ -10,6 +10,7 @@ Public Class PaymentMain
     Dim amount As Decimal = 0D
     Dim orderTotal As Decimal = 0D
 
+
     Private Sub NumberButton_Click(sender As Object, e As EventArgs) Handles key1.Click, key2.Click, key3.Click, key4.Click, key5.Click, key6.Click, key7.Click, key8.Click, key9.Click, key0.Click, keyDot.Click
         Dim btn = CType(sender, System.Windows.Forms.Button)
         Dim key As String = btn.Text
@@ -52,10 +53,19 @@ Public Class PaymentMain
 
     Private Sub RadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles radCash.CheckedChanged, radQR.CheckedChanged
         panelPaymentCash.Visible = radCash.Checked
+
+        If radQR.Checked Then
+            Me.Hide()
+            Dim qrForm As New PaymentQR()
+            qrForm.ShowDialog()
+            radCash.Checked = True
+            Me.Show()
+        End If
+
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
-        cashAmount = ""
+        cashAmount = "0.00"
         amount = 0.00D
         lblPayCash.Text = "RM " & cashAmount
         lblChange.Text = "RM " & amount
@@ -100,8 +110,10 @@ Public Class PaymentMain
 
         If latestItems.Any() Then
             ' Create header labels for the table
-            Dim topOffset As Integer = 70
+            Dim topOffset As Integer = 60
             Dim rowHeight As Integer = 25
+            Dim fontSetting As New Font("Yu Gothic UI", 10.2F)
+
 
             ' Add the actual item details
             Dim rowNumber As Integer = 1
@@ -111,31 +123,36 @@ Public Class PaymentMain
                 Dim lblNumber As New Label With {
                     .Text = rowNumber.ToString(),
                     .Location = New Point(24, topOffset),
-                    .AutoSize = True
+                    .AutoSize = True,
+                    .Font = fontSetting
                 }
 
                 Dim lblName As New Label With {
                     .Text = item.ItemName,
-                    .Location = New Point(70, topOffset),
-                    .AutoSize = True
+                    .Location = New Point(55, topOffset),
+                    .AutoSize = True,
+                    .Font = fontSetting
                 }
 
                 Dim lblPrice As New Label With {
                     .Text = "RM " & item.ItemPrice.ToString("F2"),
                     .Location = New Point(190, topOffset),
-                    .AutoSize = True
+                    .AutoSize = True,
+                    .Font = fontSetting
                 }
 
                 Dim lblQty As New Label With {
                     .Text = item.Quantity.ToString(),
                     .Location = New Point(300, topOffset),
-                    .AutoSize = True
+                    .AutoSize = True,
+                    .Font = fontSetting
                 }
 
                 Dim lblSubtotal As New Label With {
                     .Text = "RM" & item.SubTotal.ToString("F2"),
                     .Location = New Point(370, topOffset),
-                    .AutoSize = True
+                    .AutoSize = True,
+                    .Font = fontSetting
                 }
 
                 ' Add all labels to the GroupBox
@@ -191,5 +208,7 @@ Public Class PaymentMain
         btnChangeMode.Text = If(isChangeMode, "Switch to Keypad", "Switch to Cash Input")
     End Sub
 
+    Private Sub grpOrderItem_Enter(sender As Object, e As EventArgs) Handles grpOrderItem.Enter
 
+    End Sub
 End Class

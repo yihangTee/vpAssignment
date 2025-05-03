@@ -10,7 +10,7 @@
             Timer1.Stop()
             Me.Hide()
             'FrmTable.Show()
-            PaymentMain.Show()
+            'PaymentMain.Show()
         End If
     End Sub
 End Class

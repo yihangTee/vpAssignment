@@ -28,7 +28,6 @@ Partial Class PaymentMain
         Me.radQR = New System.Windows.Forms.RadioButton()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.panelPaymentCash = New System.Windows.Forms.Panel()
-        Me.panelCashInput = New System.Windows.Forms.Panel()
         Me.PanelKeyboard = New System.Windows.Forms.Panel()
         Me.key1 = New System.Windows.Forms.Button()
         Me.key4 = New System.Windows.Forms.Button()
@@ -42,6 +41,7 @@ Partial Class PaymentMain
         Me.key6 = New System.Windows.Forms.Button()
         Me.keyDot = New System.Windows.Forms.Button()
         Me.key9 = New System.Windows.Forms.Button()
+        Me.panelCashInput = New System.Windows.Forms.Panel()
         Me.btn10sen = New System.Windows.Forms.Button()
         Me.btn20sen = New System.Windows.Forms.Button()
         Me.btn1 = New System.Windows.Forms.Button()
@@ -64,6 +64,8 @@ Partial Class PaymentMain
         Me.GrpBxPaymentMethod = New System.Windows.Forms.GroupBox()
         Me.grpCart = New System.Windows.Forms.GroupBox()
         Me.grpOrderItem = New System.Windows.Forms.GroupBox()
+        Me.lbltotalPrice = New System.Windows.Forms.Label()
+        Me.lbltotal = New System.Windows.Forms.Label()
         Me.lblSubtotalHeader = New System.Windows.Forms.Label()
         Me.lblQuantityHeader = New System.Windows.Forms.Label()
         Me.lblPriceHeader = New System.Windows.Forms.Label()
@@ -71,11 +73,10 @@ Partial Class PaymentMain
         Me.lblNumberHeader = New System.Windows.Forms.Label()
         Me.lblTableNo = New System.Windows.Forms.Label()
         Me.label1 = New System.Windows.Forms.Label()
-        Me.lbltotal = New System.Windows.Forms.Label()
-        Me.lbltotalPrice = New System.Windows.Forms.Label()
+        Me.panelSaparate = New System.Windows.Forms.Panel()
         Me.panelPaymentCash.SuspendLayout()
-        Me.panelCashInput.SuspendLayout()
         Me.PanelKeyboard.SuspendLayout()
+        Me.panelCashInput.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.PanelPayment.SuspendLayout()
         Me.GrpBxPaymentMethod.SuspendLayout()
@@ -138,23 +139,6 @@ Partial Class PaymentMain
         Me.panelPaymentCash.Name = "panelPaymentCash"
         Me.panelPaymentCash.Size = New System.Drawing.Size(438, 458)
         Me.panelPaymentCash.TabIndex = 9
-        '
-        'panelCashInput
-        '
-        Me.panelCashInput.Controls.Add(Me.btn10sen)
-        Me.panelCashInput.Controls.Add(Me.btn20sen)
-        Me.panelCashInput.Controls.Add(Me.btn1)
-        Me.panelCashInput.Controls.Add(Me.btn5)
-        Me.panelCashInput.Controls.Add(Me.btn10)
-        Me.panelCashInput.Controls.Add(Me.btn20)
-        Me.panelCashInput.Controls.Add(Me.btn50)
-        Me.panelCashInput.Controls.Add(Me.btn100)
-        Me.panelCashInput.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.panelCashInput.Location = New System.Drawing.Point(19, 18)
-        Me.panelCashInput.Name = "panelCashInput"
-        Me.panelCashInput.Size = New System.Drawing.Size(266, 252)
-        Me.panelCashInput.TabIndex = 17
-        Me.panelCashInput.Visible = False
         '
         'PanelKeyboard
         '
@@ -308,6 +292,23 @@ Partial Class PaymentMain
         Me.key9.Text = "9"
         Me.key9.UseVisualStyleBackColor = True
         '
+        'panelCashInput
+        '
+        Me.panelCashInput.Controls.Add(Me.btn10sen)
+        Me.panelCashInput.Controls.Add(Me.btn20sen)
+        Me.panelCashInput.Controls.Add(Me.btn1)
+        Me.panelCashInput.Controls.Add(Me.btn5)
+        Me.panelCashInput.Controls.Add(Me.btn10)
+        Me.panelCashInput.Controls.Add(Me.btn20)
+        Me.panelCashInput.Controls.Add(Me.btn50)
+        Me.panelCashInput.Controls.Add(Me.btn100)
+        Me.panelCashInput.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.panelCashInput.Location = New System.Drawing.Point(19, 18)
+        Me.panelCashInput.Name = "panelCashInput"
+        Me.panelCashInput.Size = New System.Drawing.Size(266, 252)
+        Me.panelCashInput.TabIndex = 17
+        Me.panelCashInput.Visible = False
+        '
         'btn10sen
         '
         Me.btn10sen.Location = New System.Drawing.Point(132, 191)
@@ -382,12 +383,12 @@ Partial Class PaymentMain
         '
         'Label2
         '
-        Me.Label2.Font = New System.Drawing.Font("Palace Script MT", 72.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Palace Script MT", 60.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(19, 351)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(407, 95)
+        Me.Label2.Size = New System.Drawing.Size(449, 95)
         Me.Label2.TabIndex = 20
-        Me.Label2.Text = "BL-Fariz"
+        Me.Label2.Text = "BL-Fariz...."
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnChangeMode
@@ -466,7 +467,7 @@ Partial Class PaymentMain
         Me.lblChange.Name = "lblChange"
         Me.lblChange.Size = New System.Drawing.Size(301, 55)
         Me.lblChange.TabIndex = 3
-        Me.lblChange.Text = "RM "
+        Me.lblChange.Text = "RM 0.00"
         Me.lblChange.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblPayCash
@@ -477,7 +478,7 @@ Partial Class PaymentMain
         Me.lblPayCash.Name = "lblPayCash"
         Me.lblPayCash.Size = New System.Drawing.Size(301, 55)
         Me.lblPayCash.TabIndex = 2
-        Me.lblPayCash.Text = "RM "
+        Me.lblPayCash.Text = "RM 0.00"
         Me.lblPayCash.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label34
@@ -535,6 +536,7 @@ Partial Class PaymentMain
         '
         'grpOrderItem
         '
+        Me.grpOrderItem.Controls.Add(Me.panelSaparate)
         Me.grpOrderItem.Controls.Add(Me.lbltotalPrice)
         Me.grpOrderItem.Controls.Add(Me.lbltotal)
         Me.grpOrderItem.Controls.Add(Me.lblSubtotalHeader)
@@ -549,6 +551,22 @@ Partial Class PaymentMain
         Me.grpOrderItem.TabIndex = 4
         Me.grpOrderItem.TabStop = False
         Me.grpOrderItem.Text = "Order Item"
+        '
+        'lbltotalPrice
+        '
+        Me.lbltotalPrice.Location = New System.Drawing.Point(457, 353)
+        Me.lbltotalPrice.Name = "lbltotalPrice"
+        Me.lbltotalPrice.Size = New System.Drawing.Size(105, 39)
+        Me.lbltotalPrice.TabIndex = 6
+        '
+        'lbltotal
+        '
+        Me.lbltotal.AutoSize = True
+        Me.lbltotal.Location = New System.Drawing.Point(397, 353)
+        Me.lbltotal.Name = "lbltotal"
+        Me.lbltotal.Size = New System.Drawing.Size(55, 23)
+        Me.lbltotal.TabIndex = 5
+        Me.lbltotal.Text = "Total :"
         '
         'lblSubtotalHeader
         '
@@ -580,7 +598,7 @@ Partial Class PaymentMain
         'lblNameHeader
         '
         Me.lblNameHeader.AutoSize = True
-        Me.lblNameHeader.Location = New System.Drawing.Point(96, 37)
+        Me.lblNameHeader.Location = New System.Drawing.Point(74, 37)
         Me.lblNameHeader.Name = "lblNameHeader"
         Me.lblNameHeader.Size = New System.Drawing.Size(56, 23)
         Me.lblNameHeader.TabIndex = 1
@@ -615,21 +633,13 @@ Partial Class PaymentMain
         Me.label1.Text = "Table No :"
         Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'lbltotal
+        'panelSaparate
         '
-        Me.lbltotal.AutoSize = True
-        Me.lbltotal.Location = New System.Drawing.Point(353, 321)
-        Me.lbltotal.Name = "lbltotal"
-        Me.lbltotal.Size = New System.Drawing.Size(54, 23)
-        Me.lbltotal.TabIndex = 5
-        Me.lbltotal.Text = "total :"
-        '
-        'lbltotalPrice
-        '
-        Me.lbltotalPrice.Location = New System.Drawing.Point(413, 321)
-        Me.lbltotalPrice.Name = "lbltotalPrice"
-        Me.lbltotalPrice.Size = New System.Drawing.Size(105, 39)
-        Me.lbltotalPrice.TabIndex = 6
+        Me.panelSaparate.BackColor = System.Drawing.Color.Gray
+        Me.panelSaparate.Location = New System.Drawing.Point(28, 334)
+        Me.panelSaparate.Name = "panelSaparate"
+        Me.panelSaparate.Size = New System.Drawing.Size(544, 2)
+        Me.panelSaparate.TabIndex = 7
         '
         'PaymentMain
         '
@@ -646,8 +656,8 @@ Partial Class PaymentMain
         Me.Name = "PaymentMain"
         Me.Text = "PaymentMain"
         Me.panelPaymentCash.ResumeLayout(False)
-        Me.panelCashInput.ResumeLayout(False)
         Me.PanelKeyboard.ResumeLayout(False)
+        Me.panelCashInput.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.PanelPayment.ResumeLayout(False)
@@ -713,4 +723,5 @@ Partial Class PaymentMain
     Friend WithEvents btn5 As Button
     Friend WithEvents lbltotalPrice As Label
     Friend WithEvents lbltotal As Label
+    Friend WithEvents panelSaparate As Panel
 End Class
