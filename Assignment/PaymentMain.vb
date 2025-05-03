@@ -1,7 +1,4 @@
-﻿Imports System.Data.Linq
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement
-
-Public Class PaymentMain
+﻿Public Class PaymentMain
     Private Sub Button1_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
@@ -72,23 +69,46 @@ Public Class PaymentMain
         lblChange.Text = "RM " & amount
     End Sub
 
-    Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
-
-        If Decimal.TryParse(cashAmount, amount) Then
-            Dim result As Decimal = amount - orderTotal
-            If result < 0 Then
-                MessageBox.Show("Insufficient funds. Please enter a valid amount.")
-            Else
-                lblChange.Text = "RM " & result.ToString("F2")
-            End If
-        Else
-            MessageBox.Show("Invalid number")
-        End If
-    End Sub
-
-
     Private Sub btnSuccessPay_Click(sender As Object, e As EventArgs) Handles btnSuccessPay.Click
-        Me.Close()
+        Dim confirmResult = MessageBox.Show("Are you sure you want to complete the payment?", "Confirm Payment", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim db As New BL_farizDataContext()
+        Dim tableNo As String = lblTableNo.Text
+
+        Try
+            Dim matchingPayments = From o In db.Orders
+                                   Join p In db.Payments On o.OrderID Equals p.OrderID
+                                   Where o.TableNo = SelectedTableNo AndAlso p.PaymentStatus = "Pending"
+                                   Select p
+
+            If matchingPayments.Any() Then
+                For Each pay In matchingPayments
+                    pay.PaymentMethod = "Cash"
+                    pay.PaymentStatus = "Success"
+                    pay.DateTime = DateTime.Now
+                Next
+
+                db.SubmitChanges()
+                MessageBox.Show("Payment Success.", "Payment Completed", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dim tableRecord = db.TableNos.FirstOrDefault(Function(t) t.Name = tableNo)
+
+                If tableRecord IsNot Nothing Then
+                    tableRecord.Color = Color.LightGreen.ToArgb()
+                    db.SubmitChanges()
+                End If
+
+                For Each ctrl As Control In FrmTable.pnlTables.Controls
+                    If TypeOf ctrl Is Button AndAlso ctrl.Text = tableNo Then
+                        ctrl.BackColor = Color.LightGreen
+                        Exit For
+                    End If
+                Next
+                Me.Close()
+            Else
+                MessageBox.Show("No matching payment found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Error while updating payment: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     Private Sub PaymentMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -169,6 +189,7 @@ Public Class PaymentMain
             Next
         Else
             MessageBox.Show("No order items found for" & SelectedTableNo)
+            Me.Close()
         End If
         lbltotalPrice.Text = "RM " & orderTotal.ToString("F2")
     End Sub
@@ -212,8 +233,21 @@ Public Class PaymentMain
         btnChangeMode.Text = If(isChangeMode, "Switch to Keypad", "Switch to Cash Input")
     End Sub
 
-    Private Sub grpOrderItem_Enter(sender As Object, e As EventArgs) Handles grpOrderItem.Enter
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        Me.Close()
+    End Sub
 
+    Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
+        If Decimal.TryParse(cashAmount, amount) Then
+            Dim result As Decimal = amount - orderTotal
+            If result < 0 Then
+                MessageBox.Show("Insufficient funds. Please enter a valid amount.")
+            Else
+                lblChange.Text = "RM " & result.ToString("F2")
+            End If
+        Else
+            MessageBox.Show("Invalid number")
+        End If
     End Sub
 End Class
 
