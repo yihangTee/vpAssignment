@@ -40,6 +40,7 @@ Partial Class FrmTable
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.btnExit = New System.Windows.Forms.Button()
+        Me.btnBack = New System.Windows.Forms.Button()
         Me.cmsTable.SuspendLayout()
         Me.grpInfo.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -48,10 +49,10 @@ Partial Class FrmTable
         'btnEditMode
         '
         Me.btnEditMode.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEditMode.Location = New System.Drawing.Point(12, 166)
+        Me.btnEditMode.Location = New System.Drawing.Point(14, 208)
         Me.btnEditMode.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnEditMode.Name = "btnEditMode"
-        Me.btnEditMode.Size = New System.Drawing.Size(135, 30)
+        Me.btnEditMode.Size = New System.Drawing.Size(152, 38)
         Me.btnEditMode.TabIndex = 0
         Me.btnEditMode.Text = "Edit Mode"
         Me.btnEditMode.UseVisualStyleBackColor = True
@@ -59,10 +60,10 @@ Partial Class FrmTable
         'btnAddTable
         '
         Me.btnAddTable.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddTable.Location = New System.Drawing.Point(152, 166)
+        Me.btnAddTable.Location = New System.Drawing.Point(171, 208)
         Me.btnAddTable.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnAddTable.Name = "btnAddTable"
-        Me.btnAddTable.Size = New System.Drawing.Size(135, 30)
+        Me.btnAddTable.Size = New System.Drawing.Size(152, 38)
         Me.btnAddTable.TabIndex = 1
         Me.btnAddTable.Text = "Add Table"
         Me.btnAddTable.UseVisualStyleBackColor = True
@@ -70,10 +71,10 @@ Partial Class FrmTable
         'btnSave
         '
         Me.btnSave.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(292, 166)
+        Me.btnSave.Location = New System.Drawing.Point(328, 208)
         Me.btnSave.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(135, 30)
+        Me.btnSave.Size = New System.Drawing.Size(152, 38)
         Me.btnSave.TabIndex = 2
         Me.btnSave.Text = "Save Changes"
         Me.btnSave.UseVisualStyleBackColor = True
@@ -81,10 +82,10 @@ Partial Class FrmTable
         'btnReset
         '
         Me.btnReset.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReset.Location = New System.Drawing.Point(433, 166)
+        Me.btnReset.Location = New System.Drawing.Point(487, 208)
         Me.btnReset.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnReset.Name = "btnReset"
-        Me.btnReset.Size = New System.Drawing.Size(135, 30)
+        Me.btnReset.Size = New System.Drawing.Size(152, 38)
         Me.btnReset.TabIndex = 3
         Me.btnReset.Text = "Reset Layout"
         Me.btnReset.UseVisualStyleBackColor = True
@@ -92,10 +93,10 @@ Partial Class FrmTable
         'pnlTables
         '
         Me.pnlTables.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pnlTables.Location = New System.Drawing.Point(12, 200)
+        Me.pnlTables.Location = New System.Drawing.Point(14, 250)
         Me.pnlTables.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.pnlTables.Name = "pnlTables"
-        Me.pnlTables.Size = New System.Drawing.Size(1155, 453)
+        Me.pnlTables.Size = New System.Drawing.Size(1299, 565)
         Me.pnlTables.TabIndex = 4
         '
         'cmsTable
@@ -103,12 +104,12 @@ Partial Class FrmTable
         Me.cmsTable.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.cmsTable.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeleteToolStripMenuItem})
         Me.cmsTable.Name = "ContextMenuStrip1"
-        Me.cmsTable.Size = New System.Drawing.Size(123, 28)
+        Me.cmsTable.Size = New System.Drawing.Size(135, 36)
         '
         'DeleteToolStripMenuItem
         '
         Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(122, 24)
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(134, 32)
         Me.DeleteToolStripMenuItem.Text = "Delete"
         '
         'grpInfo
@@ -121,9 +122,11 @@ Partial Class FrmTable
         Me.grpInfo.Controls.Add(Me.PictureBox1)
         Me.grpInfo.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpInfo.ForeColor = System.Drawing.Color.AliceBlue
-        Me.grpInfo.Location = New System.Drawing.Point(12, 12)
+        Me.grpInfo.Location = New System.Drawing.Point(14, 15)
+        Me.grpInfo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.grpInfo.Name = "grpInfo"
-        Me.grpInfo.Size = New System.Drawing.Size(1155, 149)
+        Me.grpInfo.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.grpInfo.Size = New System.Drawing.Size(1299, 186)
         Me.grpInfo.TabIndex = 5
         Me.grpInfo.TabStop = False
         Me.grpInfo.Text = "Information"
@@ -133,27 +136,27 @@ Partial Class FrmTable
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Times New Roman", 64.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Lavender
-        Me.Label3.Location = New System.Drawing.Point(277, 21)
+        Me.Label3.Location = New System.Drawing.Point(312, 26)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(537, 122)
+        Me.Label3.Size = New System.Drawing.Size(646, 146)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Order Page"
         '
         'lblTime
         '
         Me.lblTime.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblTime.Location = New System.Drawing.Point(970, 75)
+        Me.lblTime.Location = New System.Drawing.Point(1091, 94)
         Me.lblTime.Name = "lblTime"
-        Me.lblTime.Size = New System.Drawing.Size(179, 32)
+        Me.lblTime.Size = New System.Drawing.Size(201, 40)
         Me.lblTime.TabIndex = 4
         Me.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblName
         '
         Me.lblName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblName.Location = New System.Drawing.Point(970, 30)
+        Me.lblName.Location = New System.Drawing.Point(1091, 38)
         Me.lblName.Name = "lblName"
-        Me.lblName.Size = New System.Drawing.Size(179, 32)
+        Me.lblName.Size = New System.Drawing.Size(201, 40)
         Me.lblName.TabIndex = 3
         Me.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -161,9 +164,9 @@ Partial Class FrmTable
         '
         Me.Label2.AutoSize = True
         Me.Label2.ForeColor = System.Drawing.Color.AliceBlue
-        Me.Label2.Location = New System.Drawing.Point(899, 75)
+        Me.Label2.Location = New System.Drawing.Point(1011, 94)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(65, 23)
+        Me.Label2.Size = New System.Drawing.Size(78, 26)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Time :"
         '
@@ -171,9 +174,9 @@ Partial Class FrmTable
         '
         Me.Label1.AutoSize = True
         Me.Label1.ForeColor = System.Drawing.Color.AliceBlue
-        Me.Label1.Location = New System.Drawing.Point(846, 35)
+        Me.Label1.Location = New System.Drawing.Point(952, 44)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(118, 23)
+        Me.Label1.Size = New System.Drawing.Size(138, 26)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Staff Name :"
         '
@@ -181,9 +184,10 @@ Partial Class FrmTable
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Lavender
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(6, 21)
+        Me.PictureBox1.Location = New System.Drawing.Point(7, 26)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(144, 122)
+        Me.PictureBox1.Size = New System.Drawing.Size(162, 152)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -195,19 +199,30 @@ Partial Class FrmTable
         '
         Me.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnExit.Font = New System.Drawing.Font("Times New Roman", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExit.Location = New System.Drawing.Point(479, 658)
+        Me.btnExit.Location = New System.Drawing.Point(539, 822)
+        Me.btnExit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(204, 43)
+        Me.btnExit.Size = New System.Drawing.Size(230, 54)
         Me.btnExit.TabIndex = 6
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = True
         '
+        'btnBack
+        '
+        Me.btnBack.Location = New System.Drawing.Point(1181, 209)
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(125, 36)
+        Me.btnBack.TabIndex = 7
+        Me.btnBack.Text = "Back"
+        Me.btnBack.UseVisualStyleBackColor = True
+        '
         'FrmTable
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1185, 713)
+        Me.ClientSize = New System.Drawing.Size(1333, 891)
+        Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.grpInfo)
         Me.Controls.Add(Me.pnlTables)
@@ -243,4 +258,5 @@ Partial Class FrmTable
     Friend WithEvents Label3 As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents btnExit As Button
+    Friend WithEvents btnBack As Button
 End Class
