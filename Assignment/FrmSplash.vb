@@ -9,8 +9,7 @@
         If ProgressBar1.Value >= 100 Then
             Timer1.Stop()
             Me.Hide()
-            'FrmTable.Show()
-            'PaymentMain.Show()
+            FrmTable.Show()
         End If
     End Sub
 End Class
