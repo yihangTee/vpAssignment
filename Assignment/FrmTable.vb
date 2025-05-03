@@ -246,4 +246,10 @@ Public Class FrmTable
     Private Sub grpInfo_Enter(sender As Object, e As EventArgs) Handles grpInfo.Enter
 
     End Sub
+
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        Me.Close()
+        FrmMainPage.Show()
+
+    End Sub
 End Class

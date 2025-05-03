@@ -106,6 +106,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BL-fariz.dbml</DependentUpon>
     </Compile>
+    <Compile Include="FrmMainPage.Designer.vb">
+      <DependentUpon>FrmMainPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMainPage.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmOrder.Designer.vb">
       <DependentUpon>FrmOrder.vb</DependentUpon>
     </Compile>
@@ -154,6 +160,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmMainPage.resx">
+      <DependentUpon>FrmMainPage.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmOrder.resx">
       <DependentUpon>FrmOrder.vb</DependentUpon>
     </EmbeddedResource>

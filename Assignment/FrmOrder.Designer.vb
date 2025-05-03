@@ -22,6 +22,7 @@ Partial Class FrmOrder
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmOrder))
         Me.grpCart = New System.Windows.Forms.GroupBox()
         Me.flpCart = New System.Windows.Forms.FlowLayoutPanel()
         Me.lblTotalAmount = New System.Windows.Forms.Label()
@@ -35,6 +36,8 @@ Partial Class FrmOrder
         Me.btnSendOrder = New System.Windows.Forms.Button()
         Me.btnGoToPayment = New System.Windows.Forms.Button()
         Me.btnBack = New System.Windows.Forms.Button()
+        Me.PrintOrderList = New System.Drawing.Printing.PrintDocument()
+        Me.OrderListPreviewDialog = New System.Windows.Forms.PrintPreviewDialog()
         Me.grpCart.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -166,6 +169,19 @@ Partial Class FrmOrder
         Me.btnBack.Text = "Back"
         Me.btnBack.UseVisualStyleBackColor = True
         '
+        'PrintOrderList
+        '
+        '
+        'OrderListPreviewDialog
+        '
+        Me.OrderListPreviewDialog.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.OrderListPreviewDialog.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.OrderListPreviewDialog.ClientSize = New System.Drawing.Size(400, 300)
+        Me.OrderListPreviewDialog.Enabled = True
+        Me.OrderListPreviewDialog.Icon = CType(resources.GetObject("OrderListPreviewDialog.Icon"), System.Drawing.Icon)
+        Me.OrderListPreviewDialog.Name = "OrderListPreviewDialog"
+        Me.OrderListPreviewDialog.Visible = False
+        '
         'FrmOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -202,5 +218,6 @@ Partial Class FrmOrder
     Friend WithEvents btnGoToPayment As Button
 
     Friend WithEvents btnBack As Button
-
+    Friend WithEvents PrintOrderList As Printing.PrintDocument
+    Friend WithEvents OrderListPreviewDialog As PrintPreviewDialog
 End Class
