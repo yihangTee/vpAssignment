@@ -29,7 +29,7 @@ Public Class FrmOrder
         flpMenu.Controls.Clear()
 
         Dim items = From i In db.Items
-                    Where i.Item_Category = category And i.Item_Quantity > 0
+                    Where i.Item_Category = category
                     Select i
 
         For Each item In items
@@ -70,16 +70,27 @@ Public Class FrmOrder
         Next
     End Sub
 
-
     Private Sub AddToCart(itemId As String)
         Dim db As New BL_farizDataContext()
         Dim item = db.Items.FirstOrDefault(Function(i) i.Item_Id = itemId)
 
         If item IsNot Nothing Then
+            If item.Item_Quantity <= 0 Then
+                MessageBox.Show($"{item.Item_Name} is out of stock.", "Stock Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
             Dim existingPanel = GetCartPanel(itemId)
 
             If existingPanel IsNot Nothing Then
-                UpdateItemQuantity(existingPanel, item, 1)
+                Dim currentQty = GetCartItemQuantity(existingPanel)
+
+                If currentQty >= item.Item_Quantity Then
+                    ShowStockWarning(item)
+                    Return
+                End If
+
+                SetCartItemSummary(existingPanel, item, currentQty + 1)
             Else
                 Dim newPanel = CreateCartPanel(item)
                 flpCart.Controls.Add(newPanel)
@@ -93,29 +104,17 @@ Public Class FrmOrder
         Return flpCart.Controls.OfType(Of Panel)().FirstOrDefault(Function(p) p.Tag.ToString() = itemId)
     End Function
 
+
     Private Sub UpdateItemQuantity(panel As Panel, item As Item, change As Integer)
-        Dim lblSummary = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(l) l.Name.StartsWith("lblSummary"))
-        If lblSummary IsNot Nothing Then
-            Dim parts = lblSummary.Text.Split(CChar("x"))
-            If parts.Length > 1 Then
-                Dim itemName = parts(0).Trim()
+        Dim currentQty = GetCartItemQuantity(panel)
+        Dim newQty = currentQty + change
 
-                Dim quantityAndPrice = parts(1).Trim().Split(CChar("R"))
-                If quantityAndPrice.Length > 1 Then
-                    Dim currentQty As Integer
-                    If Integer.TryParse(quantityAndPrice(0).Trim(), currentQty) Then
-                        Dim newQty = currentQty + change
+        If newQty < 1 Then Return
 
-                        If newQty < 1 Then Return
-
-                        lblSummary.Text = $"{itemName} x {newQty} RM {newQty * item.Item_Price:F2}"
-                        lblSummary.Tag = newQty.ToString()
-                        UpdateTotal()
-                    End If
-                End If
-            End If
-        End If
+        SetCartItemSummary(panel, item, newQty)
+        UpdateTotal()
     End Sub
+
 
     Private Function CreateCartPanel(item As Item) As Panel
         Dim panel As New Panel With {
@@ -182,11 +181,25 @@ Public Class FrmOrder
         If item IsNot Nothing Then
             Dim panel = GetCartPanel(itemId)
             If panel IsNot Nothing Then
-                UpdateItemQuantity(panel, item, change)
+                Dim currentQty = GetCartItemQuantity(panel)
+                Dim newQty = currentQty + change
+
+                If change > 0 AndAlso newQty > item.Item_Quantity Then
+                    ShowStockWarning(item)
+                    Return
+                End If
+
+                If newQty < 1 Then
+                    flpCart.Controls.Remove(panel)
+                Else
+                    SetCartItemSummary(panel, item, newQty)
+                End If
+
                 UpdateTotal()
             End If
         End If
     End Sub
+
 
     Private Sub DeleteItem(itemId As String)
         Dim panel = GetCartPanel(itemId)
@@ -265,6 +278,7 @@ Public Class FrmOrder
         For Each panel As Panel In flpCart.Controls
             Dim itemId As String = panel.Tag.ToString()
             Dim lblSummary = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(l) l.Name.StartsWith("lblSummary"))
+            Dim itemInDb = db.Items.FirstOrDefault(Function(i) i.Item_Id = itemId)
 
             If lblSummary IsNot Nothing Then
                 Dim parts = lblSummary.Text.Split({" x ", " RM "}, StringSplitOptions.RemoveEmptyEntries)
@@ -286,6 +300,7 @@ Public Class FrmOrder
                     }
 
                         db.Order_Items.InsertOnSubmit(newItem)
+                        itemInDb.Item_Quantity -= quantity
                     End If
                 End If
             End If
@@ -301,6 +316,31 @@ Public Class FrmOrder
         Catch ex As Exception
             MessageBox.Show("Failed to save order: " & ex.Message)
         End Try
+    End Sub
+
+    Private Function GetCartItemQuantity(panel As Panel) As Integer
+        Dim lblSummary = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(l) l.Name.StartsWith("lblSummary"))
+        If lblSummary IsNot Nothing Then
+            Dim parts = lblSummary.Text.Split({" x ", " RM "}, StringSplitOptions.RemoveEmptyEntries)
+            Dim quantity As Integer
+            If parts.Length >= 2 AndAlso Integer.TryParse(parts(1).Trim(), quantity) Then
+                Return quantity
+            End If
+        End If
+        Return 0
+    End Function
+
+    Private Sub ShowStockWarning(item As Item)
+        MessageBox.Show($"Not enough stock for {item.Item_Name}. Only {item.Item_Quantity} left.",
+                    "Stock Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    End Sub
+
+    Private Sub SetCartItemSummary(panel As Panel, item As Item, quantity As Integer)
+        Dim lblSummary = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(l) l.Name.StartsWith("lblSummary"))
+        If lblSummary IsNot Nothing Then
+            lblSummary.Text = $"{item.Item_Name} x {quantity} RM {quantity * item.Item_Price:F2}"
+            lblSummary.Tag = quantity.ToString()
+        End If
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
