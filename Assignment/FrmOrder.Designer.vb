@@ -125,6 +125,7 @@ Partial Class FrmOrder
         '
         'cmbCategory
         '
+        Me.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCategory.FormattingEnabled = True
         Me.cmbCategory.Location = New System.Drawing.Point(654, 6)
         Me.cmbCategory.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)

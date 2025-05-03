@@ -26,6 +26,7 @@ Partial Class FrmMainPage
         Me.btnOrderPage = New System.Windows.Forms.Button()
         Me.btnItemModule = New System.Windows.Forms.Button()
         Me.btnReport = New System.Windows.Forms.Button()
+        Me.btnLogOut = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnStaffModule
@@ -64,11 +65,21 @@ Partial Class FrmMainPage
         Me.btnReport.Text = "Report"
         Me.btnReport.UseVisualStyleBackColor = True
         '
+        'btnLogOut
+        '
+        Me.btnLogOut.Location = New System.Drawing.Point(307, 282)
+        Me.btnLogOut.Name = "btnLogOut"
+        Me.btnLogOut.Size = New System.Drawing.Size(128, 86)
+        Me.btnLogOut.TabIndex = 4
+        Me.btnLogOut.Text = "Log out"
+        Me.btnLogOut.UseVisualStyleBackColor = True
+        '
         'FrmMainPage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnLogOut)
         Me.Controls.Add(Me.btnReport)
         Me.Controls.Add(Me.btnItemModule)
         Me.Controls.Add(Me.btnOrderPage)
@@ -83,4 +94,5 @@ Partial Class FrmMainPage
     Friend WithEvents btnOrderPage As Button
     Friend WithEvents btnItemModule As Button
     Friend WithEvents btnReport As Button
+    Friend WithEvents btnLogOut As Button
 End Class
