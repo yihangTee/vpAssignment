@@ -459,9 +459,9 @@ Partial Public Class [Order]
 	
 	Private _OrderID As String
 	
-	Private _StaffID As Integer
+	Private _StaffID As String
 	
-	Private _TableNo As Integer
+	Private _TableNo As String
 	
 	Private _OrderDateTime As Date
 	
@@ -478,11 +478,11 @@ Partial Public Class [Order]
     End Sub
     Partial Private Sub OnOrderIDChanged()
     End Sub
-    Partial Private Sub OnStaffIDChanging(value As Integer)
+    Partial Private Sub OnStaffIDChanging(value As String)
     End Sub
     Partial Private Sub OnStaffIDChanged()
     End Sub
-    Partial Private Sub OnTableNoChanging(value As Integer)
+    Partial Private Sub OnTableNoChanging(value As String)
     End Sub
     Partial Private Sub OnTableNoChanged()
     End Sub
@@ -517,14 +517,13 @@ Partial Public Class [Order]
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_StaffID", DbType:="Int NOT NULL")>  _
-	Public Property StaffID() As Integer
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_StaffID", DbType:="VarChar(10) NOT NULL", CanBeNull:=false)>  _
+	Public Property StaffID() As String
 		Get
 			Return Me._StaffID
 		End Get
 		Set
-			If ((Me._StaffID = value)  _
-						= false) Then
+			If (String.Equals(Me._StaffID, value) = false) Then
 				Me.OnStaffIDChanging(value)
 				Me.SendPropertyChanging
 				Me._StaffID = value
@@ -534,14 +533,13 @@ Partial Public Class [Order]
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TableNo", DbType:="Int NOT NULL")>  _
-	Public Property TableNo() As Integer
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TableNo", DbType:="VarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property TableNo() As String
 		Get
 			Return Me._TableNo
 		End Get
 		Set
-			If ((Me._TableNo = value)  _
-						= false) Then
+			If (String.Equals(Me._TableNo, value) = false) Then
 				Me.OnTableNoChanging(value)
 				Me.SendPropertyChanging
 				Me._TableNo = value

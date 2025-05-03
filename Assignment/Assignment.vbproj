@@ -216,12 +216,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BL-Fariz-.mdf">
+
+    <Content Include="BL-fariz.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="BL-Fariz-_log.ldf">
+    <Content Include="BL-fariz_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>BL-Fariz-.mdf</DependentUpon>
+      <DependentUpon>BL-fariz.mdf</DependentUpon>
+
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

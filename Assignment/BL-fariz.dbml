@@ -23,8 +23,10 @@
   <Table Name="dbo.[Order]" Member="Orders">
     <Type Name="Order">
       <Column Name="OrderID" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="StaffID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TableNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+
+      <Column Name="StaffID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="TableNo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+
       <Column Name="OrderDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="TotalAmount" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
     </Type>

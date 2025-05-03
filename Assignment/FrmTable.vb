@@ -47,7 +47,7 @@ Public Class FrmTable
         Dim btn As New Button With {
         .Name = tableName,
         .Text = tableName,
-        .Size = New Size(80, 80),
+        .Size = New Size(50, 50),
         .BackColor = Color.LightGreen,
         .Location = New Point(10, 10),
         .ContextMenuStrip = If(EditMode, cmsTable, Nothing)
@@ -188,7 +188,7 @@ Public Class FrmTable
                 Dim btn As New Button With {
             .Text = t.Name,
             .Location = New Point(CInt(t.X), CInt(t.Y)),
-            .Size = New Size(80, 80),
+            .Size = New Size(60, 60),
             .BackColor = Color.FromArgb(CInt(t.Color)),
             .ContextMenuStrip = cmsTable
         }
