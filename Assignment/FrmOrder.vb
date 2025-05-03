@@ -2,6 +2,8 @@
 Imports System.Data.SqlClient
 
 Public Class FrmOrder
+    Public Property SelectedTableNo As String
+
     Private Sub FrmOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadCategories()
     End Sub
@@ -104,7 +106,6 @@ Public Class FrmOrder
         Return flpCart.Controls.OfType(Of Panel)().FirstOrDefault(Function(p) p.Tag.ToString() = itemId)
     End Function
 
-
     Private Sub UpdateItemQuantity(panel As Panel, item As Item, change As Integer)
         Dim currentQty = GetCartItemQuantity(panel)
         Dim newQty = currentQty + change
@@ -114,7 +115,6 @@ Public Class FrmOrder
         SetCartItemSummary(panel, item, newQty)
         UpdateTotal()
     End Sub
-
 
     Private Function CreateCartPanel(item As Item) As Panel
         Dim panel As New Panel With {
@@ -200,7 +200,6 @@ Public Class FrmOrder
         End If
     End Sub
 
-
     Private Sub DeleteItem(itemId As String)
         Dim panel = GetCartPanel(itemId)
         If panel IsNot Nothing Then
@@ -243,6 +242,19 @@ Public Class FrmOrder
         Return "ORD00001"
     End Function
 
+    Private Function GeneratePaymentID(ByVal db As BL_farizDataContext) As String
+        Dim lastpayment = (From p In db.Payments
+                           Order By p.PaymentID Descending
+                           Select p.PaymentID).FirstOrDefault()
+
+        If lastpayment IsNot Nothing AndAlso lastpayment.StartsWith("PY") Then
+            Dim num = Integer.Parse(lastpayment.Substring(3)) + 1
+            Return "PY" & num.ToString("D5")
+        End If
+
+        Return "PY00001"
+    End Function
+
     Private Sub btnSendOrder_Click(sender As Object, e As EventArgs) Handles btnSendOrder.Click
         If flpCart.Controls.Count = 0 Then
             MessageBox.Show("Cart is empty.")
@@ -262,9 +274,19 @@ Public Class FrmOrder
         .TableNo = tableNo,
         .TotalAmount = totalAmount,
         .OrderDateTime = DateTime.Now
-    }
-
+        }
         db.Orders.InsertOnSubmit(newOrder)
+
+        Dim paymentID As String = GeneratePaymentID(db)
+        Dim newPayment As New Payment With {
+        .PaymentID = paymentID,
+        .OrderID = orderID,
+        .PaymentMethod = "Not yet Pay",
+        .AmountPaid = totalAmount,
+        .DateTime = Nothing,
+        .PaymentStatus = "Pending"
+        }
+        db.Payments.InsertOnSubmit(newPayment)
 
         Dim lastItemID = (From oi In db.Order_Items
                           Order By oi.OrderItemID Descending
@@ -353,6 +375,8 @@ Public Class FrmOrder
     End Sub
 
     Private Sub btnGoToPayment_Click(sender As Object, e As EventArgs) Handles btnGoToPayment.Click
-        PaymentMain.Show()
+        Dim paymentPage As New PaymentMain()
+        paymentPage.SelectedTableNo = lblTableNo.Text
+        paymentPage.Show()
     End Sub
 End Class

@@ -30,14 +30,6 @@
       <Column Name="SubTotal" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.TableNo" Member="TableNos">
-    <Type Name="TableNo">
-      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="X" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Y" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Color" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Payment" Member="Payments">
     <Type Name="Payment">
       <Column Name="PaymentID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -46,6 +38,14 @@
       <Column Name="AmountPaid" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
       <Column Name="DateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="PaymentStatus" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TableNo" Member="TableNos">
+    <Type Name="TableNo">
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="X" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Y" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Color" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
