@@ -347,4 +347,12 @@ Public Class FrmOrder
         Me.Close()
 
     End Sub
+
+    Private Sub flpCart_Paint(sender As Object, e As PaintEventArgs) Handles flpCart.Paint
+
+    End Sub
+
+    Private Sub btnGoToPayment_Click(sender As Object, e As EventArgs) Handles btnGoToPayment.Click
+        PaymentMain.Show()
+    End Sub
 End Class

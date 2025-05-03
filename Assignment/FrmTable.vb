@@ -238,4 +238,12 @@ Public Class FrmTable
         Timer1.Stop()
         Me.Close()
     End Sub
+
+    Private Sub pnlTables_Paint(sender As Object, e As PaintEventArgs) Handles pnlTables.Paint
+
+    End Sub
+
+    Private Sub grpInfo_Enter(sender As Object, e As EventArgs) Handles grpInfo.Enter
+
+    End Sub
 End Class

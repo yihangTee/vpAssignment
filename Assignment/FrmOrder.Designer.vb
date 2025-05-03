@@ -33,6 +33,7 @@ Partial Class FrmOrder
         Me.cmbCategory = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnSendOrder = New System.Windows.Forms.Button()
+        Me.btnGoToPayment = New System.Windows.Forms.Button()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.grpCart.SuspendLayout()
         Me.SuspendLayout()
@@ -146,6 +147,15 @@ Partial Class FrmOrder
         Me.btnSendOrder.Text = "Send Order"
         Me.btnSendOrder.UseVisualStyleBackColor = True
         '
+        'btnGoToPayment
+        '
+        Me.btnGoToPayment.Location = New System.Drawing.Point(621, 461)
+        Me.btnGoToPayment.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnGoToPayment.Name = "btnGoToPayment"
+        Me.btnGoToPayment.Size = New System.Drawing.Size(106, 30)
+        Me.btnGoToPayment.TabIndex = 9
+        Me.btnGoToPayment.Text = "Payment"
+        Me.btnGoToPayment.UseVisualStyleBackColor = True
         'btnBack
         '
         Me.btnBack.Location = New System.Drawing.Point(1045, 14)
@@ -159,8 +169,13 @@ Partial Class FrmOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+
+        Me.ClientSize = New System.Drawing.Size(1022, 559)
+        Me.Controls.Add(Me.btnGoToPayment)
+
         Me.ClientSize = New System.Drawing.Size(1150, 699)
         Me.Controls.Add(Me.btnBack)
+
         Me.Controls.Add(Me.btnSendOrder)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cmbCategory)
@@ -186,5 +201,9 @@ Partial Class FrmOrder
     Friend WithEvents Label3 As Label
     Friend WithEvents btnSendOrder As Button
     Friend WithEvents flpCart As FlowLayoutPanel
+
+    Friend WithEvents btnGoToPayment As Button
+
     Friend WithEvents btnBack As Button
+
 End Class

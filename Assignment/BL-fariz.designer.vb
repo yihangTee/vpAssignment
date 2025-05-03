@@ -22,7 +22,7 @@ Imports System.Linq.Expressions
 Imports System.Reflection
 
 
-<Global.System.Data.Linq.Mapping.DatabaseAttribute(Name:="BL-fariz")>  _
+<Global.System.Data.Linq.Mapping.DatabaseAttribute(Name:="BL-Fariz-")>  _
 Partial Public Class BL_farizDataContext
 	Inherits System.Data.Linq.DataContext
 	
@@ -37,6 +37,12 @@ Partial Public Class BL_farizDataContext
     End Sub
   Partial Private Sub DeleteItem(instance As Item)
     End Sub
+  Partial Private Sub InsertTableNo(instance As TableNo)
+    End Sub
+  Partial Private Sub UpdateTableNo(instance As TableNo)
+    End Sub
+  Partial Private Sub DeleteTableNo(instance As TableNo)
+    End Sub
   Partial Private Sub InsertOrder(instance As [Order])
     End Sub
   Partial Private Sub UpdateOrder(instance As [Order])
@@ -49,16 +55,10 @@ Partial Public Class BL_farizDataContext
     End Sub
   Partial Private Sub DeleteOrder_Item(instance As Order_Item)
     End Sub
-  Partial Private Sub InsertTableNo(instance As TableNo)
-    End Sub
-  Partial Private Sub UpdateTableNo(instance As TableNo)
-    End Sub
-  Partial Private Sub DeleteTableNo(instance As TableNo)
-    End Sub
   #End Region
 	
 	Public Sub New()
-		MyBase.New(Global.Assignment.My.MySettings.Default.BL_FarizConnectionString, mappingSource)
+		MyBase.New(Global.Assignment.My.MySettings.Default.BL_Fariz_ConnectionString, mappingSource)
 		OnCreated
 	End Sub
 	
@@ -88,6 +88,12 @@ Partial Public Class BL_farizDataContext
 		End Get
 	End Property
 	
+	Public ReadOnly Property TableNos() As System.Data.Linq.Table(Of TableNo)
+		Get
+			Return Me.GetTable(Of TableNo)
+		End Get
+	End Property
+	
 	Public ReadOnly Property Orders() As System.Data.Linq.Table(Of [Order])
 		Get
 			Return Me.GetTable(Of [Order])
@@ -97,12 +103,6 @@ Partial Public Class BL_farizDataContext
 	Public ReadOnly Property Order_Items() As System.Data.Linq.Table(Of Order_Item)
 		Get
 			Return Me.GetTable(Of Order_Item)
-		End Get
-	End Property
-	
-	Public ReadOnly Property TableNos() As System.Data.Linq.Table(Of TableNo)
-		Get
-			Return Me.GetTable(Of TableNo)
 		End Get
 	End Property
 End Class
@@ -301,6 +301,133 @@ Partial Public Class Item
 				Me._Item_Picture = value
 				Me.SendPropertyChanged("Item_Picture")
 				Me.OnItem_PictureChanged
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.TableNo")>  _
+Partial Public Class TableNo
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _Name As String
+	
+	Private _X As System.Nullable(Of Integer)
+	
+	Private _Y As System.Nullable(Of Integer)
+	
+	Private _Color As System.Nullable(Of Integer)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnNameChanging(value As String)
+    End Sub
+    Partial Private Sub OnNameChanged()
+    End Sub
+    Partial Private Sub OnXChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnXChanged()
+    End Sub
+    Partial Private Sub OnYChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnYChanged()
+    End Sub
+    Partial Private Sub OnColorChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnColorChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Name", DbType:="VarChar(50) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true)>  _
+	Public Property Name() As String
+		Get
+			Return Me._Name
+		End Get
+		Set
+			If (String.Equals(Me._Name, value) = false) Then
+				Me.OnNameChanging(value)
+				Me.SendPropertyChanging
+				Me._Name = value
+				Me.SendPropertyChanged("Name")
+				Me.OnNameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_X", DbType:="Int")>  _
+	Public Property X() As System.Nullable(Of Integer)
+		Get
+			Return Me._X
+		End Get
+		Set
+			If (Me._X.Equals(value) = false) Then
+				Me.OnXChanging(value)
+				Me.SendPropertyChanging
+				Me._X = value
+				Me.SendPropertyChanged("X")
+				Me.OnXChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Y", DbType:="Int")>  _
+	Public Property Y() As System.Nullable(Of Integer)
+		Get
+			Return Me._Y
+		End Get
+		Set
+			If (Me._Y.Equals(value) = false) Then
+				Me.OnYChanging(value)
+				Me.SendPropertyChanging
+				Me._Y = value
+				Me.SendPropertyChanged("Y")
+				Me.OnYChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Color", DbType:="Int")>  _
+	Public Property Color() As System.Nullable(Of Integer)
+		Get
+			Return Me._Color
+		End Get
+		Set
+			If (Me._Color.Equals(value) = false) Then
+				Me.OnColorChanging(value)
+				Me.SendPropertyChanging
+				Me._Color = value
+				Me.SendPropertyChanged("Color")
+				Me.OnColorChanged
 			End If
 		End Set
 	End Property
@@ -603,133 +730,6 @@ Partial Public Class Order_Item
 				Me._SubTotal = value
 				Me.SendPropertyChanged("SubTotal")
 				Me.OnSubTotalChanged
-			End If
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-End Class
-
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.TableNo")>  _
-Partial Public Class TableNo
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _Name As String
-	
-	Private _X As System.Nullable(Of Integer)
-	
-	Private _Y As System.Nullable(Of Integer)
-	
-	Private _Color As System.Nullable(Of Integer)
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OnNameChanging(value As String)
-    End Sub
-    Partial Private Sub OnNameChanged()
-    End Sub
-    Partial Private Sub OnXChanging(value As System.Nullable(Of Integer))
-    End Sub
-    Partial Private Sub OnXChanged()
-    End Sub
-    Partial Private Sub OnYChanging(value As System.Nullable(Of Integer))
-    End Sub
-    Partial Private Sub OnYChanged()
-    End Sub
-    Partial Private Sub OnColorChanging(value As System.Nullable(Of Integer))
-    End Sub
-    Partial Private Sub OnColorChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Name", DbType:="VarChar(50) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true)>  _
-	Public Property Name() As String
-		Get
-			Return Me._Name
-		End Get
-		Set
-			If (String.Equals(Me._Name, value) = false) Then
-				Me.OnNameChanging(value)
-				Me.SendPropertyChanging
-				Me._Name = value
-				Me.SendPropertyChanged("Name")
-				Me.OnNameChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_X", DbType:="Int")>  _
-	Public Property X() As System.Nullable(Of Integer)
-		Get
-			Return Me._X
-		End Get
-		Set
-			If (Me._X.Equals(value) = false) Then
-				Me.OnXChanging(value)
-				Me.SendPropertyChanging
-				Me._X = value
-				Me.SendPropertyChanged("X")
-				Me.OnXChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Y", DbType:="Int")>  _
-	Public Property Y() As System.Nullable(Of Integer)
-		Get
-			Return Me._Y
-		End Get
-		Set
-			If (Me._Y.Equals(value) = false) Then
-				Me.OnYChanging(value)
-				Me.SendPropertyChanging
-				Me._Y = value
-				Me.SendPropertyChanged("Y")
-				Me.OnYChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Color", DbType:="Int")>  _
-	Public Property Color() As System.Nullable(Of Integer)
-		Get
-			Return Me._Color
-		End Get
-		Set
-			If (Me._Color.Equals(value) = false) Then
-				Me.OnColorChanging(value)
-				Me.SendPropertyChanging
-				Me._Color = value
-				Me.SendPropertyChanged("Color")
-				Me.OnColorChanged
 			End If
 		End Set
 	End Property

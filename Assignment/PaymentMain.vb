@@ -1,4 +1,5 @@
-﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+﻿Imports System.Data.Linq
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class PaymentMain
     Private Sub Button1_Click(sender As Object, e As EventArgs)
@@ -6,7 +7,10 @@ Public Class PaymentMain
     End Sub
 
     Dim cashAmount As String = ""
-    Dim amount As Decimal = 0
+    Dim amount As Decimal = 0D
+    Dim orderTotal As Decimal = 0D
+
+
     Private Sub NumberButton_Click(sender As Object, e As EventArgs) Handles key1.Click, key2.Click, key3.Click, key4.Click, key5.Click, key6.Click, key7.Click, key8.Click, key9.Click, key0.Click, keyDot.Click
         Dim btn = CType(sender, System.Windows.Forms.Button)
         Dim key As String = btn.Text
@@ -19,12 +23,22 @@ Public Class PaymentMain
                 cashAmount &= "."
             End If
         Else
-            ' Limit to 2 digits after decimal
+            ' Check if already has 2 digits after decimal
             If cashAmount.Contains(".") Then
                 Dim decimalPart As String = cashAmount.Split("."c)(1)
                 If decimalPart.Length >= 2 Then Exit Sub
             End If
-            cashAmount &= key
+
+            ' Preview the new value
+            Dim newAmount As String = cashAmount & key
+
+            ' Try to parse and check the numeric value
+            Dim numericValue As Decimal
+            If Decimal.TryParse(newAmount, numericValue) Then
+                If numericValue > 10000D Then Exit Sub
+            End If
+
+            cashAmount = newAmount
         End If
 
         lblPayCash.Text = "RM " & cashAmount
@@ -39,30 +53,163 @@ Public Class PaymentMain
 
     Private Sub RadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles radCash.CheckedChanged, radQR.CheckedChanged
         panelPaymentCash.Visible = radCash.Checked
+
+        If radQR.Checked Then
+            Me.Hide()
+            Dim qrForm As New PaymentQR()
+            qrForm.ShowDialog()
+            radCash.Checked = True
+            Me.Show()
+        End If
+
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
-        cashAmount = ""
+        cashAmount = "0.00"
         amount = 0.00D
         lblPayCash.Text = "RM " & cashAmount
         lblChange.Text = "RM " & amount
     End Sub
 
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
-        Dim total As Decimal = 10.2D
 
         If Decimal.TryParse(cashAmount, amount) Then
-            Dim result As Decimal = amount - total
-            lblChange.Text = "RM " & result.ToString("F2")
+            Dim result As Decimal = amount - orderTotal
+            If result < 0 Then
+                MessageBox.Show("Insufficient funds. Please enter a valid amount.")
+            Else
+                lblChange.Text = "RM " & result.ToString("F2")
+            End If
         Else
             MessageBox.Show("Invalid number")
         End If
     End Sub
+
 
     Private Sub btnSuccessPay_Click(sender As Object, e As EventArgs) Handles btnSuccessPay.Click
         Me.Close()
     End Sub
 
     Private Sub PaymentMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ShowLatestOrderItemDetails()
+    End Sub
+    Private Sub ShowLatestOrderItemDetails()
+
+        Dim db As New BL_farizDataContext()
+
+        ' Get the latest items (based on Item_Id) for OrderID = 'OR001'
+        Dim latestItems = From oi In db.Order_Items
+                          Join i In db.Items On oi.Item_Id Equals i.Item_Id
+                          Where oi.OrderID = "OR001"
+                          Select New With {
+                              .ItemName = i.Item_Name,
+                              .ItemPrice = i.Item_Price,
+                              .Quantity = oi.Quantity,
+                              .SubTotal = oi.SubTotal
+                          }
+
+        If latestItems.Any() Then
+            ' Create header labels for the table
+            Dim topOffset As Integer = 60
+            Dim rowHeight As Integer = 25
+            Dim fontSetting As New Font("Yu Gothic UI", 10.2F)
+
+
+            ' Add the actual item details
+            Dim rowNumber As Integer = 1
+            orderTotal = 0D
+
+            For Each item In latestItems
+                Dim lblNumber As New Label With {
+                    .Text = rowNumber.ToString(),
+                    .Location = New Point(24, topOffset),
+                    .AutoSize = True,
+                    .Font = fontSetting
+                }
+
+                Dim lblName As New Label With {
+                    .Text = item.ItemName,
+                    .Location = New Point(55, topOffset),
+                    .AutoSize = True,
+                    .Font = fontSetting
+                }
+
+                Dim lblPrice As New Label With {
+                    .Text = "RM " & item.ItemPrice.ToString("F2"),
+                    .Location = New Point(190, topOffset),
+                    .AutoSize = True,
+                    .Font = fontSetting
+                }
+
+                Dim lblQty As New Label With {
+                    .Text = item.Quantity.ToString(),
+                    .Location = New Point(300, topOffset),
+                    .AutoSize = True,
+                    .Font = fontSetting
+                }
+
+                Dim lblSubtotal As New Label With {
+                    .Text = "RM" & item.SubTotal.ToString("F2"),
+                    .Location = New Point(370, topOffset),
+                    .AutoSize = True,
+                    .Font = fontSetting
+                }
+
+                ' Add all labels to the GroupBox
+                grpOrderItem.Controls.AddRange({lblNumber, lblName, lblPrice, lblQty, lblSubtotal})
+
+                ' Move to next row
+                topOffset += rowHeight
+                rowNumber += 1
+                orderTotal += item.SubTotal
+            Next
+        Else
+            MessageBox.Show("No order items found for OR001.")
+        End If
+        lbltotalPrice.Text = "RM " & orderTotal.ToString("F2")
+    End Sub
+
+    Private Sub CashButton_Click(sender As Object, e As EventArgs) Handles btn100.Click, btn50.Click, btn20.Click, btn10.Click, btn5.Click, btn1.Click, btn20sen.Click, btn10sen.Click
+        Dim btn = CType(sender, System.Windows.Forms.Button)
+        Dim value As Decimal = 0D
+
+        ' Parse button text
+        Select Case btn.Text
+            Case "RM100" : value = 100D
+            Case "RM50" : value = 50D
+            Case "RM20" : value = 20D
+            Case "RM10" : value = 10D
+            Case "RM5" : value = 5D
+            Case "RM1" : value = 1D
+            Case "20 sen" : value = 0.2D
+            Case "10 sen" : value = 0.1D
+        End Select
+
+        ' ADD value instead of overwrite
+        Dim currentAmount As Decimal = 0D
+        Decimal.TryParse(cashAmount, currentAmount)
+
+        currentAmount += value
+        If currentAmount > 10000D Then currentAmount = 10000D
+
+        cashAmount = currentAmount.ToString("F2")
+        lblPayCash.Text = "RM " & cashAmount
+
+    End Sub
+
+    Private isChangeMode As Boolean = False
+
+    Private Sub btnChangeMode_Click(sender As Object, e As EventArgs) Handles btnChangeMode.Click
+        isChangeMode = Not isChangeMode
+
+        PanelKeyboard.Visible = Not isChangeMode
+        panelCashInput.Visible = isChangeMode
+
+        btnChangeMode.Text = If(isChangeMode, "Switch to Keypad", "Switch to Cash Input")
+    End Sub
+
+    Private Sub grpOrderItem_Enter(sender As Object, e As EventArgs) Handles grpOrderItem.Enter
+
     End Sub
 End Class
+
