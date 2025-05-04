@@ -27,6 +27,7 @@ Public Class FrmOrder
         End If
     End Sub
 
+
     Private Sub LoadItemsByCategory(category As String)
         Dim db As New BL_farizDataContext()
         flpMenu.Controls.Clear()
@@ -37,34 +38,54 @@ Public Class FrmOrder
 
         For Each item In items
             Dim itemPanel As New Panel With {
-            .Width = 120,
-            .Height = 120,
+            .Width = 140,
+            .Height = 180,
             .BorderStyle = BorderStyle.Fixed3D,
             .Tag = item.Item_Id
         }
 
+            Dim picBox As New PictureBox With {
+            .Width = 120,
+            .Height = 80,
+            .SizeMode = PictureBoxSizeMode.Zoom,
+            .Location = New Point(10, 5)
+        }
+
+            If item.Item_Picture IsNot Nothing Then
+                Using ms As New IO.MemoryStream(item.Item_Picture.ToArray())
+                    picBox.Image = Image.FromStream(ms)
+                End Using
+            End If
+
             Dim lblName As New Label With {
             .Text = item.Item_Name,
-            .AutoSize = True,
-            .Location = New Point(10, 10)
+            .AutoSize = False,
+            .Width = 120,
+            .Height = 20,
+            .TextAlign = ContentAlignment.MiddleLeft,
+            .Location = New Point(10, picBox.Bottom + 5)
         }
 
             Dim lblPrice As New Label With {
             .Text = "RM " & item.Item_Price.ToString("F2"),
-            .AutoSize = True,
-            .Location = New Point(10, lblName.Bottom + 5)
+            .AutoSize = False,
+            .Width = 120,
+            .Height = 20,
+            .TextAlign = ContentAlignment.MiddleLeft,
+            .Location = New Point(10, lblName.Bottom)
         }
 
             Dim btnAdd As New Button With {
             .Text = "Add",
             .Width = 60,
-            .Location = New Point(10, lblPrice.Bottom + 10)
+            .Location = New Point(10, lblPrice.Bottom + 5)
         }
 
             AddHandler btnAdd.Click, Sub(s, e)
                                          AddToCart(item.Item_Id)
                                      End Sub
 
+            itemPanel.Controls.Add(picBox)
             itemPanel.Controls.Add(lblName)
             itemPanel.Controls.Add(lblPrice)
             itemPanel.Controls.Add(btnAdd)
