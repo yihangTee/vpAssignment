@@ -22,9 +22,9 @@ Partial Class FrmSalesReport
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSalesReport))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmbItemType = New System.Windows.Forms.ComboBox()
@@ -41,8 +41,10 @@ Partial Class FrmSalesReport
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FieldGuidelineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.chartSales, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -69,7 +71,7 @@ Partial Class FrmSalesReport
         Me.btnGenerate.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnGenerate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGenerate.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnGenerate.Location = New System.Drawing.Point(331, 525)
+        Me.btnGenerate.Location = New System.Drawing.Point(444, 525)
         Me.btnGenerate.Name = "btnGenerate"
         Me.btnGenerate.Size = New System.Drawing.Size(156, 37)
         Me.btnGenerate.TabIndex = 2
@@ -78,16 +80,16 @@ Partial Class FrmSalesReport
         '
         'chartSales
         '
-        ChartArea2.Name = "ChartArea1"
-        Me.chartSales.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.chartSales.Legends.Add(Legend2)
+        ChartArea4.Name = "ChartArea1"
+        Me.chartSales.ChartAreas.Add(ChartArea4)
+        Legend4.Name = "Legend1"
+        Me.chartSales.Legends.Add(Legend4)
         Me.chartSales.Location = New System.Drawing.Point(68, 114)
         Me.chartSales.Name = "chartSales"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.chartSales.Series.Add(Series2)
+        Series4.ChartArea = "ChartArea1"
+        Series4.Legend = "Legend1"
+        Series4.Name = "Series1"
+        Me.chartSales.Series.Add(Series4)
         Me.chartSales.Size = New System.Drawing.Size(645, 405)
         Me.chartSales.TabIndex = 3
         Me.chartSales.Text = "Chart1"
@@ -117,9 +119,9 @@ Partial Class FrmSalesReport
         Me.btnBack.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBack.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnBack.Location = New System.Drawing.Point(606, 525)
+        Me.btnBack.Location = New System.Drawing.Point(806, 48)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(107, 37)
+        Me.btnBack.Size = New System.Drawing.Size(77, 38)
         Me.btnBack.TabIndex = 6
         Me.btnBack.Text = "Back"
         Me.btnBack.UseVisualStyleBackColor = False
@@ -142,7 +144,7 @@ Partial Class FrmSalesReport
         Me.btnPrint.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnPrint.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPrint.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnPrint.Location = New System.Drawing.Point(493, 525)
+        Me.btnPrint.Location = New System.Drawing.Point(606, 525)
         Me.btnPrint.Name = "btnPrint"
         Me.btnPrint.Size = New System.Drawing.Size(107, 37)
         Me.btnPrint.TabIndex = 7
@@ -156,7 +158,7 @@ Partial Class FrmSalesReport
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(841, 33)
+        Me.MenuStrip1.Size = New System.Drawing.Size(941, 33)
         Me.MenuStrip1.TabIndex = 8
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -188,13 +190,25 @@ Partial Class FrmSalesReport
         Me.FieldGuidelineToolStripMenuItem.Size = New System.Drawing.Size(292, 34)
         Me.FieldGuidelineToolStripMenuItem.Text = "Field Guideline"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Image = Global.Assignment.My.Resources.Resources.Back
+        Me.PictureBox1.Location = New System.Drawing.Point(889, 47)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(40, 39)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 9
+        Me.PictureBox1.TabStop = False
+        '
         'FrmSalesReport
         '
         Me.AcceptButton = Me.btnGenerate
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(841, 595)
+        Me.ClientSize = New System.Drawing.Size(941, 595)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnPrint)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.cmbChartType)
@@ -210,6 +224,7 @@ Partial Class FrmSalesReport
         CType(Me.chartSales, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -230,4 +245,5 @@ Partial Class FrmSalesReport
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FieldGuidelineToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
