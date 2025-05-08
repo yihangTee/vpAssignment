@@ -79,4 +79,18 @@
 
         e.Graphics.DrawImage(bmp, 50, 50)
     End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        Me.Close()
+
+    End Sub
+
+    Private Sub FieldGuidelineToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FieldGuidelineToolStripMenuItem.Click
+        MessageBox.Show(
+        "SALES REPORT SAFEGUARDS:" & vbCrLf & vbCrLf &
+        "1. Generate report by its category and the type of chart." & vbCrLf &
+        "2. User can print out the report if they want",
+        "Sales Report Help",
+        MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
 End Class

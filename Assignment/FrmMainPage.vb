@@ -15,4 +15,5 @@
     Private Sub btnReport_Click(sender As Object, e As EventArgs) Handles btnReport.Click
         FrmSalesReport.ShowDialog()
     End Sub
+
 End Class

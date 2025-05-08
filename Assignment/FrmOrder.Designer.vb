@@ -38,12 +38,19 @@ Partial Class FrmOrder
         Me.btnBack = New System.Windows.Forms.Button()
         Me.PrintOrderList = New System.Drawing.Printing.PrintDocument()
         Me.OrderListPreviewDialog = New System.Windows.Forms.PrintPreviewDialog()
+        Me.msOrderPage = New System.Windows.Forms.MenuStrip()
+        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FieldGuidelineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.grpCart.SuspendLayout()
+        Me.msOrderPage.SuspendLayout()
         Me.SuspendLayout()
         '
         'grpCart
         '
-        Me.grpCart.BackColor = System.Drawing.SystemColors.Control
+        Me.grpCart.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
         Me.grpCart.Controls.Add(Me.flpCart)
         Me.grpCart.Controls.Add(Me.lblTotalAmount)
         Me.grpCart.Controls.Add(Me.Label2)
@@ -51,7 +58,8 @@ Partial Class FrmOrder
         Me.grpCart.Controls.Add(Me.lblOrderItem)
         Me.grpCart.Controls.Add(Me.label1)
         Me.grpCart.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpCart.Location = New System.Drawing.Point(28, 14)
+        Me.grpCart.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.grpCart.Location = New System.Drawing.Point(28, 39)
         Me.grpCart.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.grpCart.Name = "grpCart"
         Me.grpCart.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -117,17 +125,17 @@ Partial Class FrmOrder
         '
         'flpMenu
         '
-        Me.flpMenu.Location = New System.Drawing.Point(554, 54)
+        Me.flpMenu.Location = New System.Drawing.Point(554, 93)
         Me.flpMenu.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.flpMenu.Name = "flpMenu"
-        Me.flpMenu.Size = New System.Drawing.Size(576, 509)
+        Me.flpMenu.Size = New System.Drawing.Size(576, 548)
         Me.flpMenu.TabIndex = 2
         '
         'cmbCategory
         '
         Me.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCategory.FormattingEnabled = True
-        Me.cmbCategory.Location = New System.Drawing.Point(654, 6)
+        Me.cmbCategory.Location = New System.Drawing.Point(654, 47)
         Me.cmbCategory.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmbCategory.Name = "cmbCategory"
         Me.cmbCategory.Size = New System.Drawing.Size(121, 28)
@@ -135,7 +143,8 @@ Partial Class FrmOrder
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(554, 9)
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label3.Location = New System.Drawing.Point(554, 49)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(94, 25)
         Me.Label3.TabIndex = 7
@@ -143,32 +152,41 @@ Partial Class FrmOrder
         '
         'btnSendOrder
         '
-        Me.btnSendOrder.Location = New System.Drawing.Point(557, 576)
+        Me.btnSendOrder.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.btnSendOrder.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSendOrder.ForeColor = System.Drawing.Color.DarkSlateBlue
+        Me.btnSendOrder.Location = New System.Drawing.Point(553, 654)
         Me.btnSendOrder.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnSendOrder.Name = "btnSendOrder"
-        Me.btnSendOrder.Size = New System.Drawing.Size(119, 38)
+        Me.btnSendOrder.Size = New System.Drawing.Size(175, 46)
         Me.btnSendOrder.TabIndex = 8
         Me.btnSendOrder.Text = "Send Order"
-        Me.btnSendOrder.UseVisualStyleBackColor = True
+        Me.btnSendOrder.UseVisualStyleBackColor = False
         '
         'btnGoToPayment
         '
-        Me.btnGoToPayment.Location = New System.Drawing.Point(682, 576)
+        Me.btnGoToPayment.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.btnGoToPayment.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGoToPayment.ForeColor = System.Drawing.Color.DarkSlateBlue
+        Me.btnGoToPayment.Location = New System.Drawing.Point(734, 654)
         Me.btnGoToPayment.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGoToPayment.Name = "btnGoToPayment"
-        Me.btnGoToPayment.Size = New System.Drawing.Size(106, 38)
+        Me.btnGoToPayment.Size = New System.Drawing.Size(139, 46)
         Me.btnGoToPayment.TabIndex = 9
         Me.btnGoToPayment.Text = "Payment"
-        Me.btnGoToPayment.UseVisualStyleBackColor = True
+        Me.btnGoToPayment.UseVisualStyleBackColor = False
         '
         'btnBack
         '
-        Me.btnBack.Location = New System.Drawing.Point(1045, 14)
+        Me.btnBack.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBack.ForeColor = System.Drawing.Color.DarkSlateBlue
+        Me.btnBack.Location = New System.Drawing.Point(1045, 38)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(85, 35)
+        Me.btnBack.Size = New System.Drawing.Size(85, 42)
         Me.btnBack.TabIndex = 9
         Me.btnBack.Text = "Back"
-        Me.btnBack.UseVisualStyleBackColor = True
+        Me.btnBack.UseVisualStyleBackColor = False
         '
         'PrintOrderList
         '
@@ -183,12 +201,59 @@ Partial Class FrmOrder
         Me.OrderListPreviewDialog.Name = "OrderListPreviewDialog"
         Me.OrderListPreviewDialog.Visible = False
         '
+        'msOrderPage
+        '
+        Me.msOrderPage.GripMargin = New System.Windows.Forms.Padding(2, 2, 0, 2)
+        Me.msOrderPage.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.msOrderPage.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.msOrderPage.Location = New System.Drawing.Point(0, 0)
+        Me.msOrderPage.Name = "msOrderPage"
+        Me.msOrderPage.Size = New System.Drawing.Size(1202, 33)
+        Me.msOrderPage.TabIndex = 10
+        Me.msOrderPage.Text = "MenuStrip1"
+        '
+        'FileToolStripMenuItem
+        '
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClearToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(54, 29)
+        Me.FileToolStripMenuItem.Text = "&File"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FieldGuidelineToolStripMenuItem})
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 29)
+        Me.HelpToolStripMenuItem.Text = "&Help"
+        '
+        'ClearToolStripMenuItem
+        '
+        Me.ClearToolStripMenuItem.Name = "ClearToolStripMenuItem"
+        Me.ClearToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
+        Me.ClearToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.ClearToolStripMenuItem.Text = "&Clear"
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.ExitToolStripMenuItem.Text = "E&xit"
+        '
+        'FieldGuidelineToolStripMenuItem
+        '
+        Me.FieldGuidelineToolStripMenuItem.Name = "FieldGuidelineToolStripMenuItem"
+        Me.FieldGuidelineToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
+        Me.FieldGuidelineToolStripMenuItem.Size = New System.Drawing.Size(292, 34)
+        Me.FieldGuidelineToolStripMenuItem.Text = "Field Guideline"
+        '
         'FrmOrder
         '
         Me.AcceptButton = Me.btnSendOrder
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1150, 699)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(1202, 727)
         Me.Controls.Add(Me.btnGoToPayment)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.btnSendOrder)
@@ -196,12 +261,17 @@ Partial Class FrmOrder
         Me.Controls.Add(Me.cmbCategory)
         Me.Controls.Add(Me.flpMenu)
         Me.Controls.Add(Me.grpCart)
+        Me.Controls.Add(Me.msOrderPage)
+        Me.MainMenuStrip = Me.msOrderPage
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FrmOrder"
         Me.Text = "Order Page"
         Me.grpCart.ResumeLayout(False)
         Me.grpCart.PerformLayout()
+        Me.msOrderPage.ResumeLayout(False)
+        Me.msOrderPage.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -222,4 +292,10 @@ Partial Class FrmOrder
     Friend WithEvents btnBack As Button
     Friend WithEvents PrintOrderList As Printing.PrintDocument
     Friend WithEvents OrderListPreviewDialog As PrintPreviewDialog
+    Friend WithEvents msOrderPage As MenuStrip
+    Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ClearToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FieldGuidelineToolStripMenuItem As ToolStripMenuItem
 End Class
