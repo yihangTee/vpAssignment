@@ -12,6 +12,10 @@
         'Reset all controls to not visible
         HideControls()
 
+        If cboTrackAspect.SelectedItem Is Nothing Then
+            Exit Sub
+        End If
+
         If cboTrackAspect.SelectedItem.ToString() = "Item ID" Then
             lblTrackID.Visible = True
             mskTrackID.Visible = True
