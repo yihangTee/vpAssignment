@@ -112,6 +112,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.vb" />
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="BL-fariz.designer.vb">
       <AutoGen>True</AutoGen>
@@ -121,16 +122,40 @@
     <Compile Include="CirclePictureBox.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmAddItem.Designer.vb">
       <DependentUpon>frmAddItem.vb</DependentUpon>
     </Compile>
     <Compile Include="frmAddItem.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmAddStaff.Designer.vb">
+      <DependentUpon>FrmAddStaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAddStaff.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmDeleteItem.Designer.vb">
       <DependentUpon>frmDeleteItem.vb</DependentUpon>
     </Compile>
     <Compile Include="frmDeleteItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmForgotPassword.Designer.vb">
+      <DependentUpon>FrmForgotPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmForgotPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGenerateStaffReport.Designer.vb">
+      <DependentUpon>FrmGenerateStaffReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGenerateStaffReport.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmItemDetails.Designer.vb">
@@ -157,6 +182,12 @@
     <Compile Include="frmItemStock.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmLogin.Designer.vb">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmMainPage.Designer.vb">
       <DependentUpon>FrmMainPage.vb</DependentUpon>
     </Compile>
@@ -173,6 +204,12 @@
       <DependentUpon>frmSnapItemPicture.vb</DependentUpon>
     </Compile>
     <Compile Include="frmSnapItemPicture.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStaffDetails.Designer.vb">
+      <DependentUpon>FrmStaffDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStaffDetails.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmTable.Designer.vb">
@@ -200,6 +237,12 @@
     <Compile Include="frmUpdateItem.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmUserProfile.Designer.vb">
+      <DependentUpon>FrmUserProfile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUserProfile.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmViewItem.Designer.vb">
       <DependentUpon>frmViewItem.vb</DependentUpon>
     </Compile>
@@ -210,6 +253,12 @@
       <DependentUpon>frmViewnTrackItem.vb</DependentUpon>
     </Compile>
     <Compile Include="frmViewnTrackItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmViewStaff.Designer.vb">
+      <DependentUpon>FrmViewStaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmViewStaff.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ItemDatabaseModule.vb" />
@@ -242,11 +291,23 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddItem.resx">
       <DependentUpon>frmAddItem.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAddStaff.resx">
+      <DependentUpon>FrmAddStaff.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDeleteItem.resx">
       <DependentUpon>frmDeleteItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmForgotPassword.resx">
+      <DependentUpon>FrmForgotPassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGenerateStaffReport.resx">
+      <DependentUpon>FrmGenerateStaffReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmItemDetails.resx">
       <DependentUpon>frmItemDetails.vb</DependentUpon>
@@ -260,6 +321,9 @@
     <EmbeddedResource Include="frmItemStock.resx">
       <DependentUpon>frmItemStock.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMainPage.resx">
       <DependentUpon>FrmMainPage.vb</DependentUpon>
     </EmbeddedResource>
@@ -268,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSnapItemPicture.resx">
       <DependentUpon>frmSnapItemPicture.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStaffDetails.resx">
+      <DependentUpon>FrmStaffDetails.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTable.resx">
       <DependentUpon>FrmTable.vb</DependentUpon>
@@ -281,11 +348,17 @@
     <EmbeddedResource Include="frmUpdateItem.resx">
       <DependentUpon>frmUpdateItem.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmUserProfile.resx">
+      <DependentUpon>FrmUserProfile.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmViewItem.resx">
       <DependentUpon>frmViewItem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewnTrackItem.resx">
       <DependentUpon>frmViewnTrackItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmViewStaff.resx">
+      <DependentUpon>FrmViewStaff.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -348,6 +421,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BL-fariz.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\SearchUser.png" />
+    <None Include="Resources\Report.png" />
+    <None Include="Resources\Logout.png" />
+    <None Include="Resources\login_profile_icon.png" />
+    <None Include="Resources\DefaultProfile.png" />
+    <None Include="Resources\BFLogo.png" />
+    <None Include="Resources\Back1.png" />
+    <None Include="Resources\Back.png" />
+    <None Include="Resources\AddUser.png" />
     <None Include="Resources\Plain Water.png" />
     <None Include="Resources\Order.png" />
     <None Include="Resources\Nugget with Fries.png" />
@@ -363,7 +445,6 @@
     <None Include="Resources\Maggi Goreng.png" />
     <None Include="Resources\Lychee Ice.png" />
     <None Include="Resources\Longan Ice.png" />
-    <None Include="Resources\Logout.png" />
     <None Include="Resources\Limau Ice.png" />
     <None Include="Resources\ItemStock.png" />
     <None Include="Resources\Hot Milo.png" />
@@ -382,13 +463,10 @@
     <None Include="Resources\Cappucino Blended.png" />
     <None Include="Resources\BillAndPayment.png" />
     <None Include="Resources\Bihun Goreng.png" />
-    <None Include="Resources\BFLogo.png" />
     <None Include="Resources\BFIcon.ico" />
     <None Include="Resources\Barley Ice.png" />
-    <None Include="Resources\Back.png" />
     <None Include="Resources\Archive.png" />
     <None Include="Resources\Apple Calamasi Ice.png" />
-    <None Include="Resources\AddUser.png" />
     <None Include="Resources\AddOrder.png" />
     <None Include="Resources\AddItem.png" />
     <None Include="Resources\desktop.ini" />
@@ -399,7 +477,6 @@
     <None Include="Resources\Teh Ais.png" />
     <None Include="Resources\Staff.png" />
     <None Include="Resources\Snap.png" />
-    <None Include="Resources\SearchUser.png" />
     <None Include="Resources\Search.png" />
     <None Include="Resources\Roti Tisu.png" />
     <None Include="Resources\Roti Telur.png" />
@@ -410,7 +487,6 @@
     <None Include="Resources\Roti Cheese.png" />
     <None Include="Resources\Roti Bom.png" />
     <None Include="Resources\Rojak.png" />
-    <None Include="Resources\Report.png" />
     <None Include="Resources\Potato Wedges.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

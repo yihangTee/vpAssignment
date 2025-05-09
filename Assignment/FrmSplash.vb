@@ -9,7 +9,8 @@
         If ProgressBar1.Value >= 100 Then
             Timer1.Stop()
             Me.Hide()
-            FrmMainPage.Show()
+            'FrmMainPage.Show()
+            FrmLogin.Show()
         End If
     End Sub
 End Class
