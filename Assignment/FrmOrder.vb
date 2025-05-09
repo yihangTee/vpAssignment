@@ -27,6 +27,7 @@ Public Class FrmOrder
         End If
     End Sub
 
+
     Private Sub LoadItemsByCategory(category As String)
         Dim db As New BL_farizDataContext()
         flpMenu.Controls.Clear()
@@ -36,35 +37,64 @@ Public Class FrmOrder
                     Select i
 
         For Each item In items
-            Dim itemPanel As New Panel With {
-            .Width = 120,
-            .Height = 120,
-            .BorderStyle = BorderStyle.Fixed3D,
-            .Tag = item.Item_Id
-        }
+            Dim itemPanel As New Panel
+            With itemPanel
+                .Width = 140
+                .Height = 180
+                .BorderStyle = BorderStyle.Fixed3D
+                .Tag = item.Item_Id
+            End With
 
-            Dim lblName As New Label With {
-            .Text = item.Item_Name,
-            .AutoSize = True,
-            .Location = New Point(10, 10)
-        }
+            Dim picBox As New PictureBox
+            With picBox
+                .Width = 120
+                .Height = 80
+                .SizeMode = PictureBoxSizeMode.Zoom
+                .Location = New Point(10, 5)
+            End With
 
-            Dim lblPrice As New Label With {
-            .Text = "RM " & item.Item_Price.ToString("F2"),
-            .AutoSize = True,
-            .Location = New Point(10, lblName.Bottom + 5)
-        }
+            If item.Item_Picture IsNot Nothing Then
+                Using ms As New IO.MemoryStream(item.Item_Picture.ToArray())
+                    picBox.Image = Image.FromStream(ms)
+                End Using
+            End If
 
-            Dim btnAdd As New Button With {
-            .Text = "Add",
-            .Width = 60,
-            .Location = New Point(10, lblPrice.Bottom + 10)
-        }
+            Dim lblName As New Label
+            With lblName
+                .Text = item.Item_Name
+                .AutoSize = False
+                .Width = 120
+                .Height = 20
+                .TextAlign = ContentAlignment.MiddleLeft
+                .Location = New Point(10, picBox.Bottom + 5)
+                .ForeColor = Color.White
+            End With
+
+            Dim lblPrice As New Label
+            With lblPrice
+                .Text = "RM " & item.Item_Price.ToString("F2")
+                .AutoSize = False
+                .Width = 120
+                .Height = 20
+                .TextAlign = ContentAlignment.MiddleLeft
+                .Location = New Point(10, lblName.Bottom)
+                .ForeColor = Color.White
+            End With
+
+            Dim btnAdd As New Button
+            With btnAdd
+                .Text = "Add"
+                .Width = 60
+                .Location = New Point(10, lblPrice.Bottom + 5)
+                .BackColor = Color.LightSkyBlue
+                .ForeColor = Color.DarkSlateBlue
+            End With
 
             AddHandler btnAdd.Click, Sub(s, e)
                                          AddToCart(item.Item_Id)
                                      End Sub
 
+            itemPanel.Controls.Add(picBox)
             itemPanel.Controls.Add(lblName)
             itemPanel.Controls.Add(lblPrice)
             itemPanel.Controls.Add(btnAdd)
@@ -118,53 +148,63 @@ Public Class FrmOrder
     End Sub
 
     Private Function CreateCartPanel(item As Item) As Panel
-        Dim panel As New Panel With {
-        .Width = 250,
-        .Height = 130,
-        .Tag = item.Item_Id,
-        .BorderStyle = BorderStyle.Fixed3D,
-        .BackColor = Color.White
-    }
+        Dim panel As New Panel
+        With panel
+            .Width = 250
+            .Height = 130
+            .Tag = item.Item_Id
+            .BorderStyle = BorderStyle.Fixed3D
+            .BackColor = Color.White
+        End With
 
-        Dim lblSummary As New Label With {
-        .Name = "lblSummary" & item.Item_Id,
-        .Text = $"{item.Item_Name} x 1 RM {item.Item_Price:F2}",
-        .Font = New Font("Segoe UI", 10, FontStyle.Bold),
-        .Location = New Point(10, 10),
-        .AutoSize = True,
-        .Tag = "1"
-    }
+        Dim lblSummary As New Label
+        With lblSummary
+            .Name = "lblSummary" & item.Item_Id
+            .Text = $"{item.Item_Name} x 1 RM {item.Item_Price:F2}"
+            .Font = New Font("Segoe UI", 10, FontStyle.Bold)
+            .ForeColor = Color.Black
+            .Location = New Point(10, 10)
+            .AutoSize = True
+            .Tag = "1"
+        End With
 
         Dim buttonY As Integer = lblSummary.Bottom + 10
 
-        Dim btnIncrease As New Button With {
-        .Text = "+",
-        .Size = New Size(30, 30),
-        .Location = New Point(10, buttonY)
-    }
+        Dim btnIncrease As New Button
+        With btnIncrease
+            .Text = "+"
+            .Size = New Size(30, 30)
+            .Location = New Point(10, buttonY)
+            .ForeColor = Color.Black
+        End With
         AddHandler btnIncrease.Click, Sub(s, e) ModifyQuantity(item.Item_Id, 1)
 
-        Dim btnDecrease As New Button With {
-        .Text = "-",
-        .Size = New Size(30, 30),
-        .Location = New Point(btnIncrease.Right + 5, buttonY)
-    }
+        Dim btnDecrease As New Button
+        With btnDecrease
+            .Text = "-"
+            .Size = New Size(30, 30)
+            .Location = New Point(btnIncrease.Right + 5, buttonY)
+            .ForeColor = Color.Black
+        End With
         AddHandler btnDecrease.Click, Sub(s, e) ModifyQuantity(item.Item_Id, -1)
 
-        Dim btnDelete As New Button With {
-        .Text = "Delete",
-        .Size = New Size(80, 30),
-        .Location = New Point(btnDecrease.Right + 5, buttonY)
-    }
+        Dim btnDelete As New Button
+        With btnDelete
+            .Text = "Delete"
+            .Size = New Size(80, 30)
+            .Location = New Point(btnDecrease.Right + 5, buttonY)
+            .ForeColor = Color.Black
+        End With
         AddHandler btnDelete.Click, Sub(s, e) DeleteItem(item.Item_Id)
 
-        Dim txtNote As New TextBox With {
-        .Name = "txtNote_" & item.Item_Id,
-        .Text = "",
-        .ForeColor = Color.Gray,
-        .Location = New Point(10, btnIncrease.Bottom + 10),
-        .Width = 220
-    }
+        Dim txtNote As New TextBox
+        With txtNote
+            .Name = "txtNote_" & item.Item_Id
+            .Text = ""
+            .ForeColor = Color.Gray
+            .Location = New Point(10, btnIncrease.Bottom + 10)
+            .Width = 220
+        End With
 
         panel.Controls.Add(lblSummary)
         panel.Controls.Add(btnIncrease)
@@ -477,4 +517,23 @@ Public Class FrmOrder
         e.Graphics.DrawString(body.ToString(), fntBody, Brushes.Black, marginLeft, marginTop + 120)
     End Sub
 
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        Me.Close()
+    End Sub
+
+    Private Sub ClearToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearToolStripMenuItem.Click
+        flpCart.Controls.Clear()
+        UpdateTotal()
+    End Sub
+
+    Private Sub FieldGuidelineToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FieldGuidelineToolStripMenuItem.Click
+        MessageBox.Show(
+        "ORDER SAFEGUARDS:" & vbCrLf & vbCrLf &
+        "1. Search for the item by choosing its category." & vbCrLf &
+        "2. Review item details before send order." & vbCrLf &
+        "3. Confirm order with a order list." & vbCrLf &
+        "4. Table will change color and show the waiting time after send order.",
+        "Order Help",
+        MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
 End Class

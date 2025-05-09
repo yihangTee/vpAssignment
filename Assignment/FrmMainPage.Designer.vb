@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmMainPage
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,65 +20,121 @@ Partial Class FrmMainPage
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.btnStaffModule = New System.Windows.Forms.Button()
         Me.btnOrderPage = New System.Windows.Forms.Button()
         Me.btnItemModule = New System.Windows.Forms.Button()
         Me.btnReport = New System.Windows.Forms.Button()
         Me.btnLogOut = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnStaffModule
         '
-        Me.btnStaffModule.Location = New System.Drawing.Point(83, 160)
+        Me.btnStaffModule.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.btnStaffModule.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnStaffModule.ForeColor = System.Drawing.Color.DarkSlateBlue
+        Me.btnStaffModule.Location = New System.Drawing.Point(100, 301)
         Me.btnStaffModule.Name = "btnStaffModule"
-        Me.btnStaffModule.Size = New System.Drawing.Size(128, 86)
+        Me.btnStaffModule.Size = New System.Drawing.Size(172, 100)
         Me.btnStaffModule.TabIndex = 0
         Me.btnStaffModule.Text = "Staff Module"
-        Me.btnStaffModule.UseVisualStyleBackColor = True
+        Me.btnStaffModule.UseVisualStyleBackColor = False
         '
         'btnOrderPage
         '
-        Me.btnOrderPage.Location = New System.Drawing.Point(237, 160)
+        Me.btnOrderPage.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.btnOrderPage.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOrderPage.ForeColor = System.Drawing.Color.DarkSlateBlue
+        Me.btnOrderPage.Location = New System.Drawing.Point(278, 301)
         Me.btnOrderPage.Name = "btnOrderPage"
-        Me.btnOrderPage.Size = New System.Drawing.Size(128, 86)
+        Me.btnOrderPage.Size = New System.Drawing.Size(165, 100)
         Me.btnOrderPage.TabIndex = 1
         Me.btnOrderPage.Text = "Order Page"
-        Me.btnOrderPage.UseVisualStyleBackColor = True
+        Me.btnOrderPage.UseVisualStyleBackColor = False
         '
         'btnItemModule
         '
-        Me.btnItemModule.Location = New System.Drawing.Point(380, 160)
+        Me.btnItemModule.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.btnItemModule.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnItemModule.ForeColor = System.Drawing.Color.DarkSlateBlue
+        Me.btnItemModule.Location = New System.Drawing.Point(449, 301)
         Me.btnItemModule.Name = "btnItemModule"
-        Me.btnItemModule.Size = New System.Drawing.Size(128, 86)
+        Me.btnItemModule.Size = New System.Drawing.Size(180, 100)
         Me.btnItemModule.TabIndex = 2
         Me.btnItemModule.Text = "Item Module"
-        Me.btnItemModule.UseVisualStyleBackColor = True
+        Me.btnItemModule.UseVisualStyleBackColor = False
         '
         'btnReport
         '
-        Me.btnReport.Location = New System.Drawing.Point(532, 160)
+        Me.btnReport.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.btnReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReport.ForeColor = System.Drawing.Color.DarkSlateBlue
+        Me.btnReport.Location = New System.Drawing.Point(635, 301)
         Me.btnReport.Name = "btnReport"
-        Me.btnReport.Size = New System.Drawing.Size(128, 86)
+        Me.btnReport.Size = New System.Drawing.Size(150, 100)
         Me.btnReport.TabIndex = 3
         Me.btnReport.Text = "Report"
-        Me.btnReport.UseVisualStyleBackColor = True
+        Me.btnReport.UseVisualStyleBackColor = False
         '
         'btnLogOut
         '
-        Me.btnLogOut.Location = New System.Drawing.Point(307, 282)
+        Me.btnLogOut.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.btnLogOut.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLogOut.ForeColor = System.Drawing.Color.DarkSlateBlue
+        Me.btnLogOut.Location = New System.Drawing.Point(823, 12)
         Me.btnLogOut.Name = "btnLogOut"
-        Me.btnLogOut.Size = New System.Drawing.Size(128, 86)
+        Me.btnLogOut.Size = New System.Drawing.Size(94, 32)
         Me.btnLogOut.TabIndex = 4
         Me.btnLogOut.Text = "Log out"
-        Me.btnLogOut.UseVisualStyleBackColor = True
+        Me.btnLogOut.UseVisualStyleBackColor = False
+        '
+        'Label1
+        '
+        Me.Label1.Font = New System.Drawing.Font("Gill Sans Ultra Bold", 45.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label1.Location = New System.Drawing.Point(179, 23)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(638, 130)
+        Me.Label1.TabIndex = 5
+        Me.Label1.Text = "Main Page"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Image = Global.Assignment.My.Resources.Resources.BFLogo
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(161, 152)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 6
+        Me.PictureBox1.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.White
+        Me.PictureBox2.Image = Global.Assignment.My.Resources.Resources.Back
+        Me.PictureBox2.Location = New System.Drawing.Point(923, 12)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(50, 32)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 7
+        Me.PictureBox2.TabStop = False
         '
         'FrmMainPage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(986, 578)
+        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnLogOut)
         Me.Controls.Add(Me.btnReport)
         Me.Controls.Add(Me.btnItemModule)
@@ -86,6 +142,8 @@ Partial Class FrmMainPage
         Me.Controls.Add(Me.btnStaffModule)
         Me.Name = "FrmMainPage"
         Me.Text = "FrmMainPage"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -95,4 +153,7 @@ Partial Class FrmMainPage
     Friend WithEvents btnItemModule As Button
     Friend WithEvents btnReport As Button
     Friend WithEvents btnLogOut As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
 End Class

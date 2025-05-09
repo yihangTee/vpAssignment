@@ -134,11 +134,11 @@ Partial Class FrmTable
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Times New Roman", 64.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Times New Roman", 64.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Lavender
         Me.Label3.Location = New System.Drawing.Point(312, 26)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(646, 146)
+        Me.Label3.Size = New System.Drawing.Size(642, 145)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Order Page"
         '

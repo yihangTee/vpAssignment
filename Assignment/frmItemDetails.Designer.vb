@@ -57,8 +57,10 @@ Partial Class frmItemDetails
         Me.GroupBox1.Controls.Add(Me.btnBack)
         Me.GroupBox1.Controls.Add(Me.PictureBox1)
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(603, 120)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(678, 150)
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         '
@@ -67,9 +69,9 @@ Partial Class frmItemDetails
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Gill Sans Ultra Bold", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.Label1.Location = New System.Drawing.Point(136, 32)
+        Me.Label1.Location = New System.Drawing.Point(153, 40)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(174, 62)
+        Me.Label1.Size = New System.Drawing.Size(215, 84)
         Me.Label1.TabIndex = 12
         Me.Label1.Text = "BL-Fariz" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Restaurant"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -77,9 +79,10 @@ Partial Class frmItemDetails
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.Assignment.My.Resources.Resources.Back
-        Me.PictureBox2.Location = New System.Drawing.Point(540, 38)
+        Me.PictureBox2.Location = New System.Drawing.Point(608, 48)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(50, 50)
+        Me.PictureBox2.Size = New System.Drawing.Size(56, 62)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox2.TabIndex = 4
         Me.PictureBox2.TabStop = False
@@ -90,9 +93,10 @@ Partial Class frmItemDetails
         Me.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBack.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnBack.Location = New System.Drawing.Point(427, 38)
+        Me.btnBack.Location = New System.Drawing.Point(480, 48)
+        Me.btnBack.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(113, 48)
+        Me.btnBack.Size = New System.Drawing.Size(127, 60)
         Me.btnBack.TabIndex = 3
         Me.btnBack.Text = "&Back"
         Me.btnBack.UseVisualStyleBackColor = True
@@ -100,9 +104,10 @@ Partial Class frmItemDetails
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Assignment.My.Resources.Resources.BFLogo
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 10)
+        Me.PictureBox1.Location = New System.Drawing.Point(14, 12)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(110, 110)
+        Me.PictureBox1.Size = New System.Drawing.Size(124, 138)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -111,9 +116,9 @@ Partial Class frmItemDetails
         '
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.AliceBlue
-        Me.Label2.Location = New System.Drawing.Point(97, 347)
+        Me.Label2.Location = New System.Drawing.Point(109, 434)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(111, 40)
+        Me.Label2.Size = New System.Drawing.Size(125, 50)
         Me.Label2.TabIndex = 13
         Me.Label2.Text = "Item ID : "
         '
@@ -121,9 +126,9 @@ Partial Class frmItemDetails
         '
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.AliceBlue
-        Me.Label3.Location = New System.Drawing.Point(62, 398)
+        Me.Label3.Location = New System.Drawing.Point(70, 498)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(146, 40)
+        Me.Label3.Size = New System.Drawing.Size(164, 50)
         Me.Label3.TabIndex = 14
         Me.Label3.Text = "Item Name : "
         '
@@ -131,9 +136,9 @@ Partial Class frmItemDetails
         '
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.AliceBlue
-        Me.Label4.Location = New System.Drawing.Point(76, 448)
+        Me.Label4.Location = New System.Drawing.Point(86, 560)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(121, 40)
+        Me.Label4.Size = New System.Drawing.Size(136, 50)
         Me.Label4.TabIndex = 15
         Me.Label4.Text = "Category : "
         '
@@ -141,9 +146,9 @@ Partial Class frmItemDetails
         '
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.AliceBlue
-        Me.Label5.Location = New System.Drawing.Point(71, 779)
+        Me.Label5.Location = New System.Drawing.Point(80, 974)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(137, 40)
+        Me.Label5.Size = New System.Drawing.Size(154, 50)
         Me.Label5.TabIndex = 16
         Me.Label5.Text = "Unit Price : "
         '
@@ -151,9 +156,9 @@ Partial Class frmItemDetails
         '
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.AliceBlue
-        Me.Label6.Location = New System.Drawing.Point(56, 498)
+        Me.Label6.Location = New System.Drawing.Point(63, 622)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(152, 40)
+        Me.Label6.Size = New System.Drawing.Size(171, 50)
         Me.Label6.TabIndex = 17
         Me.Label6.Text = "Description : "
         '
@@ -163,9 +168,9 @@ Partial Class frmItemDetails
         Me.lblShowItemID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblShowItemID.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblShowItemID.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.lblShowItemID.Location = New System.Drawing.Point(234, 347)
+        Me.lblShowItemID.Location = New System.Drawing.Point(263, 434)
         Me.lblShowItemID.Name = "lblShowItemID"
-        Me.lblShowItemID.Size = New System.Drawing.Size(299, 40)
+        Me.lblShowItemID.Size = New System.Drawing.Size(336, 50)
         Me.lblShowItemID.TabIndex = 19
         '
         'lblShowItemName
@@ -174,9 +179,9 @@ Partial Class frmItemDetails
         Me.lblShowItemName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblShowItemName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblShowItemName.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.lblShowItemName.Location = New System.Drawing.Point(234, 398)
+        Me.lblShowItemName.Location = New System.Drawing.Point(263, 498)
         Me.lblShowItemName.Name = "lblShowItemName"
-        Me.lblShowItemName.Size = New System.Drawing.Size(299, 40)
+        Me.lblShowItemName.Size = New System.Drawing.Size(336, 50)
         Me.lblShowItemName.TabIndex = 20
         '
         'lblShowItemCategory
@@ -185,9 +190,9 @@ Partial Class frmItemDetails
         Me.lblShowItemCategory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblShowItemCategory.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblShowItemCategory.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.lblShowItemCategory.Location = New System.Drawing.Point(234, 448)
+        Me.lblShowItemCategory.Location = New System.Drawing.Point(263, 560)
         Me.lblShowItemCategory.Name = "lblShowItemCategory"
-        Me.lblShowItemCategory.Size = New System.Drawing.Size(299, 40)
+        Me.lblShowItemCategory.Size = New System.Drawing.Size(336, 50)
         Me.lblShowItemCategory.TabIndex = 21
         '
         'lblShowItemPrice
@@ -196,9 +201,9 @@ Partial Class frmItemDetails
         Me.lblShowItemPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblShowItemPrice.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblShowItemPrice.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.lblShowItemPrice.Location = New System.Drawing.Point(234, 779)
+        Me.lblShowItemPrice.Location = New System.Drawing.Point(263, 974)
         Me.lblShowItemPrice.Name = "lblShowItemPrice"
-        Me.lblShowItemPrice.Size = New System.Drawing.Size(299, 40)
+        Me.lblShowItemPrice.Size = New System.Drawing.Size(336, 50)
         Me.lblShowItemPrice.TabIndex = 22
         '
         'lblShowItemDescription
@@ -207,9 +212,9 @@ Partial Class frmItemDetails
         Me.lblShowItemDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblShowItemDescription.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblShowItemDescription.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.lblShowItemDescription.Location = New System.Drawing.Point(234, 498)
+        Me.lblShowItemDescription.Location = New System.Drawing.Point(263, 622)
         Me.lblShowItemDescription.Name = "lblShowItemDescription"
-        Me.lblShowItemDescription.Size = New System.Drawing.Size(299, 170)
+        Me.lblShowItemDescription.Size = New System.Drawing.Size(336, 212)
         Me.lblShowItemDescription.TabIndex = 23
         '
         'lblShowItemStockLvl
@@ -218,18 +223,18 @@ Partial Class frmItemDetails
         Me.lblShowItemStockLvl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblShowItemStockLvl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblShowItemStockLvl.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.lblShowItemStockLvl.Location = New System.Drawing.Point(234, 679)
+        Me.lblShowItemStockLvl.Location = New System.Drawing.Point(263, 849)
         Me.lblShowItemStockLvl.Name = "lblShowItemStockLvl"
-        Me.lblShowItemStockLvl.Size = New System.Drawing.Size(299, 40)
+        Me.lblShowItemStockLvl.Size = New System.Drawing.Size(336, 50)
         Me.lblShowItemStockLvl.TabIndex = 24
         '
         'Label7
         '
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.AliceBlue
-        Me.Label7.Location = New System.Drawing.Point(56, 679)
+        Me.Label7.Location = New System.Drawing.Point(63, 849)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(152, 40)
+        Me.Label7.Size = New System.Drawing.Size(171, 50)
         Me.Label7.TabIndex = 25
         Me.Label7.Text = "Stock Level : "
         '
@@ -237,9 +242,9 @@ Partial Class frmItemDetails
         '
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.AliceBlue
-        Me.Label8.Location = New System.Drawing.Point(85, 729)
+        Me.Label8.Location = New System.Drawing.Point(96, 911)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(129, 40)
+        Me.Label8.Size = New System.Drawing.Size(145, 50)
         Me.Label8.TabIndex = 27
         Me.Label8.Text = "Quantity : "
         '
@@ -249,29 +254,30 @@ Partial Class frmItemDetails
         Me.lblShowItemQuantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblShowItemQuantity.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblShowItemQuantity.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.lblShowItemQuantity.Location = New System.Drawing.Point(234, 729)
+        Me.lblShowItemQuantity.Location = New System.Drawing.Point(263, 911)
         Me.lblShowItemQuantity.Name = "lblShowItemQuantity"
-        Me.lblShowItemQuantity.Size = New System.Drawing.Size(299, 40)
+        Me.lblShowItemQuantity.Size = New System.Drawing.Size(336, 50)
         Me.lblShowItemQuantity.TabIndex = 26
         '
         'picShowItemPicture
         '
         Me.picShowItemPicture.BackColor = System.Drawing.Color.AliceBlue
-        Me.picShowItemPicture.Location = New System.Drawing.Point(217, 141)
+        Me.picShowItemPicture.Location = New System.Drawing.Point(244, 176)
+        Me.picShowItemPicture.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.picShowItemPicture.Name = "picShowItemPicture"
-        Me.picShowItemPicture.Size = New System.Drawing.Size(185, 185)
+        Me.picShowItemPicture.Size = New System.Drawing.Size(208, 231)
         Me.picShowItemPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.picShowItemPicture.TabIndex = 18
         Me.picShowItemPicture.TabStop = False
         '
         'frmItemDetails
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(140, Byte), Integer))
         Me.CancelButton = Me.btnBack
-        Me.ClientSize = New System.Drawing.Size(602, 987)
+        Me.ClientSize = New System.Drawing.Size(673, 1050)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.lblShowItemQuantity)
         Me.Controls.Add(Me.Label7)
@@ -289,7 +295,8 @@ Partial Class frmItemDetails
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximumSize = New System.Drawing.Size(620, 950)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.MaximumSize = New System.Drawing.Size(695, 1174)
         Me.Name = "frmItemDetails"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ItemStock - Item Details"
