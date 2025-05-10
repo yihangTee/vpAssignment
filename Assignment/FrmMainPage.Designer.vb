@@ -25,11 +25,11 @@ Partial Class FrmMainPage
         Me.btnStaffModule = New System.Windows.Forms.Button()
         Me.btnOrderPage = New System.Windows.Forms.Button()
         Me.btnItemModule = New System.Windows.Forms.Button()
-        Me.btnReport = New System.Windows.Forms.Button()
         Me.btnLogOut = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.btnOrderPayment = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -70,18 +70,6 @@ Partial Class FrmMainPage
         Me.btnItemModule.Text = "Item Module"
         Me.btnItemModule.UseVisualStyleBackColor = False
         '
-        'btnReport
-        '
-        Me.btnReport.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.btnReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReport.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnReport.Location = New System.Drawing.Point(635, 301)
-        Me.btnReport.Name = "btnReport"
-        Me.btnReport.Size = New System.Drawing.Size(150, 100)
-        Me.btnReport.TabIndex = 3
-        Me.btnReport.Text = "Report"
-        Me.btnReport.UseVisualStyleBackColor = False
-        '
         'btnLogOut
         '
         Me.btnLogOut.BackColor = System.Drawing.Color.LightSkyBlue
@@ -118,7 +106,7 @@ Partial Class FrmMainPage
         'PictureBox2
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.White
-        Me.PictureBox2.Image = Global.Assignment.My.Resources.Resources.Back
+        Me.PictureBox2.Image = Global.Assignment.My.Resources.Resources.Logout
         Me.PictureBox2.Location = New System.Drawing.Point(923, 12)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(50, 32)
@@ -126,17 +114,29 @@ Partial Class FrmMainPage
         Me.PictureBox2.TabIndex = 7
         Me.PictureBox2.TabStop = False
         '
+        'btnOrderPayment
+        '
+        Me.btnOrderPayment.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.btnOrderPayment.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOrderPayment.ForeColor = System.Drawing.Color.DarkSlateBlue
+        Me.btnOrderPayment.Location = New System.Drawing.Point(637, 301)
+        Me.btnOrderPayment.Name = "btnOrderPayment"
+        Me.btnOrderPayment.Size = New System.Drawing.Size(220, 100)
+        Me.btnOrderPayment.TabIndex = 8
+        Me.btnOrderPayment.Text = "Order/Payment Module"
+        Me.btnOrderPayment.UseVisualStyleBackColor = False
+        '
         'FrmMainPage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(986, 578)
+        Me.Controls.Add(Me.btnOrderPayment)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnLogOut)
-        Me.Controls.Add(Me.btnReport)
         Me.Controls.Add(Me.btnItemModule)
         Me.Controls.Add(Me.btnOrderPage)
         Me.Controls.Add(Me.btnStaffModule)
@@ -151,9 +151,9 @@ Partial Class FrmMainPage
     Friend WithEvents btnStaffModule As Button
     Friend WithEvents btnOrderPage As Button
     Friend WithEvents btnItemModule As Button
-    Friend WithEvents btnReport As Button
     Friend WithEvents btnLogOut As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents btnOrderPayment As Button
 End Class

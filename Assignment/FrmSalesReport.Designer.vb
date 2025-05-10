@@ -22,9 +22,9 @@ Partial Class FrmSalesReport
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSalesReport))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmbItemType = New System.Windows.Forms.ComboBox()
@@ -80,16 +80,16 @@ Partial Class FrmSalesReport
         '
         'chartSales
         '
-        ChartArea4.Name = "ChartArea1"
-        Me.chartSales.ChartAreas.Add(ChartArea4)
-        Legend4.Name = "Legend1"
-        Me.chartSales.Legends.Add(Legend4)
+        ChartArea1.Name = "ChartArea1"
+        Me.chartSales.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.chartSales.Legends.Add(Legend1)
         Me.chartSales.Location = New System.Drawing.Point(68, 114)
         Me.chartSales.Name = "chartSales"
-        Series4.ChartArea = "ChartArea1"
-        Series4.Legend = "Legend1"
-        Series4.Name = "Series1"
-        Me.chartSales.Series.Add(Series4)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.chartSales.Series.Add(Series1)
         Me.chartSales.Size = New System.Drawing.Size(645, 405)
         Me.chartSales.TabIndex = 3
         Me.chartSales.Text = "Chart1"
@@ -173,7 +173,7 @@ Partial Class FrmSalesReport
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         Me.ExitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(203, 34)
         Me.ExitToolStripMenuItem.Text = "E&xit"
         '
         'HelpToolStripMenuItem
@@ -207,7 +207,7 @@ Partial Class FrmSalesReport
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(941, 595)
+        Me.ClientSize = New System.Drawing.Size(941, 639)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnPrint)
         Me.Controls.Add(Me.btnBack)

@@ -10,10 +10,11 @@
 
     Private Sub btnItemModule_Click(sender As Object, e As EventArgs) Handles btnItemModule.Click
         frmItemStock.Show()
+        Me.Close()
     End Sub
 
-    Private Sub btnReport_Click(sender As Object, e As EventArgs) Handles btnReport.Click
-        FrmSalesReport.ShowDialog()
+    Private Sub btnOrderPayment_Click(sender As Object, e As EventArgs) Handles btnOrderPayment.Click
+        FrmOrder_Payment.Show()
+        Me.Close()
     End Sub
-
 End Class

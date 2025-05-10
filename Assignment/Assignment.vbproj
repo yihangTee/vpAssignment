@@ -201,6 +201,24 @@
     <Compile Include="FrmOrder.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmOrderDetails.Designer.vb">
+      <DependentUpon>FrmOrderDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrderDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrderHistory.Designer.vb">
+      <DependentUpon>FrmOrderHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrderHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrder_Payment.Designer.vb">
+      <DependentUpon>FrmOrder_Payment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrder_Payment.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmSalesReport.Designer.vb">
       <DependentUpon>FrmSalesReport.vb</DependentUpon>
     </Compile>
@@ -336,6 +354,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOrder.resx">
       <DependentUpon>FrmOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrderDetails.resx">
+      <DependentUpon>FrmOrderDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrderHistory.resx">
+      <DependentUpon>FrmOrderHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrder_Payment.resx">
+      <DependentUpon>FrmOrder_Payment.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSalesReport.resx">
       <DependentUpon>FrmSalesReport.vb</DependentUpon>
