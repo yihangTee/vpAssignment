@@ -109,7 +109,8 @@ Public Class FrmOrder
 
         If item IsNot Nothing Then
             If item.Item_Quantity <= 0 Then
-                MessageBox.Show($"{item.Item_Name} is out of stock.", "Stock Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show($"{item.Item_Name} is out of stock.", "Stock Warning",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Return
             End If
 
@@ -118,6 +119,11 @@ Public Class FrmOrder
             If existingPanel IsNot Nothing Then
                 Dim currentQty = GetCartItemQuantity(existingPanel)
 
+                If item.Item_StockLvl = "Low" And item.Item_Quantity - (currentQty + 1) > 0 Then
+                    MessageBox.Show($"{item.Item_Name} stock is low ({item.Item_Quantity - (currentQty + 1)} left).",
+                    "Low Stock Warning", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+
                 If currentQty >= item.Item_Quantity Then
                     ShowStockWarning(item)
                     Return
@@ -125,6 +131,11 @@ Public Class FrmOrder
 
                 SetCartItemSummary(existingPanel, item, currentQty + 1)
             Else
+                If item.Item_StockLvl = "Low" Then
+                    MessageBox.Show($"{item.Item_Name} stock is low ({item.Item_Quantity - 1} left).",
+                    "Low Stock Warning", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+
                 Dim newPanel = CreateCartPanel(item)
                 flpCart.Controls.Add(newPanel)
             End If
