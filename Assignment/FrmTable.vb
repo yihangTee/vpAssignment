@@ -47,7 +47,7 @@ Public Class FrmTable
         Dim btn As New Button With {
         .Name = tableName,
         .Text = tableName,
-        .Size = New Size(50, 50),
+        .Size = New Size(60, 60),
         .BackColor = Color.LightGreen,
         .Location = New Point(10, 10),
         .ContextMenuStrip = If(EditMode, cmsTable, Nothing)
@@ -154,11 +154,23 @@ Public Class FrmTable
 
         If result = DialogResult.Yes Then
 
-            Using db As New BL_FarizDataContext()
+            Using db As New BL_farizDataContext()
+
+                Dim hasPendingPayments = (
+                From o In db.Orders
+                Join p In db.Payments On o.OrderID Equals p.OrderID
+                Where p.PaymentStatus = "Pending"
+            ).Any()
+
+                If hasPendingPayments Then
+                    MessageBox.Show("Cannot reset layout. One or more tables have pending payments.",
+                                "Reset Blocked", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Return
+                End If
+
                 db.TableNos.DeleteAllOnSubmit(db.TableNos)
                 db.SubmitChanges()
             End Using
-
 
             pnlTables.Controls.Clear()
 
@@ -207,28 +219,41 @@ Public Class FrmTable
     Private Sub DeleteToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem.Click
         Dim btn As Button = TryCast(cmsTable.SourceControl, Button)
         If btn IsNot Nothing Then
+            Dim tableName As String = btn.Text
+
+            Using db As New BL_farizDataContext()
+                Dim hasPendingPayment = (
+                From o In db.Orders
+                Join p In db.Payments On o.OrderID Equals p.OrderID
+                Where o.TableNo = tableName AndAlso p.PaymentStatus = "Pending"
+            ).Any()
+
+                If hasPendingPayment Then
+                    MessageBox.Show("Cannot delete this table. There is a pending payment associated with it.",
+                                "Deletion Blocked", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Return
+                End If
+            End Using
+
             Dim result = MessageBox.Show("Delete " & btn.Text & "?", "Confirm Delete", MessageBoxButtons.YesNo)
             If result = DialogResult.Yes Then
                 pnlTables.Controls.Remove(btn)
                 btn.Dispose()
 
-                Dim tableName As String = btn.Text
-
-                Using db As New BL_FarizDataContext()
+                Using db As New BL_farizDataContext()
                     Dim tableToDelete = db.TableNos.FirstOrDefault(Function(t) t.Name = tableName)
-
                     If tableToDelete IsNot Nothing Then
                         db.TableNos.DeleteOnSubmit(tableToDelete)
                         db.SubmitChanges()
                     End If
                 End Using
 
-
                 MessageBox.Show("Table deleted successfully.", "Deleted", MessageBoxButtons.OK,
-                                MessageBoxIcon.Information)
+                            MessageBoxIcon.Information)
             End If
         End If
     End Sub
+
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         lblTime.Text = DateTime.Now.ToString("dd/MM hh:mm:ss tt")

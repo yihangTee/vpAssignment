@@ -104,12 +104,12 @@ Partial Class FrmTable
         Me.cmsTable.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.cmsTable.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeleteToolStripMenuItem})
         Me.cmsTable.Name = "ContextMenuStrip1"
-        Me.cmsTable.Size = New System.Drawing.Size(135, 36)
+        Me.cmsTable.Size = New System.Drawing.Size(241, 69)
         '
         'DeleteToolStripMenuItem
         '
         Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(134, 32)
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(240, 32)
         Me.DeleteToolStripMenuItem.Text = "Delete"
         '
         'grpInfo
