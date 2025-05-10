@@ -7,6 +7,7 @@ Public Class FrmOrder
 
     Private Sub FrmOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadCategories()
+
     End Sub
 
     Private Sub LoadCategories()
@@ -105,11 +106,29 @@ Public Class FrmOrder
         Next
     End Sub
 
+    Private Function UpdateItemStockLevel(item As Item) As String
+        Dim quantity = item.Item_Quantity
+        Dim stocklvl As String
+
+        If quantity > 50 Then
+            stocklvl = "High"
+        ElseIf quantity >= 10 AndAlso quantity <= 49 Then
+            stocklvl = "Medium"
+        Else
+            stocklvl = "Low"
+        End If
+
+        Return stocklvl
+    End Function
+
     Private Sub AddToCart(itemId As String)
         Dim db As New BL_farizDataContext()
         Dim item = db.Items.FirstOrDefault(Function(i) i.Item_Id = itemId)
 
         If item IsNot Nothing Then
+            item.Item_StockLvl = UpdateItemStockLevel(item)
+            db.SubmitChanges()
+
             If item.Item_Quantity <= 0 Then
                 MessageBox.Show($"{item.Item_Name} is out of stock.", "Stock Warning",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -121,7 +140,8 @@ Public Class FrmOrder
             If existingPanel IsNot Nothing Then
                 Dim currentQty = GetCartItemQuantity(existingPanel)
 
-                If item.Item_StockLvl = "Low" And item.Item_Quantity - (currentQty + 1) > 0 Then
+                If (item.Item_StockLvl = "Low" And item.Item_Quantity - (currentQty + 1) > 0) Or
+                    item.Item_Quantity - (currentQty + 1) < 10 Then
                     MessageBox.Show($"{item.Item_Name} stock is low ({item.Item_Quantity - (currentQty + 1)} left).",
                     "Low Stock Warning", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
