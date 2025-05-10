@@ -20,13 +20,11 @@ Public Class FrmOrder
         cmbCategory.SelectedIndex = -1
     End Sub
 
-
     Private Sub cmbCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCategory.SelectedIndexChanged
         If cmbCategory.SelectedIndex <> -1 Then
             LoadItemsByCategory(cmbCategory.SelectedItem.ToString())
         End If
     End Sub
-
 
     Private Sub LoadItemsByCategory(category As String)
         Dim db As New BL_farizDataContext()
@@ -68,6 +66,7 @@ Public Class FrmOrder
                 .TextAlign = ContentAlignment.MiddleLeft
                 .Location = New Point(10, picBox.Bottom + 5)
                 .ForeColor = Color.White
+                .Font = New Font("Microsoft Sans Serif", 10, FontStyle.Bold)
             End With
 
             Dim lblPrice As New Label
@@ -79,15 +78,18 @@ Public Class FrmOrder
                 .TextAlign = ContentAlignment.MiddleLeft
                 .Location = New Point(10, lblName.Bottom)
                 .ForeColor = Color.White
+                .Font = New Font("Microsoft Sans Serif", 10, FontStyle.Bold)
             End With
 
             Dim btnAdd As New Button
             With btnAdd
                 .Text = "Add"
                 .Width = 60
+                .Height = 30
                 .Location = New Point(10, lblPrice.Bottom + 5)
                 .BackColor = Color.LightSkyBlue
                 .ForeColor = Color.DarkSlateBlue
+                .Font = New Font("Microsoft Sans Serif", 10, FontStyle.Bold)
             End With
 
             AddHandler btnAdd.Click, Sub(s, e)
@@ -161,7 +163,7 @@ Public Class FrmOrder
     Private Function CreateCartPanel(item As Item) As Panel
         Dim panel As New Panel
         With panel
-            .Width = 250
+            .Width = 270
             .Height = 130
             .Tag = item.Item_Id
             .BorderStyle = BorderStyle.Fixed3D
@@ -172,7 +174,7 @@ Public Class FrmOrder
         With lblSummary
             .Name = "lblSummary" & item.Item_Id
             .Text = $"{item.Item_Name} x 1 RM {item.Item_Price:F2}"
-            .Font = New Font("Segoe UI", 10, FontStyle.Bold)
+            .Font = New Font("Microsoft Sans Serif", 10, FontStyle.Bold)
             .ForeColor = Color.Black
             .Location = New Point(10, 10)
             .AutoSize = True
@@ -547,4 +549,5 @@ Public Class FrmOrder
         "Order Help",
         MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
+
 End Class

@@ -40,12 +40,14 @@ Partial Class FrmOrder
         Me.OrderListPreviewDialog = New System.Windows.Forms.PrintPreviewDialog()
         Me.msOrderPage = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FieldGuidelineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.grpCart.SuspendLayout()
         Me.msOrderPage.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grpCart
@@ -57,13 +59,13 @@ Partial Class FrmOrder
         Me.grpCart.Controls.Add(Me.lblTableNo)
         Me.grpCart.Controls.Add(Me.lblOrderItem)
         Me.grpCart.Controls.Add(Me.label1)
-        Me.grpCart.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpCart.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpCart.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.grpCart.Location = New System.Drawing.Point(28, 39)
         Me.grpCart.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.grpCart.Name = "grpCart"
         Me.grpCart.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.grpCart.Size = New System.Drawing.Size(519, 645)
+        Me.grpCart.Size = New System.Drawing.Size(519, 661)
         Me.grpCart.TabIndex = 1
         Me.grpCart.TabStop = False
         Me.grpCart.Text = "Cart"
@@ -80,7 +82,7 @@ Partial Class FrmOrder
         'lblTotalAmount
         '
         Me.lblTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblTotalAmount.Location = New System.Drawing.Point(195, 562)
+        Me.lblTotalAmount.Location = New System.Drawing.Point(215, 562)
         Me.lblTotalAmount.Name = "lblTotalAmount"
         Me.lblTotalAmount.Size = New System.Drawing.Size(182, 38)
         Me.lblTotalAmount.TabIndex = 6
@@ -89,14 +91,14 @@ Partial Class FrmOrder
         '
         Me.Label2.Location = New System.Drawing.Point(25, 562)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(176, 38)
+        Me.Label2.Size = New System.Drawing.Size(197, 38)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Total Amount : "
         '
         'lblTableNo
         '
         Me.lblTableNo.Font = New System.Drawing.Font("Yu Gothic UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTableNo.Location = New System.Drawing.Point(141, 40)
+        Me.lblTableNo.Location = New System.Drawing.Point(181, 39)
         Me.lblTableNo.Name = "lblTableNo"
         Me.lblTableNo.Size = New System.Drawing.Size(155, 38)
         Me.lblTableNo.TabIndex = 3
@@ -105,20 +107,20 @@ Partial Class FrmOrder
         'lblOrderItem
         '
         Me.lblOrderItem.AutoSize = True
-        Me.lblOrderItem.Font = New System.Drawing.Font("Yu Gothic UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOrderItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblOrderItem.Location = New System.Drawing.Point(20, 88)
         Me.lblOrderItem.Name = "lblOrderItem"
-        Me.lblOrderItem.Size = New System.Drawing.Size(125, 30)
+        Me.lblOrderItem.Size = New System.Drawing.Size(152, 29)
         Me.lblOrderItem.TabIndex = 2
         Me.lblOrderItem.Text = "Order Item :"
         '
         'label1
         '
         Me.label1.AutoSize = True
-        Me.label1.Font = New System.Drawing.Font("Yu Gothic UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.label1.Location = New System.Drawing.Point(39, 44)
         Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(106, 30)
+        Me.label1.Size = New System.Drawing.Size(136, 29)
         Me.label1.TabIndex = 0
         Me.label1.Text = "Table No :"
         Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -135,7 +137,7 @@ Partial Class FrmOrder
         '
         Me.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCategory.FormattingEnabled = True
-        Me.cmbCategory.Location = New System.Drawing.Point(654, 47)
+        Me.cmbCategory.Location = New System.Drawing.Point(707, 53)
         Me.cmbCategory.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmbCategory.Name = "cmbCategory"
         Me.cmbCategory.Size = New System.Drawing.Size(121, 28)
@@ -143,10 +145,11 @@ Partial Class FrmOrder
         '
         'Label3
         '
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label3.Location = New System.Drawing.Point(554, 49)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(94, 25)
+        Me.Label3.Size = New System.Drawing.Size(147, 42)
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "Category : "
         '
@@ -181,7 +184,7 @@ Partial Class FrmOrder
         Me.btnBack.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBack.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnBack.Location = New System.Drawing.Point(1045, 38)
+        Me.btnBack.Location = New System.Drawing.Point(984, 42)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(85, 42)
         Me.btnBack.TabIndex = 9
@@ -219,26 +222,26 @@ Partial Class FrmOrder
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(54, 29)
         Me.FileToolStripMenuItem.Text = "&File"
         '
-        'HelpToolStripMenuItem
-        '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FieldGuidelineToolStripMenuItem})
-        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 29)
-        Me.HelpToolStripMenuItem.Text = "&Help"
-        '
         'ClearToolStripMenuItem
         '
         Me.ClearToolStripMenuItem.Name = "ClearToolStripMenuItem"
         Me.ClearToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.ClearToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.ClearToolStripMenuItem.Size = New System.Drawing.Size(215, 34)
         Me.ClearToolStripMenuItem.Text = "&Clear"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         Me.ExitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(215, 34)
         Me.ExitToolStripMenuItem.Text = "E&xit"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FieldGuidelineToolStripMenuItem})
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 29)
+        Me.HelpToolStripMenuItem.Text = "&Help"
         '
         'FieldGuidelineToolStripMenuItem
         '
@@ -247,6 +250,17 @@ Partial Class FrmOrder
         Me.FieldGuidelineToolStripMenuItem.Size = New System.Drawing.Size(292, 34)
         Me.FieldGuidelineToolStripMenuItem.Text = "Field Guideline"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Image = Global.Assignment.My.Resources.Resources.Back
+        Me.PictureBox1.Location = New System.Drawing.Point(1075, 40)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(55, 48)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 11
+        Me.PictureBox1.TabStop = False
+        '
         'FrmOrder
         '
         Me.AcceptButton = Me.btnSendOrder
@@ -254,6 +268,7 @@ Partial Class FrmOrder
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1202, 727)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnGoToPayment)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.btnSendOrder)
@@ -270,6 +285,7 @@ Partial Class FrmOrder
         Me.grpCart.PerformLayout()
         Me.msOrderPage.ResumeLayout(False)
         Me.msOrderPage.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -298,4 +314,5 @@ Partial Class FrmOrder
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FieldGuidelineToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

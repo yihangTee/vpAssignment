@@ -188,6 +188,7 @@ Public Class FrmTable
         If EditMode = False Then
             Dim cartPage As New FrmOrder()
             cartPage.lblTableNo.Text = tableName
+            cartPage.lblTableNo.Font = New Font("Microsoft Sans Serif", 12, FontStyle.Bold)
             cartPage.Show()
         End If
     End Sub
@@ -253,7 +254,6 @@ Public Class FrmTable
             End If
         End If
     End Sub
-
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         lblTime.Text = DateTime.Now.ToString("dd/MM hh:mm:ss tt")
