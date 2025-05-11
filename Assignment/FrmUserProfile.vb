@@ -35,11 +35,8 @@
     End Sub
 
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
-        If MessageBox.Show("Are you sure you want to log out from this account?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
-            Return
-        End If
-        Me.Close()
-        FrmLogin.Show()
+        Me.Hide()
+        FrmMainPage.Show()
     End Sub
 
     Private Sub btnStaffReport_Click(sender As Object, e As EventArgs) Handles btnStaffReport.Click, GenerateStaffToolStripMenuItem.Click
@@ -73,9 +70,5 @@
                     "Developed by: [Tan Kae Ong]" & vbCrLf &
                     "© 2025 All rights reserved.",
                     "About", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        FrmMainPage.Show()
     End Sub
 End Class

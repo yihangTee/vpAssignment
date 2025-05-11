@@ -22,8 +22,7 @@ Partial Class FrmOrderDetails
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblTableNo = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -82,19 +81,11 @@ Partial Class FrmOrderDetails
         '
         Me.dgvOrderedItems.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.dgvOrderedItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvOrderedItems.DefaultCellStyle = DataGridViewCellStyle5
         Me.dgvOrderedItems.Location = New System.Drawing.Point(23, 118)
         Me.dgvOrderedItems.Name = "dgvOrderedItems"
         Me.dgvOrderedItems.RowHeadersWidth = 62
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
-        Me.dgvOrderedItems.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        Me.dgvOrderedItems.RowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvOrderedItems.RowTemplate.Height = 28
         Me.dgvOrderedItems.Size = New System.Drawing.Size(707, 389)
         Me.dgvOrderedItems.TabIndex = 4
@@ -162,7 +153,7 @@ Partial Class FrmOrderDetails
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.White
         Me.PictureBox2.Image = Global.Assignment.My.Resources.Resources.BFLogo
-        Me.PictureBox2.Location = New System.Drawing.Point(53, 22)
+        Me.PictureBox2.Location = New System.Drawing.Point(53, 34)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(100, 82)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -173,7 +164,7 @@ Partial Class FrmOrderDetails
         '
         Me.Label4.Font = New System.Drawing.Font("Gill Sans Ultra Bold", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(159, 22)
+        Me.Label4.Location = New System.Drawing.Point(159, 48)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(540, 68)
         Me.Label4.TabIndex = 11

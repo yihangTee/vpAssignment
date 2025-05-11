@@ -28,7 +28,8 @@ Public Class FrmLogin
             err.SetError(mskUsername, "")
             err.SetError(mskPassword, "")
             Me.Hide()
-            FrmUserProfile.Show()
+            'FrmUserProfile.Show()
+            FrmMainPage.Show()
 
         Else
             ' Clear existing errors first

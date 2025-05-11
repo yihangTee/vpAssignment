@@ -22,9 +22,9 @@ Partial Class FrmSalesReport
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSalesReport))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmbItemType = New System.Windows.Forms.ComboBox()
@@ -42,9 +42,11 @@ Partial Class FrmSalesReport
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FieldGuidelineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         CType(Me.chartSales, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -71,7 +73,7 @@ Partial Class FrmSalesReport
         Me.btnGenerate.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnGenerate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGenerate.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnGenerate.Location = New System.Drawing.Point(444, 525)
+        Me.btnGenerate.Location = New System.Drawing.Point(473, 454)
         Me.btnGenerate.Name = "btnGenerate"
         Me.btnGenerate.Size = New System.Drawing.Size(156, 37)
         Me.btnGenerate.TabIndex = 2
@@ -80,17 +82,17 @@ Partial Class FrmSalesReport
         '
         'chartSales
         '
-        ChartArea1.Name = "ChartArea1"
-        Me.chartSales.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.chartSales.Legends.Add(Legend1)
-        Me.chartSales.Location = New System.Drawing.Point(68, 114)
+        ChartArea2.Name = "ChartArea1"
+        Me.chartSales.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.chartSales.Legends.Add(Legend2)
+        Me.chartSales.Location = New System.Drawing.Point(52, 42)
         Me.chartSales.Name = "chartSales"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.chartSales.Series.Add(Series1)
-        Me.chartSales.Size = New System.Drawing.Size(645, 405)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.chartSales.Series.Add(Series2)
+        Me.chartSales.Size = New System.Drawing.Size(690, 395)
         Me.chartSales.TabIndex = 3
         Me.chartSales.Text = "Chart1"
         '
@@ -144,7 +146,7 @@ Partial Class FrmSalesReport
         Me.btnPrint.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnPrint.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPrint.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnPrint.Location = New System.Drawing.Point(606, 525)
+        Me.btnPrint.Location = New System.Drawing.Point(635, 454)
         Me.btnPrint.Name = "btnPrint"
         Me.btnPrint.Size = New System.Drawing.Size(107, 37)
         Me.btnPrint.TabIndex = 7
@@ -166,7 +168,7 @@ Partial Class FrmSalesReport
         '
         Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(54, 29)
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(54, 32)
         Me.FileToolStripMenuItem.Text = "&File"
         '
         'ExitToolStripMenuItem
@@ -180,7 +182,7 @@ Partial Class FrmSalesReport
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FieldGuidelineToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 29)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 32)
         Me.HelpToolStripMenuItem.Text = "&Help"
         '
         'FieldGuidelineToolStripMenuItem
@@ -201,6 +203,20 @@ Partial Class FrmSalesReport
         Me.PictureBox1.TabIndex = 9
         Me.PictureBox1.TabStop = False
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.chartSales)
+        Me.GroupBox1.Controls.Add(Me.btnGenerate)
+        Me.GroupBox1.Controls.Add(Me.btnPrint)
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.GroupBox1.Location = New System.Drawing.Point(44, 105)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(839, 512)
+        Me.GroupBox1.TabIndex = 10
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Sales Report"
+        '
         'FrmSalesReport
         '
         Me.AcceptButton = Me.btnGenerate
@@ -208,13 +224,11 @@ Partial Class FrmSalesReport
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(941, 639)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.btnPrint)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.cmbChartType)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.chartSales)
-        Me.Controls.Add(Me.btnGenerate)
         Me.Controls.Add(Me.cmbItemType)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip1)
@@ -225,6 +239,7 @@ Partial Class FrmSalesReport
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -246,4 +261,5 @@ Partial Class FrmSalesReport
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FieldGuidelineToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents GroupBox1 As GroupBox
 End Class

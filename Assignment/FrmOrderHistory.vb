@@ -38,4 +38,17 @@
         Me.Close()
         FrmOrder_Payment.Show()
     End Sub
+
+    Private Sub ClearToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearToolStripMenuItem.Click
+        dgvOrderHistory.DataSource = Nothing
+    End Sub
+
+    Private Sub FieldGuidelineToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FieldGuidelineToolStripMenuItem.Click
+        MessageBox.Show(
+        "ORDER HISTORY SAFEGUARDS:" & vbCrLf & vbCrLf &
+        "1. Generate order history by chosen date." & vbCrLf &
+        "2. Double click to view details and reprint receipt",
+        "Order History Help",
+        MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
 End Class
