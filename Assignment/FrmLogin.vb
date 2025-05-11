@@ -3,8 +3,6 @@ Imports System.Data.SqlClient
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
 
 Public Class FrmLogin
-    'Private sampleUsername As String = "FarizQQ"
-    ' Private salmplePassword As String = "Fariz*12"
     Private Sub FrmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         mskUsername.Focus()
     End Sub
@@ -27,9 +25,12 @@ Public Class FrmLogin
             MessageBox.Show("Welcome [" & App.CurrentUserName & "]", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
             err.SetError(mskUsername, "")
             err.SetError(mskPassword, "")
+
+            FrmTable.lblName.Text = username
+            frmItemStock.lblSName.Text = username
+
             Me.Close()
             FrmMainPage.Show()
-
         Else
             ' Clear existing errors first
             err.SetError(mskUsername, "")
@@ -55,9 +56,6 @@ Public Class FrmLogin
                 err.SetError(mskPassword, "Username or password is incorrect.")
             End If
         End If
-
-        FrmTable.lblName.Text = username
-        frmItemStock.lblSName.Text = username
     End Sub
 
     Private Function CheckUsernameAndPassword(strUsername As String, strPassword As String) As Boolean

@@ -449,6 +449,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BL-fariz.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\paymentModule.png" />
+    <None Include="Resources\orderModule.png" />
+    <None Include="Resources\ItemModule.png" />
+    <None Include="Resources\staffModule.png" />
     <None Include="Resources\SearchUser.png" />
     <None Include="Resources\Report.png" />
     <None Include="Resources\Logout.png" />

@@ -31,8 +31,16 @@ Partial Class FrmMainPage
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.btnOrderPayment = New System.Windows.Forms.Button()
+        Me.pbStaff = New System.Windows.Forms.PictureBox()
+        Me.pbOrder = New System.Windows.Forms.PictureBox()
+        Me.pbItem = New System.Windows.Forms.PictureBox()
+        Me.pbPayment = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbStaff, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbOrder, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbItem, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbPayment, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnStaffModule
@@ -40,7 +48,7 @@ Partial Class FrmMainPage
         Me.btnStaffModule.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnStaffModule.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnStaffModule.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnStaffModule.Location = New System.Drawing.Point(100, 301)
+        Me.btnStaffModule.Location = New System.Drawing.Point(100, 350)
         Me.btnStaffModule.Name = "btnStaffModule"
         Me.btnStaffModule.Size = New System.Drawing.Size(172, 100)
         Me.btnStaffModule.TabIndex = 0
@@ -52,9 +60,9 @@ Partial Class FrmMainPage
         Me.btnOrderPage.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnOrderPage.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnOrderPage.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnOrderPage.Location = New System.Drawing.Point(278, 301)
+        Me.btnOrderPage.Location = New System.Drawing.Point(280, 350)
         Me.btnOrderPage.Name = "btnOrderPage"
-        Me.btnOrderPage.Size = New System.Drawing.Size(165, 100)
+        Me.btnOrderPage.Size = New System.Drawing.Size(170, 100)
         Me.btnOrderPage.TabIndex = 1
         Me.btnOrderPage.Text = "Order Page"
         Me.btnOrderPage.UseVisualStyleBackColor = False
@@ -64,9 +72,9 @@ Partial Class FrmMainPage
         Me.btnItemModule.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnItemModule.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnItemModule.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnItemModule.Location = New System.Drawing.Point(449, 301)
+        Me.btnItemModule.Location = New System.Drawing.Point(459, 350)
         Me.btnItemModule.Name = "btnItemModule"
-        Me.btnItemModule.Size = New System.Drawing.Size(180, 100)
+        Me.btnItemModule.Size = New System.Drawing.Size(172, 100)
         Me.btnItemModule.TabIndex = 2
         Me.btnItemModule.Text = "Item Module"
         Me.btnItemModule.UseVisualStyleBackColor = False
@@ -120,12 +128,52 @@ Partial Class FrmMainPage
         Me.btnOrderPayment.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnOrderPayment.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnOrderPayment.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnOrderPayment.Location = New System.Drawing.Point(637, 301)
+        Me.btnOrderPayment.Location = New System.Drawing.Point(645, 350)
         Me.btnOrderPayment.Name = "btnOrderPayment"
         Me.btnOrderPayment.Size = New System.Drawing.Size(220, 100)
         Me.btnOrderPayment.TabIndex = 8
         Me.btnOrderPayment.Text = "Order/Payment Module"
         Me.btnOrderPayment.UseVisualStyleBackColor = False
+        '
+        'pbStaff
+        '
+        Me.pbStaff.Image = Global.Assignment.My.Resources.Resources.staffModule
+        Me.pbStaff.Location = New System.Drawing.Point(100, 219)
+        Me.pbStaff.Name = "pbStaff"
+        Me.pbStaff.Size = New System.Drawing.Size(172, 115)
+        Me.pbStaff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbStaff.TabIndex = 9
+        Me.pbStaff.TabStop = False
+        '
+        'pbOrder
+        '
+        Me.pbOrder.Image = Global.Assignment.My.Resources.Resources.orderModule
+        Me.pbOrder.Location = New System.Drawing.Point(278, 219)
+        Me.pbOrder.Name = "pbOrder"
+        Me.pbOrder.Size = New System.Drawing.Size(172, 115)
+        Me.pbOrder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbOrder.TabIndex = 10
+        Me.pbOrder.TabStop = False
+        '
+        'pbItem
+        '
+        Me.pbItem.Image = Global.Assignment.My.Resources.Resources.ItemModule
+        Me.pbItem.Location = New System.Drawing.Point(459, 219)
+        Me.pbItem.Name = "pbItem"
+        Me.pbItem.Size = New System.Drawing.Size(172, 115)
+        Me.pbItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbItem.TabIndex = 11
+        Me.pbItem.TabStop = False
+        '
+        'pbPayment
+        '
+        Me.pbPayment.Image = Global.Assignment.My.Resources.Resources.paymentModule
+        Me.pbPayment.Location = New System.Drawing.Point(645, 219)
+        Me.pbPayment.Name = "pbPayment"
+        Me.pbPayment.Size = New System.Drawing.Size(172, 115)
+        Me.pbPayment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbPayment.TabIndex = 12
+        Me.pbPayment.TabStop = False
         '
         'FrmMainPage
         '
@@ -133,6 +181,10 @@ Partial Class FrmMainPage
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(986, 578)
+        Me.Controls.Add(Me.pbPayment)
+        Me.Controls.Add(Me.pbItem)
+        Me.Controls.Add(Me.pbOrder)
+        Me.Controls.Add(Me.pbStaff)
         Me.Controls.Add(Me.btnOrderPayment)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
@@ -147,6 +199,10 @@ Partial Class FrmMainPage
         Me.Text = "FrmMainPage"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbStaff, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbOrder, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbItem, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbPayment, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -159,4 +215,8 @@ Partial Class FrmMainPage
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents btnOrderPayment As Button
+    Friend WithEvents pbStaff As PictureBox
+    Friend WithEvents pbOrder As PictureBox
+    Friend WithEvents pbItem As PictureBox
+    Friend WithEvents pbPayment As PictureBox
 End Class

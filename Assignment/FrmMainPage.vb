@@ -26,4 +26,31 @@
         Me.Hide()
         FrmUserProfile.Show()
     End Sub
+
+    Private Sub FrmMainPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim staffDepartment = GetStaffDepartmentByUsername(FrmTable.lblName.Text)
+
+        If staffDepartment = "Administrative staff" Then
+            btnStaffModule.Visible = True
+            btnOrderPayment.Visible = True
+            pbStaff.Visible = True
+            pbPayment.Visible = True
+        Else
+            btnStaffModule.Visible = False
+            btnOrderPayment.Visible = False
+            pbStaff.Visible = False
+            pbPayment.Visible = False
+        End If
+    End Sub
+
+    Public Function GetStaffDepartmentByUsername(username As String) As String
+        Using db As New BL_farizDataContext()
+            Dim staffDepartment = (From s In db.Staffs
+                                   Where s.Username = username AndAlso s.Status = "Active"
+                                   Select s.Department).FirstOrDefault()
+
+            Return staffDepartment
+        End Using
+    End Function
+
 End Class
