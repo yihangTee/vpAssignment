@@ -6,6 +6,7 @@ Public Class FrmTable
     Dim offset As Point
     Dim selectedButton As Button
     Dim EditMode As Boolean = False
+    'Dim db As New BL_farizDataContext()
 
     Private Sub FrmOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         btnAddTable.Visible = False
@@ -13,7 +14,6 @@ Public Class FrmTable
         btnReset.Visible = False
         UpdateEditModeButton()
         LoadTableButtonsFromDB()
-        lblName.Text = " Ho Tze Chian"
         Timer1.Start()
     End Sub
 
@@ -150,27 +150,25 @@ Public Class FrmTable
     End Sub
 
     Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
+        Dim db As New BL_farizDataContext()
         Dim result = MessageBox.Show("Are you sure you want to reset the layout to default?", "Reset Layout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
 
         If result = DialogResult.Yes Then
 
-            Using db As New BL_farizDataContext()
-
-                Dim hasPendingPayments = (
+            Dim hasPendingPayments = (
                 From o In db.Orders
                 Join p In db.Payments On o.OrderID Equals p.OrderID
                 Where p.PaymentStatus = "Pending"
             ).Any()
 
-                If hasPendingPayments Then
-                    MessageBox.Show("Cannot reset layout. One or more tables have pending payments.",
-                                "Reset Blocked", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                    Return
-                End If
+            If hasPendingPayments Then
+                MessageBox.Show("Cannot reset layout. One or more tables have pending payments.",
+                            "Reset Blocked", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
 
-                db.TableNos.DeleteAllOnSubmit(db.TableNos)
-                db.SubmitChanges()
-            End Using
+            db.TableNos.DeleteAllOnSubmit(db.TableNos)
+            db.SubmitChanges()
 
             pnlTables.Controls.Clear()
 
@@ -194,7 +192,7 @@ Public Class FrmTable
     End Sub
 
     Private Sub LoadTableButtonsFromDB()
-        Using db As New BL_FarizDataContext()
+        Using db As New BL_farizDataContext()
             Dim tableList = db.TableNos.ToList()
 
             For Each t In tableList
@@ -214,40 +212,36 @@ Public Class FrmTable
                 pnlTables.Controls.Add(btn)
             Next
         End Using
-
     End Sub
 
     Private Sub DeleteToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem.Click
         Dim btn As Button = TryCast(cmsTable.SourceControl, Button)
+        Dim db As New BL_farizDataContext()
         If btn IsNot Nothing Then
             Dim tableName As String = btn.Text
 
-            Using db As New BL_farizDataContext()
-                Dim hasPendingPayment = (
+            Dim hasPendingPayment = (
                 From o In db.Orders
                 Join p In db.Payments On o.OrderID Equals p.OrderID
                 Where o.TableNo = tableName AndAlso p.PaymentStatus = "Pending"
             ).Any()
 
-                If hasPendingPayment Then
-                    MessageBox.Show("Cannot delete this table. There is a pending payment associated with it.",
+            If hasPendingPayment Then
+                MessageBox.Show("Cannot delete this table. There is a pending payment associated with it.",
                                 "Deletion Blocked", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                    Return
-                End If
-            End Using
+                Return
+            End If
 
             Dim result = MessageBox.Show("Delete " & btn.Text & "?", "Confirm Delete", MessageBoxButtons.YesNo)
             If result = DialogResult.Yes Then
                 pnlTables.Controls.Remove(btn)
                 btn.Dispose()
 
-                Using db As New BL_farizDataContext()
-                    Dim tableToDelete = db.TableNos.FirstOrDefault(Function(t) t.Name = tableName)
-                    If tableToDelete IsNot Nothing Then
-                        db.TableNos.DeleteOnSubmit(tableToDelete)
-                        db.SubmitChanges()
-                    End If
-                End Using
+                Dim tableToDelete = db.TableNos.FirstOrDefault(Function(t) t.Name = tableName)
+                If tableToDelete IsNot Nothing Then
+                    db.TableNos.DeleteOnSubmit(tableToDelete)
+                    db.SubmitChanges()
+                End If
 
                 MessageBox.Show("Table deleted successfully.", "Deleted", MessageBoxButtons.OK,
                             MessageBoxIcon.Information)
@@ -257,8 +251,6 @@ Public Class FrmTable
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         lblTime.Text = DateTime.Now.ToString("dd/MM hh:mm:ss tt")
-
-        Dim db As New BL_farizDataContext()
 
         For Each btn As Button In pnlTables.Controls.OfType(Of Button)()
             Dim tableNo As String = btn.Text.Split(New String() {vbCrLf}, StringSplitOptions.None)(0).Trim()

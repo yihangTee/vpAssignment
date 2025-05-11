@@ -56,6 +56,7 @@ Public Class FrmLogin
             End If
         End If
 
+        FrmTable.lblName.Text = username
     End Sub
 
     Private Function CheckUsernameAndPassword(strUsername As String, strPassword As String) As Boolean

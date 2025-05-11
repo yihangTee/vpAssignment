@@ -10,8 +10,8 @@
             Timer1.Stop()
             Me.Hide()
             'FrmMainPage.Show()
-            'FrmLogin.Show()
-            FrmUserProfile.Show()
+            FrmLogin.Show()
+            'FrmUserProfile.Show()
 
         End If
     End Sub

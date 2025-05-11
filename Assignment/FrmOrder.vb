@@ -3,6 +3,7 @@ Imports System.Data.SqlClient
 Imports System.Text
 
 Public Class FrmOrder
+    Dim db As New BL_farizDataContext()
     Public Property SelectedTableNo As String
 
     Private Sub FrmOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -11,8 +12,6 @@ Public Class FrmOrder
     End Sub
 
     Private Sub LoadCategories()
-        Dim db As New BL_farizDataContext()
-
         Dim categories = (From i In db.Items
                           Select i.Item_Category
                           Distinct).ToList()
@@ -28,7 +27,6 @@ Public Class FrmOrder
     End Sub
 
     Private Sub LoadItemsByCategory(category As String)
-        Dim db As New BL_farizDataContext()
         flpMenu.Controls.Clear()
 
         Dim items = From i In db.Items
@@ -122,7 +120,6 @@ Public Class FrmOrder
     End Function
 
     Private Sub AddToCart(itemId As String)
-        Dim db As New BL_farizDataContext()
         Dim item = db.Items.FirstOrDefault(Function(i) i.Item_Id = itemId)
 
         If item IsNot Nothing Then
@@ -249,7 +246,6 @@ Public Class FrmOrder
     End Function
 
     Private Sub ModifyQuantity(itemId As String, change As Integer)
-        Dim db As New BL_farizDataContext()
         Dim item = db.Items.FirstOrDefault(Function(i) i.Item_Id = itemId)
 
         If item IsNot Nothing Then
@@ -335,16 +331,15 @@ Public Class FrmOrder
             Return
         End If
 
-        Dim db As New BL_farizDataContext()
-
         Dim orderID As String = GenerateOrderID(db)
-        Dim staffID As String = "ST0001"
+        Dim username As String = FrmTable.lblName.Text.Trim()
+        Dim staffId As String = GetStaffIdByName(username)
         Dim tableNo As String = lblTableNo.Text
         Dim totalAmount As Decimal = Decimal.Parse(lblTotalAmount.Text.Replace("RM", "").Trim())
 
         Dim newOrder As New [Order] With {
         .OrderID = orderID,
-        .StaffID = staffID,
+        .StaffID = staffId,
         .TableNo = tableNo,
         .TotalAmount = totalAmount,
         .OrderDateTime = DateTime.Now
@@ -434,6 +429,13 @@ Public Class FrmOrder
 
     End Sub
 
+    Private Function GetStaffIdByName(username As String) As String
+        Dim staffId = (From s In db.Staffs
+                       Where s.Username = username
+                       Select Staff_Id = s.StaffID).FirstOrDefault()
+        Return staffId
+    End Function
+
     Private Function GetCartItemQuantity(panel As Panel) As Integer
         Dim lblSummary = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(l) l.Name.StartsWith("lblSummary"))
         If lblSummary IsNot Nothing Then
@@ -499,13 +501,14 @@ Public Class FrmOrder
         Dim fntHeader As New Font("Calibri", 24, FontStyle.Bold)
         Dim fntSubHeader As New Font("Calibri", 12)
         Dim fntBody As New Font("Consolas", 10)
+        Dim staffId As String = GetStaffIdByName(FrmTable.lblName.Text.Trim())
 
         Dim strHeader As String = "ORDER LIST"
         Dim strSubHeader As String = String.Format(
         "Table No: {0}" & vbNewLine &
         "Staff ID: {1}" & vbNewLine &
         "Order Time: {2:dd-MMMM-yyyy hh:mm:ss tt}",
-        lblTableNo.Text, "ST0001", DateTime.Now
+        lblTableNo.Text, staffId, DateTime.Now
     )
 
         Dim body As New StringBuilder()
