@@ -41,13 +41,22 @@ Public Class FrmStaffDetails
         mskContactNumber.Text = s.ContactNumber
         txtEmailAddress.Text = s.EmailAddress
         rtxtHomeAddress.Text = s.HomeAddress
-        Dim img As Image = App.ByteArrayToImage(s.ProfileImage.ToArray())
 
-        If img IsNot Nothing Then
-            picProfileImage.Image = img
+        Dim staffImg = s.ProfileImage
+
+        If staffImg IsNot Nothing AndAlso staffImg.Length > 0 Then
+            Try
+                Dim imgBytes As Byte() = staffImg.ToArray()
+                Using ms As New IO.MemoryStream(imgBytes)
+                    picProfileImage.Image = Image.FromStream(ms)
+                End Using
+            Catch ex As Exception
+                picProfileImage.Image = Nothing
+            End Try
         Else
-            picProfileImage.Image = My.Resources.DefaultProfile
+            picProfileImage.Image = Nothing
         End If
+
         cboDepartment.Text = s.Department
         cboRole.Text = s.Role
         lblDateOfRegistered.Text = s.CreatedDate.ToString
