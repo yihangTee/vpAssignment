@@ -22,6 +22,7 @@ Partial Class FrmGenerateStaffReport
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGenerateStaffReport))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.radText = New System.Windows.Forms.RadioButton()
         Me.radPDF = New System.Windows.Forms.RadioButton()
@@ -73,7 +74,7 @@ Partial Class FrmGenerateStaffReport
         Me.radText.Location = New System.Drawing.Point(366, 48)
         Me.radText.Margin = New System.Windows.Forms.Padding(5)
         Me.radText.Name = "radText"
-        Me.radText.Size = New System.Drawing.Size(76, 29)
+        Me.radText.Size = New System.Drawing.Size(89, 33)
         Me.radText.TabIndex = 2
         Me.radText.TabStop = True
         Me.radText.Text = "Text"
@@ -86,7 +87,7 @@ Partial Class FrmGenerateStaffReport
         Me.radPDF.Location = New System.Drawing.Point(52, 48)
         Me.radPDF.Margin = New System.Windows.Forms.Padding(5)
         Me.radPDF.Name = "radPDF"
-        Me.radPDF.Size = New System.Drawing.Size(75, 29)
+        Me.radPDF.Size = New System.Drawing.Size(89, 33)
         Me.radPDF.TabIndex = 1
         Me.radPDF.TabStop = True
         Me.radPDF.Text = "PDF"
@@ -100,7 +101,7 @@ Partial Class FrmGenerateStaffReport
         Me.chkProfileImage.Location = New System.Drawing.Point(57, 55)
         Me.chkProfileImage.Margin = New System.Windows.Forms.Padding(5)
         Me.chkProfileImage.Name = "chkProfileImage"
-        Me.chkProfileImage.Size = New System.Drawing.Size(170, 29)
+        Me.chkProfileImage.Size = New System.Drawing.Size(208, 33)
         Me.chkProfileImage.TabIndex = 5
         Me.chkProfileImage.Text = "Profile images"
         Me.chkProfileImage.UseVisualStyleBackColor = True
@@ -113,7 +114,7 @@ Partial Class FrmGenerateStaffReport
         Me.chkInactiveStaff.Location = New System.Drawing.Point(366, 55)
         Me.chkInactiveStaff.Margin = New System.Windows.Forms.Padding(5)
         Me.chkInactiveStaff.Name = "chkInactiveStaff"
-        Me.chkInactiveStaff.Size = New System.Drawing.Size(156, 29)
+        Me.chkInactiveStaff.Size = New System.Drawing.Size(183, 33)
         Me.chkInactiveStaff.TabIndex = 6
         Me.chkInactiveStaff.Text = "Inactive staff"
         Me.chkInactiveStaff.UseVisualStyleBackColor = True
@@ -206,7 +207,7 @@ Partial Class FrmGenerateStaffReport
         Me.Label1.ForeColor = System.Drawing.Color.DarkSlateBlue
         Me.Label1.Location = New System.Drawing.Point(140, 78)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(174, 62)
+        Me.Label1.Size = New System.Drawing.Size(215, 84)
         Me.Label1.TabIndex = 18
         Me.Label1.Text = "BL-Fariz" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Restaurant"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -223,11 +224,12 @@ Partial Class FrmGenerateStaffReport
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.GripMargin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(3, 26)
+        Me.MenuStrip1.Location = New System.Drawing.Point(3, 31)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(703, 28)
+        Me.MenuStrip1.Size = New System.Drawing.Size(703, 33)
         Me.MenuStrip1.TabIndex = 22
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -236,7 +238,7 @@ Partial Class FrmGenerateStaffReport
         Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GenerateReportToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(46, 24)
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(54, 29)
         Me.FileToolStripMenuItem.Text = "File"
         '
         'GenerateReportToolStripMenuItem
@@ -244,21 +246,21 @@ Partial Class FrmGenerateStaffReport
         Me.GenerateReportToolStripMenuItem.Name = "GenerateReportToolStripMenuItem"
         Me.GenerateReportToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
             Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
-        Me.GenerateReportToolStripMenuItem.Size = New System.Drawing.Size(293, 26)
+        Me.GenerateReportToolStripMenuItem.Size = New System.Drawing.Size(353, 34)
         Me.GenerateReportToolStripMenuItem.Text = "Generate Report"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         Me.ExitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(293, 26)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(353, 34)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FieldGuidelineToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(55, 24)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 29)
         Me.HelpToolStripMenuItem.Text = "Help"
         '
         'FieldGuidelineToolStripMenuItem
@@ -266,12 +268,12 @@ Partial Class FrmGenerateStaffReport
         Me.FieldGuidelineToolStripMenuItem.Name = "FieldGuidelineToolStripMenuItem"
         Me.FieldGuidelineToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
             Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
-        Me.FieldGuidelineToolStripMenuItem.Size = New System.Drawing.Size(283, 26)
+        Me.FieldGuidelineToolStripMenuItem.Size = New System.Drawing.Size(340, 34)
         Me.FieldGuidelineToolStripMenuItem.Text = "Field Guideline"
         '
         'FrmGenerateStaffReport
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(15.0!, 29.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(709, 521)
@@ -280,8 +282,10 @@ Partial Class FrmGenerateStaffReport
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox3)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(5)
         Me.Name = "FrmGenerateStaffReport"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Staff - Generate Report"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

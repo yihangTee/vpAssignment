@@ -27,8 +27,7 @@ Public Class FrmLogin
             MessageBox.Show("Welcome [" & App.CurrentUserName & "]", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
             err.SetError(mskUsername, "")
             err.SetError(mskPassword, "")
-            Me.Hide()
-            'FrmUserProfile.Show()
+            Me.Close()
             FrmMainPage.Show()
 
         Else
@@ -58,6 +57,7 @@ Public Class FrmLogin
         End If
 
         FrmTable.lblName.Text = username
+        frmItemStock.lblSName.Text = username
     End Sub
 
     Private Function CheckUsernameAndPassword(strUsername As String, strPassword As String) As Boolean

@@ -23,6 +23,7 @@ Partial Class FrmForgotPassword
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmForgotPassword))
         Me.txtConfirmPassword = New System.Windows.Forms.TextBox()
         Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.txtNewPassword = New System.Windows.Forms.TextBox()
@@ -50,7 +51,7 @@ Partial Class FrmForgotPassword
         Me.txtConfirmPassword.Margin = New System.Windows.Forms.Padding(5)
         Me.txtConfirmPassword.MaxLength = 25
         Me.txtConfirmPassword.Name = "txtConfirmPassword"
-        Me.txtConfirmPassword.Size = New System.Drawing.Size(225, 30)
+        Me.txtConfirmPassword.Size = New System.Drawing.Size(225, 35)
         Me.txtConfirmPassword.TabIndex = 25
         Me.ToolTip1.SetToolTip(Me.txtConfirmPassword, "Confirm password should be the same as password above.")
         Me.txtConfirmPassword.UseSystemPasswordChar = True
@@ -61,7 +62,7 @@ Partial Class FrmForgotPassword
         Me.txtUsername.Margin = New System.Windows.Forms.Padding(5)
         Me.txtUsername.MaxLength = 25
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(225, 30)
+        Me.txtUsername.Size = New System.Drawing.Size(225, 35)
         Me.txtUsername.TabIndex = 22
         Me.ToolTip1.SetToolTip(Me.txtUsername, "Enter your username for verification.")
         '
@@ -71,7 +72,7 @@ Partial Class FrmForgotPassword
         Me.txtNewPassword.Margin = New System.Windows.Forms.Padding(5)
         Me.txtNewPassword.MaxLength = 25
         Me.txtNewPassword.Name = "txtNewPassword"
-        Me.txtNewPassword.Size = New System.Drawing.Size(225, 30)
+        Me.txtNewPassword.Size = New System.Drawing.Size(225, 35)
         Me.txtNewPassword.TabIndex = 23
         Me.ToolTip1.SetToolTip(Me.txtNewPassword, "Password must contain at least a number, uppercase and lowercase letter, and spec" &
         "ial character.")
@@ -83,7 +84,7 @@ Partial Class FrmForgotPassword
         Me.Label12.Location = New System.Drawing.Point(15, 81)
         Me.Label12.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(187, 25)
+        Me.Label12.Size = New System.Drawing.Size(226, 29)
         Me.Label12.TabIndex = 27
         Me.Label12.Text = "&Confirm Password"
         '
@@ -93,7 +94,7 @@ Partial Class FrmForgotPassword
         Me.Label11.Location = New System.Drawing.Point(48, 34)
         Me.Label11.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(154, 25)
+        Me.Label11.Size = New System.Drawing.Size(188, 29)
         Me.Label11.TabIndex = 26
         Me.Label11.Text = "&New Password"
         '
@@ -103,7 +104,7 @@ Partial Class FrmForgotPassword
         Me.Label10.Location = New System.Drawing.Point(92, 34)
         Me.Label10.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(110, 25)
+        Me.Label10.Size = New System.Drawing.Size(132, 29)
         Me.Label10.TabIndex = 24
         Me.Label10.Text = "&Username"
         '
@@ -113,7 +114,7 @@ Partial Class FrmForgotPassword
         Me.txtEmailAddress.Margin = New System.Windows.Forms.Padding(5)
         Me.txtEmailAddress.MaxLength = 254
         Me.txtEmailAddress.Name = "txtEmailAddress"
-        Me.txtEmailAddress.Size = New System.Drawing.Size(225, 30)
+        Me.txtEmailAddress.Size = New System.Drawing.Size(225, 35)
         Me.txtEmailAddress.TabIndex = 70
         Me.ToolTip1.SetToolTip(Me.txtEmailAddress, "Enter your email address for verification")
         '
@@ -123,7 +124,7 @@ Partial Class FrmForgotPassword
         Me.Label5.Location = New System.Drawing.Point(51, 79)
         Me.Label5.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(151, 25)
+        Me.Label5.Size = New System.Drawing.Size(182, 29)
         Me.Label5.TabIndex = 71
         Me.Label5.Text = "&Email Address"
         '
@@ -163,7 +164,7 @@ Partial Class FrmForgotPassword
         Me.chkShowPassword.ForeColor = System.Drawing.Color.AliceBlue
         Me.chkShowPassword.Location = New System.Drawing.Point(212, 116)
         Me.chkShowPassword.Name = "chkShowPassword"
-        Me.chkShowPassword.Size = New System.Drawing.Size(149, 24)
+        Me.chkShowPassword.Size = New System.Drawing.Size(189, 29)
         Me.chkShowPassword.TabIndex = 28
         Me.chkShowPassword.Text = "Show password"
         Me.chkShowPassword.UseVisualStyleBackColor = True
@@ -200,7 +201,7 @@ Partial Class FrmForgotPassword
         '
         'FrmForgotPassword
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(15.0!, 29.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(537, 432)
@@ -208,8 +209,10 @@ Partial Class FrmForgotPassword
         Me.Controls.Add(Me.GroupBox3)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ForeColor = System.Drawing.Color.AliceBlue
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(5)
         Me.Name = "FrmForgotPassword"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Login - Forgot Password"
         Me.grpVerification.ResumeLayout(False)
         Me.grpVerification.PerformLayout()

@@ -21,6 +21,7 @@
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click, ExitToolStripMenuItem.Click
         Me.Close()
+        FrmMainPage.Show()
     End Sub
 
     Private Sub UserGuideToolstripMenuItem_Click(sender As Object, e As EventArgs) Handles UserGuideToolStripMenuItem.Click
@@ -43,5 +44,4 @@
                     "© 2025 All rights reserved.",
                     "About", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
-
 End Class

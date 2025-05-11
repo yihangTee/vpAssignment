@@ -23,6 +23,7 @@ Partial Class FrmLogin
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLogin))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.mskUsername = New System.Windows.Forms.MaskedTextBox()
         Me.mskPassword = New System.Windows.Forms.MaskedTextBox()
@@ -44,9 +45,9 @@ Partial Class FrmLogin
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.AliceBlue
-        Me.Label1.Location = New System.Drawing.Point(239, 12)
+        Me.Label1.Location = New System.Drawing.Point(269, 15)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(152, 32)
+        Me.Label1.Size = New System.Drawing.Size(176, 38)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Username"
         '
@@ -55,9 +56,10 @@ Partial Class FrmLogin
         Me.mskUsername.CausesValidation = False
         Me.mskUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.mskUsername.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.mskUsername.Location = New System.Drawing.Point(245, 47)
+        Me.mskUsername.Location = New System.Drawing.Point(276, 59)
+        Me.mskUsername.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.mskUsername.Name = "mskUsername"
-        Me.mskUsername.Size = New System.Drawing.Size(219, 24)
+        Me.mskUsername.Size = New System.Drawing.Size(246, 28)
         Me.mskUsername.TabIndex = 2
         Me.ToolTip1.SetToolTip(Me.mskUsername, "Please enter your registered username.")
         '
@@ -65,9 +67,10 @@ Partial Class FrmLogin
         '
         Me.mskPassword.CausesValidation = False
         Me.mskPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.mskPassword.Location = New System.Drawing.Point(245, 120)
+        Me.mskPassword.Location = New System.Drawing.Point(276, 150)
+        Me.mskPassword.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.mskPassword.Name = "mskPassword"
-        Me.mskPassword.Size = New System.Drawing.Size(219, 24)
+        Me.mskPassword.Size = New System.Drawing.Size(246, 28)
         Me.mskPassword.TabIndex = 4
         Me.ToolTip1.SetToolTip(Me.mskPassword, "Please enter your registered password.")
         Me.mskPassword.UseSystemPasswordChar = True
@@ -77,9 +80,9 @@ Partial Class FrmLogin
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.AliceBlue
-        Me.Label2.Location = New System.Drawing.Point(239, 85)
+        Me.Label2.Location = New System.Drawing.Point(269, 106)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(146, 32)
+        Me.Label2.Size = New System.Drawing.Size(170, 38)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Password"
         '
@@ -88,9 +91,10 @@ Partial Class FrmLogin
         Me.chkShowPassword.AutoSize = True
         Me.chkShowPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkShowPassword.ForeColor = System.Drawing.Color.AliceBlue
-        Me.chkShowPassword.Location = New System.Drawing.Point(245, 150)
+        Me.chkShowPassword.Location = New System.Drawing.Point(276, 188)
+        Me.chkShowPassword.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.chkShowPassword.Name = "chkShowPassword"
-        Me.chkShowPassword.Size = New System.Drawing.Size(137, 22)
+        Me.chkShowPassword.Size = New System.Drawing.Size(163, 26)
         Me.chkShowPassword.TabIndex = 5
         Me.chkShowPassword.Text = "Show password"
         Me.chkShowPassword.UseVisualStyleBackColor = True
@@ -102,9 +106,10 @@ Partial Class FrmLogin
         Me.btnLogin.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogin.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnLogin.Location = New System.Drawing.Point(246, 212)
+        Me.btnLogin.Location = New System.Drawing.Point(277, 265)
+        Me.btnLogin.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(108, 42)
+        Me.btnLogin.Size = New System.Drawing.Size(122, 52)
         Me.btnLogin.TabIndex = 6
         Me.btnLogin.Text = "&Login"
         Me.btnLogin.UseVisualStyleBackColor = False
@@ -120,9 +125,10 @@ Partial Class FrmLogin
         Me.btnReset.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnReset.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReset.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnReset.Location = New System.Drawing.Point(360, 212)
+        Me.btnReset.Location = New System.Drawing.Point(405, 265)
+        Me.btnReset.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnReset.Name = "btnReset"
-        Me.btnReset.Size = New System.Drawing.Size(108, 42)
+        Me.btnReset.Size = New System.Drawing.Size(122, 52)
         Me.btnReset.TabIndex = 7
         Me.btnReset.Text = "&Reset"
         Me.btnReset.UseVisualStyleBackColor = False
@@ -130,9 +136,10 @@ Partial Class FrmLogin
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Assignment.My.Resources.Resources.login_profile_icon
-        Me.PictureBox1.Location = New System.Drawing.Point(10, 12)
+        Me.PictureBox1.Location = New System.Drawing.Point(11, 15)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(223, 242)
+        Me.PictureBox1.Size = New System.Drawing.Size(251, 302)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -142,9 +149,9 @@ Partial Class FrmLogin
         Me.lnkForgetPassword.AutoSize = True
         Me.lnkForgetPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lnkForgetPassword.LinkColor = System.Drawing.Color.DeepSkyBlue
-        Me.lnkForgetPassword.Location = New System.Drawing.Point(244, 175)
+        Me.lnkForgetPassword.Location = New System.Drawing.Point(274, 219)
         Me.lnkForgetPassword.Name = "lnkForgetPassword"
-        Me.lnkForgetPassword.Size = New System.Drawing.Size(147, 18)
+        Me.lnkForgetPassword.Size = New System.Drawing.Size(172, 22)
         Me.lnkForgetPassword.TabIndex = 8
         Me.lnkForgetPassword.TabStop = True
         Me.lnkForgetPassword.Text = "Forgot Password?"
@@ -152,11 +159,11 @@ Partial Class FrmLogin
         'FrmLogin
         '
         Me.AcceptButton = Me.btnLogin
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
         Me.CancelButton = Me.btnReset
-        Me.ClientSize = New System.Drawing.Size(482, 266)
+        Me.ClientSize = New System.Drawing.Size(542, 332)
         Me.Controls.Add(Me.lnkForgetPassword)
         Me.Controls.Add(Me.btnReset)
         Me.Controls.Add(Me.btnLogin)
@@ -167,7 +174,10 @@ Partial Class FrmLogin
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FrmLogin"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Login"
         CType(Me.err, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

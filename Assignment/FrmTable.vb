@@ -322,14 +322,24 @@ Public Class FrmTable
         End If
     End Sub
 
-
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        Timer1.Stop()
-        Me.Close()
-    End Sub
-
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        Timer1.Stop()
         Me.Hide()
         FrmMainPage.Show()
+    End Sub
+
+    Private Sub TurnOnEditModeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TurnOnEditModeToolStripMenuItem.Click
+        btnEditMode.PerformClick()
+    End Sub
+
+    Private Sub FieldGuidelineToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FieldGuidelineToolStripMenuItem.Click
+        MessageBox.Show(
+        "ORDER PAGE SAFEGUARDS:" & vbCrLf & vbCrLf &
+        "1. Edit mode is for customize table layout only." & vbCrLf &
+        "2. Reset layout will clear all the table button !!!" & vbCrLf &
+        "3. Table name can't be duplicate." & vbCrLf &
+        "4. Order should made only when the edit mode is off.",
+        "Order page Help",
+        MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 End Class

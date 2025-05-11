@@ -277,9 +277,11 @@ Partial Class FrmOrder
         Me.Controls.Add(Me.flpMenu)
         Me.Controls.Add(Me.grpCart)
         Me.Controls.Add(Me.msOrderPage)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.msOrderPage
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FrmOrder"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Order Page"
         Me.grpCart.ResumeLayout(False)
         Me.grpCart.PerformLayout()

@@ -22,6 +22,7 @@ Partial Class FrmMainPage
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMainPage))
         Me.btnStaffModule = New System.Windows.Forms.Button()
         Me.btnOrderPage = New System.Windows.Forms.Button()
         Me.btnItemModule = New System.Windows.Forms.Button()
@@ -140,7 +141,9 @@ Partial Class FrmMainPage
         Me.Controls.Add(Me.btnItemModule)
         Me.Controls.Add(Me.btnOrderPage)
         Me.Controls.Add(Me.btnStaffModule)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmMainPage"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmMainPage"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()

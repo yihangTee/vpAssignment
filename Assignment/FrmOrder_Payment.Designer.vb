@@ -22,6 +22,7 @@ Partial Class FrmOrder_Payment
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmOrder_Payment))
         Me.btnSalesReport = New System.Windows.Forms.Button()
         Me.btnOrderHistory = New System.Windows.Forms.Button()
         Me.btnBack = New System.Windows.Forms.Button()
@@ -112,7 +113,9 @@ Partial Class FrmOrder_Payment
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.btnOrderHistory)
         Me.Controls.Add(Me.btnSalesReport)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmOrder_Payment"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmOrder_Payment"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
