@@ -540,6 +540,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property orderHistory() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("orderHistory", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property orderModule() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("orderModule", resourceCulture)
@@ -673,6 +683,16 @@ Namespace My.Resources
         Friend ReadOnly Property Roti_Tisu() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Roti_Tisu", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property salesReport() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("salesReport", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

@@ -259,6 +259,9 @@
   <data name="Order" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Order.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="orderHistory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\orderHistory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="orderModule" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\orderModule.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -300,6 +303,9 @@
   </data>
   <data name="Roti_Tisu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Roti Tisu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="salesReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\salesReport.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
