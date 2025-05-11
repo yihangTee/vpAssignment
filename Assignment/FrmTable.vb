@@ -6,7 +6,6 @@ Public Class FrmTable
     Dim offset As Point
     Dim selectedButton As Button
     Dim EditMode As Boolean = False
-    'Dim db As New BL_farizDataContext()
 
     Private Sub FrmOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         btnAddTable.Visible = False
@@ -42,6 +41,7 @@ Public Class FrmTable
                 Return
             End If
             tableName = tableName.Replace(",", "")
+            normalizedInput = NormalizeName(tableName)
         End While
 
         Dim btn As New Button With {
