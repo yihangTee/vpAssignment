@@ -22,7 +22,7 @@ Partial Class FrmOrderDetails
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblTableNo = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -35,6 +35,7 @@ Partial Class FrmOrderDetails
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.btnReprintReceipt = New System.Windows.Forms.Button()
         CType(Me.dgvOrderedItems, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,10 +85,10 @@ Partial Class FrmOrderDetails
         Me.dgvOrderedItems.Location = New System.Drawing.Point(23, 118)
         Me.dgvOrderedItems.Name = "dgvOrderedItems"
         Me.dgvOrderedItems.RowHeadersWidth = 62
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        Me.dgvOrderedItems.RowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        Me.dgvOrderedItems.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvOrderedItems.RowTemplate.Height = 28
-        Me.dgvOrderedItems.Size = New System.Drawing.Size(707, 389)
+        Me.dgvOrderedItems.Size = New System.Drawing.Size(732, 389)
         Me.dgvOrderedItems.TabIndex = 4
         '
         'Label3
@@ -110,6 +111,7 @@ Partial Class FrmOrderDetails
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnReprintReceipt)
         Me.GroupBox1.Controls.Add(Me.lblOrderDate)
         Me.GroupBox1.Controls.Add(Me.dgvOrderedItems)
         Me.GroupBox1.Controls.Add(Me.Label3)
@@ -170,6 +172,18 @@ Partial Class FrmOrderDetails
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "BL-Fariz Restaurant"
         '
+        'btnReprintReceipt
+        '
+        Me.btnReprintReceipt.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.btnReprintReceipt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReprintReceipt.ForeColor = System.Drawing.Color.DarkSlateBlue
+        Me.btnReprintReceipt.Location = New System.Drawing.Point(621, 532)
+        Me.btnReprintReceipt.Name = "btnReprintReceipt"
+        Me.btnReprintReceipt.Size = New System.Drawing.Size(134, 41)
+        Me.btnReprintReceipt.TabIndex = 12
+        Me.btnReprintReceipt.Text = "Reprint"
+        Me.btnReprintReceipt.UseVisualStyleBackColor = False
+        '
         'FrmOrderDetails
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -203,4 +217,5 @@ Partial Class FrmOrderDetails
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents btnReprintReceipt As Button
 End Class

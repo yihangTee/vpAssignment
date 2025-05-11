@@ -306,17 +306,22 @@ Public Class FrmTable
             Else
                 btn.Text = tableNo
                 btn.BackColor = Color.LightGreen
-
-                Dim waitingTimeLabel As Label = btn.Controls.OfType(Of Label)().FirstOrDefault()
-                If waitingTimeLabel IsNot Nothing Then
-                    btn.Controls.Remove(waitingTimeLabel)
-                End If
+                RemoveWaitingTimeLabel(btn)
             End If
         Else
             btn.Text = tableNo
             btn.BackColor = Color.LightGreen
+            RemoveWaitingTimeLabel(btn)
         End If
     End Sub
+
+    Private Sub RemoveWaitingTimeLabel(btn As Button)
+        Dim waitingTimeLabel As Label = btn.Controls.OfType(Of Label)().FirstOrDefault()
+        If waitingTimeLabel IsNot Nothing Then
+            btn.Controls.Remove(waitingTimeLabel)
+        End If
+    End Sub
+
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Timer1.Stop()
