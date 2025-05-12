@@ -271,5 +271,4 @@ Public Class FrmStaffDetails
         End If
         cboRole.Enabled = True
     End Sub
-
 End Class

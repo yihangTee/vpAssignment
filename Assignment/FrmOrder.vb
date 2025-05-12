@@ -8,7 +8,6 @@ Public Class FrmOrder
 
     Private Sub FrmOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadCategories()
-
     End Sub
 
     Private Sub LoadCategories()
@@ -50,10 +49,19 @@ Public Class FrmOrder
                 .Location = New Point(10, 5)
             End With
 
-            If item.Item_Picture IsNot Nothing Then
-                Using ms As New IO.MemoryStream(item.Item_Picture.ToArray())
-                    picBox.Image = Image.FromStream(ms)
-                End Using
+            Dim itemImg = item.Item_Picture
+
+            If itemImg IsNot Nothing AndAlso itemImg.Length > 0 Then
+                Try
+                    Dim imgBytes As Byte() = itemImg.ToArray()
+                    Using ms As New IO.MemoryStream(imgBytes)
+                        picBox.Image = Image.FromStream(ms)
+                    End Using
+                Catch ex As Exception
+                    picBox.Image = Nothing
+                End Try
+            Else
+                picBox.Image = Nothing
             End If
 
             Dim lblName As New Label
@@ -108,9 +116,9 @@ Public Class FrmOrder
         Dim quantity = item.Item_Quantity
         Dim stocklvl As String
 
-        If quantity > 50 Then
+        If quantity >= 50 Then
             stocklvl = "High"
-        ElseIf quantity >= 10 AndAlso quantity <= 49 Then
+        ElseIf quantity > 10 AndAlso quantity <= 49 Then
             stocklvl = "Medium"
         Else
             stocklvl = "Low"
@@ -572,5 +580,4 @@ Public Class FrmOrder
         "Order Help",
         MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
-
 End Class

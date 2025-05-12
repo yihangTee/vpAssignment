@@ -22,6 +22,7 @@ Partial Class FrmOrder
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmOrder))
         Me.grpCart = New System.Windows.Forms.GroupBox()
         Me.flpCart = New System.Windows.Forms.FlowLayoutPanel()
@@ -45,6 +46,7 @@ Partial Class FrmOrder
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FieldGuidelineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.grpCart.SuspendLayout()
         Me.msOrderPage.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -127,10 +129,11 @@ Partial Class FrmOrder
         '
         'flpMenu
         '
+        Me.flpMenu.AutoScroll = True
         Me.flpMenu.Location = New System.Drawing.Point(554, 93)
         Me.flpMenu.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.flpMenu.Name = "flpMenu"
-        Me.flpMenu.Size = New System.Drawing.Size(576, 548)
+        Me.flpMenu.Size = New System.Drawing.Size(636, 548)
         Me.flpMenu.TabIndex = 2
         '
         'cmbCategory
@@ -185,7 +188,7 @@ Partial Class FrmOrder
         Me.btnBack.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBack.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnBack.Location = New System.Drawing.Point(984, 42)
+        Me.btnBack.Location = New System.Drawing.Point(1044, 44)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(85, 42)
         Me.btnBack.TabIndex = 9
@@ -220,7 +223,7 @@ Partial Class FrmOrder
         '
         Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClearToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(54, 32)
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(54, 29)
         Me.FileToolStripMenuItem.Text = "&File"
         '
         'ClearToolStripMenuItem
@@ -241,7 +244,7 @@ Partial Class FrmOrder
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FieldGuidelineToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 32)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 29)
         Me.HelpToolStripMenuItem.Text = "&Help"
         '
         'FieldGuidelineToolStripMenuItem
@@ -255,12 +258,17 @@ Partial Class FrmOrder
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.White
         Me.PictureBox1.Image = Global.Assignment.My.Resources.Resources.Back
-        Me.PictureBox1.Location = New System.Drawing.Point(1075, 40)
+        Me.PictureBox1.Location = New System.Drawing.Point(1135, 40)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(55, 48)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 11
         Me.PictureBox1.TabStop = False
+        '
+        'NotifyIcon1
+        '
+        Me.NotifyIcon1.Text = "NotifyIcon1"
+        Me.NotifyIcon1.Visible = True
         '
         'FrmOrder
         '
@@ -318,4 +326,5 @@ Partial Class FrmOrder
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FieldGuidelineToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents NotifyIcon1 As NotifyIcon
 End Class
