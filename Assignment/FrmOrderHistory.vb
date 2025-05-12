@@ -19,6 +19,19 @@
             dgvOrderHistory.DataSource = results.ToList()
             lblRecordCount.Text = $"{results.Count} record (s)"
         End Using
+
+        With dgvOrderHistory
+            .DefaultCellStyle.ForeColor = Color.DarkSlateBlue
+            .DefaultCellStyle.BackColor = Color.AliceBlue
+            .DefaultCellStyle.Font = New Font("Segoe UI", 10, FontStyle.Regular)
+            .AlternatingRowsDefaultCellStyle.BackColor = Color.Lavender
+
+            .ColumnHeadersDefaultCellStyle.ForeColor = Color.White
+            .ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue
+            .ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 10, FontStyle.Bold)
+
+            .EnableHeadersVisualStyles = False
+        End With
     End Sub
 
     Private Sub dtpHistoryDate_ValueChanged(sender As Object, e As EventArgs) Handles dtpHistoryDate.ValueChanged

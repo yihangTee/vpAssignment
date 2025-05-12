@@ -136,11 +136,12 @@ Partial Class FrmOrder
         'cmbCategory
         '
         Me.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbCategory.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbCategory.FormattingEnabled = True
         Me.cmbCategory.Location = New System.Drawing.Point(707, 53)
         Me.cmbCategory.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmbCategory.Name = "cmbCategory"
-        Me.cmbCategory.Size = New System.Drawing.Size(121, 28)
+        Me.cmbCategory.Size = New System.Drawing.Size(166, 33)
         Me.cmbCategory.TabIndex = 3
         '
         'Label3
@@ -219,7 +220,7 @@ Partial Class FrmOrder
         '
         Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClearToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(54, 29)
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(54, 32)
         Me.FileToolStripMenuItem.Text = "&File"
         '
         'ClearToolStripMenuItem
@@ -240,7 +241,7 @@ Partial Class FrmOrder
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FieldGuidelineToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 29)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 32)
         Me.HelpToolStripMenuItem.Text = "&Help"
         '
         'FieldGuidelineToolStripMenuItem
