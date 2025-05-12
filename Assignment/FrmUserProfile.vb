@@ -28,18 +28,10 @@
     Private Sub FieldGuidelineToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FieldGuidelineToolStripMenuItem.Click
         Dim guideText As String =
             "=== User Guide ===" & vbCrLf &
-            " 1. Staff Management" & vbCrLf &
+            " Staff Management" & vbCrLf &
             "🔹 Add Staff – Opens a form to add new staff." & vbCrLf &
             "🔹 View & Modification Staff – See full staff data and modify selected staff record" & vbCrLf &
             "🔹 Staff Report – Preview or export staff reports as PDF and Txt file." & vbCrLf & vbCrLf &
-            " 2. Order Management" & vbCrLf &
-            " 3. Billing & Payment" & vbCrLf &
-            " 4. Item Stock Management" & vbCrLf &
-            "🔹 Add Item – Opens a form to add new stock items." & vbCrLf &
-            "🔹 View & Track Item – See full item data and history tracking." & vbCrLf &
-            "🔹 Update Item – Modify existing item information by entering an ID." & vbCrLf &
-            "🔹 Delete Item – Search and delete items after confirmation." & vbCrLf &
-            "🔹 Item Report – Filter, preview, print or export stock reports as PDF." & vbCrLf & vbCrLf &
             "💡 Tip: Hover over controls for tooltips or error hints when input is invalid."
 
         MessageBox.Show(guideText, "Module User Guide", MessageBoxButtons.OK, MessageBoxIcon.Information)
