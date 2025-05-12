@@ -27,10 +27,7 @@ Partial Class FrmUserProfile
         Me.lblID = New System.Windows.Forms.Label()
         Me.lblName = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnStaffReport = New System.Windows.Forms.Button()
-        Me.btnViewStaff = New System.Windows.Forms.Button()
-        Me.btnAddStaff = New System.Windows.Forms.Button()
-        Me.btnLogout = New System.Windows.Forms.Button()
+        Me.btnBack = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -48,27 +45,21 @@ Partial Class FrmUserProfile
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FieldGuidelineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.tpgStaff = New System.Windows.Forms.TabPage()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.tpgOrder = New System.Windows.Forms.TabPage()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.tpgBilling = New System.Windows.Forms.TabPage()
-        Me.tpgItemStock = New System.Windows.Forms.TabPage()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnAddStaff = New System.Windows.Forms.Button()
+        Me.btnViewStaff = New System.Windows.Forms.Button()
+        Me.btnStaffReport = New System.Windows.Forms.Button()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
-        Me.TabControl1.SuspendLayout()
-        Me.tpgStaff.SuspendLayout()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tpgOrder.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label3
@@ -113,64 +104,25 @@ Partial Class FrmUserProfile
         Me.Label1.TabIndex = 18
         Me.Label1.Text = "Staff ID :"
         '
-        'btnStaffReport
+        'btnBack
         '
-        Me.btnStaffReport.BackColor = System.Drawing.Color.Navy
-        Me.btnStaffReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnStaffReport.ForeColor = System.Drawing.Color.AliceBlue
-        Me.btnStaffReport.Location = New System.Drawing.Point(549, 270)
-        Me.btnStaffReport.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btnStaffReport.Name = "btnStaffReport"
-        Me.btnStaffReport.Size = New System.Drawing.Size(183, 70)
-        Me.btnStaffReport.TabIndex = 23
-        Me.btnStaffReport.Text = "&Generate " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Staff Report" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.btnStaffReport.UseVisualStyleBackColor = False
-        '
-        'btnViewStaff
-        '
-        Me.btnViewStaff.BackColor = System.Drawing.Color.Navy
-        Me.btnViewStaff.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnViewStaff.ForeColor = System.Drawing.Color.AliceBlue
-        Me.btnViewStaff.Location = New System.Drawing.Point(296, 269)
-        Me.btnViewStaff.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btnViewStaff.Name = "btnViewStaff"
-        Me.btnViewStaff.Size = New System.Drawing.Size(177, 75)
-        Me.btnViewStaff.TabIndex = 22
-        Me.btnViewStaff.Text = "&View / Modication Staff"
-        Me.btnViewStaff.UseVisualStyleBackColor = False
-        '
-        'btnAddStaff
-        '
-        Me.btnAddStaff.BackColor = System.Drawing.Color.Navy
-        Me.btnAddStaff.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddStaff.ForeColor = System.Drawing.Color.AliceBlue
-        Me.btnAddStaff.Location = New System.Drawing.Point(48, 269)
-        Me.btnAddStaff.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btnAddStaff.Name = "btnAddStaff"
-        Me.btnAddStaff.Size = New System.Drawing.Size(170, 75)
-        Me.btnAddStaff.TabIndex = 21
-        Me.btnAddStaff.Text = "&Add Staff"
-        Me.btnAddStaff.UseVisualStyleBackColor = False
-        '
-        'btnLogout
-        '
-        Me.btnLogout.BackColor = System.Drawing.Color.GhostWhite
-        Me.btnLogout.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLogout.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnLogout.Location = New System.Drawing.Point(601, 124)
-        Me.btnLogout.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Size = New System.Drawing.Size(118, 51)
-        Me.btnLogout.TabIndex = 20
-        Me.btnLogout.Text = "&Logout"
-        Me.btnLogout.UseVisualStyleBackColor = False
+        Me.btnBack.BackColor = System.Drawing.Color.GhostWhite
+        Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBack.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnBack.Location = New System.Drawing.Point(601, 124)
+        Me.btnBack.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(118, 51)
+        Me.btnBack.TabIndex = 20
+        Me.btnBack.Text = "&Back"
+        Me.btnBack.UseVisualStyleBackColor = False
         '
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.WhiteSmoke
         Me.GroupBox1.Controls.Add(Me.PictureBox1)
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.btnLogout)
+        Me.GroupBox1.Controls.Add(Me.btnBack)
         Me.GroupBox1.Controls.Add(Me.PictureBox3)
         Me.GroupBox1.Controls.Add(Me.MenuStrip1)
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
@@ -310,121 +262,6 @@ Partial Class FrmUserProfile
         Me.FieldGuidelineToolStripMenuItem.Size = New System.Drawing.Size(292, 34)
         Me.FieldGuidelineToolStripMenuItem.Text = "Field Guideline"
         '
-        'TabControl1
-        '
-        Me.TabControl1.Controls.Add(Me.tpgStaff)
-        Me.TabControl1.Controls.Add(Me.tpgOrder)
-        Me.TabControl1.Controls.Add(Me.tpgBilling)
-        Me.TabControl1.Controls.Add(Me.tpgItemStock)
-        Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabControl1.Location = New System.Drawing.Point(14, 342)
-        Me.TabControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(770, 504)
-        Me.TabControl1.TabIndex = 25
-        '
-        'tpgStaff
-        '
-        Me.tpgStaff.BackColor = System.Drawing.Color.GhostWhite
-        Me.tpgStaff.Controls.Add(Me.PictureBox5)
-        Me.tpgStaff.Controls.Add(Me.PictureBox4)
-        Me.tpgStaff.Controls.Add(Me.PictureBox2)
-        Me.tpgStaff.Controls.Add(Me.btnStaffReport)
-        Me.tpgStaff.Controls.Add(Me.btnViewStaff)
-        Me.tpgStaff.Controls.Add(Me.btnAddStaff)
-        Me.tpgStaff.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tpgStaff.Location = New System.Drawing.Point(4, 38)
-        Me.tpgStaff.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.tpgStaff.Name = "tpgStaff"
-        Me.tpgStaff.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.tpgStaff.Size = New System.Drawing.Size(762, 462)
-        Me.tpgStaff.TabIndex = 0
-        Me.tpgStaff.Text = "Staff"
-        '
-        'PictureBox5
-        '
-        Me.PictureBox5.BackColor = System.Drawing.Color.Lavender
-        Me.PictureBox5.Image = Global.Assignment.My.Resources.Resources.Report
-        Me.PictureBox5.Location = New System.Drawing.Point(549, 91)
-        Me.PictureBox5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(183, 170)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox5.TabIndex = 26
-        Me.PictureBox5.TabStop = False
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.BackColor = System.Drawing.Color.Lavender
-        Me.PictureBox4.Image = Global.Assignment.My.Resources.Resources.SearchUser
-        Me.PictureBox4.Location = New System.Drawing.Point(296, 91)
-        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(177, 170)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox4.TabIndex = 25
-        Me.PictureBox4.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Lavender
-        Me.PictureBox2.Image = Global.Assignment.My.Resources.Resources.AddUser
-        Me.PictureBox2.Location = New System.Drawing.Point(42, 91)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(177, 170)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox2.TabIndex = 24
-        Me.PictureBox2.TabStop = False
-        '
-        'tpgOrder
-        '
-        Me.tpgOrder.Controls.Add(Me.Button1)
-        Me.tpgOrder.Location = New System.Drawing.Point(4, 38)
-        Me.tpgOrder.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.tpgOrder.Name = "tpgOrder"
-        Me.tpgOrder.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.tpgOrder.Size = New System.Drawing.Size(762, 462)
-        Me.tpgOrder.TabIndex = 1
-        Me.tpgOrder.Text = "Order"
-        Me.tpgOrder.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.Navy
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.AliceBlue
-        Me.Button1.Location = New System.Drawing.Point(296, 190)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(170, 75)
-        Me.Button1.TabIndex = 22
-        Me.Button1.Text = "&Add "
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'tpgBilling
-        '
-        Me.tpgBilling.Location = New System.Drawing.Point(4, 38)
-        Me.tpgBilling.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.tpgBilling.Name = "tpgBilling"
-        Me.tpgBilling.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.tpgBilling.Size = New System.Drawing.Size(762, 462)
-        Me.tpgBilling.TabIndex = 2
-        Me.tpgBilling.Text = "Billing & Payment"
-        Me.tpgBilling.UseVisualStyleBackColor = True
-        '
-        'tpgItemStock
-        '
-        Me.tpgItemStock.Location = New System.Drawing.Point(4, 38)
-        Me.tpgItemStock.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.tpgItemStock.Name = "tpgItemStock"
-        Me.tpgItemStock.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.tpgItemStock.Size = New System.Drawing.Size(762, 462)
-        Me.tpgItemStock.TabIndex = 3
-        Me.tpgItemStock.Text = "Item Stock"
-        Me.tpgItemStock.UseVisualStyleBackColor = True
-        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.lblID)
@@ -442,15 +279,95 @@ Partial Class FrmUserProfile
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Current user "
         '
+        'btnAddStaff
+        '
+        Me.btnAddStaff.BackColor = System.Drawing.Color.Navy
+        Me.btnAddStaff.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddStaff.ForeColor = System.Drawing.Color.AliceBlue
+        Me.btnAddStaff.Location = New System.Drawing.Point(73, 609)
+        Me.btnAddStaff.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnAddStaff.Name = "btnAddStaff"
+        Me.btnAddStaff.Size = New System.Drawing.Size(177, 75)
+        Me.btnAddStaff.TabIndex = 21
+        Me.btnAddStaff.Text = "&Add Staff"
+        Me.btnAddStaff.UseVisualStyleBackColor = False
+        '
+        'btnViewStaff
+        '
+        Me.btnViewStaff.BackColor = System.Drawing.Color.Navy
+        Me.btnViewStaff.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnViewStaff.ForeColor = System.Drawing.Color.AliceBlue
+        Me.btnViewStaff.Location = New System.Drawing.Point(542, 612)
+        Me.btnViewStaff.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnViewStaff.Name = "btnViewStaff"
+        Me.btnViewStaff.Size = New System.Drawing.Size(177, 75)
+        Me.btnViewStaff.TabIndex = 22
+        Me.btnViewStaff.Text = "&View / Modication Staff"
+        Me.btnViewStaff.UseVisualStyleBackColor = False
+        '
+        'btnStaffReport
+        '
+        Me.btnStaffReport.BackColor = System.Drawing.Color.Navy
+        Me.btnStaffReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnStaffReport.ForeColor = System.Drawing.Color.AliceBlue
+        Me.btnStaffReport.Location = New System.Drawing.Point(302, 614)
+        Me.btnStaffReport.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnStaffReport.Name = "btnStaffReport"
+        Me.btnStaffReport.Size = New System.Drawing.Size(183, 70)
+        Me.btnStaffReport.TabIndex = 23
+        Me.btnStaffReport.Text = "&Generate " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Staff Report" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.btnStaffReport.UseVisualStyleBackColor = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Lavender
+        Me.PictureBox2.Image = Global.Assignment.My.Resources.Resources.AddUser
+        Me.PictureBox2.Location = New System.Drawing.Point(73, 419)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(177, 170)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 24
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.BackColor = System.Drawing.Color.Lavender
+        Me.PictureBox4.Image = Global.Assignment.My.Resources.Resources.SearchUser
+        Me.PictureBox4.Location = New System.Drawing.Point(542, 419)
+        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(177, 170)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox4.TabIndex = 25
+        Me.PictureBox4.TabStop = False
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.BackColor = System.Drawing.Color.Lavender
+        Me.PictureBox5.Image = Global.Assignment.My.Resources.Resources.Report
+        Me.PictureBox5.Location = New System.Drawing.Point(302, 419)
+        Me.PictureBox5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(183, 170)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox5.TabIndex = 26
+        Me.PictureBox5.TabStop = False
+        '
         'FrmUserProfile
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(795, 861)
+        Me.ClientSize = New System.Drawing.Size(795, 726)
+        Me.Controls.Add(Me.btnStaffReport)
+        Me.Controls.Add(Me.btnViewStaff)
+        Me.Controls.Add(Me.PictureBox5)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.TabControl1)
+        Me.Controls.Add(Me.PictureBox4)
+        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.btnAddStaff)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FrmUserProfile"
@@ -462,14 +379,11 @@ Partial Class FrmUserProfile
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        Me.TabControl1.ResumeLayout(False)
-        Me.tpgStaff.ResumeLayout(False)
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.tpgOrder.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -477,25 +391,14 @@ Partial Class FrmUserProfile
     Friend WithEvents lblID As Label
     Friend WithEvents lblName As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents btnLogout As Button
-    Friend WithEvents btnViewStaff As Button
-    Friend WithEvents btnAddStaff As Button
-    Friend WithEvents btnStaffReport As Button
+    Friend WithEvents btnBack As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label2 As Label
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents TabControl1 As TabControl
-    Friend WithEvents tpgStaff As TabPage
-    Friend WithEvents tpgOrder As TabPage
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents tpgBilling As TabPage
-    Friend WithEvents tpgItemStock As TabPage
-    Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents PictureBox4 As PictureBox
-    Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents StaffToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AddNewStaffToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ViewStaffToolStripMenuItem As ToolStripMenuItem
@@ -507,5 +410,10 @@ Partial Class FrmUserProfile
     Friend WithEvents FieldGuidelineToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnAddStaff As Button
+    Friend WithEvents btnViewStaff As Button
+    Friend WithEvents btnStaffReport As Button
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents PictureBox5 As PictureBox
 End Class

@@ -51,33 +51,34 @@ Partial Class FrmSalesReport
         '
         'Label1
         '
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label1.Location = New System.Drawing.Point(64, 62)
+        Me.Label1.Location = New System.Drawing.Point(22, 59)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(173, 27)
+        Me.Label1.Size = New System.Drawing.Size(232, 43)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Select item type : "
         '
         'cmbItemType
         '
         Me.cmbItemType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbItemType.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbItemType.FormattingEnabled = True
-        Me.cmbItemType.Location = New System.Drawing.Point(221, 59)
+        Me.cmbItemType.Location = New System.Drawing.Point(243, 56)
         Me.cmbItemType.Name = "cmbItemType"
-        Me.cmbItemType.Size = New System.Drawing.Size(140, 28)
+        Me.cmbItemType.Size = New System.Drawing.Size(146, 33)
         Me.cmbItemType.TabIndex = 1
         '
         'btnGenerate
         '
         Me.btnGenerate.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.btnGenerate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGenerate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGenerate.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnGenerate.Location = New System.Drawing.Point(473, 454)
+        Me.btnGenerate.Location = New System.Drawing.Point(615, 454)
         Me.btnGenerate.Name = "btnGenerate"
-        Me.btnGenerate.Size = New System.Drawing.Size(156, 37)
+        Me.btnGenerate.Size = New System.Drawing.Size(156, 52)
         Me.btnGenerate.TabIndex = 2
-        Me.btnGenerate.Text = "Generate Report"
+        Me.btnGenerate.Text = "Generate"
         Me.btnGenerate.UseVisualStyleBackColor = False
         '
         'chartSales
@@ -88,42 +89,44 @@ Partial Class FrmSalesReport
         Me.chartSales.Legends.Add(Legend1)
         Me.chartSales.Location = New System.Drawing.Point(52, 42)
         Me.chartSales.Name = "chartSales"
+        Me.chartSales.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel
         Series1.ChartArea = "ChartArea1"
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.chartSales.Series.Add(Series1)
-        Me.chartSales.Size = New System.Drawing.Size(690, 395)
+        Me.chartSales.Size = New System.Drawing.Size(832, 395)
         Me.chartSales.TabIndex = 3
         Me.chartSales.Text = "Chart1"
         '
         'Label2
         '
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.Location = New System.Drawing.Point(403, 59)
+        Me.Label2.Location = New System.Drawing.Point(395, 58)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(173, 27)
+        Me.Label2.Size = New System.Drawing.Size(248, 44)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Select Chart Type : "
         '
         'cmbChartType
         '
         Me.cmbChartType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbChartType.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbChartType.FormattingEnabled = True
         Me.cmbChartType.Items.AddRange(New Object() {"Bar", "Column ", "Line", "Pie"})
-        Me.cmbChartType.Location = New System.Drawing.Point(573, 56)
+        Me.cmbChartType.Location = New System.Drawing.Point(642, 56)
         Me.cmbChartType.Name = "cmbChartType"
-        Me.cmbChartType.Size = New System.Drawing.Size(140, 28)
+        Me.cmbChartType.Size = New System.Drawing.Size(140, 33)
         Me.cmbChartType.TabIndex = 5
         '
         'btnBack
         '
         Me.btnBack.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBack.ForeColor = System.Drawing.Color.DarkSlateBlue
         Me.btnBack.Location = New System.Drawing.Point(806, 48)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(77, 38)
+        Me.btnBack.Size = New System.Drawing.Size(105, 45)
         Me.btnBack.TabIndex = 6
         Me.btnBack.Text = "Back"
         Me.btnBack.UseVisualStyleBackColor = False
@@ -144,11 +147,11 @@ Partial Class FrmSalesReport
         'btnPrint
         '
         Me.btnPrint.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.btnPrint.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPrint.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPrint.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnPrint.Location = New System.Drawing.Point(635, 454)
+        Me.btnPrint.Location = New System.Drawing.Point(777, 454)
         Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(107, 37)
+        Me.btnPrint.Size = New System.Drawing.Size(107, 52)
         Me.btnPrint.TabIndex = 7
         Me.btnPrint.Text = "Print"
         Me.btnPrint.UseVisualStyleBackColor = False
@@ -160,7 +163,7 @@ Partial Class FrmSalesReport
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(941, 33)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1034, 33)
         Me.MenuStrip1.TabIndex = 8
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -196,9 +199,9 @@ Partial Class FrmSalesReport
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.White
         Me.PictureBox1.Image = Global.Assignment.My.Resources.Resources.Back
-        Me.PictureBox1.Location = New System.Drawing.Point(889, 47)
+        Me.PictureBox1.Location = New System.Drawing.Point(917, 47)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(40, 39)
+        Me.PictureBox1.Size = New System.Drawing.Size(49, 46)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 9
         Me.PictureBox1.TabStop = False
@@ -210,9 +213,9 @@ Partial Class FrmSalesReport
         Me.GroupBox1.Controls.Add(Me.btnPrint)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.GroupBox1.Location = New System.Drawing.Point(44, 105)
+        Me.GroupBox1.Location = New System.Drawing.Point(27, 105)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(839, 512)
+        Me.GroupBox1.Size = New System.Drawing.Size(939, 522)
         Me.GroupBox1.TabIndex = 10
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Sales Report"
@@ -223,7 +226,7 @@ Partial Class FrmSalesReport
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(941, 639)
+        Me.ClientSize = New System.Drawing.Size(1034, 639)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnBack)

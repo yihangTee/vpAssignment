@@ -81,14 +81,19 @@ Partial Class FrmOrderDetails
         '
         'dgvOrderedItems
         '
+        Me.dgvOrderedItems.AllowUserToAddRows = False
+        Me.dgvOrderedItems.AllowUserToDeleteRows = False
+        Me.dgvOrderedItems.AllowUserToOrderColumns = True
         Me.dgvOrderedItems.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.dgvOrderedItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvOrderedItems.Location = New System.Drawing.Point(23, 118)
         Me.dgvOrderedItems.Name = "dgvOrderedItems"
+        Me.dgvOrderedItems.ReadOnly = True
         Me.dgvOrderedItems.RowHeadersWidth = 62
         DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
         Me.dgvOrderedItems.RowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvOrderedItems.RowTemplate.Height = 28
+        Me.dgvOrderedItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvOrderedItems.Size = New System.Drawing.Size(732, 389)
         Me.dgvOrderedItems.TabIndex = 4
         '

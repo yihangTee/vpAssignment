@@ -3,25 +3,6 @@
     Private Sub FrmUserProfile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblID.Text = App.CurrentUserID
         lblName.Text = App.CurrentUserName
-
-        If App.CurrentUserDepartment = "Administrative staff" Then
-            tpgStaff.Enabled = True
-            tpgOrder.Enabled = True
-            tpgItemStock.Enabled = True
-            tpgBilling.Enabled = True
-        ElseIf App.CurrentUserDepartment = "Front-Of-House staff" Then
-            TabControl1.SelectedIndex = 1
-            tpgStaff.Enabled = False
-            tpgOrder.Enabled = True
-            tpgItemStock.Enabled = True
-            tpgBilling.Enabled = True
-        ElseIf App.CurrentUserDepartment = "Back-Of-House staff" Then
-            TabControl1.SelectedIndex = 1
-            tpgStaff.Enabled = False
-            tpgOrder.Enabled = True
-            tpgItemStock.Enabled = True
-            tpgBilling.Enabled = True
-        End If
     End Sub
 
     Private Sub btnAddStaff_Click(sender As Object, e As EventArgs) Handles btnAddStaff.Click, AddNewStaffToolStripMenuItem.Click
@@ -34,7 +15,7 @@
         FrmViewStaff.Show()
     End Sub
 
-    Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Me.Hide()
         FrmMainPage.Show()
     End Sub
