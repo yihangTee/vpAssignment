@@ -67,7 +67,7 @@ Partial Class FrmOrder
         Me.grpCart.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.grpCart.Name = "grpCart"
         Me.grpCart.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.grpCart.Size = New System.Drawing.Size(519, 661)
+        Me.grpCart.Size = New System.Drawing.Size(493, 661)
         Me.grpCart.TabIndex = 1
         Me.grpCart.TabStop = False
         Me.grpCart.Text = "Cart"
@@ -78,7 +78,7 @@ Partial Class FrmOrder
         Me.flpCart.Location = New System.Drawing.Point(25, 121)
         Me.flpCart.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.flpCart.Name = "flpCart"
-        Me.flpCart.Size = New System.Drawing.Size(470, 428)
+        Me.flpCart.Size = New System.Drawing.Size(439, 428)
         Me.flpCart.TabIndex = 7
         '
         'lblTotalAmount
@@ -130,10 +130,10 @@ Partial Class FrmOrder
         'flpMenu
         '
         Me.flpMenu.AutoScroll = True
-        Me.flpMenu.Location = New System.Drawing.Point(554, 93)
+        Me.flpMenu.Location = New System.Drawing.Point(535, 93)
         Me.flpMenu.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.flpMenu.Name = "flpMenu"
-        Me.flpMenu.Size = New System.Drawing.Size(636, 548)
+        Me.flpMenu.Size = New System.Drawing.Size(655, 548)
         Me.flpMenu.TabIndex = 2
         '
         'cmbCategory
@@ -141,7 +141,7 @@ Partial Class FrmOrder
         Me.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCategory.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbCategory.FormattingEnabled = True
-        Me.cmbCategory.Location = New System.Drawing.Point(707, 53)
+        Me.cmbCategory.Location = New System.Drawing.Point(673, 51)
         Me.cmbCategory.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmbCategory.Name = "cmbCategory"
         Me.cmbCategory.Size = New System.Drawing.Size(166, 33)
@@ -151,7 +151,7 @@ Partial Class FrmOrder
         '
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.Location = New System.Drawing.Point(554, 49)
+        Me.Label3.Location = New System.Drawing.Point(530, 51)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(147, 42)
         Me.Label3.TabIndex = 7

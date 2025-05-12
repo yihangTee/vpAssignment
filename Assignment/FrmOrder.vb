@@ -35,7 +35,7 @@ Public Class FrmOrder
         For Each item In items
             Dim itemPanel As New Panel
             With itemPanel
-                .Width = 140
+                .Width = 180
                 .Height = 180
                 .BorderStyle = BorderStyle.Fixed3D
                 .Tag = item.Item_Id
