@@ -108,6 +108,7 @@ Partial Class FrmTable
         Me.pnlTables.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.pnlTables.Location = New System.Drawing.Point(14, 303)
         Me.pnlTables.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.pnlTables.MaximumSize = New System.Drawing.Size(1299, 565)
         Me.pnlTables.Name = "pnlTables"
         Me.pnlTables.Size = New System.Drawing.Size(1299, 565)
         Me.pnlTables.TabIndex = 4
@@ -127,6 +128,7 @@ Partial Class FrmTable
         '
         'grpInfo
         '
+        Me.grpInfo.BackColor = System.Drawing.Color.AliceBlue
         Me.grpInfo.Controls.Add(Me.Label3)
         Me.grpInfo.Controls.Add(Me.lblTime)
         Me.grpInfo.Controls.Add(Me.lblName)
@@ -147,7 +149,7 @@ Partial Class FrmTable
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Gill Sans Ultra Bold", 45.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.Lavender
+        Me.Label3.ForeColor = System.Drawing.Color.Navy
         Me.Label3.Location = New System.Drawing.Point(175, 26)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(720, 141)
@@ -157,6 +159,7 @@ Partial Class FrmTable
         'lblTime
         '
         Me.lblTime.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblTime.ForeColor = System.Drawing.Color.DarkSlateBlue
         Me.lblTime.Location = New System.Drawing.Point(1091, 94)
         Me.lblTime.Name = "lblTime"
         Me.lblTime.Size = New System.Drawing.Size(201, 40)
@@ -166,6 +169,7 @@ Partial Class FrmTable
         'lblName
         '
         Me.lblName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblName.ForeColor = System.Drawing.Color.DarkSlateBlue
         Me.lblName.Location = New System.Drawing.Point(1091, 38)
         Me.lblName.Name = "lblName"
         Me.lblName.Size = New System.Drawing.Size(201, 40)
@@ -176,7 +180,7 @@ Partial Class FrmTable
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.AliceBlue
+        Me.Label2.ForeColor = System.Drawing.Color.DarkSlateBlue
         Me.Label2.Location = New System.Drawing.Point(998, 99)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(87, 29)
@@ -187,7 +191,7 @@ Partial Class FrmTable
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.AliceBlue
+        Me.Label1.ForeColor = System.Drawing.Color.DarkSlateBlue
         Me.Label1.Location = New System.Drawing.Point(930, 43)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(155, 29)
@@ -196,7 +200,7 @@ Partial Class FrmTable
         '
         'PictureBox1
         '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Lavender
+        Me.PictureBox1.BackColor = System.Drawing.Color.AliceBlue
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(7, 26)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -239,7 +243,7 @@ Partial Class FrmTable
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1333, 33)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1333, 36)
         Me.MenuStrip1.TabIndex = 9
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -247,7 +251,7 @@ Partial Class FrmTable
         '
         Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TurnOnEditModeToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(54, 29)
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(54, 32)
         Me.FileToolStripMenuItem.Text = "&File"
         '
         'TurnOnEditModeToolStripMenuItem
@@ -261,7 +265,7 @@ Partial Class FrmTable
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FieldGuidelineToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 29)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 32)
         Me.HelpToolStripMenuItem.Text = "&Help"
         '
         'FieldGuidelineToolStripMenuItem
@@ -275,6 +279,7 @@ Partial Class FrmTable
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1333, 891)
         Me.Controls.Add(Me.MenuStrip1)
