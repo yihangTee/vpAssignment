@@ -146,6 +146,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="OrderItemDetail.vb" />
     <Compile Include="PaymentMain.Designer.vb">
       <DependentUpon>PaymentMain.vb</DependentUpon>
     </Compile>

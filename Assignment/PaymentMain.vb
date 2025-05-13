@@ -7,7 +7,8 @@
     Dim amount As Decimal = 0D
     Dim orderTotal As Decimal = 0D
     Public Property SelectedTableNo As String
-
+    Public pendingItemsList As List(Of OrderItemDetail)
+    Private WithEvents receiptPrintDoc As New Printing.PrintDocument()
 
     Private Sub NumberButton_Click(sender As Object, e As EventArgs) Handles key1.Click, key2.Click, key3.Click, key4.Click, key5.Click, key6.Click, key7.Click, key8.Click, key9.Click, key0.Click, keyDot.Click
         Dim btn = CType(sender, System.Windows.Forms.Button)
@@ -111,6 +112,7 @@
                         Exit For
                     End If
                 Next
+                GenerateReceipt()
                 Me.Close()
             Else
                 MessageBox.Show("No matching payment found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -128,20 +130,21 @@
 
         Dim db As New BL_farizDataContext()
 
-        Dim pendingItems = From o In db.Orders
-                           Join p In db.Payments On o.OrderID Equals p.OrderID
-                           Join oi In db.Order_Items On o.OrderID Equals oi.OrderID
-                           Join i In db.Items On oi.Item_Id Equals i.Item_Id
-                           Where o.TableNo = SelectedTableNo AndAlso p.PaymentStatus = "Pending"
-                           Select New With {
-                           .OrderID = o.OrderID,
-                           .ItemName = i.Item_Name,
-                           .ItemPrice = i.Item_Price,
-                           .Quantity = oi.Quantity,
-                           .SubTotal = oi.SubTotal
-                       }
+        pendingItemsList = (From o In db.Orders
+                            Join p In db.Payments On o.OrderID Equals p.OrderID
+                            Join oi In db.Order_Items On o.OrderID Equals oi.OrderID
+                            Join i In db.Items On oi.Item_Id Equals i.Item_Id
+                            Where o.TableNo = SelectedTableNo AndAlso p.PaymentStatus = "Pending"
+                            Select New OrderItemDetail With {
+                        .OrderID = o.OrderID,
+                        .ItemName = i.Item_Name,
+                        .ItemPrice = i.Item_Price,
+                        .Quantity = oi.Quantity,
+                        .SubTotal = oi.SubTotal
+                    }).ToList()
 
-        If pendingItems.Any() Then
+
+        If pendingItemsList.Any() Then
             ' Create header labels for the table
             Dim topOffset As Integer = 60
             Dim rowHeight As Integer = 25
@@ -152,7 +155,7 @@
             Dim rowNumber As Integer = 1
             orderTotal = 0D
 
-            For Each item In pendingItems
+            For Each item In pendingItemsList
                 Dim lblNumber As New Label With {
                     .Text = rowNumber.ToString(),
                     .Location = New Point(24, topOffset),
@@ -207,6 +210,77 @@
         Dim totalPay As Decimal = orderTotal + taxValue
         lblTax.Text = "RM " & taxValue.ToString("F2")
         lblTotalPay.Text = "RM " & totalPay.ToString("F2")
+    End Sub
+
+    Private Sub GenerateReceipt()
+        ' Ensure pendingItemsList is filled before printing
+        If pendingItemsList Is Nothing OrElse pendingItemsList.Count = 0 Then
+            MessageBox.Show("No items to print. Please load the pending order first.")
+            Exit Sub
+        End If
+
+        ' Optional: set any dynamic info like date, staff ID, etc.
+
+        ' Show print preview
+        Dim preview As New PrintPreviewDialog()
+        preview.Document = receiptPrintDoc
+        preview.Width = 800
+        preview.Height = 600
+        preview.ShowDialog()
+    End Sub
+
+    Private Sub receiptPrintDoc_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles receiptPrintDoc.PrintPage
+        Dim g As Graphics = e.Graphics
+        Dim font As New Font("Segoe UI", 10)
+        Dim boldFont As New Font("Segoe UI", 10, FontStyle.Bold)
+        Dim titleFont As New Font("Segoe UI", 14, FontStyle.Bold)
+        Dim brush As New SolidBrush(Color.Black)
+        Dim y As Integer = 40
+
+        ' Header
+        g.DrawString("BL Fariz Restaurant", titleFont, brush, 100, y)
+        y += 40
+
+        g.DrawString("Table No: " & SelectedTableNo, font, brush, 50, y)
+        y += 30
+
+        ' Table headers
+        g.DrawString("No", boldFont, brush, 50, y)
+        g.DrawString("Item Name", boldFont, brush, 100, y)
+        g.DrawString("Qty", boldFont, brush, 300, y)
+        g.DrawString("Price", boldFont, brush, 360, y)
+        y += 20
+
+        ' Print each item from pendingItemsList
+        Dim index As Integer = 1
+        Dim orderTotal As Decimal = 0
+
+        For Each item In pendingItemsList
+            g.DrawString(index.ToString(), font, brush, 50, y)
+            g.DrawString(item.ItemName, font, brush, 100, y)
+            g.DrawString(item.Quantity.ToString(), font, brush, 300, y)
+            g.DrawString("RM " & item.SubTotal.ToString("F2"), font, brush, 360, y)
+
+            orderTotal += item.SubTotal
+            index += 1
+            y += 20
+        Next
+
+        y += 10
+        g.DrawString("Total Items: " & (index - 1).ToString(), font, brush, 50, y)
+
+        y += 30
+        Dim tax As Decimal = orderTotal * 0.1D
+        Dim totalPay As Decimal = orderTotal + tax
+
+        g.DrawString("Subtotal: RM " & orderTotal.ToString("F2"), boldFont, brush, 260, y)
+        y += 20
+        g.DrawString("Tax (10%): RM " & tax.ToString("F2"), boldFont, brush, 260, y)
+        y += 20
+        g.DrawString("Total: RM " & totalPay.ToString("F2"), titleFont, brush, 260, y)
+        y += 40
+
+        g.DrawString("Thank you for dining with us!", New Font("Segoe UI", 9, FontStyle.Italic), Brushes.Gray, 50, y)
     End Sub
 
     Private Sub CashButton_Click(sender As Object, e As EventArgs) Handles btn100.Click, btn50.Click, btn20.Click, btn10.Click, btn5.Click, btn1.Click, btn20sen.Click, btn10sen.Click
