@@ -30,49 +30,54 @@ Partial Class FrmMainPage
         '
         'btnStaffModule
         '
-        Me.btnStaffModule.Location = New System.Drawing.Point(83, 160)
+        Me.btnStaffModule.Location = New System.Drawing.Point(74, 128)
+        Me.btnStaffModule.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnStaffModule.Name = "btnStaffModule"
-        Me.btnStaffModule.Size = New System.Drawing.Size(128, 86)
+        Me.btnStaffModule.Size = New System.Drawing.Size(114, 69)
         Me.btnStaffModule.TabIndex = 0
         Me.btnStaffModule.Text = "Staff Module"
         Me.btnStaffModule.UseVisualStyleBackColor = True
         '
         'btnOrderPage
         '
-        Me.btnOrderPage.Location = New System.Drawing.Point(237, 160)
+        Me.btnOrderPage.Location = New System.Drawing.Point(211, 128)
+        Me.btnOrderPage.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnOrderPage.Name = "btnOrderPage"
-        Me.btnOrderPage.Size = New System.Drawing.Size(128, 86)
+        Me.btnOrderPage.Size = New System.Drawing.Size(114, 69)
         Me.btnOrderPage.TabIndex = 1
         Me.btnOrderPage.Text = "Order Page"
         Me.btnOrderPage.UseVisualStyleBackColor = True
         '
         'btnItemModule
         '
-        Me.btnItemModule.Location = New System.Drawing.Point(380, 160)
+        Me.btnItemModule.Location = New System.Drawing.Point(338, 128)
+        Me.btnItemModule.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnItemModule.Name = "btnItemModule"
-        Me.btnItemModule.Size = New System.Drawing.Size(128, 86)
+        Me.btnItemModule.Size = New System.Drawing.Size(114, 69)
         Me.btnItemModule.TabIndex = 2
         Me.btnItemModule.Text = "Item Module"
         Me.btnItemModule.UseVisualStyleBackColor = True
         '
         'btnReport
         '
-        Me.btnReport.Location = New System.Drawing.Point(532, 160)
+        Me.btnReport.Location = New System.Drawing.Point(473, 128)
+        Me.btnReport.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnReport.Name = "btnReport"
-        Me.btnReport.Size = New System.Drawing.Size(128, 86)
+        Me.btnReport.Size = New System.Drawing.Size(114, 69)
         Me.btnReport.TabIndex = 3
         Me.btnReport.Text = "Report"
         Me.btnReport.UseVisualStyleBackColor = True
         '
         'FrmMainPage
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(711, 360)
         Me.Controls.Add(Me.btnReport)
         Me.Controls.Add(Me.btnItemModule)
         Me.Controls.Add(Me.btnOrderPage)
         Me.Controls.Add(Me.btnStaffModule)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "FrmMainPage"
         Me.Text = "FrmMainPage"
         Me.ResumeLayout(False)

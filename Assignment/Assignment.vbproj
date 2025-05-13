@@ -80,6 +80,7 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -116,6 +117,12 @@
       <DependentUpon>FrmOrder.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPaymentReport.Designer.vb">
+      <DependentUpon>FrmPaymentReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPaymentReport.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmTable.Designer.vb">
@@ -166,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOrder.resx">
       <DependentUpon>FrmOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPaymentReport.resx">
+      <DependentUpon>FrmPaymentReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTable.resx">
       <DependentUpon>FrmTable.vb</DependentUpon>
