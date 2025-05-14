@@ -31,6 +31,7 @@ Partial Class FrmOrder_Payment
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.btnPaymentReport = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -125,12 +126,25 @@ Partial Class FrmOrder_Payment
         Me.PictureBox4.TabIndex = 7
         Me.PictureBox4.TabStop = False
         '
+        'btnPaymentReport
+        '
+        Me.btnPaymentReport.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.btnPaymentReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPaymentReport.ForeColor = System.Drawing.Color.DarkSlateBlue
+        Me.btnPaymentReport.Location = New System.Drawing.Point(409, 345)
+        Me.btnPaymentReport.Name = "btnPaymentReport"
+        Me.btnPaymentReport.Size = New System.Drawing.Size(175, 110)
+        Me.btnPaymentReport.TabIndex = 8
+        Me.btnPaymentReport.Text = "Payment Report"
+        Me.btnPaymentReport.UseVisualStyleBackColor = False
+        '
         'FrmOrder_Payment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(800, 589)
+        Me.Controls.Add(Me.btnPaymentReport)
         Me.Controls.Add(Me.PictureBox4)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.Label1)
@@ -159,4 +173,5 @@ Partial Class FrmOrder_Payment
     Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents btnPaymentReport As Button
 End Class

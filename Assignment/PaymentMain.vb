@@ -146,72 +146,73 @@
 
         If pendingItemsList.Any() Then
             ' Create header labels for the table
-        Dim pendingItems = From o In db.Orders
-                           Join p In db.Payments On o.OrderID Equals p.OrderID
-                           Join oi In db.Order_Items On o.OrderID Equals oi.OrderID
-                           Join i In db.Items On oi.Item_Id Equals i.Item_Id
-                           Where o.TableNo = SelectedTableNo AndAlso p.PaymentStatus = "Pending"
-                           Select New With {
-                           .OrderID = o.OrderID,
-                           .ItemName = i.Item_Name,
-                           .ItemPrice = i.Item_Price,
-                           .Quantity = oi.Quantity,
-                           .SubTotal = oi.SubTotal
-                       }
+            Dim pendingItems = From o In db.Orders
+                               Join p In db.Payments On o.OrderID Equals p.OrderID
+                               Join oi In db.Order_Items On o.OrderID Equals oi.OrderID
+                               Join i In db.Items On oi.Item_Id Equals i.Item_Id
+                               Where o.TableNo = SelectedTableNo AndAlso p.PaymentStatus = "Pending"
+                               Select New With {
+                               .OrderID = o.OrderID,
+                               .ItemName = i.Item_Name,
+                               .ItemPrice = i.Item_Price,
+                               .Quantity = oi.Quantity,
+                               .SubTotal = oi.SubTotal
+                           }
 
-        If pendingItems.Any() Then
-            Dim topOffset As Integer = 60
-            Dim rowHeight As Integer = 25
-            Dim fontSetting As New Font("Yu Gothic UI", 10.2F)
+            If pendingItems.Any() Then
+                Dim topOffset As Integer = 60
+                Dim rowHeight As Integer = 25
+                Dim fontSetting As New Font("Yu Gothic UI", 10.2F)
 
-            Dim rowNumber As Integer = 1
-            orderTotal = 0D
+                Dim rowNumber As Integer = 1
+                orderTotal = 0D
 
-            For Each item In pendingItemsList
-                Dim lblNumber As New Label With {
+                For Each item In pendingItemsList
+                    Dim lblNumber As New Label With {
                     .Text = rowNumber.ToString(),
                     .Location = New Point(24, topOffset),
                     .AutoSize = True,
                     .Font = fontSetting
                 }
 
-                Dim lblName As New Label With {
+                    Dim lblName As New Label With {
                     .Text = item.ItemName,
                     .Location = New Point(55, topOffset),
                     .AutoSize = True,
                     .Font = fontSetting
                 }
 
-                Dim lblPrice As New Label With {
+                    Dim lblPrice As New Label With {
                     .Text = "RM " & item.ItemPrice.ToString("F2"),
                     .Location = New Point(190, topOffset),
                     .AutoSize = True,
                     .Font = fontSetting
                 }
 
-                Dim lblQty As New Label With {
+                    Dim lblQty As New Label With {
                     .Text = item.Quantity.ToString(),
                     .Location = New Point(300, topOffset),
                     .AutoSize = True,
                     .Font = fontSetting
                 }
 
-                Dim lblSubtotal As New Label With {
+                    Dim lblSubtotal As New Label With {
                     .Text = "RM" & item.SubTotal.ToString("F2"),
                     .Location = New Point(370, topOffset),
                     .AutoSize = True,
                     .Font = fontSetting
                 }
 
-                grpOrderItem.Controls.AddRange({lblNumber, lblName, lblPrice, lblQty, lblSubtotal})
+                    grpOrderItem.Controls.AddRange({lblNumber, lblName, lblPrice, lblQty, lblSubtotal})
 
-                topOffset += rowHeight
-                rowNumber += 1
-                orderTotal += item.SubTotal
-            Next
-        Else
-            MessageBox.Show("No order items found for " & SelectedTableNo)
-            Me.Close()
+                    topOffset += rowHeight
+                    rowNumber += 1
+                    orderTotal += item.SubTotal
+                Next
+            Else
+                MessageBox.Show("No order items found for " & SelectedTableNo)
+                Me.Close()
+            End If
         End If
         lbltotalPrice.Text = "RM " & orderTotal.ToString("F2")
 

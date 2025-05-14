@@ -195,12 +195,12 @@
     <Compile Include="FrmOrder.vb">
       <SubType>Form</SubType>
     </Compile>
-
     <Compile Include="FrmPaymentReport.Designer.vb">
       <DependentUpon>FrmPaymentReport.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmPaymentReport.vb">
-
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmOrderDetails.Designer.vb">
       <DependentUpon>FrmOrderDetails.vb</DependentUpon>
     </Compile>
@@ -235,7 +235,6 @@
       <DependentUpon>FrmStaffDetails.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmStaffDetails.vb">
-
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmTable.Designer.vb">
@@ -354,10 +353,9 @@
     <EmbeddedResource Include="FrmOrder.resx">
       <DependentUpon>FrmOrder.vb</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="FrmPaymentReport.resx">
       <DependentUpon>FrmPaymentReport.vb</DependentUpon>
-
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmOrderDetails.resx">
       <DependentUpon>FrmOrderDetails.vb</DependentUpon>
     </EmbeddedResource>
@@ -375,7 +373,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStaffDetails.resx">
       <DependentUpon>FrmStaffDetails.vb</DependentUpon>
-
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTable.resx">
       <DependentUpon>FrmTable.vb</DependentUpon>

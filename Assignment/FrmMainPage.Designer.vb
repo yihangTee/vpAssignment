@@ -89,14 +89,6 @@ Partial Class FrmMainPage
         'btnLogOut
         '
 
-        Me.btnReport.Location = New System.Drawing.Point(473, 128)
-        Me.btnReport.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnReport.Name = "btnReport"
-        Me.btnReport.Size = New System.Drawing.Size(114, 69)
-        Me.btnReport.TabIndex = 3
-        Me.btnReport.Text = "Report"
-        Me.btnReport.UseVisualStyleBackColor = True
-
         Me.btnLogOut.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnLogOut.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogOut.ForeColor = System.Drawing.Color.DarkSlateBlue
