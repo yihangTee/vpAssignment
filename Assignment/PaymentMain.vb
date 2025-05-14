@@ -395,5 +395,16 @@
         Dim splitForm As New FrmSplitPayment(pendingItemsList)
         splitForm.ShowDialog()
     End Sub
+
+    Private Sub FieldGuidelineToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FieldGuidelineToolStripMenuItem.Click
+        MessageBox.Show(
+        "PAYMENT SAFEGUARDS:" & vbCrLf & vbCrLf &
+        "1. Check the item you purchase" & vbCrLf &
+        "2. Review item details before make payement." & vbCrLf &
+        "3. Can use the calculator to calculate the change" & vbCrLf &
+        "4. Confirm all things and click success Pay",
+        "Payment Help",
+        MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
 End Class
 

@@ -63,6 +63,8 @@ Partial Class PaymentMain
         Me.PanelPayment = New System.Windows.Forms.Panel()
         Me.GrpBxPaymentMethod = New System.Windows.Forms.GroupBox()
         Me.grpCart = New System.Windows.Forms.GroupBox()
+        Me.btnSplit = New System.Windows.Forms.Button()
+        Me.btnVoid = New System.Windows.Forms.Button()
         Me.grpOrderItem = New System.Windows.Forms.GroupBox()
         Me.lblTotalPay = New System.Windows.Forms.Label()
         Me.lblTax = New System.Windows.Forms.Label()
@@ -78,8 +80,9 @@ Partial Class PaymentMain
         Me.lblNumberHeader = New System.Windows.Forms.Label()
         Me.lblTableNo = New System.Windows.Forms.Label()
         Me.label1 = New System.Windows.Forms.Label()
-        Me.btnVoid = New System.Windows.Forms.Button()
-        Me.btnSplit = New System.Windows.Forms.Button()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FieldGuidelineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.panelPaymentCash.SuspendLayout()
         Me.PanelKeyboard.SuspendLayout()
         Me.panelCashInput.SuspendLayout()
@@ -88,6 +91,7 @@ Partial Class PaymentMain
         Me.GrpBxPaymentMethod.SuspendLayout()
         Me.grpCart.SuspendLayout()
         Me.grpOrderItem.SuspendLayout()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'radCash
@@ -390,6 +394,7 @@ Partial Class PaymentMain
         'Label2
         '
         Me.Label2.Font = New System.Drawing.Font("Palace Script MT", 60.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.LightSkyBlue
         Me.Label2.Location = New System.Drawing.Point(19, 351)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(449, 95)
@@ -399,13 +404,15 @@ Partial Class PaymentMain
         '
         'btnChangeMode
         '
+        Me.btnChangeMode.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnChangeMode.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnChangeMode.ForeColor = System.Drawing.Color.DarkSlateBlue
         Me.btnChangeMode.Location = New System.Drawing.Point(308, 7)
         Me.btnChangeMode.Name = "btnChangeMode"
         Me.btnChangeMode.Size = New System.Drawing.Size(118, 50)
         Me.btnChangeMode.TabIndex = 19
         Me.btnChangeMode.Text = "Switch to Cash Input"
-        Me.btnChangeMode.UseVisualStyleBackColor = True
+        Me.btnChangeMode.UseVisualStyleBackColor = False
         '
         'btnCalculate
         '
@@ -500,7 +507,7 @@ Partial Class PaymentMain
         'PanelPayment
         '
         Me.PanelPayment.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PanelPayment.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.PanelPayment.BackColor = System.Drawing.Color.Transparent
         Me.PanelPayment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PanelPayment.Controls.Add(Me.GrpBxPaymentMethod)
         Me.PanelPayment.Controls.Add(Me.grpCart)
@@ -516,7 +523,8 @@ Partial Class PaymentMain
         '
         Me.GrpBxPaymentMethod.Controls.Add(Me.radCash)
         Me.GrpBxPaymentMethod.Controls.Add(Me.radQR)
-        Me.GrpBxPaymentMethod.Font = New System.Drawing.Font("Yu Gothic UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GrpBxPaymentMethod.Font = New System.Drawing.Font("Yu Gothic UI", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GrpBxPaymentMethod.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.GrpBxPaymentMethod.Location = New System.Drawing.Point(680, 14)
         Me.GrpBxPaymentMethod.Name = "GrpBxPaymentMethod"
         Me.GrpBxPaymentMethod.Size = New System.Drawing.Size(438, 76)
@@ -526,13 +534,14 @@ Partial Class PaymentMain
         '
         'grpCart
         '
-        Me.grpCart.BackColor = System.Drawing.SystemColors.Control
+        Me.grpCart.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
         Me.grpCart.Controls.Add(Me.btnSplit)
         Me.grpCart.Controls.Add(Me.btnVoid)
         Me.grpCart.Controls.Add(Me.grpOrderItem)
         Me.grpCart.Controls.Add(Me.lblTableNo)
         Me.grpCart.Controls.Add(Me.label1)
-        Me.grpCart.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpCart.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpCart.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.grpCart.Location = New System.Drawing.Point(23, 14)
         Me.grpCart.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.grpCart.Name = "grpCart"
@@ -541,6 +550,28 @@ Partial Class PaymentMain
         Me.grpCart.TabIndex = 19
         Me.grpCart.TabStop = False
         Me.grpCart.Text = "Payment"
+        '
+        'btnSplit
+        '
+        Me.btnSplit.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.btnSplit.ForeColor = System.Drawing.Color.DarkSlateBlue
+        Me.btnSplit.Location = New System.Drawing.Point(455, 619)
+        Me.btnSplit.Name = "btnSplit"
+        Me.btnSplit.Size = New System.Drawing.Size(136, 38)
+        Me.btnSplit.TabIndex = 6
+        Me.btnSplit.Text = "Split"
+        Me.btnSplit.UseVisualStyleBackColor = False
+        '
+        'btnVoid
+        '
+        Me.btnVoid.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.btnVoid.ForeColor = System.Drawing.Color.DarkSlateBlue
+        Me.btnVoid.Location = New System.Drawing.Point(267, 619)
+        Me.btnVoid.Name = "btnVoid"
+        Me.btnVoid.Size = New System.Drawing.Size(130, 38)
+        Me.btnVoid.TabIndex = 5
+        Me.btnVoid.Text = "Void"
+        Me.btnVoid.UseVisualStyleBackColor = False
         '
         'grpOrderItem
         '
@@ -556,7 +587,8 @@ Partial Class PaymentMain
         Me.grpOrderItem.Controls.Add(Me.lblPriceHeader)
         Me.grpOrderItem.Controls.Add(Me.lblNameHeader)
         Me.grpOrderItem.Controls.Add(Me.lblNumberHeader)
-        Me.grpOrderItem.Font = New System.Drawing.Font("Yu Gothic UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpOrderItem.Font = New System.Drawing.Font("Yu Gothic UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpOrderItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.grpOrderItem.Location = New System.Drawing.Point(29, 61)
         Me.grpOrderItem.Name = "grpOrderItem"
         Me.grpOrderItem.Size = New System.Drawing.Size(588, 521)
@@ -594,13 +626,13 @@ Partial Class PaymentMain
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(303, 380)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(148, 23)
+        Me.Label3.Size = New System.Drawing.Size(150, 23)
         Me.Label3.TabIndex = 8
         Me.Label3.Text = "Service Tax (10%) :"
         '
         'panelSaparate
         '
-        Me.panelSaparate.BackColor = System.Drawing.Color.Gray
+        Me.panelSaparate.BackColor = System.Drawing.Color.White
         Me.panelSaparate.Location = New System.Drawing.Point(28, 334)
         Me.panelSaparate.Name = "panelSaparate"
         Me.panelSaparate.Size = New System.Drawing.Size(544, 2)
@@ -635,7 +667,7 @@ Partial Class PaymentMain
         Me.lblQuantityHeader.AutoSize = True
         Me.lblQuantityHeader.Location = New System.Drawing.Point(371, 37)
         Me.lblQuantityHeader.Name = "lblQuantityHeader"
-        Me.lblQuantityHeader.Size = New System.Drawing.Size(76, 23)
+        Me.lblQuantityHeader.Size = New System.Drawing.Size(77, 23)
         Me.lblQuantityHeader.TabIndex = 3
         Me.lblQuantityHeader.Text = "Quantity"
         '
@@ -678,7 +710,7 @@ Partial Class PaymentMain
         'label1
         '
         Me.label1.AutoSize = True
-        Me.label1.Font = New System.Drawing.Font("Yu Gothic UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label1.Font = New System.Drawing.Font("Yu Gothic UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.label1.Location = New System.Drawing.Point(35, 35)
         Me.label1.Name = "label1"
         Me.label1.Size = New System.Drawing.Size(86, 23)
@@ -686,31 +718,39 @@ Partial Class PaymentMain
         Me.label1.Text = "Table No :"
         Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'btnVoid
+        'MenuStrip1
         '
-        Me.btnVoid.Location = New System.Drawing.Point(267, 619)
-        Me.btnVoid.Name = "btnVoid"
-        Me.btnVoid.Size = New System.Drawing.Size(130, 38)
-        Me.btnVoid.TabIndex = 5
-        Me.btnVoid.Text = "Void"
-        Me.btnVoid.UseVisualStyleBackColor = True
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HelpToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(1199, 28)
+        Me.MenuStrip1.TabIndex = 5
+        Me.MenuStrip1.Text = "MenuStrip1"
         '
-        'btnSplit
+        'HelpToolStripMenuItem
         '
-        Me.btnSplit.Location = New System.Drawing.Point(455, 619)
-        Me.btnSplit.Name = "btnSplit"
-        Me.btnSplit.Size = New System.Drawing.Size(98, 38)
-        Me.btnSplit.TabIndex = 6
-        Me.btnSplit.Text = "Split"
-        Me.btnSplit.UseVisualStyleBackColor = True
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FieldGuidelineToolStripMenuItem})
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(55, 24)
+        Me.HelpToolStripMenuItem.Text = "&Help"
+        '
+        'FieldGuidelineToolStripMenuItem
+        '
+        Me.FieldGuidelineToolStripMenuItem.Name = "FieldGuidelineToolStripMenuItem"
+        Me.FieldGuidelineToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
+        Me.FieldGuidelineToolStripMenuItem.Size = New System.Drawing.Size(243, 26)
+        Me.FieldGuidelineToolStripMenuItem.Text = "Field Guideline"
         '
         'PaymentMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(1199, 840)
         Me.Controls.Add(Me.PanelPayment)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -731,7 +771,10 @@ Partial Class PaymentMain
         Me.grpCart.PerformLayout()
         Me.grpOrderItem.ResumeLayout(False)
         Me.grpOrderItem.PerformLayout()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents picClose As PictureBox
@@ -794,4 +837,7 @@ Partial Class PaymentMain
     Friend WithEvents lblTax As Label
     Friend WithEvents btnVoid As Button
     Friend WithEvents btnSplit As Button
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FieldGuidelineToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -40,44 +40,47 @@ Partial Class PaymentQR
         'lblQr
         '
         Me.lblQr.AutoSize = True
-        Me.lblQr.Font = New System.Drawing.Font("Yu Gothic UI", 25.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblQr.Location = New System.Drawing.Point(550, 26)
+        Me.lblQr.Font = New System.Drawing.Font("Gill Sans Ultra Bold", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblQr.ForeColor = System.Drawing.Color.LightSkyBlue
+        Me.lblQr.Location = New System.Drawing.Point(489, 21)
         Me.lblQr.Name = "lblQr"
-        Me.lblQr.Size = New System.Drawing.Size(312, 70)
+        Me.lblQr.Size = New System.Drawing.Size(387, 67)
         Me.lblQr.TabIndex = 30
         Me.lblQr.Text = "QR Payment"
         '
         'btnIScanYou
         '
+        Me.btnIScanYou.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnIScanYou.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnIScanYou.Location = New System.Drawing.Point(53, 329)
-        Me.btnIScanYou.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnIScanYou.ForeColor = System.Drawing.Color.DarkSlateBlue
+        Me.btnIScanYou.Location = New System.Drawing.Point(47, 263)
         Me.btnIScanYou.Name = "btnIScanYou"
-        Me.btnIScanYou.Size = New System.Drawing.Size(206, 81)
+        Me.btnIScanYou.Size = New System.Drawing.Size(183, 65)
         Me.btnIScanYou.TabIndex = 29
         Me.btnIScanYou.Text = "I Scan You ?"
-        Me.btnIScanYou.UseVisualStyleBackColor = True
+        Me.btnIScanYou.UseVisualStyleBackColor = False
         '
         'btnScanMe
         '
+        Me.btnScanMe.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnScanMe.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnScanMe.Location = New System.Drawing.Point(53, 179)
-        Me.btnScanMe.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnScanMe.ForeColor = System.Drawing.Color.DarkSlateBlue
+        Me.btnScanMe.Location = New System.Drawing.Point(47, 143)
         Me.btnScanMe.Name = "btnScanMe"
-        Me.btnScanMe.Size = New System.Drawing.Size(206, 81)
+        Me.btnScanMe.Size = New System.Drawing.Size(183, 65)
         Me.btnScanMe.TabIndex = 28
         Me.btnScanMe.Text = "You Scan Me ?"
-        Me.btnScanMe.UseVisualStyleBackColor = True
+        Me.btnScanMe.UseVisualStyleBackColor = False
         '
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.Color.LightGreen
         Me.Button2.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.Black
-        Me.Button2.Location = New System.Drawing.Point(939, 499)
+        Me.Button2.Location = New System.Drawing.Point(835, 399)
         Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(133, 141)
+        Me.Button2.Size = New System.Drawing.Size(118, 113)
         Me.Button2.TabIndex = 25
         Me.Button2.Text = "Success Pay"
         Me.Button2.UseVisualStyleBackColor = False
@@ -87,10 +90,10 @@ Partial Class PaymentQR
         Me.btnBack.BackColor = System.Drawing.Color.Red
         Me.btnBack.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBack.ForeColor = System.Drawing.Color.Black
-        Me.btnBack.Location = New System.Drawing.Point(939, 356)
+        Me.btnBack.Location = New System.Drawing.Point(835, 285)
         Me.btnBack.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(133, 132)
+        Me.btnBack.Size = New System.Drawing.Size(118, 106)
         Me.btnBack.TabIndex = 26
         Me.btnBack.Text = "Back"
         Me.btnBack.UseVisualStyleBackColor = False
@@ -98,9 +101,10 @@ Partial Class PaymentQR
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Palace Script MT", 60.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(14, 11)
+        Me.Label3.ForeColor = System.Drawing.Color.LightSkyBlue
+        Me.Label3.Location = New System.Drawing.Point(12, 9)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(505, 119)
+        Me.Label3.Size = New System.Drawing.Size(449, 95)
         Me.Label3.TabIndex = 27
         Me.Label3.Text = "BL-Fariz...."
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -108,10 +112,9 @@ Partial Class PaymentQR
         'picQR
         '
         Me.picQR.Image = CType(resources.GetObject("picQR.Image"), System.Drawing.Image)
-        Me.picQR.Location = New System.Drawing.Point(295, 134)
-        Me.picQR.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.picQR.Location = New System.Drawing.Point(262, 107)
         Me.picQR.Name = "picQR"
-        Me.picQR.Size = New System.Drawing.Size(532, 506)
+        Me.picQR.Size = New System.Drawing.Size(473, 405)
         Me.picQR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.picQR.TabIndex = 31
         Me.picQR.TabStop = False
@@ -119,26 +122,25 @@ Partial Class PaymentQR
         'panelCamera
         '
         Me.panelCamera.Controls.Add(Me.picCamera)
-        Me.panelCamera.Location = New System.Drawing.Point(295, 135)
-        Me.panelCamera.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.panelCamera.Location = New System.Drawing.Point(262, 108)
         Me.panelCamera.Name = "panelCamera"
-        Me.panelCamera.Size = New System.Drawing.Size(532, 505)
+        Me.panelCamera.Size = New System.Drawing.Size(473, 404)
         Me.panelCamera.TabIndex = 32
         '
         'picCamera
         '
         Me.picCamera.Location = New System.Drawing.Point(0, 0)
-        Me.picCamera.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.picCamera.Name = "picCamera"
-        Me.picCamera.Size = New System.Drawing.Size(529, 501)
+        Me.picCamera.Size = New System.Drawing.Size(470, 401)
         Me.picCamera.TabIndex = 0
         Me.picCamera.TabStop = False
         '
         'PaymentQR
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1116, 675)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(992, 540)
         Me.Controls.Add(Me.picQR)
         Me.Controls.Add(Me.panelCamera)
         Me.Controls.Add(Me.lblQr)
@@ -148,7 +150,6 @@ Partial Class PaymentQR
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.Label3)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "PaymentQR"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "PaymentQR"

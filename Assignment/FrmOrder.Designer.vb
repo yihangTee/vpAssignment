@@ -63,11 +63,11 @@ Partial Class FrmOrder
         Me.grpCart.Controls.Add(Me.label1)
         Me.grpCart.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpCart.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.grpCart.Location = New System.Drawing.Point(28, 39)
+        Me.grpCart.Location = New System.Drawing.Point(25, 31)
         Me.grpCart.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.grpCart.Name = "grpCart"
         Me.grpCart.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.grpCart.Size = New System.Drawing.Size(493, 661)
+        Me.grpCart.Size = New System.Drawing.Size(438, 529)
         Me.grpCart.TabIndex = 1
         Me.grpCart.TabStop = False
         Me.grpCart.Text = "Cart"
@@ -75,34 +75,34 @@ Partial Class FrmOrder
         'flpCart
         '
         Me.flpCart.AutoScroll = True
-        Me.flpCart.Location = New System.Drawing.Point(25, 121)
+        Me.flpCart.Location = New System.Drawing.Point(22, 97)
         Me.flpCart.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.flpCart.Name = "flpCart"
-        Me.flpCart.Size = New System.Drawing.Size(439, 428)
+        Me.flpCart.Size = New System.Drawing.Size(390, 342)
         Me.flpCart.TabIndex = 7
         '
         'lblTotalAmount
         '
         Me.lblTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblTotalAmount.Location = New System.Drawing.Point(215, 562)
+        Me.lblTotalAmount.Location = New System.Drawing.Point(191, 450)
         Me.lblTotalAmount.Name = "lblTotalAmount"
-        Me.lblTotalAmount.Size = New System.Drawing.Size(182, 38)
+        Me.lblTotalAmount.Size = New System.Drawing.Size(162, 30)
         Me.lblTotalAmount.TabIndex = 6
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(25, 562)
+        Me.Label2.Location = New System.Drawing.Point(22, 450)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(197, 38)
+        Me.Label2.Size = New System.Drawing.Size(175, 30)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Total Amount : "
         '
         'lblTableNo
         '
         Me.lblTableNo.Font = New System.Drawing.Font("Yu Gothic UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTableNo.Location = New System.Drawing.Point(181, 39)
+        Me.lblTableNo.Location = New System.Drawing.Point(161, 31)
         Me.lblTableNo.Name = "lblTableNo"
-        Me.lblTableNo.Size = New System.Drawing.Size(155, 38)
+        Me.lblTableNo.Size = New System.Drawing.Size(138, 30)
         Me.lblTableNo.TabIndex = 3
         Me.lblTableNo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -110,9 +110,9 @@ Partial Class FrmOrder
         '
         Me.lblOrderItem.AutoSize = True
         Me.lblOrderItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOrderItem.Location = New System.Drawing.Point(20, 88)
+        Me.lblOrderItem.Location = New System.Drawing.Point(18, 70)
         Me.lblOrderItem.Name = "lblOrderItem"
-        Me.lblOrderItem.Size = New System.Drawing.Size(152, 29)
+        Me.lblOrderItem.Size = New System.Drawing.Size(127, 25)
         Me.lblOrderItem.TabIndex = 2
         Me.lblOrderItem.Text = "Order Item :"
         '
@@ -120,9 +120,9 @@ Partial Class FrmOrder
         '
         Me.label1.AutoSize = True
         Me.label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.label1.Location = New System.Drawing.Point(39, 44)
+        Me.label1.Location = New System.Drawing.Point(35, 35)
         Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(136, 29)
+        Me.label1.Size = New System.Drawing.Size(113, 25)
         Me.label1.TabIndex = 0
         Me.label1.Text = "Table No :"
         Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -130,10 +130,10 @@ Partial Class FrmOrder
         'flpMenu
         '
         Me.flpMenu.AutoScroll = True
-        Me.flpMenu.Location = New System.Drawing.Point(535, 93)
+        Me.flpMenu.Location = New System.Drawing.Point(476, 74)
         Me.flpMenu.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.flpMenu.Name = "flpMenu"
-        Me.flpMenu.Size = New System.Drawing.Size(655, 548)
+        Me.flpMenu.Size = New System.Drawing.Size(582, 438)
         Me.flpMenu.TabIndex = 2
         '
         'cmbCategory
@@ -141,19 +141,19 @@ Partial Class FrmOrder
         Me.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCategory.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbCategory.FormattingEnabled = True
-        Me.cmbCategory.Location = New System.Drawing.Point(673, 51)
+        Me.cmbCategory.Location = New System.Drawing.Point(598, 41)
         Me.cmbCategory.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmbCategory.Name = "cmbCategory"
-        Me.cmbCategory.Size = New System.Drawing.Size(166, 33)
+        Me.cmbCategory.Size = New System.Drawing.Size(148, 28)
         Me.cmbCategory.TabIndex = 3
         '
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.Location = New System.Drawing.Point(530, 51)
+        Me.Label3.Location = New System.Drawing.Point(471, 41)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(147, 42)
+        Me.Label3.Size = New System.Drawing.Size(131, 34)
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "Category : "
         '
@@ -162,10 +162,10 @@ Partial Class FrmOrder
         Me.btnSendOrder.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnSendOrder.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSendOrder.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnSendOrder.Location = New System.Drawing.Point(553, 654)
+        Me.btnSendOrder.Location = New System.Drawing.Point(492, 523)
         Me.btnSendOrder.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnSendOrder.Name = "btnSendOrder"
-        Me.btnSendOrder.Size = New System.Drawing.Size(175, 46)
+        Me.btnSendOrder.Size = New System.Drawing.Size(156, 37)
         Me.btnSendOrder.TabIndex = 8
         Me.btnSendOrder.Text = "Send Order"
         Me.btnSendOrder.UseVisualStyleBackColor = False
@@ -175,10 +175,10 @@ Partial Class FrmOrder
         Me.btnGoToPayment.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnGoToPayment.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGoToPayment.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnGoToPayment.Location = New System.Drawing.Point(734, 654)
+        Me.btnGoToPayment.Location = New System.Drawing.Point(652, 523)
         Me.btnGoToPayment.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGoToPayment.Name = "btnGoToPayment"
-        Me.btnGoToPayment.Size = New System.Drawing.Size(139, 46)
+        Me.btnGoToPayment.Size = New System.Drawing.Size(124, 37)
         Me.btnGoToPayment.TabIndex = 9
         Me.btnGoToPayment.Text = "Payment"
         Me.btnGoToPayment.UseVisualStyleBackColor = False
@@ -188,9 +188,10 @@ Partial Class FrmOrder
         Me.btnBack.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBack.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnBack.Location = New System.Drawing.Point(1044, 44)
+        Me.btnBack.Location = New System.Drawing.Point(928, 35)
+        Me.btnBack.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(85, 42)
+        Me.btnBack.Size = New System.Drawing.Size(76, 34)
         Me.btnBack.TabIndex = 9
         Me.btnBack.Text = "Back"
         Me.btnBack.UseVisualStyleBackColor = False
@@ -210,12 +211,12 @@ Partial Class FrmOrder
         '
         'msOrderPage
         '
-        Me.msOrderPage.GripMargin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.msOrderPage.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.msOrderPage.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.msOrderPage.Location = New System.Drawing.Point(0, 0)
         Me.msOrderPage.Name = "msOrderPage"
-        Me.msOrderPage.Size = New System.Drawing.Size(1202, 33)
+        Me.msOrderPage.Padding = New System.Windows.Forms.Padding(5, 2, 0, 2)
+        Me.msOrderPage.Size = New System.Drawing.Size(1068, 28)
         Me.msOrderPage.TabIndex = 10
         Me.msOrderPage.Text = "MenuStrip1"
         '
@@ -223,44 +224,45 @@ Partial Class FrmOrder
         '
         Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClearToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(54, 29)
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(46, 24)
         Me.FileToolStripMenuItem.Text = "&File"
         '
         'ClearToolStripMenuItem
         '
         Me.ClearToolStripMenuItem.Name = "ClearToolStripMenuItem"
         Me.ClearToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.ClearToolStripMenuItem.Size = New System.Drawing.Size(215, 34)
+        Me.ClearToolStripMenuItem.Size = New System.Drawing.Size(177, 26)
         Me.ClearToolStripMenuItem.Text = "&Clear"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         Me.ExitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(215, 34)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(177, 26)
         Me.ExitToolStripMenuItem.Text = "E&xit"
         '
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FieldGuidelineToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 29)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(55, 24)
         Me.HelpToolStripMenuItem.Text = "&Help"
         '
         'FieldGuidelineToolStripMenuItem
         '
         Me.FieldGuidelineToolStripMenuItem.Name = "FieldGuidelineToolStripMenuItem"
         Me.FieldGuidelineToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
-        Me.FieldGuidelineToolStripMenuItem.Size = New System.Drawing.Size(292, 34)
+        Me.FieldGuidelineToolStripMenuItem.Size = New System.Drawing.Size(243, 26)
         Me.FieldGuidelineToolStripMenuItem.Text = "Field Guideline"
         '
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.White
         Me.PictureBox1.Image = Global.Assignment.My.Resources.Resources.Back
-        Me.PictureBox1.Location = New System.Drawing.Point(1135, 40)
+        Me.PictureBox1.Location = New System.Drawing.Point(1009, 32)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(55, 48)
+        Me.PictureBox1.Size = New System.Drawing.Size(49, 38)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 11
         Me.PictureBox1.TabStop = False
@@ -273,10 +275,10 @@ Partial Class FrmOrder
         'FrmOrder
         '
         Me.AcceptButton = Me.btnSendOrder
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1202, 727)
+        Me.ClientSize = New System.Drawing.Size(1068, 582)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnGoToPayment)
         Me.Controls.Add(Me.btnBack)
@@ -288,7 +290,6 @@ Partial Class FrmOrder
         Me.Controls.Add(Me.msOrderPage)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.msOrderPage
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FrmOrder"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Order Page"

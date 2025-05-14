@@ -104,5 +104,13 @@
 
     End Sub
 
-
+    Private Sub GuidlinesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuidlinesToolStripMenuItem.Click
+        MessageBox.Show(
+        "SPLIT PAYMENT SAFEGUARDS:" & vbCrLf & vbCrLf &
+        "1. Check the item you purchase" & vbCrLf &
+        "2. Select the item wants to pay" & vbCrLf &
+        "3. Can use the calculator to calculate the change" & vbCrLf,
+        "Payment Help",
+        MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
 End Class

@@ -13,7 +13,6 @@
     End Sub
 
     Private Sub btnPaymentReport_Click(sender As Object, e As EventArgs) Handles btnPaymentReport.Click
-        Me.Close()
-        FrmPaymentReport.Show()
+        FrmPaymentReport.ShowDialog()
     End Sub
 End Class
