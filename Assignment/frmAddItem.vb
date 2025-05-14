@@ -118,7 +118,7 @@ Public Class frmAddItem
 
             'Create new item object
             Dim newItem As New Item() With {
-                .Item_Id = mskAddItemID.Text,
+                .Item_Id = mskAddItemID.Text.ToUpper(),
                 .Item_Name = txtAddItemName.Text,
                 .Item_Description = txtAddItemDescription.Text,
                 .Item_Category = cboAddItemCategory.Text,
@@ -173,15 +173,6 @@ Public Class frmAddItem
                 ClearForm()
                 cboAddItemCategory.Text = "Select a Category"
             End If
-
-            'Try
-            '    Using db As New ItemStockDataContext() 
-            '        Dim test = db.Items.FirstOrDefault()
-            '        MessageBox.Show("Connection successful! Found " & (If(test Is Nothing, "no", "some") & " items."))
-            '    End Using
-            'Catch ex As Exception
-            '    MessageBox.Show("Connection failed: " & ex.Message, "Error")
-            'End Try
 
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

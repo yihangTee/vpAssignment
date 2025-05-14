@@ -3,6 +3,7 @@
 Public Class frmUpdateItem
     ' Store the original item for reset
     Private originalItem As Item
+    Private originalImage As Image
 
     Private Sub frmUpdateItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ResetForm()
@@ -75,9 +76,13 @@ Public Class frmUpdateItem
                 radUpdateCustomStock.Checked = True
                 txtUpdateCustomStock.Text = item.Item_Quantity.ToString()
         End Select
+
         picUpdateItemPicture.Image = If(item.Item_Picture IsNot Nothing, ByteArrayToImage(item.Item_Picture.ToArray()), Nothing)
 
         originalItem = item
+
+        originalImage = picUpdateItemPicture.Image
+
         ToggleControls(True)
     End Sub
 
@@ -217,7 +222,7 @@ Public Class frmUpdateItem
                 radUpdateCustomStock.Checked = True
                 txtUpdateCustomStock.Text = originalItem.Item_Quantity.ToString()
         End Select
-        picUpdateItemPicture.Image = If(originalItem.Item_Picture IsNot Nothing, ByteArrayToImage(originalItem.Item_Picture.ToArray()), Nothing)
+        picUpdateItemPicture.Image = originalImage
     End Sub
 
     Private Sub mskSearchUpdateItemID_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles mskSearchUpdateItemId.Validating
@@ -291,5 +296,15 @@ Public Class frmUpdateItem
         "5. Press Cancel button to recall edits",
         "Update Help",
         MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Sub radUpdateHighStock_CheckedChanged(sender As Object, e As EventArgs) Handles radUpdateHighStock.CheckedChanged, radUpdateLowStock.CheckedChanged, radUpdateMediumStock.CheckedChanged, radUpdateCustomStock.CheckedChanged
+        If radUpdateCustomStock.Checked Then
+            txtUpdateCustomStock.Enabled = True
+            txtUpdateCustomStock.Focus()
+        Else
+            txtUpdateCustomStock.Enabled = False
+            txtUpdateCustomStock.Clear()
+        End If
     End Sub
 End Class

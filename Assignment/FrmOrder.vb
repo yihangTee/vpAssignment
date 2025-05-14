@@ -35,8 +35,8 @@ Public Class FrmOrder
         For Each item In items
             Dim itemPanel As New Panel
             With itemPanel
-                .Width = 180
-                .Height = 180
+                .Width = 200
+                .Height = 200
                 .BorderStyle = BorderStyle.Fixed3D
                 .Tag = item.Item_Id
             End With
@@ -68,7 +68,7 @@ Public Class FrmOrder
             With lblName
                 .Text = item.Item_Name
                 .AutoSize = False
-                .Width = 120
+                .Width = 150
                 .Height = 20
                 .TextAlign = ContentAlignment.MiddleLeft
                 .Location = New Point(10, picBox.Bottom + 5)
