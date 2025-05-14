@@ -54,5 +54,18 @@
         End Using
     End Function
 
+    Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
+        btnLogOut_Click(Nothing, Nothing)
+    End Sub
 
+    Private Sub FieldGuidelineToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FieldGuidelineToolStripMenuItem.Click
+        MessageBox.Show(
+        "MAIN PAGE SAFEGUARDS:" & vbCrLf & vbCrLf &
+        "1. Staff Module : add staff, view & modify staff info, staff report" & vbCrLf &
+        "2. Order Management Module : add order, view & modify order details, do payment" & vbCrLf &
+        "3. Item Stock Management Module : add item, view & modify item info, item report" & vbCrLf &
+        "4. Payment & Billing Module : order history, sales report, payment report",
+        "Main Page Help",
+        MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
 End Class
