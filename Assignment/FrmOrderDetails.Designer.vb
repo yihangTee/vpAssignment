@@ -37,6 +37,8 @@ Partial Class FrmOrderDetails
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.reprintReceipt = New System.Drawing.Printing.PrintDocument()
+        Me.receiptPreviewDialog = New System.Windows.Forms.PrintPreviewDialog()
         CType(Me.dgvOrderedItems, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -189,6 +191,19 @@ Partial Class FrmOrderDetails
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "BL-Fariz Restaurant"
         '
+        'reprintReceipt
+        '
+        '
+        'receiptPreviewDialog
+        '
+        Me.receiptPreviewDialog.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.receiptPreviewDialog.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.receiptPreviewDialog.ClientSize = New System.Drawing.Size(400, 300)
+        Me.receiptPreviewDialog.Enabled = True
+        Me.receiptPreviewDialog.Icon = CType(resources.GetObject("receiptPreviewDialog.Icon"), System.Drawing.Icon)
+        Me.receiptPreviewDialog.Name = "receiptPreviewDialog"
+        Me.receiptPreviewDialog.Visible = False
+        '
         'FrmOrderDetails
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -225,4 +240,6 @@ Partial Class FrmOrderDetails
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Label4 As Label
     Friend WithEvents btnReprintReceipt As Button
+    Friend WithEvents reprintReceipt As Printing.PrintDocument
+    Friend WithEvents receiptPreviewDialog As PrintPreviewDialog
 End Class
