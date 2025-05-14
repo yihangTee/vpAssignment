@@ -134,7 +134,8 @@
         ShowLatestOrderItemDetails()
         lblTableNo.Text = SelectedTableNo
     End Sub
-    Private Sub ShowLatestOrderItemDetails()
+
+    Public Sub ShowLatestOrderItemDetails()
 
         Dim db As New BL_farizDataContext()
 
@@ -231,7 +232,7 @@
         lblTotalPay.Text = "RM " & totalPay.ToString("F2")
     End Sub
 
-    Private Sub GenerateReceipt()
+    Public Sub GenerateReceipt()
         ' Ensure pendingItemsList is filled before printing
         If pendingItemsList Is Nothing OrElse pendingItemsList.Count = 0 Then
             MessageBox.Show("No items to print. Please load the pending order first.")
