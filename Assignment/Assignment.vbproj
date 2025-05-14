@@ -231,6 +231,12 @@
     <Compile Include="frmSnapItemPicture.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmSplitPayment.Designer.vb">
+      <DependentUpon>FrmSplitPayment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSplitPayment.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmStaffDetails.Designer.vb">
       <DependentUpon>FrmStaffDetails.vb</DependentUpon>
     </Compile>
@@ -370,6 +376,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSnapItemPicture.resx">
       <DependentUpon>frmSnapItemPicture.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSplitPayment.resx">
+      <DependentUpon>FrmSplitPayment.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStaffDetails.resx">
       <DependentUpon>FrmStaffDetails.vb</DependentUpon>

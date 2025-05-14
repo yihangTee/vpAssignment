@@ -79,6 +79,7 @@ Partial Class PaymentMain
         Me.lblTableNo = New System.Windows.Forms.Label()
         Me.label1 = New System.Windows.Forms.Label()
         Me.btnVoid = New System.Windows.Forms.Button()
+        Me.btnSplit = New System.Windows.Forms.Button()
         Me.panelPaymentCash.SuspendLayout()
         Me.PanelKeyboard.SuspendLayout()
         Me.panelCashInput.SuspendLayout()
@@ -526,6 +527,7 @@ Partial Class PaymentMain
         'grpCart
         '
         Me.grpCart.BackColor = System.Drawing.SystemColors.Control
+        Me.grpCart.Controls.Add(Me.btnSplit)
         Me.grpCart.Controls.Add(Me.btnVoid)
         Me.grpCart.Controls.Add(Me.grpOrderItem)
         Me.grpCart.Controls.Add(Me.lblTableNo)
@@ -693,6 +695,15 @@ Partial Class PaymentMain
         Me.btnVoid.Text = "Void"
         Me.btnVoid.UseVisualStyleBackColor = True
         '
+        'btnSplit
+        '
+        Me.btnSplit.Location = New System.Drawing.Point(455, 619)
+        Me.btnSplit.Name = "btnSplit"
+        Me.btnSplit.Size = New System.Drawing.Size(98, 38)
+        Me.btnSplit.TabIndex = 6
+        Me.btnSplit.Text = "Split"
+        Me.btnSplit.UseVisualStyleBackColor = True
+        '
         'PaymentMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -782,4 +793,5 @@ Partial Class PaymentMain
     Friend WithEvents lblTotalPay As Label
     Friend WithEvents lblTax As Label
     Friend WithEvents btnVoid As Button
+    Friend WithEvents btnSplit As Button
 End Class

@@ -390,5 +390,10 @@
             MessageBox.Show("Void cancelled.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
+
+    Private Sub btnSplit_Click(sender As Object, e As EventArgs) Handles btnSplit.Click
+        Dim splitForm As New FrmSplitPayment(pendingItemsList)
+        splitForm.ShowDialog()
+    End Sub
 End Class
 
