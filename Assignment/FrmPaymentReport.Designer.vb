@@ -22,9 +22,9 @@ Partial Class FrmPaymentReport
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.cmbPaymentMethod = New System.Windows.Forms.ComboBox()
         Me.btnGenerate = New System.Windows.Forms.Button()
         Me.dgvReport = New System.Windows.Forms.DataGridView()
@@ -42,14 +42,16 @@ Partial Class FrmPaymentReport
         '
         'cmbPaymentMethod
         '
+        Me.cmbPaymentMethod.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbPaymentMethod.FormattingEnabled = True
-        Me.cmbPaymentMethod.Location = New System.Drawing.Point(629, 47)
+        Me.cmbPaymentMethod.Location = New System.Drawing.Point(591, 47)
         Me.cmbPaymentMethod.Name = "cmbPaymentMethod"
-        Me.cmbPaymentMethod.Size = New System.Drawing.Size(121, 24)
+        Me.cmbPaymentMethod.Size = New System.Drawing.Size(150, 28)
         Me.cmbPaymentMethod.TabIndex = 1
         '
         'btnGenerate
         '
+        Me.btnGenerate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGenerate.Location = New System.Drawing.Point(43, 433)
         Me.btnGenerate.Name = "btnGenerate"
         Me.btnGenerate.Size = New System.Drawing.Size(120, 31)
@@ -69,6 +71,7 @@ Partial Class FrmPaymentReport
         '
         'btnToggleChart
         '
+        Me.btnToggleChart.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnToggleChart.Location = New System.Drawing.Point(180, 433)
         Me.btnToggleChart.Name = "btnToggleChart"
         Me.btnToggleChart.Size = New System.Drawing.Size(120, 31)
@@ -78,16 +81,16 @@ Partial Class FrmPaymentReport
         '
         'salesChart
         '
-        ChartArea4.Name = "ChartArea1"
-        Me.salesChart.ChartAreas.Add(ChartArea4)
-        Legend4.Name = "Legend1"
-        Me.salesChart.Legends.Add(Legend4)
+        ChartArea1.Name = "ChartArea1"
+        Me.salesChart.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.salesChart.Legends.Add(Legend1)
         Me.salesChart.Location = New System.Drawing.Point(43, 86)
         Me.salesChart.Name = "salesChart"
-        Series4.ChartArea = "ChartArea1"
-        Series4.Legend = "Legend1"
-        Series4.Name = "Series1"
-        Me.salesChart.Series.Add(Series4)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.salesChart.Series.Add(Series1)
         Me.salesChart.Size = New System.Drawing.Size(708, 333)
         Me.salesChart.TabIndex = 5
         Me.salesChart.Text = "Chart1"
@@ -111,10 +114,11 @@ Partial Class FrmPaymentReport
         '
         'cmbReportType
         '
+        Me.cmbReportType.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbReportType.FormattingEnabled = True
         Me.cmbReportType.Location = New System.Drawing.Point(756, 47)
         Me.cmbReportType.Name = "cmbReportType"
-        Me.cmbReportType.Size = New System.Drawing.Size(147, 24)
+        Me.cmbReportType.Size = New System.Drawing.Size(147, 28)
         Me.cmbReportType.TabIndex = 8
         '
         'dtpFromDate

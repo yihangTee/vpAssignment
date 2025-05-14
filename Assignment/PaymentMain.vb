@@ -357,5 +357,38 @@
             MessageBox.Show("Invalid number")
         End If
     End Sub
+
+    Private Sub btnVoid_Click(sender As Object, e As EventArgs) Handles btnVoid.Click
+        Dim confirmResult = MessageBox.Show("Are you sure you want to void this payment?", "Confirm Void", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+
+        If confirmResult = DialogResult.Yes Then
+            Dim db As New BL_farizDataContext()
+
+            Try
+                Dim matchingPayments = From o In db.Orders
+                                       Join p In db.Payments On o.OrderID Equals p.OrderID
+                                       Where o.TableNo = SelectedTableNo AndAlso p.PaymentStatus = "Pending"
+                                       Select p
+
+                If matchingPayments.Any() Then
+                    For Each pay In matchingPayments
+                        pay.PaymentStatus = "Void"
+                        pay.DateTime = DateTime.Now
+                    Next
+
+                    db.SubmitChanges()
+                    MessageBox.Show("Payment has been voided.", "Voided", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    MessageBox.Show("No pending payment found to void.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+
+                Me.Close()
+            Catch ex As Exception
+                MessageBox.Show("Error while voiding payment: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        Else
+            MessageBox.Show("Void cancelled.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
 End Class
 
