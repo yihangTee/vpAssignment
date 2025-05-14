@@ -146,12 +146,24 @@
 
         If pendingItemsList.Any() Then
             ' Create header labels for the table
+        Dim pendingItems = From o In db.Orders
+                           Join p In db.Payments On o.OrderID Equals p.OrderID
+                           Join oi In db.Order_Items On o.OrderID Equals oi.OrderID
+                           Join i In db.Items On oi.Item_Id Equals i.Item_Id
+                           Where o.TableNo = SelectedTableNo AndAlso p.PaymentStatus = "Pending"
+                           Select New With {
+                           .OrderID = o.OrderID,
+                           .ItemName = i.Item_Name,
+                           .ItemPrice = i.Item_Price,
+                           .Quantity = oi.Quantity,
+                           .SubTotal = oi.SubTotal
+                       }
+
+        If pendingItems.Any() Then
             Dim topOffset As Integer = 60
             Dim rowHeight As Integer = 25
             Dim fontSetting As New Font("Yu Gothic UI", 10.2F)
 
-
-            ' Add the actual item details
             Dim rowNumber As Integer = 1
             orderTotal = 0D
 
@@ -191,16 +203,14 @@
                     .Font = fontSetting
                 }
 
-                ' Add all labels to the GroupBox
                 grpOrderItem.Controls.AddRange({lblNumber, lblName, lblPrice, lblQty, lblSubtotal})
 
-                ' Move to next row
                 topOffset += rowHeight
                 rowNumber += 1
                 orderTotal += item.SubTotal
             Next
         Else
-            MessageBox.Show("No order items found for" & SelectedTableNo)
+            MessageBox.Show("No order items found for " & SelectedTableNo)
             Me.Close()
         End If
         lbltotalPrice.Text = "RM " & orderTotal.ToString("F2")

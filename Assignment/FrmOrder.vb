@@ -3,6 +3,7 @@ Imports System.Data.SqlClient
 Imports System.Text
 
 Public Class FrmOrder
+    Dim db As New BL_farizDataContext()
     Public Property SelectedTableNo As String
 
     Private Sub FrmOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -10,8 +11,6 @@ Public Class FrmOrder
     End Sub
 
     Private Sub LoadCategories()
-        Dim db As New BL_farizDataContext()
-
         Dim categories = (From i In db.Items
                           Select i.Item_Category
                           Distinct).ToList()
@@ -20,7 +19,6 @@ Public Class FrmOrder
         cmbCategory.SelectedIndex = -1
     End Sub
 
-
     Private Sub cmbCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCategory.SelectedIndexChanged
         If cmbCategory.SelectedIndex <> -1 Then
             LoadItemsByCategory(cmbCategory.SelectedItem.ToString())
@@ -28,7 +26,6 @@ Public Class FrmOrder
     End Sub
 
     Private Sub LoadItemsByCategory(category As String)
-        Dim db As New BL_farizDataContext()
         flpMenu.Controls.Clear()
 
         Dim items = From i In db.Items
@@ -36,35 +33,77 @@ Public Class FrmOrder
                     Select i
 
         For Each item In items
-            Dim itemPanel As New Panel With {
-            .Width = 120,
-            .Height = 120,
-            .BorderStyle = BorderStyle.Fixed3D,
-            .Tag = item.Item_Id
-        }
+            Dim itemPanel As New Panel
+            With itemPanel
+                .Width = 200
+                .Height = 200
+                .BorderStyle = BorderStyle.Fixed3D
+                .Tag = item.Item_Id
+            End With
 
-            Dim lblName As New Label With {
-            .Text = item.Item_Name,
-            .AutoSize = True,
-            .Location = New Point(10, 10)
-        }
+            Dim picBox As New PictureBox
+            With picBox
+                .Width = 120
+                .Height = 80
+                .SizeMode = PictureBoxSizeMode.Zoom
+                .Location = New Point(10, 5)
+            End With
 
-            Dim lblPrice As New Label With {
-            .Text = "RM " & item.Item_Price.ToString("F2"),
-            .AutoSize = True,
-            .Location = New Point(10, lblName.Bottom + 5)
-        }
+            Dim itemImg = item.Item_Picture
 
-            Dim btnAdd As New Button With {
-            .Text = "Add",
-            .Width = 60,
-            .Location = New Point(10, lblPrice.Bottom + 10)
-        }
+            If itemImg IsNot Nothing AndAlso itemImg.Length > 0 Then
+                Try
+                    Dim imgBytes As Byte() = itemImg.ToArray()
+                    Using ms As New IO.MemoryStream(imgBytes)
+                        picBox.Image = Image.FromStream(ms)
+                    End Using
+                Catch ex As Exception
+                    picBox.Image = Nothing
+                End Try
+            Else
+                picBox.Image = Nothing
+            End If
+
+            Dim lblName As New Label
+            With lblName
+                .Text = item.Item_Name
+                .AutoSize = False
+                .Width = 150
+                .Height = 20
+                .TextAlign = ContentAlignment.MiddleLeft
+                .Location = New Point(10, picBox.Bottom + 5)
+                .ForeColor = Color.White
+                .Font = New Font("Microsoft Sans Serif", 10, FontStyle.Bold)
+            End With
+
+            Dim lblPrice As New Label
+            With lblPrice
+                .Text = "RM " & item.Item_Price.ToString("F2")
+                .AutoSize = False
+                .Width = 120
+                .Height = 20
+                .TextAlign = ContentAlignment.MiddleLeft
+                .Location = New Point(10, lblName.Bottom)
+                .ForeColor = Color.White
+                .Font = New Font("Microsoft Sans Serif", 10, FontStyle.Bold)
+            End With
+
+            Dim btnAdd As New Button
+            With btnAdd
+                .Text = "Add"
+                .Width = 60
+                .Height = 30
+                .Location = New Point(10, lblPrice.Bottom + 5)
+                .BackColor = Color.LightSkyBlue
+                .ForeColor = Color.DarkSlateBlue
+                .Font = New Font("Microsoft Sans Serif", 10, FontStyle.Bold)
+            End With
 
             AddHandler btnAdd.Click, Sub(s, e)
                                          AddToCart(item.Item_Id)
                                      End Sub
 
+            itemPanel.Controls.Add(picBox)
             itemPanel.Controls.Add(lblName)
             itemPanel.Controls.Add(lblPrice)
             itemPanel.Controls.Add(btnAdd)
@@ -73,13 +112,31 @@ Public Class FrmOrder
         Next
     End Sub
 
+    Private Function UpdateItemStockLevel(item As Item) As String
+        Dim quantity = item.Item_Quantity
+        Dim stocklvl As String
+
+        If quantity >= 50 Then
+            stocklvl = "High"
+        ElseIf quantity > 10 AndAlso quantity <= 49 Then
+            stocklvl = "Medium"
+        Else
+            stocklvl = "Low"
+        End If
+
+        Return stocklvl
+    End Function
+
     Private Sub AddToCart(itemId As String)
-        Dim db As New BL_farizDataContext()
         Dim item = db.Items.FirstOrDefault(Function(i) i.Item_Id = itemId)
 
         If item IsNot Nothing Then
+            item.Item_StockLvl = UpdateItemStockLevel(item)
+            db.SubmitChanges()
+
             If item.Item_Quantity <= 0 Then
-                MessageBox.Show($"{item.Item_Name} is out of stock.", "Stock Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show($"{item.Item_Name} is out of stock.", "Stock Warning",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Return
             End If
 
@@ -88,6 +145,12 @@ Public Class FrmOrder
             If existingPanel IsNot Nothing Then
                 Dim currentQty = GetCartItemQuantity(existingPanel)
 
+                If (item.Item_StockLvl = "Low" And item.Item_Quantity - (currentQty + 1) > 0) Or
+                    item.Item_Quantity - (currentQty + 1) < 10 Then
+                    MessageBox.Show($"{item.Item_Name} stock is low ({item.Item_Quantity - (currentQty + 1)} left).",
+                    "Low Stock Warning", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+
                 If currentQty >= item.Item_Quantity Then
                     ShowStockWarning(item)
                     Return
@@ -95,6 +158,11 @@ Public Class FrmOrder
 
                 SetCartItemSummary(existingPanel, item, currentQty + 1)
             Else
+                If item.Item_StockLvl = "Low" Then
+                    MessageBox.Show($"{item.Item_Name} stock is low ({item.Item_Quantity - 1} left).",
+                    "Low Stock Warning", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+
                 Dim newPanel = CreateCartPanel(item)
                 flpCart.Controls.Add(newPanel)
             End If
@@ -118,53 +186,63 @@ Public Class FrmOrder
     End Sub
 
     Private Function CreateCartPanel(item As Item) As Panel
-        Dim panel As New Panel With {
-        .Width = 250,
-        .Height = 130,
-        .Tag = item.Item_Id,
-        .BorderStyle = BorderStyle.Fixed3D,
-        .BackColor = Color.White
-    }
+        Dim panel As New Panel
+        With panel
+            .Width = 270
+            .Height = 130
+            .Tag = item.Item_Id
+            .BorderStyle = BorderStyle.Fixed3D
+            .BackColor = Color.White
+        End With
 
-        Dim lblSummary As New Label With {
-        .Name = "lblSummary" & item.Item_Id,
-        .Text = $"{item.Item_Name} x 1 RM {item.Item_Price:F2}",
-        .Font = New Font("Segoe UI", 10, FontStyle.Bold),
-        .Location = New Point(10, 10),
-        .AutoSize = True,
-        .Tag = "1"
-    }
+        Dim lblSummary As New Label
+        With lblSummary
+            .Name = "lblSummary" & item.Item_Id
+            .Text = $"{item.Item_Name} x 1 RM {item.Item_Price:F2}"
+            .Font = New Font("Microsoft Sans Serif", 10, FontStyle.Bold)
+            .ForeColor = Color.Black
+            .Location = New Point(10, 10)
+            .AutoSize = True
+            .Tag = "1"
+        End With
 
         Dim buttonY As Integer = lblSummary.Bottom + 10
 
-        Dim btnIncrease As New Button With {
-        .Text = "+",
-        .Size = New Size(30, 30),
-        .Location = New Point(10, buttonY)
-    }
+        Dim btnIncrease As New Button
+        With btnIncrease
+            .Text = "+"
+            .Size = New Size(30, 30)
+            .Location = New Point(10, buttonY)
+            .ForeColor = Color.Black
+        End With
         AddHandler btnIncrease.Click, Sub(s, e) ModifyQuantity(item.Item_Id, 1)
 
-        Dim btnDecrease As New Button With {
-        .Text = "-",
-        .Size = New Size(30, 30),
-        .Location = New Point(btnIncrease.Right + 5, buttonY)
-    }
+        Dim btnDecrease As New Button
+        With btnDecrease
+            .Text = "-"
+            .Size = New Size(30, 30)
+            .Location = New Point(btnIncrease.Right + 5, buttonY)
+            .ForeColor = Color.Black
+        End With
         AddHandler btnDecrease.Click, Sub(s, e) ModifyQuantity(item.Item_Id, -1)
 
-        Dim btnDelete As New Button With {
-        .Text = "Delete",
-        .Size = New Size(80, 30),
-        .Location = New Point(btnDecrease.Right + 5, buttonY)
-    }
+        Dim btnDelete As New Button
+        With btnDelete
+            .Text = "Delete"
+            .Size = New Size(80, 30)
+            .Location = New Point(btnDecrease.Right + 5, buttonY)
+            .ForeColor = Color.Black
+        End With
         AddHandler btnDelete.Click, Sub(s, e) DeleteItem(item.Item_Id)
 
-        Dim txtNote As New TextBox With {
-        .Name = "txtNote_" & item.Item_Id,
-        .Text = "",
-        .ForeColor = Color.Gray,
-        .Location = New Point(10, btnIncrease.Bottom + 10),
-        .Width = 220
-    }
+        Dim txtNote As New TextBox
+        With txtNote
+            .Name = "txtNote_" & item.Item_Id
+            .Text = ""
+            .ForeColor = Color.Gray
+            .Location = New Point(10, btnIncrease.Bottom + 10)
+            .Width = 220
+        End With
 
         panel.Controls.Add(lblSummary)
         panel.Controls.Add(btnIncrease)
@@ -176,7 +254,6 @@ Public Class FrmOrder
     End Function
 
     Private Sub ModifyQuantity(itemId As String, change As Integer)
-        Dim db As New BL_farizDataContext()
         Dim item = db.Items.FirstOrDefault(Function(i) i.Item_Id = itemId)
 
         If item IsNot Nothing Then
@@ -262,16 +339,15 @@ Public Class FrmOrder
             Return
         End If
 
-        Dim db As New BL_farizDataContext()
-
         Dim orderID As String = GenerateOrderID(db)
-        Dim staffID As String = "ST0001"
+        Dim username As String = FrmTable.lblName.Text.Trim()
+        Dim staffId As String = GetStaffIdByName(username)
         Dim tableNo As String = lblTableNo.Text
         Dim totalAmount As Decimal = Decimal.Parse(lblTotalAmount.Text.Replace("RM", "").Trim())
 
         Dim newOrder As New [Order] With {
         .OrderID = orderID,
-        .StaffID = staffID,
+        .StaffID = staffId,
         .TableNo = tableNo,
         .TotalAmount = totalAmount,
         .OrderDateTime = DateTime.Now
@@ -339,6 +415,20 @@ Public Class FrmOrder
             OrderListPreviewDialog.Document = PrintOrderList
             OrderListPreviewDialog.ShowDialog(Me)
 
+            Dim tableRecord = db.TableNos.FirstOrDefault(Function(t) t.Name = tableNo)
+
+            If tableRecord IsNot Nothing Then
+                tableRecord.Color = Color.Orange.ToArgb()
+                db.SubmitChanges()
+            End If
+
+            For Each ctrl As Control In FrmTable.pnlTables.Controls
+                If TypeOf ctrl Is Button AndAlso ctrl.Text = tableNo Then
+                    ctrl.BackColor = Color.Orange
+                    Exit For
+                End If
+            Next
+
             flpCart.Controls.Clear()
             lblTotalAmount.Text = "RM 0.00"
         Catch ex As Exception
@@ -346,6 +436,13 @@ Public Class FrmOrder
         End Try
 
     End Sub
+
+    Private Function GetStaffIdByName(username As String) As String
+        Dim staffId = (From s In db.Staffs
+                       Where s.Username = username
+                       Select Staff_Id = s.StaffID).FirstOrDefault()
+        Return staffId
+    End Function
 
     Private Function GetCartItemQuantity(panel As Panel) As Integer
         Dim lblSummary = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(l) l.Name.StartsWith("lblSummary"))
@@ -412,14 +509,15 @@ Public Class FrmOrder
         Dim fntHeader As New Font("Calibri", 24, FontStyle.Bold)
         Dim fntSubHeader As New Font("Calibri", 12)
         Dim fntBody As New Font("Consolas", 10)
+        Dim staffId As String = GetStaffIdByName(FrmTable.lblName.Text.Trim())
 
         Dim strHeader As String = "ORDER LIST"
         Dim strSubHeader As String = String.Format(
-            "Table No: {0}" & vbNewLine &
-            "Staff ID: {1}" & vbNewLine &
-            "Order Time: {2:dd-MMMM-yyyy hh:mm:ss tt}",
-            lblTableNo.Text, "ST0001", DateTime.Now
-        )
+        "Table No: {0}" & vbNewLine &
+        "Staff ID: {1}" & vbNewLine &
+        "Order Time: {2:dd-MMMM-yyyy hh:mm:ss tt}",
+        lblTableNo.Text, staffId, DateTime.Now
+    )
 
         Dim body As New StringBuilder()
         body.AppendLine()
@@ -431,6 +529,7 @@ Public Class FrmOrder
         For Each panel As Panel In flpCart.Controls
             Dim itemId As String = panel.Tag.ToString()
             Dim lblSummary = panel.Controls.OfType(Of Label)().FirstOrDefault(Function(l) l.Name.StartsWith("lblSummary"))
+            Dim txtNote = panel.Controls.OfType(Of TextBox)().FirstOrDefault(Function(t) t.Name = "txtNote_" & itemId)
 
             If lblSummary Is Nothing Then Continue For
 
@@ -444,6 +543,10 @@ Public Class FrmOrder
 
             count += 1
             body.AppendFormat("{0,-3} {1,-26} {2,4}" & vbNewLine, count, itemName, quantity)
+
+            If txtNote IsNot Nothing AndAlso Not String.IsNullOrWhiteSpace(txtNote.Text) Then
+                body.AppendLine("     Note: " & txtNote.Text.Trim())
+            End If
         Next
 
         body.AppendLine()
@@ -456,5 +559,25 @@ Public Class FrmOrder
         e.Graphics.DrawString(strHeader, fntHeader, Brushes.Black, marginLeft, marginTop)
         e.Graphics.DrawString(strSubHeader, fntSubHeader, Brushes.Black, marginLeft, marginTop + 50)
         e.Graphics.DrawString(body.ToString(), fntBody, Brushes.Black, marginLeft, marginTop + 120)
+    End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        Me.Close()
+    End Sub
+
+    Private Sub ClearToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearToolStripMenuItem.Click
+        flpCart.Controls.Clear()
+        UpdateTotal()
+    End Sub
+
+    Private Sub FieldGuidelineToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FieldGuidelineToolStripMenuItem.Click
+        MessageBox.Show(
+        "ORDER SAFEGUARDS:" & vbCrLf & vbCrLf &
+        "1. Search for the item by choosing its category." & vbCrLf &
+        "2. Review item details before send order." & vbCrLf &
+        "3. Confirm order with a order list." & vbCrLf &
+        "4. Table will change color and show the waiting time after send order.",
+        "Order Help",
+        MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 End Class

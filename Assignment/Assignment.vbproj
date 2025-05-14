@@ -66,11 +66,23 @@
     <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
       <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
     </Reference>
+    <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Imaging.2.2.5\lib\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Math.2.2.5\lib\AForge.Math.dll</HintPath>
+    </Reference>
     <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
       <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
       <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
@@ -101,11 +113,75 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.vb" />
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="BL-fariz.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BL-fariz.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="CirclePictureBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="frmAddItem.Designer.vb">
+      <DependentUpon>frmAddItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddStaff.Designer.vb">
+      <DependentUpon>FrmAddStaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAddStaff.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeleteItem.Designer.vb">
+      <DependentUpon>frmDeleteItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDeleteItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmForgotPassword.Designer.vb">
+      <DependentUpon>FrmForgotPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmForgotPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGenerateStaffReport.Designer.vb">
+      <DependentUpon>FrmGenerateStaffReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGenerateStaffReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmItemDetails.Designer.vb">
+      <DependentUpon>frmItemDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmItemDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmItemListDetails.Designer.vb">
+      <DependentUpon>frmItemListDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmItemListDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmItemReport.Designer.vb">
+      <DependentUpon>frmItemReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmItemReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmItemStock.Designer.vb">
+      <DependentUpon>frmItemStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmItemStock.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.vb">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMainPage.Designer.vb">
       <DependentUpon>FrmMainPage.vb</DependentUpon>
@@ -119,10 +195,47 @@
     <Compile Include="FrmOrder.vb">
       <SubType>Form</SubType>
     </Compile>
+
     <Compile Include="FrmPaymentReport.Designer.vb">
       <DependentUpon>FrmPaymentReport.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmPaymentReport.vb">
+
+    <Compile Include="FrmOrderDetails.Designer.vb">
+      <DependentUpon>FrmOrderDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrderDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrderHistory.Designer.vb">
+      <DependentUpon>FrmOrderHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrderHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrder_Payment.Designer.vb">
+      <DependentUpon>FrmOrder_Payment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrder_Payment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSalesReport.Designer.vb">
+      <DependentUpon>FrmSalesReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSalesReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSnapItemPicture.Designer.vb">
+      <DependentUpon>frmSnapItemPicture.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSnapItemPicture.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStaffDetails.Designer.vb">
+      <DependentUpon>FrmStaffDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStaffDetails.vb">
+
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmTable.Designer.vb">
@@ -138,6 +251,43 @@
       <DependentUpon>FrmSplash.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmTrackItem.Designer.vb">
+      <DependentUpon>frmTrackItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTrackItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdateItem.Designer.vb">
+      <DependentUpon>frmUpdateItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmUpdateItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUserProfile.Designer.vb">
+      <DependentUpon>FrmUserProfile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUserProfile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewItem.Designer.vb">
+      <DependentUpon>frmViewItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewnTrackItem.Designer.vb">
+      <DependentUpon>frmViewnTrackItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewnTrackItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmViewStaff.Designer.vb">
+      <DependentUpon>FrmViewStaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmViewStaff.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemDatabaseModule.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -168,20 +318,88 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAddItem.resx">
+      <DependentUpon>frmAddItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAddStaff.resx">
+      <DependentUpon>FrmAddStaff.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeleteItem.resx">
+      <DependentUpon>frmDeleteItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmForgotPassword.resx">
+      <DependentUpon>FrmForgotPassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGenerateStaffReport.resx">
+      <DependentUpon>FrmGenerateStaffReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmItemDetails.resx">
+      <DependentUpon>frmItemDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmItemListDetails.resx">
+      <DependentUpon>frmItemListDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmItemReport.resx">
+      <DependentUpon>frmItemReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmItemStock.resx">
+      <DependentUpon>frmItemStock.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMainPage.resx">
       <DependentUpon>FrmMainPage.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOrder.resx">
       <DependentUpon>FrmOrder.vb</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="FrmPaymentReport.resx">
       <DependentUpon>FrmPaymentReport.vb</DependentUpon>
+
+    <EmbeddedResource Include="FrmOrderDetails.resx">
+      <DependentUpon>FrmOrderDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrderHistory.resx">
+      <DependentUpon>FrmOrderHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrder_Payment.resx">
+      <DependentUpon>FrmOrder_Payment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSalesReport.resx">
+      <DependentUpon>FrmSalesReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSnapItemPicture.resx">
+      <DependentUpon>frmSnapItemPicture.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStaffDetails.resx">
+      <DependentUpon>FrmStaffDetails.vb</DependentUpon>
+
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTable.resx">
       <DependentUpon>FrmTable.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSplash.resx">
       <DependentUpon>FrmSplash.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTrackItem.resx">
+      <DependentUpon>frmTrackItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdateItem.resx">
+      <DependentUpon>frmUpdateItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUserProfile.resx">
+      <DependentUpon>FrmUserProfile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewItem.resx">
+      <DependentUpon>frmViewItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewnTrackItem.resx">
+      <DependentUpon>frmViewnTrackItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmViewStaff.resx">
+      <DependentUpon>FrmViewStaff.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -194,6 +412,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PaymentQR.resx">
       <DependentUpon>PaymentQR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include=".resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -240,6 +462,79 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BL-fariz.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\orderHistory.png" />
+    <None Include="Resources\salesReport.png" />
+    <None Include="Resources\paymentModule.png" />
+    <None Include="Resources\orderModule.png" />
+    <None Include="Resources\ItemModule.png" />
+    <None Include="Resources\staffModule.png" />
+    <None Include="Resources\SearchUser.png" />
+    <None Include="Resources\Report.png" />
+    <None Include="Resources\Logout.png" />
+    <None Include="Resources\login_profile_icon.png" />
+    <None Include="Resources\DefaultProfile.png" />
+    <None Include="Resources\BFLogo.png" />
+    <None Include="Resources\Back1.png" />
+    <None Include="Resources\Back.png" />
+    <None Include="Resources\AddUser.png" />
+    <None Include="Resources\Plain Water.png" />
+    <None Include="Resources\Order.png" />
+    <None Include="Resources\Nugget with Fries.png" />
+    <None Include="Resources\Nasi Lemak.png" />
+    <None Include="Resources\Nasi Goreng.png" />
+    <None Include="Resources\Nasi Goreng Pattaya.png" />
+    <None Include="Resources\Nasi Briyani with Rendang.png" />
+    <None Include="Resources\Murtabak Ayam.png" />
+    <None Include="Resources\Milo Dinosaur.png" />
+    <None Include="Resources\Mee Rebus.png" />
+    <None Include="Resources\Mee Goreng.png" />
+    <None Include="Resources\Maggi Kari Sup.png" />
+    <None Include="Resources\Maggi Goreng.png" />
+    <None Include="Resources\Lychee Ice.png" />
+    <None Include="Resources\Longan Ice.png" />
+    <None Include="Resources\Limau Ice.png" />
+    <None Include="Resources\ItemStock.png" />
+    <None Include="Resources\Hot Milo.png" />
+    <None Include="Resources\Hot Milk Tea.png" />
+    <None Include="Resources\Hot Kopi O.png" />
+    <None Include="Resources\Hot Honey Lemon.png" />
+    <None Include="Resources\Hot Cham.png" />
+    <None Include="Resources\Hot Barley.png" />
+    <None Include="Resources\Honey Lemon Ice.png" />
+    <None Include="Resources\French Toast.png" />
+    <None Include="Resources\French Fries.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\Curry Puff.png" />
+    <None Include="Resources\Chicken Wings with Fries.png" />
+    <None Include="Resources\Cham Ice.png" />
+    <None Include="Resources\Cappucino Blended.png" />
+    <None Include="Resources\BillAndPayment.png" />
+    <None Include="Resources\Bihun Goreng.png" />
+    <None Include="Resources\BFIcon.ico" />
+    <None Include="Resources\Barley Ice.png" />
+    <None Include="Resources\Archive.png" />
+    <None Include="Resources\Apple Calamasi Ice.png" />
+    <None Include="Resources\AddOrder.png" />
+    <None Include="Resources\AddItem.png" />
+    <None Include="Resources\desktop.ini" />
+    <None Include="Resources\WelcomePage.png" />
+    <None Include="Resources\Update.png" />
+    <None Include="Resources\TrackStock.png" />
+    <None Include="Resources\Telur Dadar.png" />
+    <None Include="Resources\Teh Ais.png" />
+    <None Include="Resources\Staff.png" />
+    <None Include="Resources\Snap.png" />
+    <None Include="Resources\Search.png" />
+    <None Include="Resources\Roti Tisu.png" />
+    <None Include="Resources\Roti Telur.png" />
+    <None Include="Resources\Roti Sardin.png" />
+    <None Include="Resources\Roti Planta.png" />
+    <None Include="Resources\Roti Pisang.png" />
+    <None Include="Resources\Roti Kosong.png" />
+    <None Include="Resources\Roti Cheese.png" />
+    <None Include="Resources\Roti Bom.png" />
+    <None Include="Resources\Rojak.png" />
+    <None Include="Resources\Potato Wedges.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -31,9 +31,10 @@ Partial Class FrmSplash
         '
         'ProgressBar1
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(61, 518)
+        Me.ProgressBar1.Location = New System.Drawing.Point(69, 648)
+        Me.ProgressBar1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(692, 23)
+        Me.ProgressBar1.Size = New System.Drawing.Size(778, 29)
         Me.ProgressBar1.TabIndex = 0
         '
         'Label1
@@ -41,9 +42,9 @@ Partial Class FrmSplash
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(70, 481)
+        Me.Label1.Location = New System.Drawing.Point(79, 601)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(190, 30)
+        Me.Label1.Size = New System.Drawing.Size(214, 38)
         Me.Label1.TabIndex = 1
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -54,15 +55,18 @@ Partial Class FrmSplash
         '
         'FrmSplash
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(800, 582)
+        Me.ClientSize = New System.Drawing.Size(900, 728)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ProgressBar1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FrmSplash"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         Me.ResumeLayout(False)
 
