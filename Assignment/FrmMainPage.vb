@@ -22,6 +22,11 @@
         FrmOrder_Payment.Show()
     End Sub
 
+
+    Private Sub btnReport_Click(sender As Object, e As EventArgs) Handles btnReport.Click
+        FrmPaymentReport.Show()
+    End Sub
+
     Private Sub btnStaffModule_Click(sender As Object, e As EventArgs) Handles btnStaffModule.Click
         Me.Hide()
         FrmUserProfile.Show()
@@ -52,5 +57,6 @@
             Return staffDepartment
         End Using
     End Function
+
 
 End Class

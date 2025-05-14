@@ -195,6 +195,12 @@
     <Compile Include="FrmOrder.vb">
       <SubType>Form</SubType>
     </Compile>
+
+    <Compile Include="FrmPaymentReport.Designer.vb">
+      <DependentUpon>FrmPaymentReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPaymentReport.vb">
+
     <Compile Include="FrmOrderDetails.Designer.vb">
       <DependentUpon>FrmOrderDetails.vb</DependentUpon>
     </Compile>
@@ -229,6 +235,7 @@
       <DependentUpon>FrmStaffDetails.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmStaffDetails.vb">
+
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmTable.Designer.vb">
@@ -296,6 +303,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="OrderItemDetail.vb" />
     <Compile Include="PaymentMain.Designer.vb">
       <DependentUpon>PaymentMain.vb</DependentUpon>
     </Compile>
@@ -346,6 +354,10 @@
     <EmbeddedResource Include="FrmOrder.resx">
       <DependentUpon>FrmOrder.vb</DependentUpon>
     </EmbeddedResource>
+
+    <EmbeddedResource Include="FrmPaymentReport.resx">
+      <DependentUpon>FrmPaymentReport.vb</DependentUpon>
+
     <EmbeddedResource Include="FrmOrderDetails.resx">
       <DependentUpon>FrmOrderDetails.vb</DependentUpon>
     </EmbeddedResource>
@@ -363,6 +375,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStaffDetails.resx">
       <DependentUpon>FrmStaffDetails.vb</DependentUpon>
+
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTable.resx">
       <DependentUpon>FrmTable.vb</DependentUpon>

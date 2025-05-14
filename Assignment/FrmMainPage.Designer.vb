@@ -51,6 +51,7 @@ Partial Class FrmMainPage
         '
         'btnStaffModule
         '
+
         Me.btnStaffModule.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnStaffModule.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
         Me.btnStaffModule.ForeColor = System.Drawing.Color.DarkSlateBlue
@@ -87,6 +88,15 @@ Partial Class FrmMainPage
         '
         'btnLogOut
         '
+
+        Me.btnReport.Location = New System.Drawing.Point(473, 128)
+        Me.btnReport.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnReport.Name = "btnReport"
+        Me.btnReport.Size = New System.Drawing.Size(114, 69)
+        Me.btnReport.TabIndex = 3
+        Me.btnReport.Text = "Report"
+        Me.btnReport.UseVisualStyleBackColor = True
+
         Me.btnLogOut.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnLogOut.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogOut.ForeColor = System.Drawing.Color.DarkSlateBlue
@@ -223,8 +233,9 @@ Partial Class FrmMainPage
         '
         'FrmMainPage
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(986, 578)
         Me.Controls.Add(Me.GroupBox1)
@@ -239,6 +250,7 @@ Partial Class FrmMainPage
         Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
+
         Me.Name = "FrmMainPage"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmMainPage"
