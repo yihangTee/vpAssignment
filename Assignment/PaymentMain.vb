@@ -81,46 +81,54 @@
 
     Private Sub btnSuccessPay_Click(sender As Object, e As EventArgs) Handles btnSuccessPay.Click
         Dim confirmResult = MessageBox.Show("Are you sure you want to complete the payment?", "Confirm Payment", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        Dim db As New BL_farizDataContext()
-        Dim tableNo As String = lblTableNo.Text
 
-        Try
-            Dim matchingPayments = From o In db.Orders
-                                   Join p In db.Payments On o.OrderID Equals p.OrderID
-                                   Where o.TableNo = SelectedTableNo AndAlso p.PaymentStatus = "Pending"
-                                   Select p
+        If confirmResult = DialogResult.Yes Then
+            Dim db As New BL_farizDataContext()
+            Dim tableNo As String = lblTableNo.Text
 
-            If matchingPayments.Any() Then
-                For Each pay In matchingPayments
-                    pay.PaymentMethod = "Cash"
-                    pay.PaymentStatus = "Success"
-                    pay.DateTime = DateTime.Now
-                Next
+            Try
+                Dim matchingPayments = From o In db.Orders
+                                       Join p In db.Payments On o.OrderID Equals p.OrderID
+                                       Where o.TableNo = SelectedTableNo AndAlso p.PaymentStatus = "Pending"
+                                       Select p
 
-                db.SubmitChanges()
-                MessageBox.Show("Payment Success.", "Payment Completed", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Dim tableRecord = db.TableNos.FirstOrDefault(Function(t) t.Name = tableNo)
+                If matchingPayments.Any() Then
+                    For Each pay In matchingPayments
+                        pay.PaymentMethod = "Cash"
+                        pay.PaymentStatus = "Success"
+                        pay.DateTime = DateTime.Now
+                    Next
 
-                If tableRecord IsNot Nothing Then
-                    tableRecord.Color = Color.LightGreen.ToArgb()
                     db.SubmitChanges()
-                End If
+                    MessageBox.Show("Payment Success.", "Payment Completed", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                For Each ctrl As Control In FrmTable.pnlTables.Controls
-                    If TypeOf ctrl Is Button AndAlso ctrl.Text = tableNo Then
-                        ctrl.BackColor = Color.LightGreen
-                        Exit For
+                    Dim tableRecord = db.TableNos.FirstOrDefault(Function(t) t.Name = tableNo)
+                    If tableRecord IsNot Nothing Then
+                        tableRecord.Color = Color.LightGreen.ToArgb()
+                        db.SubmitChanges()
                     End If
-                Next
-                GenerateReceipt()
-                Me.Close()
-            Else
-                MessageBox.Show("No matching payment found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-        Catch ex As Exception
-            MessageBox.Show("Error while updating payment: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+
+                    For Each ctrl As Control In FrmTable.pnlTables.Controls
+                        If TypeOf ctrl Is Button AndAlso ctrl.Text = tableNo Then
+                            ctrl.BackColor = Color.LightGreen
+                            Exit For
+                        End If
+                    Next
+
+                    GenerateReceipt()
+                    Me.Close()
+                Else
+                    MessageBox.Show("No matching payment found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Error while updating payment: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        Else
+            ' User clicked No, do nothing
+            MessageBox.Show("Payment cancelled.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
     End Sub
+
 
     Private Sub PaymentMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ShowLatestOrderItemDetails()
