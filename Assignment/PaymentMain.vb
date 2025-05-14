@@ -73,7 +73,7 @@
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
-        cashAmount = "0.00"
+        cashAmount = ""
         amount = 0.00D
         lblPayCash.Text = "RM " & cashAmount
         lblChange.Text = "RM " & amount
