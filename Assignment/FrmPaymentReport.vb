@@ -39,12 +39,14 @@
 
         Dim selectedMethod As String = cmbPaymentMethod.SelectedItem?.ToString()
 
-        ' Filter payments by date range
+        ' Filter payments by date range AND successful status only
         Dim filteredPayments = db.Payments.AsQueryable()
         filteredPayments = filteredPayments.Where(Function(p) _
-        p.DateTime.HasValue AndAlso
-        p.DateTime.Value.Date >= fromDate AndAlso
-        p.DateTime.Value.Date <= toDate)
+    p.DateTime.HasValue AndAlso
+    p.DateTime.Value.Date >= fromDate AndAlso
+    p.DateTime.Value.Date <= toDate AndAlso
+    p.PaymentStatus = "Success")
+
 
         ' Filter by payment method if needed
         If Not String.IsNullOrEmpty(selectedMethod) AndAlso selectedMethod <> "All" Then
