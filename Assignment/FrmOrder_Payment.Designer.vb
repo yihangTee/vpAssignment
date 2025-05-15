@@ -33,11 +33,13 @@ Partial Class FrmOrder_Payment
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.btnPaymentReport = New System.Windows.Forms.Button()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnSalesReport
@@ -45,10 +47,10 @@ Partial Class FrmOrder_Payment
         Me.btnSalesReport.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnSalesReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalesReport.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnSalesReport.Location = New System.Drawing.Point(42, 276)
+        Me.btnSalesReport.Location = New System.Drawing.Point(61, 364)
         Me.btnSalesReport.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnSalesReport.Name = "btnSalesReport"
-        Me.btnSalesReport.Size = New System.Drawing.Size(156, 88)
+        Me.btnSalesReport.Size = New System.Drawing.Size(176, 110)
         Me.btnSalesReport.TabIndex = 0
         Me.btnSalesReport.Text = "Generate Sales Report"
         Me.btnSalesReport.UseVisualStyleBackColor = False
@@ -58,10 +60,10 @@ Partial Class FrmOrder_Payment
         Me.btnOrderHistory.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnOrderHistory.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnOrderHistory.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnOrderHistory.Location = New System.Drawing.Point(203, 276)
+        Me.btnOrderHistory.Location = New System.Drawing.Point(285, 364)
         Me.btnOrderHistory.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnOrderHistory.Name = "btnOrderHistory"
-        Me.btnOrderHistory.Size = New System.Drawing.Size(156, 88)
+        Me.btnOrderHistory.Size = New System.Drawing.Size(176, 110)
         Me.btnOrderHistory.TabIndex = 1
         Me.btnOrderHistory.Text = "Order History"
         Me.btnOrderHistory.UseVisualStyleBackColor = False
@@ -71,10 +73,10 @@ Partial Class FrmOrder_Payment
         Me.btnBack.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBack.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnBack.Location = New System.Drawing.Point(575, 42)
+        Me.btnBack.Location = New System.Drawing.Point(632, 41)
         Me.btnBack.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(76, 30)
+        Me.btnBack.Size = New System.Drawing.Size(86, 50)
         Me.btnBack.TabIndex = 2
         Me.btnBack.Text = "Back"
         Me.btnBack.UseVisualStyleBackColor = False
@@ -83,10 +85,10 @@ Partial Class FrmOrder_Payment
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.White
         Me.PictureBox1.Image = Global.Assignment.My.Resources.Resources.Back
-        Me.PictureBox1.Location = New System.Drawing.Point(656, 42)
+        Me.PictureBox1.Location = New System.Drawing.Point(724, 41)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(52, 30)
+        Me.PictureBox1.Size = New System.Drawing.Size(58, 50)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
@@ -95,10 +97,10 @@ Partial Class FrmOrder_Payment
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.White
         Me.PictureBox2.Image = Global.Assignment.My.Resources.Resources.BFLogo
-        Me.PictureBox2.Location = New System.Drawing.Point(31, 42)
+        Me.PictureBox2.Location = New System.Drawing.Point(23, 41)
         Me.PictureBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(107, 87)
+        Me.PictureBox2.Size = New System.Drawing.Size(120, 109)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 4
         Me.PictureBox2.TabStop = False
@@ -106,31 +108,33 @@ Partial Class FrmOrder_Payment
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Gill Sans Ultra Bold", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label1.Location = New System.Drawing.Point(151, 42)
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(167, 41)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(419, 109)
+        Me.Label1.Size = New System.Drawing.Size(459, 136)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Order && Payment Module"
         '
         'PictureBox3
         '
+        Me.PictureBox3.BackColor = System.Drawing.Color.White
         Me.PictureBox3.Image = Global.Assignment.My.Resources.Resources.salesReport
-        Me.PictureBox3.Location = New System.Drawing.Point(42, 167)
+        Me.PictureBox3.Location = New System.Drawing.Point(61, 230)
         Me.PictureBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(156, 104)
+        Me.PictureBox3.Size = New System.Drawing.Size(176, 130)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox3.TabIndex = 6
         Me.PictureBox3.TabStop = False
         '
         'PictureBox4
         '
+        Me.PictureBox4.BackColor = System.Drawing.Color.White
         Me.PictureBox4.Image = Global.Assignment.My.Resources.Resources.orderHistory
-        Me.PictureBox4.Location = New System.Drawing.Point(203, 167)
+        Me.PictureBox4.Location = New System.Drawing.Point(285, 230)
         Me.PictureBox4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(156, 104)
+        Me.PictureBox4.Size = New System.Drawing.Size(176, 130)
         Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox4.TabIndex = 7
         Me.PictureBox4.TabStop = False
@@ -140,39 +144,50 @@ Partial Class FrmOrder_Payment
         Me.btnPaymentReport.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnPaymentReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPaymentReport.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnPaymentReport.Location = New System.Drawing.Point(364, 276)
+        Me.btnPaymentReport.Location = New System.Drawing.Point(519, 364)
         Me.btnPaymentReport.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnPaymentReport.Name = "btnPaymentReport"
-        Me.btnPaymentReport.Size = New System.Drawing.Size(156, 88)
+        Me.btnPaymentReport.Size = New System.Drawing.Size(176, 110)
         Me.btnPaymentReport.TabIndex = 8
         Me.btnPaymentReport.Text = "Payment Report"
         Me.btnPaymentReport.UseVisualStyleBackColor = False
         '
         'PictureBox5
         '
-        Me.PictureBox5.Image = Global.Assignment.My.Resources.Resources.orderHistory
-        Me.PictureBox5.Location = New System.Drawing.Point(364, 168)
+        Me.PictureBox5.BackColor = System.Drawing.Color.White
+        Me.PictureBox5.Image = Global.Assignment.My.Resources.Resources.payementsReport
+        Me.PictureBox5.Location = New System.Drawing.Point(519, 230)
         Me.PictureBox5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(156, 104)
+        Me.PictureBox5.Size = New System.Drawing.Size(176, 130)
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox5.TabIndex = 9
         Me.PictureBox5.TabStop = False
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.White
+        Me.GroupBox1.Controls.Add(Me.PictureBox2)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.btnBack)
+        Me.GroupBox1.Controls.Add(Me.PictureBox1)
+        Me.GroupBox1.Location = New System.Drawing.Point(-5, -2)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(820, 176)
+        Me.GroupBox1.TabIndex = 10
+        Me.GroupBox1.TabStop = False
+        '
         'FrmOrder_Payment
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(711, 471)
+        Me.ClientSize = New System.Drawing.Size(777, 535)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.PictureBox5)
         Me.Controls.Add(Me.btnPaymentReport)
         Me.Controls.Add(Me.PictureBox4)
         Me.Controls.Add(Me.PictureBox3)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.btnOrderHistory)
         Me.Controls.Add(Me.btnSalesReport)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -185,6 +200,7 @@ Partial Class FrmOrder_Payment
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -199,4 +215,5 @@ Partial Class FrmOrder_Payment
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents btnPaymentReport As Button
     Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents GroupBox1 As GroupBox
 End Class
