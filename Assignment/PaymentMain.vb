@@ -234,57 +234,69 @@
 
     Private Sub receiptPrintDoc_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles receiptPrintDoc.PrintPage
         Dim g As Graphics = e.Graphics
-        Dim font As New Font("Segoe UI", 10)
-        Dim boldFont As New Font("Segoe UI", 10, FontStyle.Bold)
-        Dim titleFont As New Font("Segoe UI", 14, FontStyle.Bold)
+        Dim font As New Font("Consolas", 10)
+        Dim boldFont As New Font("Consolas", 10, FontStyle.Bold)
+        Dim titleFont As New Font("Consolas", 12, FontStyle.Bold)
+        Dim italicFont As New Font("Consolas", 9, FontStyle.Italic)
         Dim brush As New SolidBrush(Color.Black)
-        Dim y As Integer = 40
+        Dim grayBrush As New SolidBrush(Color.Gray)
+        Dim y As Integer = 20
+        Dim lineWidth As Integer = 280
+        Dim leftX As Integer = 20
 
-        ' Header
-        g.DrawString("BL Fariz Restaurant", titleFont, brush, 100, y)
-        y += 40
+        Dim rightAlign = Function(text As String, totalWidth As Integer) As Integer
+                             Dim size = g.MeasureString(text, font)
+                             Return leftX + totalWidth - CInt(size.Width)
+                         End Function
 
-        g.DrawString("Table No: " & SelectedTableNo, font, brush, 50, y)
-        y += 30
-
-        ' Table headers
-        g.DrawString("No", boldFont, brush, 50, y)
-        g.DrawString("Item Name", boldFont, brush, 100, y)
-        g.DrawString("Qty", boldFont, brush, 300, y)
-        g.DrawString("Price", boldFont, brush, 360, y)
+        g.DrawString("BL Fariz Restaurant", titleFont, brush, leftX + 30, y)
+        y += 20
+        g.DrawString("Tel: 011-1220 6233", font, brush, leftX + 50, y)
+        y += 20
+        g.DrawString("Table No: " & SelectedTableNo, font, brush, leftX + 30, y)
         y += 20
 
-        ' Print each item from pendingItemsList
-        Dim index As Integer = 1
+        g.DrawString(StrDup(36, "-"c), font, grayBrush, leftX, y)
+        y += 20
+
+        g.DrawString(Now.ToString("dd/MM/yyyy    hh:mm tt"), font, brush, leftX, y)
+        y += 20
+
+        g.DrawString(StrDup(36, "-"c), font, grayBrush, leftX, y)
+        y += 20
+
         Dim orderTotal As Decimal = 0
-
         For Each item In pendingItemsList
-            g.DrawString(index.ToString(), font, brush, 50, y)
-            g.DrawString(item.ItemName, font, brush, 100, y)
-            g.DrawString(item.Quantity.ToString(), font, brush, 300, y)
-            g.DrawString("RM " & item.SubTotal.ToString("F2"), font, brush, 360, y)
-
+            Dim itemLine As String = $"{item.Quantity}  {item.ItemName}"
+            g.DrawString(itemLine, font, brush, leftX, y)
+            g.DrawString("RM " & item.SubTotal.ToString("F2"), font, brush, rightAlign("RM " & item.SubTotal.ToString("F2"), lineWidth), y)
             orderTotal += item.SubTotal
-            index += 1
             y += 20
         Next
 
-        y += 10
-        g.DrawString("Total Items: " & (index - 1).ToString(), font, brush, 50, y)
+        g.DrawString(StrDup(36, "-"c), font, grayBrush, leftX, y)
+        y += 20
 
-        y += 30
         Dim tax As Decimal = orderTotal * 0.1D
         Dim totalPay As Decimal = orderTotal + tax
 
-        g.DrawString("Subtotal: RM " & orderTotal.ToString("F2"), boldFont, brush, 260, y)
+        g.DrawString("SUB-TOTAL", boldFont, brush, leftX, y)
+        g.DrawString("RM " & orderTotal.ToString("F2"), boldFont, brush, rightAlign("RM " & orderTotal.ToString("F2"), lineWidth), y)
         y += 20
-        g.DrawString("Tax (10%): RM " & tax.ToString("F2"), boldFont, brush, 260, y)
-        y += 20
-        g.DrawString("Total: RM " & totalPay.ToString("F2"), titleFont, brush, 260, y)
-        y += 40
 
-        g.DrawString("Thank you for dining with us!", New Font("Segoe UI", 9, FontStyle.Italic), Brushes.Gray, 50, y)
+        g.DrawString("TAX (10%)", boldFont, brush, leftX, y)
+        g.DrawString("RM " & tax.ToString("F2"), boldFont, brush, rightAlign("RM " & tax.ToString("F2"), lineWidth), y)
+        y += 20
+
+        g.DrawString("TOTAL DUE", titleFont, brush, leftX, y)
+        g.DrawString("RM " & totalPay.ToString("F2"), titleFont, brush, rightAlign("RM " & totalPay.ToString("F2"), lineWidth), y)
+        y += 30
+
+        g.DrawString("Thank you for dining!", italicFont, brush, leftX + 40, y)
+        y += 20
+        g.DrawString("Please come again.", italicFont, brush, leftX + 50, y)
     End Sub
+
 
     Private Sub CashButton_Click(sender As Object, e As EventArgs) Handles btn100.Click, btn50.Click, btn20.Click, btn10.Click, btn5.Click, btn1.Click, btn20sen.Click, btn10sen.Click
         Dim btn = CType(sender, System.Windows.Forms.Button)
