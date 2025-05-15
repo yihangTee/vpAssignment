@@ -55,6 +55,7 @@ Partial Class FrmSplitPayment
         '
         'lblTax
         '
+        Me.lblTax.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTax.ForeColor = System.Drawing.Color.LightSkyBlue
         Me.lblTax.Location = New System.Drawing.Point(432, 381)
         Me.lblTax.Name = "lblTax"
@@ -63,6 +64,7 @@ Partial Class FrmSplitPayment
         '
         'lbltotalPrice
         '
+        Me.lbltotalPrice.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbltotalPrice.ForeColor = System.Drawing.Color.LightSkyBlue
         Me.lbltotalPrice.Location = New System.Drawing.Point(444, 351)
         Me.lbltotalPrice.Name = "lbltotalPrice"
@@ -87,7 +89,7 @@ Partial Class FrmSplitPayment
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(800, 28)
+        Me.MenuStrip1.Size = New System.Drawing.Size(800, 30)
         Me.MenuStrip1.TabIndex = 18
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -95,14 +97,14 @@ Partial Class FrmSplitPayment
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GuidlinesToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(55, 24)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(55, 26)
         Me.HelpToolStripMenuItem.Text = "&Help"
         '
         'GuidlinesToolStripMenuItem
         '
         Me.GuidlinesToolStripMenuItem.Name = "GuidlinesToolStripMenuItem"
         Me.GuidlinesToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
-        Me.GuidlinesToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.GuidlinesToolStripMenuItem.Size = New System.Drawing.Size(205, 26)
         Me.GuidlinesToolStripMenuItem.Text = "Guidlines"
         '
         'FrmSplitPayment

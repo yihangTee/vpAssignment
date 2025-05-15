@@ -6,6 +6,7 @@
     Dim cashAmount As String = ""
     Dim amount As Decimal = 0D
     Dim orderTotal As Decimal = 0D
+    Dim totalPay As Decimal = 0D
     Public Property SelectedTableNo As String
     Public pendingItemsList As List(Of OrderItemDetail)
     Private WithEvents receiptPrintDoc As New Printing.PrintDocument()
@@ -210,7 +211,7 @@
         lbltotalPrice.Text = "RM " & orderTotal.ToString("F2")
         Dim tax As Decimal = 0.1D
         Dim taxValue As Decimal = orderTotal * tax
-        Dim totalPay As Decimal = orderTotal + taxValue
+        totalPay = orderTotal + taxValue
         lblTax.Text = "RM " & taxValue.ToString("F2")
         lblTotalPay.Text = "RM " & totalPay.ToString("F2")
     End Sub
@@ -343,7 +344,7 @@
 
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
         If Decimal.TryParse(cashAmount, amount) Then
-            Dim result As Decimal = amount - orderTotal
+            Dim result As Decimal = amount - totalPay
             If result < 0 Then
                 MessageBox.Show("Insufficient funds. Please enter a valid amount.")
             Else
