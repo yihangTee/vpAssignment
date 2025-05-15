@@ -39,6 +39,7 @@ Partial Class FrmForgotPassword
         Me.btnResetPassword = New System.Windows.Forms.Button()
         Me.err = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.btnBack = New System.Windows.Forms.Button()
         Me.grpVerification.SuspendLayout()
         Me.grpResetPassword.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -171,6 +172,7 @@ Partial Class FrmForgotPassword
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.btnBack)
         Me.GroupBox3.Controls.Add(Me.btnResetPassword)
         Me.GroupBox3.Controls.Add(Me.grpResetPassword)
         Me.GroupBox3.ForeColor = System.Drawing.Color.AliceBlue
@@ -186,7 +188,7 @@ Partial Class FrmForgotPassword
         Me.btnResetPassword.BackColor = System.Drawing.Color.DeepSkyBlue
         Me.btnResetPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnResetPassword.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.btnResetPassword.Location = New System.Drawing.Point(166, 344)
+        Me.btnResetPassword.Location = New System.Drawing.Point(55, 347)
         Me.btnResetPassword.Margin = New System.Windows.Forms.Padding(5)
         Me.btnResetPassword.Name = "btnResetPassword"
         Me.btnResetPassword.Size = New System.Drawing.Size(180, 53)
@@ -198,6 +200,19 @@ Partial Class FrmForgotPassword
         '
         Me.err.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.err.ContainerControl = Me
+        '
+        'btnBack
+        '
+        Me.btnBack.BackColor = System.Drawing.Color.DeepSkyBlue
+        Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBack.ForeColor = System.Drawing.Color.DarkSlateBlue
+        Me.btnBack.Location = New System.Drawing.Point(244, 347)
+        Me.btnBack.Margin = New System.Windows.Forms.Padding(5)
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(180, 53)
+        Me.btnBack.TabIndex = 74
+        Me.btnBack.Text = "&Back"
+        Me.btnBack.UseVisualStyleBackColor = False
         '
         'FrmForgotPassword
         '
@@ -239,4 +254,5 @@ Partial Class FrmForgotPassword
     Friend WithEvents err As ErrorProvider
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents chkShowPassword As CheckBox
+    Friend WithEvents btnBack As Button
 End Class
