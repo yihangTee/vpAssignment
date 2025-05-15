@@ -323,7 +323,7 @@ Public Class FrmTable
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Timer1.Stop()
+        'Timer1.Stop()
         Me.Hide()
         FrmMainPage.Show()
     End Sub
