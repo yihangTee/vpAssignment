@@ -22,9 +22,9 @@ Partial Class FrmSalesReport
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSalesReport))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmbItemType = New System.Windows.Forms.ComboBox()
@@ -38,11 +38,12 @@ Partial Class FrmSalesReport
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FieldGuidelineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.PrintAsPDFToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.chartSales, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,17 +84,17 @@ Partial Class FrmSalesReport
         '
         'chartSales
         '
-        ChartArea1.Name = "ChartArea1"
-        Me.chartSales.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.chartSales.Legends.Add(Legend1)
+        ChartArea4.Name = "ChartArea1"
+        Me.chartSales.ChartAreas.Add(ChartArea4)
+        Legend4.Name = "Legend1"
+        Me.chartSales.Legends.Add(Legend4)
         Me.chartSales.Location = New System.Drawing.Point(52, 42)
         Me.chartSales.Name = "chartSales"
         Me.chartSales.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.chartSales.Series.Add(Series1)
+        Series4.ChartArea = "ChartArea1"
+        Series4.Legend = "Legend1"
+        Series4.Name = "Series1"
+        Me.chartSales.Series.Add(Series4)
         Me.chartSales.Size = New System.Drawing.Size(832, 395)
         Me.chartSales.TabIndex = 3
         Me.chartSales.Text = "Chart1"
@@ -169,17 +170,10 @@ Partial Class FrmSalesReport
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrintAsPDFToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(54, 29)
         Me.FileToolStripMenuItem.Text = "&File"
-        '
-        'ExitToolStripMenuItem
-        '
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(203, 34)
-        Me.ExitToolStripMenuItem.Text = "E&xit"
         '
         'HelpToolStripMenuItem
         '
@@ -219,6 +213,19 @@ Partial Class FrmSalesReport
         Me.GroupBox1.TabIndex = 10
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Sales Report"
+        '
+        'PrintAsPDFToolStripMenuItem
+        '
+        Me.PrintAsPDFToolStripMenuItem.Name = "PrintAsPDFToolStripMenuItem"
+        Me.PrintAsPDFToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.PrintAsPDFToolStripMenuItem.Text = "Print As PDF"
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.ExitToolStripMenuItem.Text = "E&xit"
         '
         'FrmSalesReport
         '
@@ -262,9 +269,10 @@ Partial Class FrmSalesReport
     Friend WithEvents btnPrint As Button
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FieldGuidelineToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents PrintAsPDFToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
 End Class

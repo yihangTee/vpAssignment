@@ -1,4 +1,9 @@
-﻿Public Class FrmSalesReport
+﻿Imports System.IO
+Imports iTextSharp.text
+Imports iTextSharp.text.pdf
+Imports System.Windows.Forms.DataVisualization.Charting
+
+Public Class FrmSalesReport
     Private formLoaded As Boolean = False
 
     Private Sub FrmSalesReport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -74,16 +79,16 @@
     End Sub
 
     Private Sub docSalesReport_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles docSalesReport.PrintPage
-        Dim bmp As New Bitmap(chartSales.Width, chartSales.Height)
-        chartSales.DrawToBitmap(bmp, New Rectangle(0, 0, chartSales.Width, chartSales.Height))
-
-        e.Graphics.DrawImage(bmp, 50, 50)
+        Try
+            Using bmp As New Bitmap(chartSales.Width, chartSales.Height)
+                chartSales.DrawToBitmap(bmp, New System.Drawing.Rectangle(0, 0, chartSales.Width, chartSales.Height))
+                e.Graphics.DrawImage(bmp, 50, 50)
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Failed to print chart: " & ex.Message, "Print Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
-    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
-        Me.Close()
-
-    End Sub
 
     Private Sub FieldGuidelineToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FieldGuidelineToolStripMenuItem.Click
         MessageBox.Show(
@@ -92,5 +97,46 @@
         "2. User can print out the report if they want",
         "Sales Report Help",
         MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        Me.Close()
+    End Sub
+
+    Private Sub PrintAsPDFToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrintAsPDFToolStripMenuItem.Click
+        Dim sfd As New SaveFileDialog()
+        sfd.Filter = "PDF Files (*.pdf)|*.pdf"
+        sfd.FileName = $"SalesItemReport_{DateTime.Now:yyyyMMdd}.pdf"
+
+        If sfd.ShowDialog() = DialogResult.OK Then
+            Try
+                Using fs As New FileStream(sfd.FileName, FileMode.Create)
+                    Dim doc As New Document(PageSize.A4.Rotate())
+                    Dim writer = PdfWriter.GetInstance(doc, fs)
+                    doc.Open()
+
+                    Dim titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 16)
+                    Dim normalFont = FontFactory.GetFont(FontFactory.HELVETICA, 10)
+
+                    doc.Add(New Paragraph("Sales Report Chart", titleFont))
+                    doc.Add(New Paragraph("Generated on: " & DateTime.Now.ToString("yyyy-MM-dd HH:mm"), normalFont))
+                    doc.Add(New Paragraph(" "))
+
+                    Using chartImage As New MemoryStream()
+                        chartSales.SaveImage(chartImage, ChartImageFormat.Png)
+                        Dim chartImg As iTextSharp.text.Image = iTextSharp.text.Image.GetInstance(chartImage.ToArray())
+                        chartImg.ScaleToFit(750.0F, 500.0F)
+                        chartImg.Alignment = Element.ALIGN_CENTER
+                        doc.Add(chartImg)
+                    End Using
+
+                    doc.Close()
+                End Using
+
+                MessageBox.Show("Chart exported to PDF successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Catch ex As Exception
+                MessageBox.Show($"Failed to export chart: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
     End Sub
 End Class
