@@ -29,14 +29,16 @@ Public Class FrmPaymentReport
         dtpFromDate.Value = New DateTime(Now.Year, 1, 1)
         dtpToDate.Value = DateTime.Today
 
-
         ' Populate payment methods
+        cmbPaymentMethod.Items.Clear()
         cmbPaymentMethod.Items.AddRange({"All", "Cash", "QR"})
         cmbPaymentMethod.SelectedIndex = 0
+
+        cmbReportType.Items.Clear()
         cmbReportType.Items.AddRange({"By Payment Method", "By Table Number"})
         cmbReportType.SelectedIndex = 0
-
     End Sub
+
 
     Private Sub btnGenerate_Click(sender As Object, e As EventArgs) Handles btnGenerate.Click
 
