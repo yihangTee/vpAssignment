@@ -77,9 +77,11 @@ Public Class FrmLogin
                                 MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return False
             End If
+
         Else
             Return False
         End If
+
     End Function
 
     Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click

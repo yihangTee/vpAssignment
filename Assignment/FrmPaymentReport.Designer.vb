@@ -260,7 +260,7 @@ Partial Class FrmPaymentReport
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(7, 2, 0, 2)
-        Me.MenuStrip1.Size = New System.Drawing.Size(1045, 33)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1045, 36)
         Me.MenuStrip1.TabIndex = 27
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -268,7 +268,7 @@ Partial Class FrmPaymentReport
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FieldGuidelineToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 29)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 32)
         Me.HelpToolStripMenuItem.Text = "&Help"
         '
         'FieldGuidelineToolStripMenuItem
@@ -282,7 +282,7 @@ Partial Class FrmPaymentReport
         '
         Me.OptionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrintToolStripMenuItem, Me.SaveToolStripMenuItem})
         Me.OptionToolStripMenuItem.Name = "OptionToolStripMenuItem"
-        Me.OptionToolStripMenuItem.Size = New System.Drawing.Size(84, 29)
+        Me.OptionToolStripMenuItem.Size = New System.Drawing.Size(84, 32)
         Me.OptionToolStripMenuItem.Text = "&Option"
         '
         'PrintToolStripMenuItem
@@ -303,6 +303,7 @@ Partial Class FrmPaymentReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1045, 836)
         Me.Controls.Add(Me.Label3)
