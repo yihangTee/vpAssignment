@@ -22,6 +22,7 @@ Partial Class FrmSplitPayment
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSplitPayment))
         Me.dgvItemsToSplit = New System.Windows.Forms.DataGridView()
         Me.lblTotalPay = New System.Windows.Forms.Label()
         Me.lblTax = New System.Windows.Forms.Label()
@@ -37,38 +38,39 @@ Partial Class FrmSplitPayment
         'dgvItemsToSplit
         '
         Me.dgvItemsToSplit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvItemsToSplit.Location = New System.Drawing.Point(28, 33)
+        Me.dgvItemsToSplit.Location = New System.Drawing.Point(32, 41)
+        Me.dgvItemsToSplit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dgvItemsToSplit.Name = "dgvItemsToSplit"
         Me.dgvItemsToSplit.RowHeadersWidth = 51
         Me.dgvItemsToSplit.RowTemplate.Height = 24
-        Me.dgvItemsToSplit.Size = New System.Drawing.Size(746, 304)
+        Me.dgvItemsToSplit.Size = New System.Drawing.Size(839, 380)
         Me.dgvItemsToSplit.TabIndex = 0
         '
         'lblTotalPay
         '
         Me.lblTotalPay.Font = New System.Drawing.Font("Yu Gothic UI", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalPay.ForeColor = System.Drawing.Color.LightSkyBlue
-        Me.lblTotalPay.Location = New System.Drawing.Point(395, 446)
+        Me.lblTotalPay.Location = New System.Drawing.Point(444, 558)
         Me.lblTotalPay.Name = "lblTotalPay"
-        Me.lblTotalPay.Size = New System.Drawing.Size(368, 42)
+        Me.lblTotalPay.Size = New System.Drawing.Size(414, 52)
         Me.lblTotalPay.TabIndex = 13
         '
         'lblTax
         '
         Me.lblTax.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTax.ForeColor = System.Drawing.Color.LightSkyBlue
-        Me.lblTax.Location = New System.Drawing.Point(432, 381)
+        Me.lblTax.Location = New System.Drawing.Point(486, 476)
         Me.lblTax.Name = "lblTax"
-        Me.lblTax.Size = New System.Drawing.Size(342, 30)
+        Me.lblTax.Size = New System.Drawing.Size(385, 38)
         Me.lblTax.TabIndex = 16
         '
         'lbltotalPrice
         '
         Me.lbltotalPrice.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbltotalPrice.ForeColor = System.Drawing.Color.LightSkyBlue
-        Me.lbltotalPrice.Location = New System.Drawing.Point(444, 351)
+        Me.lbltotalPrice.Location = New System.Drawing.Point(500, 439)
         Me.lbltotalPrice.Name = "lbltotalPrice"
-        Me.lbltotalPrice.Size = New System.Drawing.Size(330, 30)
+        Me.lbltotalPrice.Size = New System.Drawing.Size(371, 38)
         Me.lbltotalPrice.TabIndex = 12
         '
         'Button1
@@ -76,20 +78,23 @@ Partial Class FrmSplitPayment
         Me.Button1.BackColor = System.Drawing.Color.LightSkyBlue
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.DarkSlateBlue
-        Me.Button1.Location = New System.Drawing.Point(134, 351)
+        Me.Button1.Location = New System.Drawing.Point(151, 439)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(111, 54)
+        Me.Button1.Size = New System.Drawing.Size(125, 68)
         Me.Button1.TabIndex = 17
         Me.Button1.Text = "Done"
         Me.Button1.UseVisualStyleBackColor = False
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.GripMargin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(800, 30)
+        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(7, 2, 0, 2)
+        Me.MenuStrip1.Size = New System.Drawing.Size(900, 33)
         Me.MenuStrip1.TabIndex = 18
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -97,29 +102,31 @@ Partial Class FrmSplitPayment
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GuidlinesToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(55, 26)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 29)
         Me.HelpToolStripMenuItem.Text = "&Help"
         '
         'GuidlinesToolStripMenuItem
         '
         Me.GuidlinesToolStripMenuItem.Name = "GuidlinesToolStripMenuItem"
         Me.GuidlinesToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
-        Me.GuidlinesToolStripMenuItem.Size = New System.Drawing.Size(205, 26)
+        Me.GuidlinesToolStripMenuItem.Size = New System.Drawing.Size(249, 34)
         Me.GuidlinesToolStripMenuItem.Text = "Guidlines"
         '
         'FrmSplitPayment
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(800, 498)
+        Me.ClientSize = New System.Drawing.Size(900, 622)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lblTotalPay)
         Me.Controls.Add(Me.lblTax)
         Me.Controls.Add(Me.lbltotalPrice)
         Me.Controls.Add(Me.dgvItemsToSplit)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FrmSplitPayment"
         Me.Text = "FrmSplitPayment"
         CType(Me.dgvItemsToSplit, System.ComponentModel.ISupportInitialize).EndInit()
