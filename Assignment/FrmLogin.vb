@@ -66,10 +66,17 @@ Public Class FrmLogin
         'Query the database using LINQ
         Dim user = (From u In db.Staffs
                     Where u.Username = strUsername AndAlso u.Password = strPassword
+                    Order By u.StaffID Descending
                     Select u).FirstOrDefault()
 
         If user IsNot Nothing Then
-            Return True
+            If user.Status = "Active" Then
+                Return True
+            Else
+                MessageBox.Show("You are not able to log in to this application because your employment has been terminated.", "Login Failure",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return False
+            End If
         Else
             Return False
         End If
