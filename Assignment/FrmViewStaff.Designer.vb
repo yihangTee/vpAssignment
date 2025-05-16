@@ -326,24 +326,20 @@ Partial Class FrmViewStaff
         'SearchToolStripMenuItem
         '
         Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-        Me.SearchToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
-            Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(275, 34)
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.SearchToolStripMenuItem.Text = "Search"
         '
         'ResetToolStripMenuItem
         '
         Me.ResetToolStripMenuItem.Name = "ResetToolStripMenuItem"
-        Me.ResetToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
-            Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
-        Me.ResetToolStripMenuItem.Size = New System.Drawing.Size(275, 34)
+        Me.ResetToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.ResetToolStripMenuItem.Text = "Reset"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         Me.ExitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(275, 34)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'HelpToolStripMenuItem
@@ -356,9 +352,7 @@ Partial Class FrmViewStaff
         'FieldGuidelineToolStripMenuItem
         '
         Me.FieldGuidelineToolStripMenuItem.Name = "FieldGuidelineToolStripMenuItem"
-        Me.FieldGuidelineToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
-            Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
-        Me.FieldGuidelineToolStripMenuItem.Size = New System.Drawing.Size(340, 34)
+        Me.FieldGuidelineToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.FieldGuidelineToolStripMenuItem.Text = "Field Guideline"
         '
         'Label1
@@ -430,6 +424,7 @@ Partial Class FrmViewStaff
         Me.AcceptButton = Me.btnSearch
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(140, Byte), Integer))
         Me.CancelButton = Me.btnReset
         Me.ClientSize = New System.Drawing.Size(1135, 1050)

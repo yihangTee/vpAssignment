@@ -244,16 +244,14 @@ Partial Class FrmGenerateStaffReport
         'GenerateReportToolStripMenuItem
         '
         Me.GenerateReportToolStripMenuItem.Name = "GenerateReportToolStripMenuItem"
-        Me.GenerateReportToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
-            Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
-        Me.GenerateReportToolStripMenuItem.Size = New System.Drawing.Size(353, 34)
+        Me.GenerateReportToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.GenerateReportToolStripMenuItem.Text = "Generate Report"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         Me.ExitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(353, 34)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'HelpToolStripMenuItem
@@ -266,9 +264,7 @@ Partial Class FrmGenerateStaffReport
         'FieldGuidelineToolStripMenuItem
         '
         Me.FieldGuidelineToolStripMenuItem.Name = "FieldGuidelineToolStripMenuItem"
-        Me.FieldGuidelineToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
-            Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
-        Me.FieldGuidelineToolStripMenuItem.Size = New System.Drawing.Size(340, 34)
+        Me.FieldGuidelineToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.FieldGuidelineToolStripMenuItem.Text = "Field Guideline"
         '
         'FrmGenerateStaffReport

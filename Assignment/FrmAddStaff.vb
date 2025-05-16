@@ -491,6 +491,7 @@ Public Class FrmAddStaff
 
         'Reset the list role
         cboRole.Items.Clear()
+        cboRole.Text = ""
 
         If cboDepartment.Items(intSelectedIndex).ToString = "Administrative staff" Then
             cboRole.Items.Add("Manager")

@@ -34,14 +34,9 @@ Partial Class FrmUserProfile
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StaffToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AddNewStaffToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ViewStaffToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GenerateStaffToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BillingPaymentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ItemStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewModifyStaffToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GenerateStaffReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FieldGuidelineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -135,7 +130,7 @@ Partial Class FrmUserProfile
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.Assignment.My.Resources.Resources.Logout
+        Me.PictureBox1.Image = Global.Assignment.My.Resources.Resources.Back
         Me.PictureBox1.Location = New System.Drawing.Point(726, 124)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.PictureBox1.Name = "PictureBox1"
@@ -181,71 +176,34 @@ Partial Class FrmUserProfile
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StaffToolStripMenuItem, Me.OrderToolStripMenuItem, Me.BillingPaymentToolStripMenuItem, Me.ItemStockToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToolStripMenuItem, Me.ViewModifyStaffToolStripMenuItem, Me.GenerateStaffReportToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(54, 29)
         Me.FileToolStripMenuItem.Text = "File"
         '
-        'StaffToolStripMenuItem
+        'AddToolStripMenuItem
         '
-        Me.StaffToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddNewStaffToolStripMenuItem, Me.ViewStaffToolStripMenuItem, Me.GenerateStaffToolStripMenuItem, Me.AboutToolStripMenuItem})
-        Me.StaffToolStripMenuItem.Name = "StaffToolStripMenuItem"
-        Me.StaffToolStripMenuItem.Size = New System.Drawing.Size(239, 34)
-        Me.StaffToolStripMenuItem.Text = "Staff"
+        Me.AddToolStripMenuItem.Name = "AddToolStripMenuItem"
+        Me.AddToolStripMenuItem.Size = New System.Drawing.Size(283, 34)
+        Me.AddToolStripMenuItem.Text = "Add New Staff"
         '
-        'AddNewStaffToolStripMenuItem
+        'ViewModifyStaffToolStripMenuItem
         '
-        Me.AddNewStaffToolStripMenuItem.Name = "AddNewStaffToolStripMenuItem"
-        Me.AddNewStaffToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
-            Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
-        Me.AddNewStaffToolStripMenuItem.Size = New System.Drawing.Size(409, 34)
-        Me.AddNewStaffToolStripMenuItem.Text = "Add New Staff"
+        Me.ViewModifyStaffToolStripMenuItem.Name = "ViewModifyStaffToolStripMenuItem"
+        Me.ViewModifyStaffToolStripMenuItem.Size = New System.Drawing.Size(283, 34)
+        Me.ViewModifyStaffToolStripMenuItem.Text = "View/Modify Staff"
         '
-        'ViewStaffToolStripMenuItem
+        'GenerateStaffReportToolStripMenuItem
         '
-        Me.ViewStaffToolStripMenuItem.Name = "ViewStaffToolStripMenuItem"
-        Me.ViewStaffToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
-            Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
-        Me.ViewStaffToolStripMenuItem.Size = New System.Drawing.Size(409, 34)
-        Me.ViewStaffToolStripMenuItem.Text = "View / Modication Staff"
-        '
-        'GenerateStaffToolStripMenuItem
-        '
-        Me.GenerateStaffToolStripMenuItem.Name = "GenerateStaffToolStripMenuItem"
-        Me.GenerateStaffToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
-            Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
-        Me.GenerateStaffToolStripMenuItem.Size = New System.Drawing.Size(409, 34)
-        Me.GenerateStaffToolStripMenuItem.Text = "Generate Staff"
-        '
-        'AboutToolStripMenuItem
-        '
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(409, 34)
-        Me.AboutToolStripMenuItem.Text = "About"
-        '
-        'OrderToolStripMenuItem
-        '
-        Me.OrderToolStripMenuItem.Name = "OrderToolStripMenuItem"
-        Me.OrderToolStripMenuItem.Size = New System.Drawing.Size(239, 34)
-        Me.OrderToolStripMenuItem.Text = "Order"
-        '
-        'BillingPaymentToolStripMenuItem
-        '
-        Me.BillingPaymentToolStripMenuItem.Name = "BillingPaymentToolStripMenuItem"
-        Me.BillingPaymentToolStripMenuItem.Size = New System.Drawing.Size(239, 34)
-        Me.BillingPaymentToolStripMenuItem.Text = "Billing & Payment"
-        '
-        'ItemStockToolStripMenuItem
-        '
-        Me.ItemStockToolStripMenuItem.Name = "ItemStockToolStripMenuItem"
-        Me.ItemStockToolStripMenuItem.Size = New System.Drawing.Size(239, 34)
-        Me.ItemStockToolStripMenuItem.Text = "Item Stock"
+        Me.GenerateStaffReportToolStripMenuItem.Name = "GenerateStaffReportToolStripMenuItem"
+        Me.GenerateStaffReportToolStripMenuItem.Size = New System.Drawing.Size(283, 34)
+        Me.GenerateStaffReportToolStripMenuItem.Text = "Generate Staff Report"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         Me.ExitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(239, 34)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(283, 34)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'HelpToolStripMenuItem
@@ -258,8 +216,7 @@ Partial Class FrmUserProfile
         'FieldGuidelineToolStripMenuItem
         '
         Me.FieldGuidelineToolStripMenuItem.Name = "FieldGuidelineToolStripMenuItem"
-        Me.FieldGuidelineToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
-        Me.FieldGuidelineToolStripMenuItem.Size = New System.Drawing.Size(292, 34)
+        Me.FieldGuidelineToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.FieldGuidelineToolStripMenuItem.Text = "Field Guideline"
         '
         'GroupBox2
@@ -297,7 +254,7 @@ Partial Class FrmUserProfile
         Me.btnViewStaff.BackColor = System.Drawing.Color.Navy
         Me.btnViewStaff.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnViewStaff.ForeColor = System.Drawing.Color.AliceBlue
-        Me.btnViewStaff.Location = New System.Drawing.Point(542, 612)
+        Me.btnViewStaff.Location = New System.Drawing.Point(315, 612)
         Me.btnViewStaff.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnViewStaff.Name = "btnViewStaff"
         Me.btnViewStaff.Size = New System.Drawing.Size(177, 75)
@@ -310,7 +267,7 @@ Partial Class FrmUserProfile
         Me.btnStaffReport.BackColor = System.Drawing.Color.Navy
         Me.btnStaffReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnStaffReport.ForeColor = System.Drawing.Color.AliceBlue
-        Me.btnStaffReport.Location = New System.Drawing.Point(302, 614)
+        Me.btnStaffReport.Location = New System.Drawing.Point(558, 614)
         Me.btnStaffReport.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnStaffReport.Name = "btnStaffReport"
         Me.btnStaffReport.Size = New System.Drawing.Size(183, 70)
@@ -334,7 +291,7 @@ Partial Class FrmUserProfile
         '
         Me.PictureBox4.BackColor = System.Drawing.Color.Lavender
         Me.PictureBox4.Image = Global.Assignment.My.Resources.Resources.SearchUser
-        Me.PictureBox4.Location = New System.Drawing.Point(542, 419)
+        Me.PictureBox4.Location = New System.Drawing.Point(315, 419)
         Me.PictureBox4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.Size = New System.Drawing.Size(177, 170)
@@ -346,7 +303,7 @@ Partial Class FrmUserProfile
         '
         Me.PictureBox5.BackColor = System.Drawing.Color.Lavender
         Me.PictureBox5.Image = Global.Assignment.My.Resources.Resources.Report
-        Me.PictureBox5.Location = New System.Drawing.Point(302, 419)
+        Me.PictureBox5.Location = New System.Drawing.Point(558, 419)
         Me.PictureBox5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(183, 170)
@@ -399,16 +356,8 @@ Partial Class FrmUserProfile
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents StaffToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AddNewStaffToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ViewStaffToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents GenerateStaffToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents OrderToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents BillingPaymentToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ItemStockToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FieldGuidelineToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents btnAddStaff As Button
     Friend WithEvents btnViewStaff As Button
@@ -416,4 +365,7 @@ Partial Class FrmUserProfile
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents AddToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewModifyStaffToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GenerateStaffReportToolStripMenuItem As ToolStripMenuItem
 End Class

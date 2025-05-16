@@ -5,12 +5,12 @@
         lblName.Text = App.CurrentUserName
     End Sub
 
-    Private Sub btnAddStaff_Click(sender As Object, e As EventArgs) Handles btnAddStaff.Click, AddNewStaffToolStripMenuItem.Click
+    Private Sub btnAddStaff_Click(sender As Object, e As EventArgs) Handles btnAddStaff.Click, AddToolStripMenuItem.Click
         Me.Hide()
         FrmAddStaff.Show()
     End Sub
 
-    Private Sub btnViewStaff_Click(sender As Object, e As EventArgs) Handles btnViewStaff.Click, ViewStaffToolStripMenuItem.Click
+    Private Sub btnViewStaff_Click(sender As Object, e As EventArgs) Handles btnViewStaff.Click, ViewModifyStaffToolStripMenuItem.Click
         Me.Hide()
         FrmViewStaff.Show()
     End Sub
@@ -20,7 +20,7 @@
         FrmMainPage.Show()
     End Sub
 
-    Private Sub btnStaffReport_Click(sender As Object, e As EventArgs) Handles btnStaffReport.Click, GenerateStaffToolStripMenuItem.Click
+    Private Sub btnStaffReport_Click(sender As Object, e As EventArgs) Handles btnStaffReport.Click, GenerateStaffReportToolStripMenuItem.Click
         Me.Hide()
         FrmGenerateStaffReport.Show()
     End Sub
@@ -37,11 +37,12 @@
         MessageBox.Show(guideText, "Module User Guide", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
-    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs)
         MessageBox.Show("Staff Management System" & vbCrLf &
                     "Version 1.0" & vbCrLf &
                     "Developed by: [Tan Kae Ong]" & vbCrLf &
                     "© 2025 All rights reserved.",
                     "About", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
+
 End Class

@@ -637,32 +637,26 @@ Partial Class FrmAddStaff
         'BrowseToolStripMenuItem
         '
         Me.BrowseToolStripMenuItem.Name = "BrowseToolStripMenuItem"
-        Me.BrowseToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
-            Or System.Windows.Forms.Keys.B), System.Windows.Forms.Keys)
-        Me.BrowseToolStripMenuItem.Size = New System.Drawing.Size(280, 34)
+        Me.BrowseToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.BrowseToolStripMenuItem.Text = "Browse"
         '
         'ResetToolStripMenuItem
         '
         Me.ResetToolStripMenuItem.Name = "ResetToolStripMenuItem"
-        Me.ResetToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
-            Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
-        Me.ResetToolStripMenuItem.Size = New System.Drawing.Size(280, 34)
+        Me.ResetToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.ResetToolStripMenuItem.Text = "Reset"
         '
         'SubmitToolStripMenuItem
         '
         Me.SubmitToolStripMenuItem.Name = "SubmitToolStripMenuItem"
-        Me.SubmitToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
-            Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.SubmitToolStripMenuItem.Size = New System.Drawing.Size(280, 34)
+        Me.SubmitToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.SubmitToolStripMenuItem.Text = "Submit"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         Me.ExitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(280, 34)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'HelpToolStripMenuItem
@@ -675,9 +669,7 @@ Partial Class FrmAddStaff
         'FieldGuidelineToolStripMenuItem
         '
         Me.FieldGuidelineToolStripMenuItem.Name = "FieldGuidelineToolStripMenuItem"
-        Me.FieldGuidelineToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
-            Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
-        Me.FieldGuidelineToolStripMenuItem.Size = New System.Drawing.Size(340, 34)
+        Me.FieldGuidelineToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.FieldGuidelineToolStripMenuItem.Text = "Field Guideline"
         '
         'GroupBox2

@@ -95,7 +95,7 @@ Partial Class FrmOrderDetails
         DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
         Me.dgvOrderedItems.RowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvOrderedItems.RowTemplate.Height = 28
-        Me.dgvOrderedItems.Size = New System.Drawing.Size(732, 389)
+        Me.dgvOrderedItems.Size = New System.Drawing.Size(773, 389)
         Me.dgvOrderedItems.TabIndex = 4
         '
         'Label3
@@ -113,7 +113,7 @@ Partial Class FrmOrderDetails
         Me.lblOrderDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblOrderDate.Location = New System.Drawing.Point(579, 52)
         Me.lblOrderDate.Name = "lblOrderDate"
-        Me.lblOrderDate.Size = New System.Drawing.Size(151, 42)
+        Me.lblOrderDate.Size = New System.Drawing.Size(217, 42)
         Me.lblOrderDate.TabIndex = 6
         '
         'GroupBox1
@@ -142,7 +142,7 @@ Partial Class FrmOrderDetails
         Me.btnReprintReceipt.ForeColor = System.Drawing.Color.DarkSlateBlue
         Me.btnReprintReceipt.Location = New System.Drawing.Point(621, 532)
         Me.btnReprintReceipt.Name = "btnReprintReceipt"
-        Me.btnReprintReceipt.Size = New System.Drawing.Size(134, 41)
+        Me.btnReprintReceipt.Size = New System.Drawing.Size(175, 41)
         Me.btnReprintReceipt.TabIndex = 12
         Me.btnReprintReceipt.Text = "Reprint"
         Me.btnReprintReceipt.UseVisualStyleBackColor = False
